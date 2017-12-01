@@ -1,0 +1,244 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~~32G~~~~~~~~~~~~~~~~~~~
+# Prerequisites:
+#   - Rofi
+#   - i3blocks
+#   - alsa-utils
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Default values 
+#
+# Remark: $mod = alt key
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+set $mod                        Mod1
+set $win                        Mod4
+
+font pango:                     xos4 Terminus 8
+
+floating_modifier               $mod
+bindsym $mod+Return             exec termite
+bindsym $mod+d                  kill
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~
+# Color Scheme 
+
+#to change border color edit $border-color
+#to change topbar color edit $main-color
+#to change active workspace color edit $accent-color
+# ~~~~~~~~~~~~~~~~~~~~~~~~
+set $main-color                  #170F0D
+set $accent-color                #D7CB9F
+set $border-color                #C2BFA5
+set $secondary-color             #141210
+set $text-color                  #acafa9
+set $faded-text-color            #DDDDDD
+
+# ~~~~
+# Rofi
+# ~~~~
+bindsym $mod+a exec rofi -show drun
+
+
+
+# ~~~~~~~~~~~~~~~
+# Window Movement
+# ~~~~~~~~~~~~~~~
+    bindsym $mod+Left           focus left
+    bindsym $mod+Down           focus down
+    bindsym $mod+Up             focus up
+    bindsym $mod+Right          focus right
+    bindsym $mod+Control+Left   move left
+    bindsym $mod+Control+Down   move down
+    bindsym $mod+Control+Up     move up
+    bindsym $mod+Control+Right  move right
+
+
+    bindsym $mod+h            split h
+    bindsym $mod+v            split v
+    bindsym $mod+f            fullscreen toggle
+
+#    bindsym $mod+s            layout stacking
+#    bindsym $mod+w            layout tabbed
+    bindsym $mod+t            layout toggle split
+
+    bindsym $mod+Shift+space  floating toggle
+    bindsym $mod+space        focus mode_toggle
+
+#    bindsym $mod+a            focus parent
+
+    # bindsym $mod+d focus child
+    # bindsym $mod+Shift+minus move scratchpad
+    # bindsym $mod+minus scratchpad show
+
+# ~~~~~~~~~
+# Workspace
+# ~~~~~~~~~
+    set $ws1 " 1:web "
+    set $ws2 " 2:misc "
+    set $ws3 " 3:cli "
+    set $ws4 " 4:study "
+    set $ws5 " 5:>_ "
+    set $ws6 " 6:stash "
+    bindsym $mod+1 workspace $ws1
+    bindsym $mod+2 workspace $ws2
+    bindsym $mod+3 workspace $ws3
+    bindsym $mod+4 workspace $ws4
+    bindsym $mod+5 workspace $ws5
+    bindsym $mod+6 workspace $ws6
+    bindsym $mod+Shift+1 move container to workspace $ws1
+    bindsym $mod+Shift+2 move container to workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace $ws6
+
+# ~~~~~~~~~~~~~~~~
+# i3 Configuration
+# ~~~~~~~~~~~~~~~~
+    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r restart
+    bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# ~~~~~~~~~~~~~
+# Resize Window
+# ~~~~~~~~~~~~~
+    bindsym $win+r mode "resize"
+    mode "resize" {
+#       # These bindings trigger as soon as you enter the resize mode
+#        bindsym $left       resize shrink width 10 px or 10 ppt
+#        bindsym $down       resize grow height 10 px or 10 ppt
+#        bindsym $up         resize shrink height 10 px or 10 ppt
+#        bindsym $right      resize grow width 10 px or 10 ppt
+#
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+
+# ~~~~~~~~~~~~~~~
+# Applying Colors
+# ~~~~~~~~~~~~~~~
+
+# Classname                     Border                Background            Text                    Indicator
+client.focused                  $main-color           $border-color         $main-color             $border-color
+client.unfocused                $main-color           $main-color           $text-color             $main-color
+client.focused_inactive         $main-color           $main-color           $text-color             $main-color
+client.urgent                   $main-color           $border-color         $secondary-color        $accent-color
+bar {
+    status_command i3blocks -c ~/.i3blocks.conf
+    position top
+    font pango:xos4 Terminus 8
+     # tray_output none #removes tray icons other options are: primary/none
+     colors {
+        background $main-color
+
+        # Property              Border                Background            Text
+        focused_workspace       $main-color           $accent-color         $main-color
+        inactive_workspace      $main-color           $main-color           $text-color
+        urgent_workspace        $main-color           $accent-color         $secondary-color
+    }
+}
+
+
+# ~~~~~~~~~~~~~~~~~~~~
+# custom keybinds and modes
+# ~~~~~~~~~~~~~~~~~~~~
+
+bindsym $mod+Shift+Right workspace next
+bindsym $mod+ShiftLeft workspace prev
+
+
+bindsym $mod+e exec pcmanfm # filemanager
+bindsym $mod+r exec termite -e ranger # cli filemanager
+
+set $screenshot Launch: [s]crot # Take screenshots: [s]elect area, [w]indow
+bindsym $win+s mode "$screenshot"
+
+mode "$screenshot" {
+    # bindsym $win+s --release exec "scrot -s ~/media/screenshots/shot-$(date +%F_%T).png -q 100 -e 'xclip -selection c -t image/png < $f'"
+    bindsym --release s exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+    
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+  }
+
+
+
+
+set $mode_redshift Launch: [r]edshift     # Good Night: [r]edshift, [q]uit redshift, [U]p screen brightness, [D]own screen brightness
+bindsym $win+n mode "$mode_redshift"
+
+mode "$mode_redshift" {
+  bindsym r exec redshift || redshift -l 47.22:8.33
+  bindsym q exec killall redshift
+  bindsym Up exec xbacklight -inc 10%
+  bindsym Down exec xbacklight -dec 10%
+ 
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+  }
+
+
+
+
+# ALSA controls
+bindsym $win+m exec "amixer -D pulse set Master Playback Switch toggle" 
+bindsym $win+Up exec "amixer set Master 5%+" 
+bindsym $win+Down exec "amixer set Master 5%-" 
+
+
+
+
+# Media Player Controls
+bindsym $win+p exec playerctl play-pause
+bindsym $win+Right exec playerctl next
+bindsym $win+Left exec playerctl previous
+#bindsym $mod+m exec mpd
+
+
+
+# Autostart
+exec ~/.config/i3/dbus.sh     # i3 widgets (such as battery status) 
+exec_always xrdb ~/.Xresources # needed for rofi launcher
+exec_always parcellite -d     # clipboard manager (as deamon) 
+exec xset -b #disable bell sound
+exec_always xset -dpms
+exec_always xset off
+
+
+
+# Commands for specific windows
+# Use `xprop` to search for the window's class value
+for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] focus
+#for_window [class=".*"] title_format "<span font='tewi 8'> </span>"
+for_window [class="Spotify"] move to workspace $ws6
+# for_window [class="Termite"] floating enable
+
+
+
+
+assign [class="Firefox"] $ws1
+assign [class="Thunderbird"] $ws2
+assign [class="TelegramDesktop"] $ws3
+assign [class="Zathura"] $ws4
+assign [class="Sxiv"] $ws2
+assign [class="mpv"] $ws2
+assign [class="libreoffice-startcenter"] $ws6
+assign [class="Pcmanfm"] $ws3
+assign [class="Ffmulticonverter"] $ws3
+assign [class="Gnome-twitch"] $ws2
+assign [class="Anki"] $ws4
+
+
+
+# i3-gaps
+gaps inner 10
+gaps outer 10
+
+
+hide_edge_borders both
