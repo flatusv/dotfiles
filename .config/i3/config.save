@@ -1,0 +1,268 @@
+ddd 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Prerequisites:
+#   - Rofi
+#   - i3blocks
+#   - alsa-utils
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Default values 
+#
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+set $alt                        Mod1
+set $mod                        Mod4
+
+font pango:                     xos4 Terminus 8
+
+floating_modifier               $alt
+bindsym $alt+Return             exec termite
+bindsym $alt+d                  kill
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~
+# Color Scheme 
+
+#to change border color edit $border-color
+#to change topbar color edit $main-color
+#to change active workspace color edit $accent-color
+# ~~~~~~~~~~~~~~~~~~~~~~~~
+set $main-color                  #170F0D
+#set $accent-color                #673AB7 (old entry)
+set $accent-color                #00ffcc
+set $border-color                #660033
+set $secondary-color             #141210
+set $text-color                  #acafa9
+set $faded-text-color            #DDDDDD
+
+# ~~~~
+# Rofi
+# ~~~~
+bindsym $alt+a exec rofi -show drun
+#exec rofi -show run -terminal urxvtc -lines 7 -eh 3 -width 100 -padding 200 -opacity 80 -bw 0 -bc "#555555" -bg "#222222" -hlbg "#222222" -hlfg "#c79595" -fg "#ffffff" -font "xos4 Terminus 15"
+# bindsym $alt+d exec --no-startup-id i3-dmenu-desktop
+
+# ~~~~~~~~~~~~~~~
+# Window Movement
+# ~~~~~~~~~~~~~~~
+    bindsym $alt+h        focus left
+    bindsym $alt+j        focus down
+    bindsym $alt+k           focus up
+    bindsym $alt+l       focus right
+    bindsym $alt+Shift+Left   move left
+    bindsym $alt+Shift+Down   move down
+    bindsym $alt+Shift+Up     move up
+    bindsym $alt+Shift+Right  move right
+
+    bindsym $alt+h            split h
+    bindsym $alt+v            split v
+    bindsym $alt+f            fullscreen toggle
+
+#    bindsym $alt+s            layout stacking
+#    bindsym $alt+w            layout tabbed
+    bindsym $alt+t            layout toggle split
+
+    bindsym $alt+Shift+space  floating toggle
+    bindsym $alt+space        focus mode_toggle
+
+#    bindsym $alt+a            focus parent
+
+    # bindsym $alt+d focus child
+    # bindsym $alt+Shift+minus move scratchpad
+    # bindsym $alt+minus scratchpad show
+
+# ~~~~~~~~~
+# Workspace
+# ~~~~~~~~~
+    set $ws1 " 1:web "
+    set $ws2 " 2:misc "
+    set $ws3 " 3:cli "
+    set $ws4 " 4:>_ "
+    set $ws5 " 5:stash "
+    bindsym $alt+1 workspace $ws1
+    bindsym $alt+2 workspace $ws2
+    bindsym $alt+3 workspace $ws3
+    bindsym $alt+4 workspace $ws4
+    bindsym $alt+5 workspace $ws5
+    bindsym $alt+Shift+1 move container to workspace $ws1
+    bindsym $alt+Shift+2 move container to workspace $ws2
+    bindsym $alt+Shift+3 move container to workspace $ws3
+    bindsym $alt+Shift+4 move container to workspace $ws4
+    bindsym $alt+Shift+5 move container to workspace $ws5
+
+# ~~~~~~~~~~~~~~~~
+# i3 Configuration
+# ~~~~~~~~~~~~~~~~
+    bindsym $alt+Shift+c reload
+    bindsym $alt+Shift+r restart
+    bindsym $alt+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# ~~~~~~~~~~~~~
+# Resize Window
+# ~~~~~~~~~~~~~
+    bindsym $alt+r mode "resize"
+    mode "resize" {
+#       # These bindings trigger as soon as you enter the resize mode
+#        bindsym $left       resize shrink width 10 px or 10 ppt
+#        bindsym $down       resize grow height 10 px or 10 ppt
+#        bindsym $up         resize shrink height 10 px or 10 ppt
+#        bindsym $right      resize grow width 10 px or 10 ppt
+#
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+#
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+
+# ~~~~~~~~~~~~~~~
+# Applying Colors
+# ~~~~~~~~~~~~~~~
+
+# Classname                     Border                Background            Text                    Indicator
+client.focused                  $main-color           $border-color         $main-color             $border-color
+client.unfocused                $main-color           $main-color           $text-color             $main-color
+client.focused_inactive         $main-color           $main-color           $text-color             $main-color
+client.urgent                   $main-color           $border-color         $secondary-color        $accent-color
+bar {
+    status_command i3blocks -c ~/.i3blocks.conf
+    position top
+    font pango:xos4 Terminus 8
+    tray_output none #removes tray icons other options are: primary/none
+     colors {
+        background $main-color
+
+        # Property              Border                Background            Text
+        focused_workspace       $main-color           $accent-color         $main-color
+        inactive_workspace      $main-color           $main-color           $text-color
+        urgent_workspace        $main-color           $accent-color         $secondary-color
+    }
+}
+
+
+# ~~~~~~~~~~~~~~~~~~~~
+# custom keybinds and modes
+# ~~~~~~~~~~~~~~~~~~~~
+
+bindsym $alt+Right workspace next
+bindsym $alt+Left workspace prev
+
+
+bindsym $alt+e exec pcmanfm # filemanager
+bindsym $alt+Shift+Delete exec i3lock-fancy  
+bindsym $alt+$alt+m exec notify-send -t 10000 "Modes: Press $alt and the following" "\nn: redshift and screen brightness\nc: compton \n\nPrint: screenshot"
+
+
+
+
+
+
+
+set $alte_redshift Launch: [r]edshift     # Good Night: [r]edshift, [q]uit redshift, [U]p screen brightness, [D]own screen brightness
+bindsym $alt+n mode "$alte_redshift"
+
+mode "$alte_redshift" {
+  bindsym r exec redshift || redshift -l 47.22:8.33
+  bindsym q exec killall redshift
+  bindsym Up exec xbacklight -inc 10%
+  bindsym Down exec xbacklight -dec 10%
+
+
+
+#  bindsym h exec notify-send --icon=gtk-info redshift-mode-options "c:         launch redshift \nq:         kill redshift\nESC:     back to default mode\nReturn: back to default mode"
+  
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+  }
+
+
+
+set $alte_compton Launch: [c]ompton   # [c]ompton, [q]uit compton
+bindsym $alt+c mode "$alte_compton"
+
+mode "$alte_compton" {
+  bindsym c exec --no-startup-id compton -b -c -f
+  bindsym q exec killall compton
+#  bindsym h exec notify-send --icon=gtk-info compton-mode-options "c:         launch compton \nq:         kill compton\nESC:     back to default mode\nReturn: back to default mode"
+  
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+ }
+
+
+set $alte_screenshot Launch: [s]creenshot  # [c]lipboard, [s]pectacle (imgur or disk), [q]uit escrotum
+bindsym Print mode "$alte_screenshot"
+
+mode "$alte_screenshot" {
+  bindsym c exec escrotum -s -C -e "mv $f ~/media/screenshots/"     
+  bindsym q exec killall escrotum
+  bindsym s exec  spectacle -r
+ 
+  
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+ }
+
+
+
+
+
+# ALSA controls
+bindsym $alt+m exec "amixer -D pulse set Master Playback Switch toggle" 
+bindsym $alt+Up exec "amixer set Master 5%+" 
+bindsym $alt+Down exec "amixer set Master 5%-" 
+
+
+
+
+# Media Player Controls
+#bindsym XF86AudioPlay exec playerctl play
+#bindsym XF86AudioPause exec playerctl pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
+#bindsym $alt+m exec mpd
+#bindsym $alt+shift+m exec mpd --kill
+
+
+
+#exec xbindkeys ''' aboslute
+exec ~/.config/i3/dbus.sh     # i3 widgets (such as battery status) 
+exec_always xrdb ~/.Xresources # needed for rofi launcher
+exec_always parcellite -d     # clipboard manager (as deamon) 
+
+
+# Commands for specific windows
+# Use `xprop` to search for the window's class value
+for_window [class="^.*"] border pixel 6
+for_window [class="^.*"] focus
+#for_window [class="Spotify"] move to workspace $ws5
+
+
+#for_window [class="Spotify"] focus
+
+
+assign [class="Firefox"] $ws1
+assign [class="TelegramDesktop"] $ws3
+assign [class="Zathura"] $ws4
+assign [class="Sxiv"] $ws2
+assign [class="mpv"] $ws2
+assign [class="libreoffice-startcenter"] $ws5
+assign [class="Gimp"] $ws5
+assign [class="Pcmanfm"] $ws3
+assign [class="Ffmulticonverter"] $ws3
+assign [class="Steam"] $ws5
+assign [class="jetbrains-idea-ce"] $ws4
+assign [class="Gnome-twitch"] $ws2
+assign [class="dota2"] $ws2
+#assign [class="Spotify"] $ws5  '''not working since Spotify 0.9
+
+
+
+# i3-gaps
+gaps inner 10
+gaps outer 20
+
+
+hide_edge_borders both

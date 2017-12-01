@@ -1,0 +1,50 @@
+[options]
+
+cursor_shape = underline
+cursor_blink = off
+font = xos4 Terminus 10
+#use_xft = true
+
+
+
+
+[colors]
+
+# special
+foreground      = #6e6e6e
+foreground_bold = #6e6e6e
+cursor          = #cd2828
+background      = #170F0D
+
+# black
+color0  = #333333
+color8  = #3d3d3d
+
+# red
+color1  = #da1657
+color9  = #da4375
+
+# green
+color2  = #287373
+color10 = #53a6a6
+
+# yellow
+color3  = #7c7c99
+color11 = #9e9ecb
+
+# blue
+color4  = #395573
+color12 = #9999ff
+
+# magenta
+color5  = #5e468c
+color13 = #7e62b3
+
+# cyan
+color6  = #31658c
+color14 = #6096bf
+
+# white
+color7  = #899ca1
+color15 = #c0c0c0
+
