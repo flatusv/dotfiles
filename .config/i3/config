@@ -28,7 +28,7 @@ bindsym $mod+d                  kill
 #to change active workspace color edit $accent-color
 # ~~~~~~~~~~~~~~~~~~~~~~~~
 set $main-color                  #170F0D
-set $accent-color                #D7CB9F
+set $accent-color                #C2BFA5
 set $border-color                #C2BFA5
 set $secondary-color             #141210
 set $text-color                  #acafa9
@@ -100,24 +100,6 @@ bindsym $mod+a exec rofi -show drun
     bindsym $mod+Shift+r restart
     bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# ~~~~~~~~~~~~~
-# Resize Window
-# ~~~~~~~~~~~~~
-    bindsym $win+r mode "resize"
-    mode "resize" {
-#       # These bindings trigger as soon as you enter the resize mode
-#        bindsym $left       resize shrink width 10 px or 10 ppt
-#        bindsym $down       resize grow height 10 px or 10 ppt
-#        bindsym $up         resize shrink height 10 px or 10 ppt
-#        bindsym $right      resize grow width 10 px or 10 ppt
-#
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-    }
 
 # ~~~~~~~~~~~~~~~
 # Applying Colors
@@ -132,7 +114,7 @@ bar {
     status_command i3blocks -c ~/.i3blocks.conf
     position top
     font pango:xos4 Terminus 8
-     # tray_output none #removes tray icons other options are: primary/none
+     tray_output none #removes tray icons other options are: primary/none
      colors {
         background $main-color
 
@@ -155,20 +137,36 @@ bindsym $mod+ShiftLeft workspace prev
 bindsym $mod+e exec pcmanfm # filemanager
 bindsym $mod+r exec termite -e ranger # cli filemanager
 
-set $screenshot Launch: [s]crot # Take screenshots: [s]elect area, [w]indow
+
+
+# Record the screen
+bindsym $win+r exec ~/.config/i3/record.sh
+bindsym $win+Shift+r exec killall ffmpeg # always run this after issuing the keybind above!!!
+                                         # else you'll record forever, temporary solution   
+
+# screenshot mode
+set $screenshot Launch: [s]crot # Take screenshots: [s]ave locally, [c]opy to clipboard only
 bindsym $win+s mode "$screenshot"
 
 mode "$screenshot" {
-    # bindsym $win+s --release exec "scrot -s ~/media/screenshots/shot-$(date +%F_%T).png -q 100 -e 'xclip -selection c -t image/png < $f'"
-    bindsym --release s exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+    bindsym --release s exec "scrot -s ~/media/screenshots/shot-$(date +%F_%R).png -q 100 -e 'xclip -selection c -t image/png < $f'"
+    bindsym --release c exec "scrot -s /tmp/screenshot-$(date +%F_%R).png -e 'xclip -selection c -t image/png < $f'"
     
     bindsym Escape mode "default"
     bindsym Return mode "default"
   }
 
 
+# Dota2 mode 
+mode  "Dota2" {
+        bindsym $mod+Shift+g mode "default"
+}
+bindsym $mod+Shift+g mode "Dota2"
 
 
+
+
+# easy on the eyes
 set $mode_redshift Launch: [r]edshift     # Good Night: [r]edshift, [q]uit redshift, [U]p screen brightness, [D]own screen brightness
 bindsym $win+n mode "$mode_redshift"
 
@@ -217,7 +215,9 @@ for_window [class="^.*"] border pixel 5
 for_window [class="^.*"] focus
 #for_window [class=".*"] title_format "<span font='tewi 8'> </span>"
 for_window [class="Spotify"] move to workspace $ws6
-# for_window [class="Termite"] floating enable
+for_window [class="Steam"] move to workspace $ws6
+for_window [class="Steam"] no_focus
+for_window [class="dota2"] fullscreen enable
 
 
 
@@ -229,6 +229,7 @@ assign [class="Zathura"] $ws4
 assign [class="Sxiv"] $ws2
 assign [class="mpv"] $ws2
 assign [class="libreoffice-startcenter"] $ws6
+assign [class="dota2"] $ws6
 assign [class="Pcmanfm"] $ws3
 assign [class="Ffmulticonverter"] $ws3
 assign [class="Gnome-twitch"] $ws2
