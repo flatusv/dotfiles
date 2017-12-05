@@ -72,6 +72,8 @@ set autochdir               " switch to the directory when editing files
 
 set path+=**                " provides tab completion for all file related tasks
 
+:se mouse+=a                " don't select line numbers with the mouse
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 "
@@ -554,14 +556,13 @@ call CreateShortcut("C-k", "d", "v")
 
 
  " vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
- "
-ino " ""<left>
-ino ' ''<left>
-ino ( ()<left>
-ino [ []<left>
-ino { {}<left>
-ino {<CR> {<CR>}<ESC>O
-ino {;<CR> {<CR>};<ESC>O
+autocmd BufRead,BufNewFile   *.py ino " ""<left>
+autocmd BufRead,BufNewFile   *.py ino ' ''<left>
+autocmd BufRead,BufNewFile   *.py ino ( ()<left>
+autocmd BufRead,BufNewFile   *.py ino [ []<left>
+autocmd BufRead,BufNewFile   *.py ino { {}<left>
+autocmd BufRead,BufNewFile   *.py ino {<CR> {<CR>}<ESC>O
+autocmd BufRead,BufNewFile   *.py ino {;<CR> {<CR>};<ESC>O
 
 
 
