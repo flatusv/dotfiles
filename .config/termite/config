@@ -7,43 +7,46 @@ font = xos4 Terminus 10
 
 
 
+
+
+
+
 [colors]
 
 # special
-foreground      = #746c48
-foreground_bold = #746c48
-cursor          = #FF2424
+foreground      = #f2f1b9
+foreground_bold = #e8dfd6
+cursor          = #ef5847
 background      = #170f0d
 
 # black
-color0  = #392925
-color8  = #544b2e
+color0  = #021b21
+color8  = #032c36
 
 # red
-color1  = #98724c
-color9  = #af652f
+color1  = #c2454e
+color9  = #ef5847
 
 # green
-color2  = #908f32
-color10 = #c3c13d
+color2  = #7cbf9e
+color10 = #a2d9b1
 
 # yellow
-color3  = #aa964c
-color11 = #c8b55b
+color3  = #8a7a63
+color11 = #beb090
 
 # blue
-color4  = #7b854e
-color12 = #70a16c
+color4  = #2e3340
+color12 = #44b5b1
 
 # magenta
-color5  = #6b5644
-color13 = #98724c
+color5  = #ff5879
+color13 = #ff99a1
 
 # cyan
-color6  = #5c5142
-color14 = #778725
+color6  = #44b5b1
+color14 = #9ed9d8
 
 # white
-color7  = #c8b55b
-color15 = #e4dc8c
-
+color7  = #f2f1b9
+color15 = #f6f6c9
