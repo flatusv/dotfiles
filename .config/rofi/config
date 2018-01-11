@@ -19,7 +19,7 @@ rofi.lines:                         5
 rofi.hide-scrollbar:                true
 !rofi.width:                         100
 
-! uncomment line below on laptop
-rofi.padding:                       450
+! comment line below on laptop
+!rofi.padding:                       450
 rofi.font:              xos4 Terminus 12
 rofi.modi: run,drun
