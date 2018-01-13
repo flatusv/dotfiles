@@ -217,7 +217,7 @@ exec_always xsnow -snowflakes 600 -notrees -nosanta -nowind -norudolf -nokeepsno
 for_window [class="^.*"] border pixel 5
 for_window [class="^.*"] focus
 #for_window [class=".*"] title_format "<span font='tewi 8'> </span>"
-for_window [class="Spotify"] move to workspace $ws2
+for_window [class="Spotify"] move to workspace $ws5
 for_window [class="Steam"] move to workspace $ws6
 for_window [class="Steam"] no_focus
 for_window [class="dota2"] fullscreen enable
