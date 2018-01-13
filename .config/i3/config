@@ -75,11 +75,11 @@ bindsym $mod+a exec rofi -show drun
 # Workspace
 # ~~~~~~~~~
     set $ws1 " 1:web "
-    set $ws2 " 2:misc "
-    set $ws3 " 3:cli "
+    set $ws2 " 2:>_ "
+    set $ws3 " 3:pcmanfm "
     set $ws4 " 4:study "
-    set $ws5 " 5:>_ "
-    set $ws6 " 6:stash "
+    set $ws5 " 5:misc "
+    set $ws6 " 6:dota2 "
     bindsym $mod+1 workspace $ws1
     bindsym $mod+2 workspace $ws2
     bindsym $mod+3 workspace $ws3
@@ -227,11 +227,6 @@ for_window [class="dota2"] fullscreen enable
 
 assign [class="Firefox"] $ws1
 
-assign [class="Thunderbird"] $ws2
-assign [class="Gnome-twitch"] $ws2
-assign [class="TeamSpeak 3"] $ws2
-assign [class="mpv"] $ws2
-
 assign [class="Pcmanfm"] $ws3
 assign [class="Ffmulticonverter"] $ws3
 assign [class="TelegramDesktop"] $ws3
@@ -239,7 +234,13 @@ assign [class="TelegramDesktop"] $ws3
 assign [class="Zathura"] $ws4
 assign [class="Sxiv"] $ws4
 
-assign [class="libreoffice-startcenter"] $ws6
+
+assign [class="Thunderbird"] $ws5
+assign [class="Gnome-twitch"] $ws5
+assign [class="TeamSpeak 3"] $ws5
+assign [class="mpv"] $ws5
+assign [class="libreoffice-startcenter"] $ws5
+
 assign [class="dota2"] $ws6
 
 
