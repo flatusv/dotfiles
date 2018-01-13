@@ -1,4 +1,4 @@
-# ~~~~~~~~~~~~~~~~~~~~~~~~~32G~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Prerequisites:
 #   - Rofi
 #   - i3blocks
@@ -136,6 +136,8 @@ bindsym $mod+ShiftLeft workspace prev
 
 bindsym $mod+e exec pcmanfm # filemanager
 bindsym $mod+r exec termite -e ranger # cli filemanager
+
+bindsym Control+1 .config/i3/mpvTube.sh
 
 
 
