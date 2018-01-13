@@ -3,11 +3,15 @@ export SAVEHIST=10000
 export HISTFILE=~/.zsh_history
 export VISUAL="vim" 
 export SAL_USE_VCLPLUGIN=gen
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_OPS='--extended'
 setopt extended_glob
 
 # load zprezto
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="white"; fi
 
