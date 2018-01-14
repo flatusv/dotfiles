@@ -208,7 +208,6 @@ exec_always parcellite -d     # clipboard manager (as deamon)
 exec xset -b #disable bell sound
 exec_always xset -dpms
 exec_always xset off
-exec_always xsnow -snowflakes 600 -notrees -nosanta -nowind -norudolf -nokeepsnowonwindows -whirl 2 
 
 
 
