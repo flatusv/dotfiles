@@ -111,7 +111,7 @@ client.unfocused                $main-color           $main-color           $tex
 client.focused_inactive         $main-color           $main-color           $text-color             $main-color
 client.urgent                   $main-color           $border-color         $secondary-color        $accent-color
 bar {
-    status_command i3blocks -c ~/.i3blocks.conf
+    status_command i3blocks -c ~/.i3blocks.conf 
     position top
     font pango:xos4 Terminus 8
      tray_output none #removes tray icons other options are: primary/none
@@ -203,6 +203,7 @@ bindsym $win+Left exec playerctl previous
 
 # Autostart
 exec ~/.config/i3/dbus.sh     # i3 widgets (such as battery status) 
+exec mpd
 exec_always xrdb ~/.Xresources # needed for rofi launcher
 exec_always parcellite -d     # clipboard manager (as deamon) 
 exec xset -b #disable bell sound
