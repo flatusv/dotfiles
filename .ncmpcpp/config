@@ -276,7 +276,7 @@ song_columns_list_format = "(10)[black]{l} (30)[blue]{a} (30)[green]{b} (30)[mag
 ## Attention: It doesn't support song format anymore.
 ## Use `ncmpcpp --now-playing SONG_FORMAT` instead.
 ##
-#execute_on_song_change = "mpc current > ~/.ncmpcpp/np.status"
+execute_on_song_change = "notify-send "Now playing:" "$(mpc current)""
 #
 #playlist_show_remaining_time = "no"
 #
