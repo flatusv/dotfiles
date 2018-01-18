@@ -114,7 +114,7 @@ bar {
     status_command i3blocks -c ~/.i3blocks.conf 
     position top
     font pango:xos4 Terminus 8
-     tray_output none #removes tray icons other options are: primary/none
+     # tray_output none # uncomment to disable tray icons. Other arguments are: primary/none
      colors {
         background $main-color
 
