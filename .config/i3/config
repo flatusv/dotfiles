@@ -218,7 +218,6 @@ bindsym $win+Left exec playerctl previous
 exec ~/.config/i3/dbus.sh     # i3 widgets (such as battery status) 
 exec mpd
 exec_always xrdb ~/.Xresources # needed for rofi launcher
-exec_always parcellite -d     # clipboard manager (as deamon) 
 exec xset -b #disable bell sound
 exec_always xset -dpms
 exec_always xset off
