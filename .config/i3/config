@@ -98,7 +98,20 @@ bindsym $mod+a exec rofi -show drun
 # ~~~~~~~~~~~~~~~~
     bindsym $mod+Shift+c reload
     bindsym $mod+Shift+r restart
-    bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# Power menu
+set $sysmenu " [l]ogout - [s]uspend - [r]eboot - po[w]eroff  "
+bindsym $mod+Shift+e      mode $sysmenu
+
+mode $sysmenu {
+    bindsym l         exit
+    bindsym w         exec "systemctl poweroff"
+    bindsym r         exec "systemctl reboot"
+    bindsym s         exec "systemctl suspend"
+    bindsym Return    mode "default"
+    bindsym Escape    mode "default"
+}
+
 
 
 # ~~~~~~~~~~~~~~~
