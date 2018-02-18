@@ -226,6 +226,12 @@ tab {
 	fill: rgb(0, 0, 0) !important;
 }
 
+
+
+/* change the url dropdown color
+ * currently firefox's using adwaita-slim as gtk-theme
+ */
+
 .autocomplete-richlistbox {
         background: #212121 !important;
         color: #FFFFFF !important;
