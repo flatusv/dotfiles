@@ -3,7 +3,7 @@ color: #000000 !important;
 }
 
 .toolbarbutton-animatable-box[brighttext], toolbar[brighttext] .toolbarbutton-animatable-box, toolbar[brighttext] .toolbarbutton-1 {
-	fill:  #0A353C !important;
+	fill:  #C2BFA5 !important;
 }
 
 #urlbar[pageproxystate="valid"] > #identity-box.verifiedDomain > #connection-icon, #urlbar[pageproxystate="valid"] > #identity-box.verifiedIdentity > #connection-icon, #urlbar[pageproxystate="valid"] > #identity-box.mixedActiveBlocked > #connection-icon {
@@ -33,7 +33,7 @@ font-family: xos4 Terminus !important; font-size: 12pt }
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 #main-window {
---UI-colour: #0A353C;
+--UI-colour: #C2BFA5;
 --chrome-background-color: #212121 !important;
 --chrome-selection-background-color: grey !important;
 --urlbar-separator-color: transparent !important;
@@ -79,7 +79,7 @@ margin-top: -1px !important;
 }
 
 #nav-bar, .tab-background[selected="true"] {
-background: #0A353C!important;
+background: #C2BFA5!important;
 border: 1px solid #ffffff40 !important;
 }
 
@@ -225,3 +225,9 @@ tab {
 .toolbarbutton-animatable-box[brighttext], toolbar[brighttext] .toolbarbutton-animatable-box, toolbar[brighttext] .toolbarbutton-1 {
 	fill: rgb(0, 0, 0) !important;
 }
+
+.autocomplete-richlistbox {
+        background: #212121 !important;
+        color: #FFFFFF !important;
+}
+
