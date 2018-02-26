@@ -1,17 +1,17 @@
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ------------------------------ 
 # Prerequisites:
+#
 #   - Rofi
 #   - i3blocks
 #   - alsa-utils
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#   - playerctl
+#   - betterlockscreen
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Default values 
-#
-# Remark: $mod = alt key
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-set $mod                        Mod1
-set $win                        Mod4
+
+
+
+set $mod                        Mod1 # $mod = alt
+set $win                        Mod4 
 
 font pango:                     xos4 Terminus 8
 
@@ -57,23 +57,18 @@ bindsym $mod+a exec rofi -show drun
     bindsym $mod+h            split h
     bindsym $mod+v            split v
     bindsym $mod+f            fullscreen toggle
-
-#    bindsym $mod+s            layout stacking
-#    bindsym $mod+w            layout tabbed
-    bindsym $mod+t            layout toggle split
+    # bindsym $mod+t            layout toggle split
 
     bindsym $mod+Shift+space  floating toggle
     bindsym $mod+space        focus mode_toggle
 
-#    bindsym $mod+a            focus parent
+#---------- 
+#   
+#   Workspace
+#
+#---------- 
+    
 
-    # bindsym $mod+d focus child
-    # bindsym $mod+Shift+minus move scratchpad
-    # bindsym $mod+minus scratchpad show
-
-# ~~~~~~~~~
-# Workspace
-# ~~~~~~~~~
     set $ws1 " 1:web "
     set $ws2 " 2:>_ "
     set $ws3 " 3:pcmanfm "
@@ -100,20 +95,17 @@ bindsym $mod+a exec rofi -show drun
     bindsym $mod+Shift+r restart
 
 # Power menu
-set $sysmenu " [l]ogout - [s]uspend - [r]eboot - po[w]eroff  "
+set $sysmenu " log[o]ut - po[w]eroff - [r]eboot - [l]ock "
 bindsym $mod+Shift+e      mode $sysmenu
 
 mode $sysmenu {
-    bindsym l         exit
+    bindsym o         exit
     bindsym w         exec "systemctl poweroff"
     bindsym r         exec "systemctl reboot"
-    bindsym s         exec "systemctl suspend"
+    bindsym l         exec "betterlockscreen -l dim" # from: https://github.com/pavanjadhaw/betterlockscreen
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }
-
-
-
 # ~~~~~~~~~~~~~~~
 # Applying Colors
 # ~~~~~~~~~~~~~~~
@@ -149,9 +141,6 @@ bindsym $mod+ShiftLeft workspace prev
 
 bindsym $mod+e exec pcmanfm # filemanager
 bindsym $mod+r exec termite -e ranger # cli filemanager
-
-bindsym Control+1 .config/i3/mpvTube.sh
-
 
 
 # Record the screen
