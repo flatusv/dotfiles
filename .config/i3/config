@@ -10,7 +10,7 @@
 
 
 
-set $mod                        Mod1 # $mod = alt
+set $mod                        Mod1
 set $win                        Mod4 
 
 font pango:                     xos4 Terminus 8
@@ -28,7 +28,7 @@ bindsym $mod+d                  kill
 #to change active workspace color edit $accent-color
 # ~~~~~~~~~~~~~~~~~~~~~~~~
 set $main-color                  #170F0D
-set $accent-color                #C2BFA5
+set $accent-color                #00ffcc
 set $border-color                #C2BFA5
 set $secondary-color             #141210
 set $text-color                  #acafa9
@@ -94,18 +94,7 @@ bindsym $mod+a exec rofi -show drun
     bindsym $mod+Shift+c reload
     bindsym $mod+Shift+r restart
 
-# Power menu
-set $sysmenu " log[o]ut - po[w]eroff - [r]eboot - [l]ock "
-bindsym $mod+Shift+e      mode $sysmenu
 
-mode $sysmenu {
-    bindsym o         exit
-    bindsym w         exec "systemctl poweroff"
-    bindsym r         exec "systemctl reboot"
-    bindsym l         exec "betterlockscreen -l dim" # from: https://github.com/pavanjadhaw/betterlockscreen
-    bindsym Return    mode "default"
-    bindsym Escape    mode "default"
-}
 # ~~~~~~~~~~~~~~~
 # Applying Colors
 # ~~~~~~~~~~~~~~~
@@ -140,13 +129,30 @@ bindsym $mod+ShiftLeft workspace prev
 
 
 bindsym $mod+e exec pcmanfm # filemanager
-bindsym $mod+r exec termite -e ranger # cli filemanager
+# bindsym $mod+r exec termite -e ranger # cli filemanager
 
 
 # Record the screen
 bindsym $win+r exec ~/.config/i3/record.sh
 bindsym $win+Shift+r exec killall ffmpeg # always run this after issuing the keybind above!!!
                                          # else you'll record forever, temporary solution   
+
+
+# Power menu
+set $sysmenu " log[o]ut - po[w]eroff - [r]eboot - [l]ock "
+bindsym $mod+Shift+e      mode $sysmenu
+
+mode $sysmenu {
+    bindsym o         exit
+    bindsym w         exec "systemctl poweroff"
+    bindsym r         exec "systemctl reboot"
+    
+    # from: https://github.com/pavanjadhaw/betterlockscreen
+    bindsym l         exec "betterlockscreen -l dim" 
+    bindsym Return    mode "default"
+    bindsym Escape    mode "default"
+}
+
 
 # screenshot mode
 set $screenshot Launch: [s]crot # Take screenshots: [s]ave locally, [c]opy to clipboard only
@@ -217,7 +223,7 @@ exec_always xset off
 # Use `xprop` to search for the window's class value
 for_window [class="^.*"] border pixel 5
 for_window [class="^.*"] focus
-#for_window [class=".*"] title_format "<span font='tewi 8'> </span>"
+# for_window [class=".*"] title_format "<span font='tewi 8'> </span>"
 for_window [class="Spotify"] move to workspace $ws5
 for_window [class="Steam"] move to workspace $ws6
 for_window [class="Steam"] no_focus
@@ -229,7 +235,7 @@ for_window [class="dota2"] fullscreen enable
 assign [class="Firefox"] $ws1
 
 assign [class="Pcmanfm"] $ws3
-assign [class="Ffmulticonverter"] $ws3
+assign [class="Ffmulticonverter"] $ws2
 assign [class="TelegramDesktop"] $ws3
 
 assign [class="Zathura"] $ws4
