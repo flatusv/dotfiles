@@ -2,6 +2,7 @@ set font "Ubuntu Mono 10"
 set selection-clipboard clipboard
 set statusbar-home-tilde true
 
+
 # colors
 set recolor-darkcolor  "#FFFFFF"
 set recolor-lightcolor "#333333"
@@ -15,3 +16,8 @@ set completion-highlight-bg "#6B8E23"
 # set highlight-active-color "#F0E68C"
 set notification-fg "#FFFFFF"
 set notification-bg "#333333"
+
+
+map [normal] <C-o> feedkeys ":exec evince %"<Return>
+
+
