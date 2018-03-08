@@ -1,9 +1,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sections: last uptdated (16-Aug-2017)
+" Sections: 
 " -> General [23 - 74]
 " -> Plugins: Vundle, etc.                  [ 74 - 85]
 " -> VIM user interface                     [ 99 - 148]
-" -> Colors and Fonts                       [155 - 175]
+" -> 
+"  Colors and Fonts                       [155 - 175]
 " -> Files and backups                      [175 - 180]
 " -> Text, tab and indent related           [185 - 228]
 " -> Visual mode related
@@ -72,15 +73,17 @@ set autochdir               " switch to the directory when editing files
 
 set path+=**                " provides tab completion for all file related tasks
 
+:set textwidth=80
+
 :se mouse+=a                " don't select line numbers with the mouse
+
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-"
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -91,9 +94,19 @@ Plugin 'tpope/vim-commentary.git' " simple comment/uncomment plugin
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'SirVer/ultisnips'
 " Plugin 'honza/vim-snippets'
-Plugin 'gerw/vim-latex-suite',
-Plugin 'xuhdev/vim-latex-live-preview'
+" Plugin 'gerw/vim-latex-suite',
+" Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tpope/vim-surround'
+
+" Change the default mapping and the default command to invoke CtrlP:
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+
+" tagbar toggle, very usefull for editing large files
+nnoremap <silent> <leader>t :TagbarToggle<CR>
 
 " to comment the filetype of choice, replace commentstring by the extension
 " autocmd FileType apache setlocal commentstring=#\ %s
@@ -104,18 +117,18 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 
 " make vim suitable for LaTeX
-let g:tex_flavor='latex' "required for latex suite 
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_MultipleCompileFormats='pdf, aux'
-let g:Tex_FoldedSections=""
-let g:Tex_FoldedEnvironments=""
-let g:Tex_FoldedMisc=""
+" let g:tex_flavor='latex' "required for latex suite 
+" let g:Tex_DefaultTargetFormat = 'pdf'
+" let g:Tex_MultipleCompileFormats='pdf, aux'
+" let g:Tex_FoldedSections=""
+" let g:Tex_FoldedEnvironments=""
+" let g:Tex_FoldedMisc=""
 
 
 
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
-let g:livepreview_previewer = 'zathura'
-nmap <leader>l :LLPStartPreview<CR>
+" let g:livepreview_previewer = 'zathura'
+" nmap <leader>l :LLPStartPreview<CR>
 
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"  " currently setup to code in C
 " let g:ycm_autoclose_preview_window_after_completion = 1
@@ -183,6 +196,7 @@ set tm=500
 set foldcolumn=0
 
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -192,10 +206,16 @@ syntax on
 autocmd BufEnter * :syntax sync fromstart
 "autocmd BufEnter * :set number
 
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'
-set background=dark
 
+" colorscheme gruvbox
+" let g:gruvbox_contrast_dark='hard'
+" set background=dark
+let g:gruvbox_contrast_dark = "soft"
+let g:gruvbox_termcolors=256
+set t_Co=256
+set background=dark
+colorscheme gruvbox
+highlight Normal ctermbg=NONE
 
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -227,19 +247,20 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-" Linebreak on 500 characters
+" Linebreak on 65 characters, i3wm related
 set lbr
-set tw=500
+set tw=80
 
+       
 "set ai "Auto indent
 "set si "Smart indent
 set wrap "Wrap lines
 
 
 " Usefull shortcuts to enter insert mode
- nnoremap <Enter> i<Enter>
- nnoremap <Backspace> i<Backspace>
- nnoremap <Space> i<Space>
+nnoremap <Enter> i<Enter>
+nnoremap <Backspace> i<Backspace>
+nnoremap <Space> i<Space>
 
 map <C-a> <ESC>^
 imap <C-a> <ESC>I
@@ -282,8 +303,21 @@ let &t_EI = "\<Esc>[2 q"
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+hi StatusLine ctermfg=black ctermbg=green cterm=NONE
 
+" set statusline=\ \                 " Padding
+" set statusline+=%F                  " Path to the file
+" set statusline+=\ %1*%2*\         " Separator
+" set statusline+=%y                  " File type
+" set statusline+=\ %3*%4*\         " Separator
+" set statusline+=%=                  " Switch to right-side
+" set statusline+=\ %5*%6*\         " Separator
+" set statusline+=%p%%                " Line percent
+" set statusline+=\ %7*%8*\         " Separator
+" set statusline+=%l/%L               " Current line
+" set statusline+=\ \                 " Padding
+
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\%y\ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l/%L\ \%=\%p%%
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings
@@ -333,32 +367,32 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
-    emenu Foo.Bar
-    unmenu Foo
-endfunction
+" function! CmdLine(str)
+"     exe "menu Foo.Bar :" . a:str
+"     emenu Foo.Bar
+"     unmenu Foo
+" endfunction
 
-function! VisualSelection(direction, extra_filter) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
+" function! VisualSelection(direction, extra_filter) range
+"     let l:saved_reg = @"
+"     execute "normal! vgvy"
 
-    let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
+"     let l:pattern = escape(@", '\\/.*$^~[]')
+"     let l:pattern = substitute(l:pattern, "\n$", "", "")
 
-    if a:direction == 'b'
-        execute "normal ?" . l:pattern . "^M"
-    elseif a:direction == 'gv'
-        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.' . a:extra_filter)
-    elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
-    elseif a:direction == 'f'
-        execute "normal /" . l:pattern . "^M"
-    endif
+"     if a:direction == 'b'
+"         execute "normal ?" . l:pattern . "^M"
+"     elseif a:direction == 'gv'
+"         call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.' . a:extra_filter)
+"     elseif a:direction == 'replace'
+"         call CmdLine("%s" . '/'. l:pattern . '/')
+"     elseif a:direction == 'f'
+"         execute "normal /" . l:pattern . "^M"
+"     endif
 
-    let @/ = l:pattern
-    let @" = l:saved_reg
-endfunction
+"     let @/ = l:pattern
+"     let @" = l:saved_reg
+" endfunction
 
 
 " Returns true if paste mode is enabled
@@ -526,8 +560,8 @@ call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
 
 " " Ctrl K - Delete Line
 
-call CreateShortcut("C-k", "dd", "in")
-call CreateShortcut("C-k", "d", "v")
+" call CreateShortcut("C-k", "dd", "in")
+" call CreateShortcut("C-k", "d", "v")
 
 
 "" " Ctrl Z - Undo
@@ -547,6 +581,8 @@ call CreateShortcut("C-k", "d", "v")
 
  " run a python code
  nnoremap <silent> <leader>p :w <CR> :!clear;python %<CR>
+ 
+ nnoremap <silent> <leader>f :w <CR> :!clear;firefox %<CR>
 
  " pretty much the reverse of <c-w> in insert mode
  inoremap <C-d> <C-o>de
@@ -554,6 +590,12 @@ call CreateShortcut("C-k", "d", "v")
  " dont trigger suspend with <c-z> in visual mode
  vnoremap <c-z> <nop>
 
+ " lists all loaded buffers and populates the prompt for you,
+ " waiting for you to type the number of a buffer and press <enter>
+ nnoremap gb :ls<CR>:b<Space>
+ 
+ 
+ nnoremap ge :e<Space>**/*
 
  " vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 autocmd BufRead,BufNewFile   *.py ino " ""<left>
@@ -563,6 +605,4 @@ autocmd BufRead,BufNewFile   *.py ino [ []<left>
 autocmd BufRead,BufNewFile   *.py ino { {}<left>
 autocmd BufRead,BufNewFile   *.py ino {<CR> {<CR>}<ESC>O
 autocmd BufRead,BufNewFile   *.py ino {;<CR> {<CR>};<ESC>O
-
-
 
