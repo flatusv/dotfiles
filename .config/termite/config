@@ -2,11 +2,8 @@
 
 cursor_shape = underline
 cursor_blink = off
-font = xos4 Terminus 10
-#use_xft = true
-
-
-
+font = xos4 Terminus 12
+allow_bold = true
 
 
 
@@ -14,14 +11,14 @@ font = xos4 Terminus 10
 [colors]
 
 # special
-foreground      = #f2f1b9
+foreground      = #e8dfd6
 foreground_bold = #e8dfd6
-cursor          = #ef5847
-background      = #170f0d
+cursor          = #e8dfd6
+background      = #021b21
 
 # black
-color0  = #021b21
-color8  = #032c36
+color0  = #032c36
+color8  = #065f73
 
 # red
 color1  = #c2454e
@@ -37,7 +34,7 @@ color11 = #beb090
 
 # blue
 color4  = #2e3340
-color12 = #44b5b1
+color12 = #61778d
 
 # magenta
 color5  = #ff5879
