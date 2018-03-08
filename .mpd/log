@@ -30364,3 +30364,792 @@ Sep 28 09:32 : player: played "DAFT PUNK - AROUND THE WORLD (Dance with the Dead
 Nov 03 12:25 : player: played "DAFT PUNK - AROUND THE WORLD (Dance with the Dead Remix).mp3"
 Nov 03 13:16 : avahi: Client Disconnected, will reconnect shortly
 Nov 03 13:16 : avahi: Could not reconnect: An unexpected D-Bus error occurred
+Dec 30 11:33 : exception: inotify_add_watch() has failed: No such file or directory
+Dec 30 11:33 : exception: Failed to access /home/geeray/media/musik: No such file or directory
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/Le Knight Club - Hysteria.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/Le Knight Club - Hysteria.mp3: No such file or directory
+Dec 30 11:33 : player: played "Le Knight Club - Hysteria.mp3"
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3: No such file or directory
+Dec 30 11:33 : player: played "Big Data - 'Bombs Over Brooklyn'.mp3"
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/JNL Cinemafunk - One Sunday.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/JNL Cinemafunk - One Sunday.mp3: No such file or directory
+Dec 30 11:33 : player: played "JNL Cinemafunk - One Sunday.mp3"
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3: No such file or directory
+Dec 30 11:33 : player: played "Big Data - 'Bombs Over Brooklyn'.mp3"
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/Le Knight Club - Hysteria.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/Le Knight Club - Hysteria.mp3: No such file or directory
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3: No such file or directory
+Dec 30 11:33 : player: played "Le Knight Club - Hysteria.mp3"
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3: No such file or directory
+Dec 30 11:33 : player: played "Big Data - 'Bombs Over Brooklyn'.mp3"
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/Le Knight Club - Hysteria.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/Le Knight Club - Hysteria.mp3: No such file or directory
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3: No such file or directory
+Dec 30 11:33 : player: played "Le Knight Club - Hysteria.mp3"
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3: No such file or directory
+Dec 30 11:33 : player: played "Big Data - 'Bombs Over Brooklyn'.mp3"
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/Le Knight Club - Hysteria.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/Le Knight Club - Hysteria.mp3: No such file or directory
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3: No such file or directory
+Dec 30 11:33 : player: played "Le Knight Club - Hysteria.mp3"
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3: No such file or directory
+Dec 30 11:33 : player: played "Big Data - 'Bombs Over Brooklyn'.mp3"
+Dec 30 11:33 : exception: Failed to decode /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3
+Dec 30 11:33 : exception: nested: Failed to open /home/geeray/media/musik/Big Data - 'Bombs Over Brooklyn'.mp3: No such file or directory
+Dec 30 11:33 : player: played "Big Data - 'Bombs Over Brooklyn'.mp3"
+Jan 16 15:32 : update: removing Big Data - 'Bombs Over Brooklyn'.mp3
+Jan 16 15:32 : update: removing Le Knight Club - Hysteria.mp3
+Jan 16 15:32 : update: removing JNL Cinemafunk - One Sunday.mp3
+Jan 16 15:32 : update: removing DAFT PUNK - AROUND THE WORLD (Dance with the Dead Remix).mp3
+Jan 16 15:32 : update: added /Danger - 11h30 (DatA Remix).mp3
+Jan 16 15:32 : update: added /stzzy - beats to sleep to part II (lofi hip-hop mix).mp3
+Jan 16 15:32 : update: added /Fi7i - I just wanna run.mp3
+Jan 16 15:32 : update: added /Der Schmeisser & Timo Jahns - Schoene Zeit (Timo Jahns Remix).mp3
+Jan 16 15:32 : update: added /Vanilla - Blue Sun.mp3
+Jan 16 15:32 : update: added /Technovision Steins;Gate VN Insert song.mp3
+Jan 16 15:32 : update: added /Gwen Guthrie - It Should Have Been You (Original 12'' Version).mp3
+Jan 16 15:32 : update: added /CloZee - Koto.mp3
+Jan 16 15:32 : update: added /Matsura - Heart.mp3
+Jan 16 15:32 : update: added /玖壹壹(Nine one one)-嘻哈庄腳情 官方MV首播.mp3
+Jan 16 15:32 : update: added /Desired - Tropical Adventure.mp3
+Jan 16 15:32 : update: added /Alice Deejay - Will I Ever.mp3
+Jan 16 15:32 : update: added /C h i n s a k u - Where U Are.mp3
+Jan 16 15:32 : update: added /nochi - warm stares.mp3
+Jan 16 15:32 : update: added /Mona Haydar - Hijabi (Wrap my Hijab).mp3
+Jan 16 15:32 : update: added /Koopsta Knicca - Front A Busta.mp3
+Jan 16 15:32 : update: added /Desired - Lost.mp3
+Jan 16 15:32 : update: added /Steve Angello - Voices (Eric Prydz Remix).mp3
+Jan 16 15:32 : update: added /Soulsearcher - Feelin' Love (Original Mix) (2003).mp3
+Jan 16 15:32 : update: added /Miami Sound Machine - Dr  Beat.mp3
+Jan 16 15:32 : update: added /Kylie Minogue - Love At First Sight (Kid Creme Vocal Dub) (2002).mp3
+Jan 16 15:32 : update: added /Starcadian - Sgt Tagowski.mp3
+Jan 16 15:32 : update: added /Bingo Players - Cry (Just A Little) (A-Trak and Phantoms Remix) [Official Music Video].mp3
+Jan 16 15:32 : update: added /Desired - Every Part of Me Loves You Bae.mp3
+Jan 16 15:32 : update: added /SKIBBLEZ - Always Yours 永遠に.mp3
+Jan 16 15:32 : update: added /The World God Only Knows OST - 01 - Koi ~ Kuchizuke Made no Kyori (Main Theme).mp3
+Jan 16 15:32 : update: added /Heatbeat - Bondi (Extended Mix).mp3
+Jan 16 15:32 : update: added /ONUKA - Other ft. NAONI Orchestra.mp3
+Jan 16 15:32 : update: added /Panthurr - Woof Pt. 2 (Feat. Birocratic).mp3
+Jan 16 15:32 : update: added /Francesca Michielin - No Degree of Separation (Italy) 2016 Eurovision Song Contest.mp3
+Jan 16 15:32 : update: added /Desired - Sayonara.mp3
+Jan 16 15:32 : update: added /Trailerpark - Bleib in der Schule ( prod. by Tai Jason).mp3
+Jan 16 15:32 : update: added /Hadouken - Oxygen (Gemini Remix).mp3
+Jan 16 15:32 : update: added /Desired - Digital Love.mp3
+Jan 16 15:32 : update: added /Desired - Love Is Gone (Feat. 悲しい Android - Apartment).mp3
+Jan 16 15:32 : update: added /Paul Arcane & Sodality - Alpha ( Original Mix ) OUT NOW.mp3
+Jan 16 15:32 : update: added /REOL -「mede -mede」.mp3
+Jan 16 15:32 : update: added /Khadijah Ibrahim - Ku Ingin Lari.mp3
+Jan 16 15:32 : update: added /bonnie dobson - winter's going (1969).mp3
+Jan 16 15:32 : update: added /Pizzicato Five-Baby Love Child.mp3
+Jan 16 15:32 : update: added /sincerely,yours - yeyeye.mp3
+Jan 16 15:32 : update: added /Desired - For You.mp3
+Jan 16 15:32 : update: added /Night Tempo - Dance.mp3
+Jan 16 15:32 : update: added /[Hands Up] Alphascan - Crazy In Love (Radio Edit).mp3
+Jan 16 15:32 : update: added /Andy Moor & Lange present Stadium4 - Unity (Extended Mix).mp3
+Jan 16 15:32 : update: added /Joe Maker - Minimal Happiness ( Original Mix ).mp3
+Jan 16 15:32 : update: added /Aphrodite's Child - End Of The World (with lyrics).mp3
+Jan 16 15:32 : update: added /Vantage _ - Breaking Away.mp3
+Jan 16 15:32 : update: added /Death Note - Light's Theme (RUDE Remix).mp3
+Jan 16 15:32 : update: added /Uffie - Pop The Glock (SebastiAn Remix).mp3
+Jan 16 15:32 : update: added /TPR - The End Of Time - Melancholy Music From Chrono Trigger (2015) Full Album.mp3
+Jan 16 15:32 : update: added /Suken - Lift Off.mp3
+Jan 16 15:32 : update: added /Chrome Sparks - Marijuana.mp3
+Jan 16 15:32 : update: added /Jody Wisternoff - Starstrings (Dabruck Klein Mix).mp3
+Jan 16 15:32 : update: added /toj - midnight.mp3
+Jan 16 15:32 : update: added /Desired - Get Rdy.mp3
+Jan 16 15:32 : update: added /P.SUS - All Over Again.mp3
+Jan 16 15:32 : update: added /Cannibal Holocaust - Opening Theme Music (Riz Ortolani).mp3
+Jan 16 15:32 : update: added /Marshall & Baldo - Swahili Song (Original Mix).mp3
+Jan 16 15:32 : update: added /Foans - Dwells.mp3
+Jan 16 15:32 : update: added /Lola Disco ☀ -  All The Time.mp3
+Jan 16 15:32 : update: added /Weirddough - Ladybird.mp3
+Jan 16 15:32 : update: added /Neon Indian - Slumlord Rising (Music Video).mp3
+Jan 16 15:32 : update: added /Desired - Eyes On Me.mp3
+Jan 16 15:32 : update: added /ミカヅキBIGWAVE - Magical Candy.mp3
+Jan 16 15:32 : update: added /Anri - Remember Summer Days (マクロスMACROSS 82-99 Bootleg).mp3
+Jan 16 15:32 : update: added /Alphascan - Running Out of Time (Radio Edit).mp3
+Jan 16 15:32 : update: added /Barthezz - On The Move (Official Music Video).mp3
+Jan 16 15:32 : update: added /pfefferminz.mp3
+Jan 16 15:32 : update: added /DOTA - Grenzen (live Session).mp3
+Jan 16 15:32 : update: added /Crystal Castles - Kept.mp3
+Jan 16 15:32 : update: added /Daniel Hoppe - Star (2-4 Grooves Radio Mix).mp3
+Jan 16 15:32 : update: added /RoBKTA - Arrabbiata.mp3
+Jan 16 15:32 : update: added /Afro Medusa - Pasilda - Knee Deep Remix.mp3
+Jan 16 15:32 : update: added /Soul Reductions - Got 2 Be Loved (2017).mp3
+Jan 16 15:32 : update: added /Cut Copy - Hearts On Fire (Knightlife Remix).mp3
+Jan 16 15:32 : update: added /Mai Yamane - Tasogare - 1980.mp3
+Jan 16 15:32 : update: added /Desired - Lose It.mp3
+Jan 16 15:32 : update: added /Kana Hanazawa - Merry go Round.mp3
+Jan 16 15:32 : update: added /Taeko Ohnuki - 4_00 AM - 1978.mp3
+Jan 16 15:32 : update: added /Ranji & Blastoyz - Zoom (Original Mix).mp3
+Jan 16 15:32 : update: added /Gimbal & Sinan - Sound Of It (Original Mix).mp3
+Jan 16 15:32 : update: added /Britney Spears - You Drive Me Crazy (2-4 Grooves Attracion Remake).mp3
+Jan 16 15:32 : update: added /中国DJ疯吧(DJF4)狂摇开场舞曲-最新dj舞曲.mp3
+Jan 16 15:32 : update: added /Marissa Nadler- Diamond Heart.mp3
+Jan 16 15:32 : update: added /j^p^n - bloom. [].mp3
+Jan 16 15:32 : update: added /Nuclear - Mike Oldfield.mp3
+Jan 16 15:32 : update: added /The Lonely One.mp3
+Jan 16 15:32 : update: added /【紅魔郷ヴォーカル】FELT   「Brilliant World   Vocal Main Mix  」.mp3
+Jan 16 15:32 : update: added /La Funk Star (Sébastien Léger) - Minimalist Part 3 (1999).mp3
+Jan 16 15:32 : update: added /Thomas Bangalter - Ventura.mp3
+Jan 16 15:32 : update: added /Boulevards - Forgot to Mention (prod. Isaac Galvez).mp3
+Jan 16 15:32 : update: added /La Funk Star (Sébastien Léger) - Minimalist Part 4 (1999).mp3
+Jan 16 15:32 : update: added /No Angels - Atlantis.mp3
+Jan 16 15:32 : update: added /Receptor - Beautiful Lie.mp3
+Jan 16 15:32 : update: added /Full Intention Presents Deepdown - Give Me Your Love (Club Mix) (1999).mp3
+Jan 16 15:32 : update: added /kinder vs paps'n'skar - funny day ( dota heroes version ).mp3
+Jan 16 15:32 : update: added /Nummer Eins - Stereoact (Flashback One Remix).mp3
+Jan 16 15:32 : update: added /Олеся - Прыгай вниз.mp3
+Jan 16 15:32 : update: added /Foans 'Frontier' - Boiler Room Debuts.mp3
+Jan 16 15:32 : update: added /Kid Crème - Hypnotising (Original Mix) (2003).mp3
+Jan 16 15:32 : update: added /MIki Matsubara - 真夜中のドア _ Stay with me.mp3
+Jan 16 15:32 : update: added /City Pop シティーポップ 2.mp3
+Jan 16 15:32 : update: added /chuckee. - clouds. [Full EP].mp3
+Jan 16 15:32 : update: added /Like This - S3RL feat Krystal (and Slendy).mp3
+Jan 16 15:32 : update: added /Divna et le Choeur Melodi - Ô Vierge Sainte, réjouis-toi (Luc 1, 28-42).mp3
+Jan 16 15:32 : update: added /Miami Horror - Grand Illusion (official 'Illumination' album listening post).mp3
+Jan 16 15:32 : update: added /Sam Gellaitry - Ceremony.mp3
+Jan 16 15:32 : update: added /Indila - S.O.S.mp3
+Jan 16 15:32 : update: added /Night Tempo センパイ - Night Cruising.mp3
+Jan 16 15:32 : update: added /Gadjo - So Many Times.mp3
+Jan 16 15:32 : update: added /Dihaj - Skeletons (Azerbaijan) Eurovision 2017 - Official Music Video.mp3
+Jan 16 15:32 : update: added /Rittz - Heaven (Feat. Yelawolf).mp3
+Jan 16 15:32 : update: added /Stefano Noferini - Move Your Body Original Mix.mp3
+Jan 16 15:32 : update: added /JavanDee - Final Escape (dantini. Remix).mp3
+Jan 16 15:33 : player: played "pfefferminz.mp3"
+Jan 16 15:36 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Jan 16 15:36 : player: played "toj - midnight.mp3"
+Jan 16 15:43 : player: played "Afro Medusa - Pasilda - Knee Deep Remix.mp3"
+Jan 16 15:46 : player: played "Sam Gellaitry - Ceremony.mp3"
+Jan 16 16:48 : update: removing Desired - Digital Love.mp3
+Jan 16 16:48 : update: removing Desired - Every Part of Me Loves You Bae.mp3
+Jan 16 16:48 : update: removing Desired - Eyes On Me.mp3
+Jan 16 16:48 : update: removing Desired - For You.mp3
+Jan 16 16:48 : update: removing Desired - Get Rdy.mp3
+Jan 16 16:48 : update: removing Desired - Lose It.mp3
+Jan 16 16:48 : update: added /ONUKA_-_Other_ft._NAONI_Orchestra.mp3
+Jan 16 16:48 : update: added /Lola_Disco_☀_-__All_The_Time.mp3
+Jan 16 16:48 : update: added /Hadouken_-_Oxygen_(Gemini_Remix).mp3
+Jan 16 16:48 : update: added /【紅魔郷ヴォーカル】FELT___「Brilliant_World___Vocal_Main_Mix__」.mp3
+Jan 16 16:48 : update: added /P.SUS_-_All_Over_Again.mp3
+Jan 16 16:48 : update: added /Kid_Crème_-_Hypnotising_(Original_Mix)_(2003).mp3
+Jan 16 16:48 : update: added /Kylie_Minogue_-_Love_At_First_Sight_(Kid_Creme_Vocal_Dub)_(2002).mp3
+Jan 16 16:48 : update: added /Gwen_Guthrie_-_It_Should_Have_Been_You_(Original_12''_Version).mp3
+Jan 16 16:48 : update: added /Heatbeat_-_Bondi_(Extended_Mix).mp3
+Jan 16 16:48 : update: removing 玖壹壹(Nine one one)-嘻哈庄腳情 官方MV首播.mp3
+Jan 16 16:48 : update: removing ミカヅキBIGWAVE - Magical Candy.mp3
+Jan 16 16:48 : update: removing Олеся - Прыгай вниз.mp3
+Jan 16 16:48 : update: removing Weirddough - Ladybird.mp3
+Jan 16 16:48 : update: removing Vantage _ - Breaking Away.mp3
+Jan 16 16:48 : update: removing Vanilla - Blue Sun.mp3
+Jan 16 16:48 : update: removing Trailerpark - Bleib in der Schule ( prod. by Tai Jason).mp3
+Jan 16 16:48 : update: removing TPR - The End Of Time - Melancholy Music From Chrono Trigger (2015) Full Album.mp3
+Jan 16 16:48 : update: removing toj - midnight.mp3
+Jan 16 16:48 : update: removing Thomas Bangalter - Ventura.mp3
+Jan 16 16:48 : update: removing The World God Only Knows OST - 01 - Koi ~ Kuchizuke Made no Kyori (Main Theme).mp3
+Jan 16 16:48 : update: added /Alice_Deejay_-_Will_I_Ever.mp3
+Jan 16 16:48 : update: removing The Lonely One.mp3
+Jan 16 16:48 : update: removing Technovision Steins;Gate VN Insert song.mp3
+Jan 16 16:48 : update: removing Taeko Ohnuki - 4_00 AM - 1978.mp3
+Jan 16 16:48 : update: removing Suken - Lift Off.mp3
+Jan 16 16:48 : update: removing stzzy - beats to sleep to part II (lofi hip-hop mix).mp3
+Jan 16 16:48 : update: removing Steve Angello - Voices (Eric Prydz Remix).mp3
+Jan 16 16:48 : update: removing Stefano Noferini - Move Your Body Original Mix.mp3
+Jan 16 16:48 : update: removing Starcadian - Sgt Tagowski.mp3
+Jan 16 16:48 : update: removing Soulsearcher - Feelin' Love (Original Mix) (2003).mp3
+Jan 16 16:48 : update: removing Soul Reductions - Got 2 Be Loved (2017).mp3
+Jan 16 16:48 : update: removing SKIBBLEZ - Always Yours 永遠に.mp3
+Jan 16 16:48 : update: added /Soul_Reductions_-_Got_2_Be_Loved_(2017).mp3
+Jan 16 16:48 : update: removing sincerely,yours - yeyeye.mp3
+Jan 16 16:48 : update: removing Sam Gellaitry - Ceremony.mp3
+Jan 16 16:48 : update: removing RoBKTA - Arrabbiata.mp3
+Jan 16 16:48 : update: removing Rittz - Heaven (Feat. Yelawolf).mp3
+Jan 16 16:48 : update: removing REOL -「mede -mede」.mp3
+Jan 16 16:48 : update: removing Receptor - Beautiful Lie.mp3
+Jan 16 16:48 : update: removing Ranji & Blastoyz - Zoom (Original Mix).mp3
+Jan 16 16:48 : update: removing Pizzicato Five-Baby Love Child.mp3
+Jan 16 16:48 : update: removing Paul Arcane & Sodality - Alpha ( Original Mix ) OUT NOW.mp3
+Jan 16 16:48 : update: removing Panthurr - Woof Pt. 2 (Feat. Birocratic).mp3
+Jan 16 16:48 : update: removing P.SUS - All Over Again.mp3
+Jan 16 16:48 : update: removing ONUKA - Other ft. NAONI Orchestra.mp3
+Jan 16 16:48 : update: added /toj_-_midnight.mp3
+Jan 16 16:48 : update: removing Nummer Eins - Stereoact (Flashback One Remix).mp3
+Jan 16 16:48 : update: removing Nuclear - Mike Oldfield.mp3
+Jan 16 16:48 : update: removing nochi - warm stares.mp3
+Jan 16 16:48 : update: removing No Angels - Atlantis.mp3
+Jan 16 16:48 : update: removing Night Tempo センパイ - Night Cruising.mp3
+Jan 16 16:48 : update: removing Night Tempo - Dance.mp3
+Jan 16 16:48 : update: removing Neon Indian - Slumlord Rising (Music Video).mp3
+Jan 16 16:48 : update: removing Mona Haydar - Hijabi (Wrap my Hijab).mp3
+Jan 16 16:48 : update: removing MIki Matsubara - 真夜中のドア _ Stay with me.mp3
+Jan 16 16:48 : update: removing Miami Sound Machine - Dr  Beat.mp3
+Jan 16 16:48 : update: removing Miami Horror - Grand Illusion (official 'Illumination' album listening post).mp3
+Jan 16 16:48 : update: removing Matsura - Heart.mp3
+Jan 16 16:48 : update: added /Desired_-_Eyes_On_Me.mp3
+Jan 16 16:48 : update: removing Marissa Nadler- Diamond Heart.mp3
+Jan 16 16:48 : update: removing Mai Yamane - Tasogare - 1980.mp3
+Jan 16 16:48 : update: removing Lola Disco ☀ -  All The Time.mp3
+Jan 16 16:48 : update: removing Like This - S3RL feat Krystal (and Slendy).mp3
+Jan 16 16:48 : update: removing La Funk Star (Sébastien Léger) - Minimalist Part 4 (1999).mp3
+Jan 16 16:48 : update: removing La Funk Star (Sébastien Léger) - Minimalist Part 3 (1999).mp3
+Jan 16 16:48 : update: removing kinder vs paps'n'skar - funny day ( dota heroes version ).mp3
+Jan 16 16:48 : update: removing Kid Crème - Hypnotising (Original Mix) (2003).mp3
+Jan 16 16:48 : update: removing Khadijah Ibrahim - Ku Ingin Lari.mp3
+Jan 16 16:48 : update: removing Kana Hanazawa - Merry go Round.mp3
+Jan 16 16:48 : update: removing Jody Wisternoff - Starstrings (Dabruck Klein Mix).mp3
+Jan 16 16:48 : update: removing JavanDee - Final Escape (dantini. Remix).mp3
+Jan 16 16:48 : update: removing j^p^n - bloom. [].mp3
+Jan 16 16:48 : update: added /Boulevards_-_Forgot_to_Mention_(prod._Isaac_Galvez).mp3
+Jan 16 16:48 : update: removing Indila - S.O.S.mp3
+Jan 16 16:48 : update: removing Heatbeat - Bondi (Extended Mix).mp3
+Jan 16 16:48 : update: removing Hadouken - Oxygen (Gemini Remix).mp3
+Jan 16 16:48 : update: removing Gwen Guthrie - It Should Have Been You (Original 12'' Version).mp3
+Jan 16 16:48 : update: removing Gimbal & Sinan - Sound Of It (Original Mix).mp3
+Jan 16 16:48 : update: removing Gadjo - So Many Times.mp3
+Jan 16 16:48 : update: removing Full Intention Presents Deepdown - Give Me Your Love (Club Mix) (1999).mp3
+Jan 16 16:48 : update: removing Francesca Michielin - No Degree of Separation (Italy) 2016 Eurovision Song Contest.mp3
+Jan 16 16:48 : update: removing Foans - Dwells.mp3
+Jan 16 16:48 : update: removing Fi7i - I just wanna run.mp3
+Jan 16 16:48 : update: removing DOTA - Grenzen (live Session).mp3
+Jan 16 16:48 : update: removing Divna et le Choeur Melodi - Ô Vierge Sainte, réjouis-toi (Luc 1, 28-42).mp3
+Jan 16 16:48 : update: added /Desired_-_Digital_Love.mp3
+Jan 16 16:48 : update: removing Dihaj - Skeletons (Azerbaijan) Eurovision 2017 - Official Music Video.mp3
+Jan 16 16:48 : update: removing Der Schmeisser & Timo Jahns - Schoene Zeit (Timo Jahns Remix).mp3
+Jan 16 16:48 : update: removing Death Note - Light's Theme (RUDE Remix).mp3
+Jan 16 16:48 : update: removing Daniel Hoppe - Star (2-4 Grooves Radio Mix).mp3
+Jan 16 16:48 : update: removing Danger - 11h30 (DatA Remix).mp3
+Jan 16 16:48 : update: removing Cut Copy - Hearts On Fire (Knightlife Remix).mp3
+Jan 16 16:48 : update: removing Crystal Castles - Kept.mp3
+Jan 16 16:48 : update: removing CloZee - Koto.mp3
+Jan 16 16:48 : update: removing City Pop シティーポップ 2.mp3
+Jan 16 16:48 : update: removing chuckee. - clouds. [Full EP].mp3
+Jan 16 16:48 : update: removing Chrome Sparks - Marijuana.mp3
+Jan 16 16:48 : update: removing Cannibal Holocaust - Opening Theme Music (Riz Ortolani).mp3
+Jan 16 16:48 : update: added /sincerely,yours_-_yeyeye.mp3
+Jan 16 16:48 : update: removing C h i n s a k u - Where U Are.mp3
+Jan 16 16:48 : update: removing Britney Spears - You Drive Me Crazy (2-4 Grooves Attracion Remake).mp3
+Jan 16 16:48 : update: removing Boulevards - Forgot to Mention (prod. Isaac Galvez).mp3
+Jan 16 16:48 : update: removing bonnie dobson - winter's going (1969).mp3
+Jan 16 16:48 : update: removing Bingo Players - Cry (Just A Little) (A-Trak and Phantoms Remix) [Official Music Video].mp3
+Jan 16 16:48 : update: removing Barthezz - On The Move (Official Music Video).mp3
+Jan 16 16:48 : update: removing Aphrodite's Child - End Of The World (with lyrics).mp3
+Jan 16 16:48 : update: removing Anri - Remember Summer Days (マクロスMACROSS 82-99 Bootleg).mp3
+Jan 16 16:48 : update: removing Andy Moor & Lange present Stadium4 - Unity (Extended Mix).mp3
+Jan 16 16:48 : update: removing Alphascan - Running Out of Time (Radio Edit).mp3
+Jan 16 16:48 : update: removing Alice Deejay - Will I Ever.mp3
+Jan 16 16:48 : update: removing Afro Medusa - Pasilda - Knee Deep Remix.mp3
+Jan 16 16:48 : update: removing 【紅魔郷ヴォーカル】FELT   「Brilliant World   Vocal Main Mix  」.mp3
+Jan 16 16:48 : update: added /MIki_Matsubara_-_真夜中のドア___Stay_with_me.mp3
+Jan 16 16:48 : update: removing [Hands Up] Alphascan - Crazy In Love (Radio Edit).mp3
+Jan 16 16:48 : update: removing Uffie - Pop The Glock (SebastiAn Remix).mp3
+Jan 16 16:48 : update: removing Marshall & Baldo - Swahili Song (Original Mix).mp3
+Jan 16 16:48 : update: removing Kylie Minogue - Love At First Sight (Kid Creme Vocal Dub) (2002).mp3
+Jan 16 16:48 : update: removing Koopsta Knicca - Front A Busta.mp3
+Jan 16 16:48 : update: removing Joe Maker - Minimal Happiness ( Original Mix ).mp3
+Jan 16 16:48 : update: removing Foans 'Frontier' - Boiler Room Debuts.mp3
+Jan 16 16:48 : update: removing Desired - Tropical Adventure.mp3
+Jan 16 16:48 : update: removing Desired - Sayonara.mp3
+Jan 16 16:48 : update: removing Desired - Love Is Gone (Feat. 悲しい Android - Apartment).mp3
+Jan 16 16:48 : update: removing Desired - Lost.mp3
+Jan 16 16:48 : update: added /La_Funk_Star_(Sébastien_Léger)_-_Minimalist_Part_4_(1999).mp3
+Jan 16 16:48 : update: added /Der_Schmeisser_&_Timo_Jahns_-_Schoene_Zeit_(Timo_Jahns_Remix).mp3
+Jan 16 16:48 : update: added /玖壹壹(Nine_one_one)-嘻哈庄腳情_官方MV首播.mp3
+Jan 16 16:48 : update: added /Foans_'Frontier'_-_Boiler_Room_Debuts.mp3
+Jan 16 16:48 : update: added /Full_Intention_Presents_Deepdown_-_Give_Me_Your_Love_(Club_Mix)_(1999).mp3
+Jan 16 16:48 : update: added /Dihaj_-_Skeletons_(Azerbaijan)_Eurovision_2017_-_Official_Music_Video.mp3
+Jan 16 16:48 : update: added /Cut_Copy_-_Hearts_On_Fire_(Knightlife_Remix).mp3
+Jan 16 16:48 : update: added /Anri_-_Remember_Summer_Days_(マクロスMACROSS_82-99_Bootleg).mp3
+Jan 16 16:48 : update: added /Jody_Wisternoff_-_Starstrings_(Dabruck_Klein_Mix).mp3
+Jan 16 16:48 : update: added /Miami_Sound_Machine_-_Dr__Beat.mp3
+Jan 16 16:48 : update: added /Stefano_Noferini_-_Move_Your_Body_Original_Mix.mp3
+Jan 16 16:48 : update: added /Mona_Haydar_-_Hijabi_(Wrap_my_Hijab).mp3
+Jan 16 16:48 : update: added /Cannibal_Holocaust_-_Opening_Theme_Music_(Riz_Ortolani).mp3
+Jan 16 16:48 : update: added /Neon_Indian_-_Slumlord_Rising_(Music_Video).mp3
+Jan 16 16:48 : update: added /Receptor_-_Beautiful_Lie.mp3
+Jan 16 16:48 : update: added /Barthezz_-_On_The_Move_(Official_Music_Video).mp3
+Jan 16 16:48 : update: added /Marshall_&_Baldo_-_Swahili_Song_(Original_Mix).mp3
+Jan 16 16:48 : update: added /Trailerpark_-_Bleib_in_der_Schule_(_prod._by_Tai_Jason).mp3
+Jan 16 16:48 : update: added /[Hands_Up]_Alphascan_-_Crazy_In_Love_(Radio_Edit).mp3
+Jan 16 16:48 : update: added /Francesca_Michielin_-_No_Degree_of_Separation_(Italy)_2016_Eurovision_Song_Contest.mp3
+Jan 16 16:48 : update: added /Weirddough_-_Ladybird.mp3
+Jan 16 16:48 : update: added /Thomas_Bangalter_-_Ventura.mp3
+Jan 16 16:48 : update: added /Mai_Yamane_-_Tasogare_-_1980.mp3
+Jan 16 16:48 : update: added /Rittz_-_Heaven_(Feat._Yelawolf).mp3
+Jan 16 16:48 : update: added /Starcadian_-_Sgt_Tagowski.mp3
+Jan 16 16:48 : update: added /Danger_-_11h30_(DatA_Remix).mp3
+Jan 16 16:48 : update: added /Vanilla_-_Blue_Sun.mp3
+Jan 16 16:48 : update: added /No_Angels_-_Atlantis.mp3
+Jan 16 16:48 : update: added /Indila_-_S.O.S.mp3
+Jan 16 16:48 : update: added /Divna_et_le_Choeur_Melodi_-_Ô_Vierge_Sainte,_réjouis-toi_(Luc_1,_28-42).mp3
+Jan 16 16:48 : update: added /Desired_-_Every_Part_of_Me_Loves_You_Bae.mp3
+Jan 16 16:48 : update: added /Night_Tempo_センパイ_-_Night_Cruising.mp3
+Jan 16 16:48 : update: added /Paul_Arcane_&_Sodality_-_Alpha_(_Original_Mix_)_OUT_NOW.mp3
+Jan 16 16:48 : update: added /TPR_-_The_End_Of_Time_-_Melancholy_Music_From_Chrono_Trigger_(2015)_Full_Album.mp3
+Jan 16 16:48 : update: added /Koopsta_Knicca_-_Front_A_Busta.mp3
+Jan 16 16:48 : update: added /Like_This_-_S3RL_feat_Krystal_(and_Slendy).mp3
+Jan 16 16:48 : update: added /Death_Note_-_Light's_Theme_(RUDE_Remix).mp3
+Jan 16 16:48 : update: added /Britney_Spears_-_You_Drive_Me_Crazy_(2-4_Grooves_Attracion_Remake).mp3
+Jan 16 16:48 : update: added /Desired_-_Tropical_Adventure.mp3
+Jan 16 16:48 : update: added /Sam_Gellaitry_-_Ceremony.mp3
+Jan 16 16:48 : update: added /Night_Tempo_-_Dance.mp3
+Jan 16 16:48 : update: added /RoBKTA_-_Arrabbiata.mp3
+Jan 16 16:48 : update: added /Gadjo_-_So_Many_Times.mp3
+Jan 16 16:48 : update: added /Taeko_Ohnuki_-_4_00_AM_-_1978.mp3
+Jan 16 16:48 : update: added /nochi_-_warm_stares.mp3
+Jan 16 16:48 : update: added /Marissa_Nadler-_Diamond_Heart.mp3
+Jan 16 16:48 : update: added /Kana_Hanazawa_-_Merry_go_Round.mp3
+Jan 16 16:48 : update: added /Desired_-_Sayonara.mp3
+Jan 16 16:48 : update: added /Nummer_Eins_-_Stereoact_(Flashback_One_Remix).mp3
+Jan 16 16:48 : update: added /Desired_-_Get_Rdy.mp3
+Jan 16 16:48 : update: added /The_World_God_Only_Knows_OST_-_01_-_Koi_~_Kuchizuke_Made_no_Kyori_(Main_Theme).mp3
+Jan 16 16:48 : update: added /Vantage___-_Breaking_Away.mp3
+Jan 16 16:48 : update: added /Desired_-_Love_Is_Gone_(Feat._悲しい_Android_-_Apartment).mp3
+Jan 16 16:48 : update: added /Soulsearcher_-_Feelin'_Love_(Original_Mix)_(2003).mp3
+Jan 16 16:48 : update: added /SKIBBLEZ_-_Always_Yours_永遠に.mp3
+Jan 16 16:48 : update: added /Fi7i_-_I_just_wanna_run.mp3
+Jan 16 16:48 : update: added /Crystal_Castles_-_Kept.mp3
+Jan 16 16:48 : update: added /Miami_Horror_-_Grand_Illusion_(official_'Illumination'_album_listening_post).mp3
+Jan 16 16:48 : update: added /Technovision_Steins;Gate_VN_Insert_song.mp3
+Jan 16 16:48 : update: added /ミカヅキBIGWAVE_-_Magical_Candy.mp3
+Jan 16 16:48 : update: added /Ranji_&_Blastoyz_-_Zoom_(Original_Mix).mp3
+Jan 16 16:48 : update: added /Matsura_-_Heart.mp3
+Jan 16 16:48 : update: added /chuckee._-_clouds._[Full_EP].mp3
+Jan 16 16:48 : update: added /Andy_Moor_&_Lange_present_Stadium4_-_Unity_(Extended_Mix).mp3
+Jan 16 16:48 : update: added /Bingo_Players_-_Cry_(Just_A_Little)_(A-Trak_and_Phantoms_Remix)_[Official_Music_Video].mp3
+Jan 16 16:48 : update: added /JavanDee_-_Final_Escape_(dantini._Remix).mp3
+Jan 16 16:48 : update: added /City_Pop_シティーポップ_2.mp3
+Jan 16 16:48 : update: added /Panthurr_-_Woof_Pt._2_(Feat._Birocratic).mp3
+Jan 16 16:48 : update: added /Desired_-_Lost.mp3
+Jan 16 16:48 : update: added /CloZee_-_Koto.mp3
+Jan 16 16:48 : update: added /Daniel_Hoppe_-_Star_(2-4_Grooves_Radio_Mix).mp3
+Jan 16 16:48 : update: added /DOTA_-_Grenzen_(live_Session).mp3
+Jan 16 16:48 : update: added /Chrome_Sparks_-_Marijuana.mp3
+Jan 16 16:48 : update: added /j^p^n_-_bloom._[].mp3
+Jan 16 16:48 : update: added /Desired_-_For_You.mp3
+Jan 16 16:48 : update: added /The_Lonely_One.mp3
+Jan 16 16:48 : update: added /Uffie_-_Pop_The_Glock_(SebastiAn_Remix).mp3
+Jan 16 16:48 : update: added /bonnie_dobson_-_winter's_going_(1969).mp3
+Jan 16 16:48 : update: added /kinder_vs_paps'n'skar_-_funny_day_(_dota_heroes_version_).mp3
+Jan 16 16:48 : update: added /Alphascan_-_Running_Out_of_Time_(Radio_Edit).mp3
+Jan 16 16:48 : update: added /Gimbal_&_Sinan_-_Sound_Of_It_(Original_Mix).mp3
+Jan 16 16:48 : update: added /C_h_i_n_s_a_k_u_-_Where_U_Are.mp3
+Jan 16 16:48 : update: added /Joe_Maker_-_Minimal_Happiness_(_Original_Mix_).mp3
+Jan 16 16:48 : update: added /Олеся_-_Прыгай_вниз.mp3
+Jan 16 16:48 : update: added /Desired_-_Lose_It.mp3
+Jan 16 16:48 : update: added /Foans_-_Dwells.mp3
+Jan 16 16:48 : update: added /stzzy_-_beats_to_sleep_to_part_II_(lofi_hip-hop_mix).mp3
+Jan 16 16:48 : update: added /La_Funk_Star_(Sébastien_Léger)_-_Minimalist_Part_3_(1999).mp3
+Jan 16 16:48 : update: added /Nuclear_-_Mike_Oldfield.mp3
+Jan 16 16:48 : update: added /Suken_-_Lift_Off.mp3
+Jan 16 16:48 : update: added /Steve_Angello_-_Voices_(Eric_Prydz_Remix).mp3
+Jan 16 16:48 : update: added /Pizzicato_Five-Baby_Love_Child.mp3
+Jan 16 16:48 : update: added /REOL_-「mede_-mede」.mp3
+Jan 16 16:48 : update: added /Khadijah_Ibrahim_-_Ku_Ingin_Lari.mp3
+Jan 16 16:48 : update: added /Aphrodite's_Child_-_End_Of_The_World_(with_lyrics).mp3
+Jan 16 16:48 : update: added /Afro_Medusa_-_Pasilda_-_Knee_Deep_Remix.mp3
+Jan 16 16:50 : exception: Failed to access /home/geeray/media/musik/Lola_Disco_☀_-__All_The_Time.mp3: No such file or directory
+Jan 16 16:50 : exception: Failed to access /home/geeray/media/musik/Vantage___-_Breaking_Away.mp3: No such file or directory
+Jan 16 16:50 : update: removing [Hands_Up]_Alphascan_-_Crazy_In_Love_(Radio_Edit).mp3
+Jan 16 16:50 : update: removing Afro_Medusa_-_Pasilda_-_Knee_Deep_Remix.mp3
+Jan 16 16:50 : update: removing 【紅魔郷ヴォーカル】FELT___「Brilliant_World___Vocal_Main_Mix__」.mp3
+Jan 16 16:50 : update: removing Alice_Deejay_-_Will_I_Ever.mp3
+Jan 16 16:50 : update: removing Alphascan_-_Running_Out_of_Time_(Radio_Edit).mp3
+Jan 16 16:50 : update: removing Andy_Moor_&_Lange_present_Stadium4_-_Unity_(Extended_Mix).mp3
+Jan 16 16:50 : update: removing Anri_-_Remember_Summer_Days_(マクロスMACROSS_82-99_Bootleg).mp3
+Jan 16 16:50 : update: removing Aphrodite's_Child_-_End_Of_The_World_(with_lyrics).mp3
+Jan 16 16:50 : update: removing Barthezz_-_On_The_Move_(Official_Music_Video).mp3
+Jan 16 16:50 : update: removing Bingo_Players_-_Cry_(Just_A_Little)_(A-Trak_and_Phantoms_Remix)_[Official_Music_Video].mp3
+Jan 16 16:50 : update: removing bonnie_dobson_-_winter's_going_(1969).mp3
+Jan 16 16:50 : update: removing Boulevards_-_Forgot_to_Mention_(prod._Isaac_Galvez).mp3
+Jan 16 16:50 : update: removing Britney_Spears_-_You_Drive_Me_Crazy_(2-4_Grooves_Attracion_Remake).mp3
+Jan 16 16:50 : update: removing C_h_i_n_s_a_k_u_-_Where_U_Are.mp3
+Jan 16 16:50 : update: removing Cannibal_Holocaust_-_Opening_Theme_Music_(Riz_Ortolani).mp3
+Jan 16 16:50 : update: removing Chrome_Sparks_-_Marijuana.mp3
+Jan 16 16:50 : update: removing chuckee._-_clouds._[Full_EP].mp3
+Jan 16 16:50 : update: removing City_Pop_シティーポップ_2.mp3
+Jan 16 16:50 : update: removing CloZee_-_Koto.mp3
+Jan 16 16:50 : update: removing Crystal_Castles_-_Kept.mp3
+Jan 16 16:50 : update: removing Cut_Copy_-_Hearts_On_Fire_(Knightlife_Remix).mp3
+Jan 16 16:50 : update: removing Danger_-_11h30_(DatA_Remix).mp3
+Jan 16 16:50 : update: removing Daniel_Hoppe_-_Star_(2-4_Grooves_Radio_Mix).mp3
+Jan 16 16:50 : update: removing Death_Note_-_Light's_Theme_(RUDE_Remix).mp3
+Jan 16 16:50 : update: removing Der_Schmeisser_&_Timo_Jahns_-_Schoene_Zeit_(Timo_Jahns_Remix).mp3
+Jan 16 16:50 : update: removing Dihaj_-_Skeletons_(Azerbaijan)_Eurovision_2017_-_Official_Music_Video.mp3
+Jan 16 16:50 : update: removing Divna_et_le_Choeur_Melodi_-_Ô_Vierge_Sainte,_réjouis-toi_(Luc_1,_28-42).mp3
+Jan 16 16:50 : update: removing DOTA_-_Grenzen_(live_Session).mp3
+Jan 16 16:50 : update: removing Fi7i_-_I_just_wanna_run.mp3
+Jan 16 16:50 : update: removing Foans_-_Dwells.mp3
+Jan 16 16:50 : update: removing Francesca_Michielin_-_No_Degree_of_Separation_(Italy)_2016_Eurovision_Song_Contest.mp3
+Jan 16 16:50 : update: removing Full_Intention_Presents_Deepdown_-_Give_Me_Your_Love_(Club_Mix)_(1999).mp3
+Jan 16 16:50 : update: removing Gadjo_-_So_Many_Times.mp3
+Jan 16 16:50 : update: removing Gimbal_&_Sinan_-_Sound_Of_It_(Original_Mix).mp3
+Jan 16 16:50 : update: removing Gwen_Guthrie_-_It_Should_Have_Been_You_(Original_12''_Version).mp3
+Jan 16 16:50 : update: removing Hadouken_-_Oxygen_(Gemini_Remix).mp3
+Jan 16 16:50 : update: removing Heatbeat_-_Bondi_(Extended_Mix).mp3
+Jan 16 16:50 : update: removing Indila_-_S.O.S.mp3
+Jan 16 16:50 : update: removing j^p^n_-_bloom._[].mp3
+Jan 16 16:50 : update: removing JavanDee_-_Final_Escape_(dantini._Remix).mp3
+Jan 16 16:50 : update: removing Jody_Wisternoff_-_Starstrings_(Dabruck_Klein_Mix).mp3
+Jan 16 16:50 : update: removing Kana_Hanazawa_-_Merry_go_Round.mp3
+Jan 16 16:50 : update: removing Khadijah_Ibrahim_-_Ku_Ingin_Lari.mp3
+Jan 16 16:50 : update: removing Kid_Crème_-_Hypnotising_(Original_Mix)_(2003).mp3
+Jan 16 16:50 : update: removing kinder_vs_paps'n'skar_-_funny_day_(_dota_heroes_version_).mp3
+Jan 16 16:50 : update: removing La_Funk_Star_(Sébastien_Léger)_-_Minimalist_Part_3_(1999).mp3
+Jan 16 16:50 : update: removing La_Funk_Star_(Sébastien_Léger)_-_Minimalist_Part_4_(1999).mp3
+Jan 16 16:50 : update: removing Like_This_-_S3RL_feat_Krystal_(and_Slendy).mp3
+Jan 16 16:50 : update: removing Lola_Disco_☀_-__All_The_Time.mp3
+Jan 16 16:50 : update: removing Mai_Yamane_-_Tasogare_-_1980.mp3
+Jan 16 16:50 : update: removing Marissa_Nadler-_Diamond_Heart.mp3
+Jan 16 16:50 : update: removing Matsura_-_Heart.mp3
+Jan 16 16:50 : update: removing Miami_Horror_-_Grand_Illusion_(official_'Illumination'_album_listening_post).mp3
+Jan 16 16:50 : update: removing Miami_Sound_Machine_-_Dr__Beat.mp3
+Jan 16 16:50 : update: removing MIki_Matsubara_-_真夜中のドア___Stay_with_me.mp3
+Jan 16 16:50 : update: removing Mona_Haydar_-_Hijabi_(Wrap_my_Hijab).mp3
+Jan 16 16:50 : update: removing Neon_Indian_-_Slumlord_Rising_(Music_Video).mp3
+Jan 16 16:50 : update: removing Night_Tempo_-_Dance.mp3
+Jan 16 16:50 : update: removing Night_Tempo_センパイ_-_Night_Cruising.mp3
+Jan 16 16:50 : update: removing No_Angels_-_Atlantis.mp3
+Jan 16 16:50 : update: removing nochi_-_warm_stares.mp3
+Jan 16 16:50 : update: removing Nuclear_-_Mike_Oldfield.mp3
+Jan 16 16:50 : update: removing Nummer_Eins_-_Stereoact_(Flashback_One_Remix).mp3
+Jan 16 16:50 : update: removing ONUKA_-_Other_ft._NAONI_Orchestra.mp3
+Jan 16 16:50 : update: removing P.SUS_-_All_Over_Again.mp3
+Jan 16 16:50 : update: removing Panthurr_-_Woof_Pt._2_(Feat._Birocratic).mp3
+Jan 16 16:50 : update: removing Paul_Arcane_&_Sodality_-_Alpha_(_Original_Mix_)_OUT_NOW.mp3
+Jan 16 16:50 : update: removing Pizzicato_Five-Baby_Love_Child.mp3
+Jan 16 16:50 : update: removing Ranji_&_Blastoyz_-_Zoom_(Original_Mix).mp3
+Jan 16 16:50 : update: removing Receptor_-_Beautiful_Lie.mp3
+Jan 16 16:50 : update: removing REOL_-「mede_-mede」.mp3
+Jan 16 16:50 : update: removing Rittz_-_Heaven_(Feat._Yelawolf).mp3
+Jan 16 16:50 : update: removing RoBKTA_-_Arrabbiata.mp3
+Jan 16 16:50 : update: removing Sam_Gellaitry_-_Ceremony.mp3
+Jan 16 16:50 : update: removing sincerely,yours_-_yeyeye.mp3
+Jan 16 16:50 : update: removing SKIBBLEZ_-_Always_Yours_永遠に.mp3
+Jan 16 16:50 : update: removing Soul_Reductions_-_Got_2_Be_Loved_(2017).mp3
+Jan 16 16:50 : update: removing Soulsearcher_-_Feelin'_Love_(Original_Mix)_(2003).mp3
+Jan 16 16:50 : update: removing Starcadian_-_Sgt_Tagowski.mp3
+Jan 16 16:50 : update: removing Stefano_Noferini_-_Move_Your_Body_Original_Mix.mp3
+Jan 16 16:50 : update: removing Steve_Angello_-_Voices_(Eric_Prydz_Remix).mp3
+Jan 16 16:50 : update: removing stzzy_-_beats_to_sleep_to_part_II_(lofi_hip-hop_mix).mp3
+Jan 16 16:50 : update: removing Suken_-_Lift_Off.mp3
+Jan 16 16:50 : update: removing Taeko_Ohnuki_-_4_00_AM_-_1978.mp3
+Jan 16 16:50 : update: removing Technovision_Steins;Gate_VN_Insert_song.mp3
+Jan 16 16:50 : update: removing The_Lonely_One.mp3
+Jan 16 16:50 : update: removing The_World_God_Only_Knows_OST_-_01_-_Koi_~_Kuchizuke_Made_no_Kyori_(Main_Theme).mp3
+Jan 16 16:50 : update: removing Thomas_Bangalter_-_Ventura.mp3
+Jan 16 16:50 : update: removing toj_-_midnight.mp3
+Jan 16 16:50 : update: removing TPR_-_The_End_Of_Time_-_Melancholy_Music_From_Chrono_Trigger_(2015)_Full_Album.mp3
+Jan 16 16:50 : update: removing Trailerpark_-_Bleib_in_der_Schule_(_prod._by_Tai_Jason).mp3
+Jan 16 16:50 : update: removing Vanilla_-_Blue_Sun.mp3
+Jan 16 16:50 : update: removing Vantage___-_Breaking_Away.mp3
+Jan 16 16:50 : update: removing Weirddough_-_Ladybird.mp3
+Jan 16 16:50 : update: removing Олеся_-_Прыгай_вниз.mp3
+Jan 16 16:50 : update: removing ミカヅキBIGWAVE_-_Magical_Candy.mp3
+Jan 16 16:50 : update: removing 玖壹壹(Nine_one_one)-嘻哈庄腳情_官方MV首播.mp3
+Jan 16 16:50 : update: added /Danger - 11h30 (DatA Remix).mp3
+Jan 16 16:50 : update: added /stzzy - beats to sleep to part II (lofi hip-hop mix).mp3
+Jan 16 16:50 : update: added /Fi7i - I just wanna run.mp3
+Jan 16 16:50 : update: added /Der Schmeisser & Timo Jahns - Schoene Zeit (Timo Jahns Remix).mp3
+Jan 16 16:50 : update: added /Vanilla - Blue Sun.mp3
+Jan 16 16:50 : update: added /Technovision Steins;Gate VN Insert song.mp3
+Jan 16 16:50 : update: updating /Kylie_Minogue_-_Love_At_First_Sight_(Kid_Creme_Vocal_Dub)_(2002).mp3
+Jan 16 16:50 : update: added /Gwen Guthrie - It Should Have Been You (Original 12'' Version).mp3
+Jan 16 16:50 : update: added /CloZee - Koto.mp3
+Jan 16 16:50 : update: added /Matsura - Heart.mp3
+Jan 16 16:50 : update: added /玖壹壹(Nine one one)-嘻哈庄腳情 官方MV首播.mp3
+Jan 16 16:50 : update: added /Alice Deejay - Will I Ever.mp3
+Jan 16 16:50 : update: added /C h i n s a k u - Where U Are.mp3
+Jan 16 16:50 : update: updating /Desired_-_Eyes_On_Me.mp3
+Jan 16 16:50 : update: updating /Desired_-_Digital_Love.mp3
+Jan 16 16:50 : update: added /nochi - warm stares.mp3
+Jan 16 16:50 : update: added /Mona Haydar - Hijabi (Wrap my Hijab).mp3
+Jan 16 16:50 : update: added /Taeko Ohnuki - 4 00 AM - 1978.mp3
+Jan 16 16:50 : update: added /Steve Angello - Voices (Eric Prydz Remix).mp3
+Jan 16 16:50 : update: added /Soulsearcher - Feelin' Love (Original Mix) (2003).mp3
+Jan 16 16:50 : update: added /Miami Sound Machine - Dr  Beat.mp3
+Jan 16 16:50 : update: updating /Foans_'Frontier'_-_Boiler_Room_Debuts.mp3
+Jan 16 16:50 : update: added /Starcadian - Sgt Tagowski.mp3
+Jan 16 16:50 : update: added /Bingo Players - Cry (Just A Little) (A-Trak and Phantoms Remix) [Official Music Video].mp3
+Jan 16 16:50 : update: added /SKIBBLEZ - Always Yours 永遠に.mp3
+Jan 16 16:50 : update: added /The World God Only Knows OST - 01 - Koi ~ Kuchizuke Made no Kyori (Main Theme).mp3
+Jan 16 16:50 : update: added /Heatbeat - Bondi (Extended Mix).mp3
+Jan 16 16:50 : update: added /ONUKA - Other ft. NAONI Orchestra.mp3
+Jan 16 16:50 : update: added /Panthurr - Woof Pt. 2 (Feat. Birocratic).mp3
+Jan 16 16:50 : update: added /Francesca Michielin - No Degree of Separation (Italy) 2016 Eurovision Song Contest.mp3
+Jan 16 16:50 : update: added /Trailerpark - Bleib in der Schule ( prod. by Tai Jason).mp3
+Jan 16 16:50 : update: added /Hadouken - Oxygen (Gemini Remix).mp3
+Jan 16 16:50 : update: updating /Marshall_&_Baldo_-_Swahili_Song_(Original_Mix).mp3
+Jan 16 16:50 : update: added /Paul Arcane & Sodality - Alpha ( Original Mix ) OUT NOW.mp3
+Jan 16 16:50 : update: added /REOL -「mede -mede」.mp3
+Jan 16 16:50 : update: added /Khadijah Ibrahim - Ku Ingin Lari.mp3
+Jan 16 16:50 : update: added /bonnie dobson - winter's going (1969).mp3
+Jan 16 16:50 : update: added /Pizzicato Five-Baby Love Child.mp3
+Jan 16 16:50 : update: added /sincerely,yours - yeyeye.mp3
+Jan 16 16:50 : update: added /Night Tempo - Dance.mp3
+Jan 16 16:50 : update: added /[Hands Up] Alphascan - Crazy In Love (Radio Edit).mp3
+Jan 16 16:50 : update: added /Andy Moor & Lange present Stadium4 - Unity (Extended Mix).mp3
+Jan 16 16:50 : update: added /Aphrodite's Child - End Of The World (with lyrics).mp3
+Jan 16 16:50 : update: updating /Desired_-_Every_Part_of_Me_Loves_You_Bae.mp3
+Jan 16 16:50 : update: added /Death Note - Light's Theme (RUDE Remix).mp3
+Jan 16 16:50 : update: added /MIki Matsubara - 真夜中のドア   Stay with me.mp3
+Jan 16 16:50 : update: added /Lola Disco ☀ - All The Time.mp3
+Jan 16 16:50 : update: added /TPR - The End Of Time - Melancholy Music From Chrono Trigger (2015) Full Album.mp3
+Jan 16 16:50 : update: added /Suken - Lift Off.mp3
+Jan 16 16:50 : update: added /Chrome Sparks - Marijuana.mp3
+Jan 16 16:50 : update: added /Jody Wisternoff - Starstrings (Dabruck Klein Mix).mp3
+Jan 16 16:50 : update: updating /Koopsta_Knicca_-_Front_A_Busta.mp3
+Jan 16 16:50 : update: added /toj - midnight.mp3
+Jan 16 16:50 : update: updating /Desired_-_Tropical_Adventure.mp3
+Jan 16 16:50 : update: added /P.SUS - All Over Again.mp3
+Jan 16 16:50 : update: added /Cannibal Holocaust - Opening Theme Music (Riz Ortolani).mp3
+Jan 16 16:50 : update: added /Foans - Dwells.mp3
+Jan 16 16:50 : update: added /Weirddough - Ladybird.mp3
+Jan 16 16:50 : update: added /Neon Indian - Slumlord Rising (Music Video).mp3
+Jan 16 16:50 : update: added /ミカヅキBIGWAVE - Magical Candy.mp3
+Jan 16 16:50 : update: added /Anri - Remember Summer Days (マクロスMACROSS 82-99 Bootleg).mp3
+Jan 16 16:50 : update: added /Alphascan - Running Out of Time (Radio Edit).mp3
+Jan 16 16:50 : update: added /Barthezz - On The Move (Official Music Video).mp3
+Jan 16 16:50 : update: added /Vantage - Breaking Away.mp3
+Jan 16 16:50 : update: added /DOTA - Grenzen (live Session).mp3
+Jan 16 16:50 : update: updating /Desired_-_Sayonara.mp3
+Jan 16 16:50 : update: added /Crystal Castles - Kept.mp3
+Jan 16 16:50 : update: added /Daniel Hoppe - Star (2-4 Grooves Radio Mix).mp3
+Jan 16 16:50 : update: added /RoBKTA - Arrabbiata.mp3
+Jan 16 16:50 : update: updating /Desired_-_Get_Rdy.mp3
+Jan 16 16:50 : update: added /Afro Medusa - Pasilda - Knee Deep Remix.mp3
+Jan 16 16:50 : update: updating /Desired_-_Love_Is_Gone_(Feat._悲しい_Android_-_Apartment).mp3
+Jan 16 16:50 : update: added /Soul Reductions - Got 2 Be Loved (2017).mp3
+Jan 16 16:50 : update: added /Cut Copy - Hearts On Fire (Knightlife Remix).mp3
+Jan 16 16:50 : update: added /Mai Yamane - Tasogare - 1980.mp3
+Jan 16 16:50 : update: added /Kana Hanazawa - Merry go Round.mp3
+Jan 16 16:50 : update: added /Ranji & Blastoyz - Zoom (Original Mix).mp3
+Jan 16 16:50 : update: added /Gimbal & Sinan - Sound Of It (Original Mix).mp3
+Jan 16 16:50 : update: added /Britney Spears - You Drive Me Crazy (2-4 Grooves Attracion Remake).mp3
+Jan 16 16:50 : update: added /Marissa Nadler- Diamond Heart.mp3
+Jan 16 16:50 : update: added /j^p^n - bloom. [].mp3
+Jan 16 16:50 : update: added /Nuclear - Mike Oldfield.mp3
+Jan 16 16:50 : update: updating /Desired_-_Lost.mp3
+Jan 16 16:50 : update: added /The Lonely One.mp3
+Jan 16 16:50 : update: added /【紅魔郷ヴォーカル】FELT   「Brilliant World   Vocal Main Mix  」.mp3
+Jan 16 16:50 : update: updating /Desired_-_For_You.mp3
+Jan 16 16:50 : update: added /La Funk Star (Sébastien Léger) - Minimalist Part 3 (1999).mp3
+Jan 16 16:50 : update: added /Thomas Bangalter - Ventura.mp3
+Jan 16 16:50 : update: updating /Uffie_-_Pop_The_Glock_(SebastiAn_Remix).mp3
+Jan 16 16:50 : update: added /Boulevards - Forgot to Mention (prod. Isaac Galvez).mp3
+Jan 16 16:50 : update: added /La Funk Star (Sébastien Léger) - Minimalist Part 4 (1999).mp3
+Jan 16 16:50 : update: added /No Angels - Atlantis.mp3
+Jan 16 16:50 : update: added /Receptor - Beautiful Lie.mp3
+Jan 16 16:50 : update: added /Full Intention Presents Deepdown - Give Me Your Love (Club Mix) (1999).mp3
+Jan 16 16:50 : update: added /kinder vs paps'n'skar - funny day ( dota heroes version ).mp3
+Jan 16 16:50 : update: added /Nummer Eins - Stereoact (Flashback One Remix).mp3
+Jan 16 16:50 : update: added /Олеся - Прыгай вниз.mp3
+Jan 16 16:50 : update: added /Kid Crème - Hypnotising (Original Mix) (2003).mp3
+Jan 16 16:50 : update: updating /Joe_Maker_-_Minimal_Happiness_(_Original_Mix_).mp3
+Jan 16 16:50 : update: updating /Desired_-_Lose_It.mp3
+Jan 16 16:50 : update: added /City Pop シティーポップ 2.mp3
+Jan 16 16:50 : update: added /Like This - S3RL feat Krystal (and Slendy).mp3
+Jan 16 16:50 : update: added /Divna et le Choeur Melodi - Ô Vierge Sainte, réjouis-toi (Luc 1, 28-42).mp3
+Jan 16 16:50 : update: added /Miami Horror - Grand Illusion (official 'Illumination' album listening post).mp3
+Jan 16 16:50 : update: added /Sam Gellaitry - Ceremony.mp3
+Jan 16 16:50 : update: added /Indila - S.O.S.mp3
+Jan 16 16:50 : update: added /Night Tempo センパイ - Night Cruising.mp3
+Jan 16 16:50 : update: added /Gadjo - So Many Times.mp3
+Jan 16 16:50 : update: added /Dihaj - Skeletons (Azerbaijan) Eurovision 2017 - Official Music Video.mp3
+Jan 16 16:50 : update: added /chuckee_ - clouds. [Full EP].mp3
+Jan 16 16:50 : update: added /Rittz - Heaven (Feat. Yelawolf).mp3
+Jan 16 16:50 : update: added /Stefano Noferini - Move Your Body Original Mix.mp3
+Jan 16 16:50 : update: added /JavanDee - Final Escape (dantini. Remix).mp3
+Jan 16 16:51 : player: played "Afro Medusa - Pasilda - Knee Deep Remix.mp3"
+Jan 16 17:49 : player: played "Afro Medusa - Pasilda - Knee Deep Remix.mp3"
+Jan 16 17:49 : player: played "Afro Medusa - Pasilda - Knee Deep Remix.mp3"
+Jan 16 20:48 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Jan 16 20:48 : player: played "[Hands Up] Alphascan - Crazy In Love (Radio Edit).mp3"
+Jan 16 20:52 : player: played "Britney Spears - You Drive Me Crazy (2-4 Grooves Attracion Remake).mp3"
+Jan 16 20:52 : player: played "Britney Spears - You Drive Me Crazy (2-4 Grooves Attracion Remake).mp3"
+Jan 16 20:56 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Jan 16 20:57 : player: played "Alphascan - Running Out of Time (Radio Edit).mp3"
+Jan 16 21:00 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Jan 16 21:00 : player: played "Desired_-_Lost.mp3"
+Jan 16 21:02 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Jan 16 21:02 : player: played "bonnie dobson - winter's going (1969).mp3"
+Jan 16 21:07 : player: played "Anri - Remember Summer Days (マクロスMACROSS 82-99 Bootleg).mp3"
+Jan 16 21:13 : player: played "Britney Spears - You Drive Me Crazy (2-4 Grooves Attracion Remake).mp3"
+Jan 16 21:17 : player: played "Barthezz - On The Move (Official Music Video).mp3"
+Jan 16 21:20 : player: played "[Hands Up] Alphascan - Crazy In Love (Radio Edit).mp3"
+Jan 16 21:23 : player: played "Bingo Players - Cry (Just A Little) (A-Trak and Phantoms Remix) [Official Music Video].mp3"
+Jan 16 21:25 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Jan 16 21:26 : player: played "Boulevards - Forgot to Mention (prod. Isaac Galvez).mp3"
+Jan 16 21:30 : player: played "【紅魔郷ヴォーカル】FELT   「Brilliant World   Vocal Main Mix  」.mp3"
+Jan 16 21:36 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Jan 16 21:37 : player: played "Afro Medusa - Pasilda - Knee Deep Remix.mp3"
+Jan 16 21:40 : player: played "Alice Deejay - Will I Ever.mp3"
+Jan 16 21:47 : player: played "Anri - Remember Summer Days (マクロスMACROSS 82-99 Bootleg).mp3"
+Jan 16 21:52 : player: played "Afro Medusa - Pasilda - Knee Deep Remix.mp3"
+Jan 16 21:57 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Jan 16 21:58 : player: played "Gimbal & Sinan - Sound Of It (Original Mix).mp3"
+Jan 16 22:01 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Jan 16 22:01 : player: played "Aphrodite's Child - End Of The World (with lyrics).mp3"
+Jan 16 22:04 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Jan 16 22:04 : player: played "Alphascan - Running Out of Time (Radio Edit).mp3"
+Jan 16 22:13 : player: played "Death Note - Light's Theme (RUDE Remix).mp3"
+Jan 16 22:17 : player: played "[Hands Up] Alphascan - Crazy In Love (Radio Edit).mp3"
+Jan 16 22:21 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Jan 16 22:21 : player: played "Death Note - Light's Theme (RUDE Remix).mp3"
+Jan 16 22:28 : player: played "Foans_'Frontier'_-_Boiler_Room_Debuts.mp3"
+Jan 16 22:28 : player: played "Alice Deejay - Will I Ever.mp3"
+Jan 31 10:25 : avahi: Service 'Music Player' successfully established.
+Jan 31 10:32 : avahi: Client Disconnected, will reconnect shortly
+Jan 31 10:34 : avahi: Service 'Music Player' successfully established.
+Jan 31 12:38 : avahi: Service 'Music Player' successfully established.
+Jan 31 12:47 : avahi: Service 'Music Player' successfully established.
+Jan 31 14:17 : avahi: Service 'Music Player' successfully established.
+Jan 31 18:16 : avahi: Service 'Music Player' successfully established.
+Jan 31 18:37 : avahi: Client Disconnected, will reconnect shortly
+Jan 31 18:49 : avahi: Service 'Music Player' successfully established.
+Jan 31 20:13 : avahi: Service 'Music Player' successfully established.
+Feb 01 18:33 : avahi: Service 'Music Player' successfully established.
+Feb 01 20:56 : avahi: Service 'Music Player' successfully established.
+Feb 01 23:27 : avahi: Service 'Music Player' successfully established.
+Feb 02 15:07 : avahi: Service 'Music Player' successfully established.
+Feb 02 20:43 : avahi: Service 'Music Player' successfully established.
+Feb 03 13:19 : avahi: Service 'Music Player' successfully established.
+Feb 03 17:23 : avahi: Service 'Music Player' successfully established.
+Feb 03 18:43 : avahi: Service 'Music Player' successfully established.
+Feb 03 19:22 : avahi: Client Disconnected, will reconnect shortly
+Feb 03 22:55 : avahi: Service 'Music Player' successfully established.
+Feb 04 15:16 : avahi: Service 'Music Player' successfully established.
+Feb 04 18:30 : avahi: Service 'Music Player' successfully established.
+Feb 04 21:51 : avahi: Service 'Music Player' successfully established.
+Feb 05 14:39 : avahi: Service 'Music Player' successfully established.
+Feb 05 21:00 : avahi: Service 'Music Player' successfully established.
+Feb 06 12:34 : avahi: Service 'Music Player' successfully established.
+Feb 06 15:32 : avahi: Service 'Music Player' successfully established.
+Feb 06 19:01 : avahi: Service 'Music Player' successfully established.
+Feb 06 19:52 : avahi: Service 'Music Player' successfully established.
+Feb 06 21:18 : avahi: Client Disconnected, will reconnect shortly
+Feb 06 22:12 : avahi: Service 'Music Player' successfully established.
+Feb 06 22:19 : avahi: Service 'Music Player' successfully established.
+Feb 06 22:22 : avahi: Client Disconnected, will reconnect shortly
+Feb 07 10:56 : avahi: Service 'Music Player' successfully established.
+Feb 07 20:28 : avahi: Service 'Music Player' successfully established.
+Feb 08 11:08 : avahi: Service 'Music Player' successfully established.
+Feb 08 11:37 : avahi: Service 'Music Player' successfully established.
+Feb 08 16:19 : avahi: Service 'Music Player' successfully established.
+Feb 08 17:47 : avahi: Service 'Music Player' successfully established.
+Feb 08 23:06 : avahi: Service 'Music Player' successfully established.
+Feb 08 23:57 : avahi: Service 'Music Player' successfully established.
+Feb 09 05:00 : avahi: Service 'Music Player' successfully established.
+Feb 09 05:38 : avahi: Service 'Music Player' successfully established.
+Feb 13 18:39 : avahi: Service 'Music Player' successfully established.
+Feb 15 16:44 : avahi: Service 'Music Player' successfully established.
+Feb 15 16:53 : avahi: Client Disconnected, will reconnect shortly
+Feb 15 16:54 : avahi: Service 'Music Player' successfully established.
+Feb 16 15:40 : avahi: Service 'Music Player' successfully established.
+Feb 16 19:23 : avahi: Client Disconnected, will reconnect shortly
+Feb 17 10:16 : avahi: Service 'Music Player' successfully established.
+Feb 17 15:40 : avahi: Service 'Music Player' successfully established.
+Feb 17 17:00 : avahi: Service 'Music Player' successfully established.
+Feb 18 12:53 : avahi: Service 'Music Player' successfully established.
+Feb 18 16:48 : avahi: Service 'Music Player' successfully established.
+Feb 19 11:38 : avahi: Service 'Music Player' successfully established.
+Feb 19 18:51 : avahi: Service 'Music Player' successfully established.
+Feb 20 13:46 : avahi: Service 'Music Player' successfully established.
+Feb 20 16:20 : avahi: Service 'Music Player' successfully established.
+Feb 21 14:21 : avahi: Service 'Music Player' successfully established.
+Feb 21 16:26 : avahi: Service 'Music Player' successfully established.
+Feb 22 09:34 : avahi: Service 'Music Player' successfully established.
+Feb 22 13:02 : avahi: Service 'Music Player' successfully established.
+Feb 22 14:09 : avahi: Service 'Music Player' successfully established.
+Feb 22 15:19 : avahi: Service 'Music Player' successfully established.
+Feb 22 15:23 : avahi: Service 'Music Player' successfully established.
+Feb 22 17:09 : avahi: Service 'Music Player' successfully established.
+Feb 23 10:03 : avahi: Service 'Music Player' successfully established.
+Feb 23 19:11 : avahi: Service 'Music Player' successfully established.
+Feb 24 08:45 : avahi: Service 'Music Player' successfully established.
+Feb 24 09:00 : avahi: Service 'Music Player' successfully established.
+Feb 24 09:51 : avahi: Service 'Music Player' successfully established.
+Feb 24 13:16 : avahi: Service 'Music Player' successfully established.
+Feb 24 17:44 : avahi: Client Disconnected, will reconnect shortly
+Feb 24 18:39 : avahi: Service 'Music Player' successfully established.
+Feb 25 10:36 : avahi: Service 'Music Player' successfully established.
+Feb 25 16:20 : avahi: Service 'Music Player' successfully established.
+Feb 25 18:17 : avahi: Service 'Music Player' successfully established.
+Feb 26 11:30 : avahi: Service 'Music Player' successfully established.
+Feb 26 12:19 : avahi: Service 'Music Player' successfully established.
+Feb 26 16:22 : avahi: Service 'Music Player' successfully established.
+Feb 26 17:08 : avahi: Service 'Music Player' successfully established.
+Feb 26 18:11 : avahi: Service 'Music Player' successfully established.
+Feb 27 09:22 : avahi: Service 'Music Player' successfully established.
+Feb 27 11:04 : avahi: Service 'Music Player' successfully established.
+Feb 27 11:12 : avahi: Client Disconnected, will reconnect shortly
+Feb 27 11:34 : avahi: Service 'Music Player' successfully established.
+Feb 27 13:41 : avahi: Service 'Music Player' successfully established.
+Feb 27 18:15 : avahi: Service 'Music Player' successfully established.
+Feb 28 08:16 : avahi: Service 'Music Player' successfully established.
+Feb 28 08:23 : avahi: Client Disconnected, will reconnect shortly
+Feb 28 11:19 : avahi: Service 'Music Player' successfully established.
+Feb 28 15:44 : avahi: Service 'Music Player' successfully established.
+Mar 01 14:38 : avahi: Service 'Music Player' successfully established.
+Mar 01 15:08 : avahi: Service 'Music Player' successfully established.
+Mar 01 18:56 : avahi: Client Disconnected, will reconnect shortly
+Mar 01 22:08 : avahi: Service 'Music Player' successfully established.
+Mar 02 08:18 : avahi: Service 'Music Player' successfully established.
+Mar 02 11:51 : avahi: Service 'Music Player' successfully established.
+Mar 02 15:58 : avahi: Client Disconnected, will reconnect shortly
+Mar 02 19:49 : avahi: Service 'Music Player' successfully established.
+Mar 03 10:08 : avahi: Service 'Music Player' successfully established.
+Mar 03 14:31 : avahi: Service 'Music Player' successfully established.
+Mar 05 10:16 : avahi: Service 'Music Player' successfully established.
+Mar 05 18:56 : avahi: Service 'Music Player' successfully established.
+Mar 06 08:11 : avahi: Service 'Music Player' successfully established.
+Mar 06 11:30 : avahi: Service 'Music Player' successfully established.
+Mar 06 11:50 : avahi: Service 'Music Player' successfully established.
+Mar 06 12:33 : avahi: Client Disconnected, will reconnect shortly
+Mar 06 12:33 : avahi: Service 'Music Player' successfully established.
+Mar 06 12:57 : avahi: Service 'Music Player' successfully established.
+Mar 06 12:57 : avahi: Client Disconnected, will reconnect shortly
+Mar 06 12:57 : avahi: Service 'Music Player' successfully established.
+Mar 06 14:57 : avahi: Service 'Music Player' successfully established.
+Mar 06 15:03 : avahi: Client Disconnected, will reconnect shortly
+Mar 06 17:32 : avahi: Service 'Music Player' successfully established.
+Mar 07 10:16 : avahi: Service 'Music Player' successfully established.
+Mar 07 11:12 : avahi: Service 'Music Player' successfully established.
+Mar 07 19:05 : avahi: Service 'Music Player' successfully established.
+Mar 07 19:08 : avahi: Client Disconnected, will reconnect shortly
+Mar 08 08:46 : avahi: Service 'Music Player' successfully established.
+Mar 08 10:12 : player: played "【紅魔郷ヴォーカル】FELT   「Brilliant World   Vocal Main Mix  」.mp3"
+Mar 08 10:51 : player: played "Afro Medusa - Pasilda - Knee Deep Remix.mp3"
+Mar 08 11:01 : player: played "C h i n s a k u - Where U Are.mp3"
+Mar 08 11:03 : player: played "Gadjo - So Many Times.mp3"
+Mar 08 11:04 : player: played "Bingo Players - Cry (Just A Little) (A-Trak and Phantoms Remix) [Official Music Video].mp3"
+Mar 08 11:08 : player: played "Alphascan - Running Out of Time (Radio Edit).mp3"
+Mar 08 11:11 : player: played "C h i n s a k u - Where U Are.mp3"
+Mar 08 11:17 : player: played "Afro Medusa - Pasilda - Knee Deep Remix.mp3"
+Mar 08 11:20 : player: played "bonnie dobson - winter's going (1969).mp3"
+Mar 08 11:21 : player: played "Bingo Players - Cry (Just A Little) (A-Trak and Phantoms Remix) [Official Music Video].mp3"
+Mar 08 11:26 : player: played "Anri - Remember Summer Days (マクロスMACROSS 82-99 Bootleg).mp3"
+Mar 08 11:32 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Mar 08 11:32 : player: played "Barthezz - On The Move (Official Music Video).mp3"
+Mar 08 11:33 : player: played "Anri - Remember Summer Days (マクロスMACROSS 82-99 Bootleg).mp3"
+Mar 08 11:34 : player: played "Alphascan - Running Out of Time (Radio Edit).mp3"
+Mar 08 11:37 : player: played "Foans - Dwells.mp3"
+Mar 08 11:40 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Mar 08 11:41 : player: played "Foans - Dwells.mp3"
+Mar 08 11:42 : player: played "Gwen Guthrie - It Should Have Been You (Original 12'' Version).mp3"
+Mar 08 11:45 : player: played "Desired_-_Digital_Love.mp3"
+Mar 08 11:49 : player: played "Technovision Steins;Gate VN Insert song.mp3"
+Mar 08 11:54 : player: played "Uffie_-_Pop_The_Glock_(SebastiAn_Remix).mp3"
+Mar 08 11:58 : player: played "Desired_-_Eyes_On_Me.mp3"
+Mar 08 12:02 : player: played "Desired_-_Love_Is_Gone_(Feat._悲しい_Android_-_Apartment).mp3"
+Mar 08 12:04 : cross_fade: audio_buffer_size too small for computed MixRamp overlap
+Mar 08 12:04 : player: played "Desired_-_Get_Rdy.mp3"
+Mar 08 12:05 : player: played "Desired_-_Love_Is_Gone_(Feat._悲しい_Android_-_Apartment).mp3"
+Mar 08 12:30 : player: played "Desired_-_Love_Is_Gone_(Feat._悲しい_Android_-_Apartment).mp3"
