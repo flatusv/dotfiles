@@ -28,7 +28,7 @@ bindsym $mod+d                  kill
 #to change active workspace color edit $accent-color
 # ~~~~~~~~~~~~~~~~~~~~~~~~
 set $main-color                  #170F0D
-set $accent-color                #00ffcc
+set $accent-color                #A2D9B1
 set $border-color                #C2BFA5
 set $secondary-color             #141210
 set $text-color                  #acafa9
@@ -205,13 +205,14 @@ bindsym $win+Down exec "amixer set Master 5%-"
 bindsym $win+p exec playerctl play-pause
 bindsym $win+Right exec playerctl next
 bindsym $win+Left exec playerctl previous
-#bindsym $mod+m exec mpd
+# bindsym $win+f exec playerctl position 5+
+# bindsym $win+b exec playerctl position 5-
+
 
 
 
 # Autostart
 exec ~/.config/i3/dbus.sh     # i3 widgets (such as battery status) 
-exec mpd
 exec_always xrdb ~/.Xresources # needed for rofi launcher
 exec xset -b #disable bell sound
 exec_always xset -dpms
@@ -228,7 +229,7 @@ for_window [class="Spotify"] move to workspace $ws5
 for_window [class="Steam"] move to workspace $ws6
 for_window [class="Steam"] no_focus
 for_window [class="dota2"] fullscreen enable
-
+focus_on_window_activation focus
 
 
 
