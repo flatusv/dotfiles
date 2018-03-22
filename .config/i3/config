@@ -74,7 +74,7 @@ bindsym $mod+a exec rofi -show drun
     set $ws3 " 3:pcmanfm "
     set $ws4 " 4:study "
     set $ws5 " 5:misc "
-    set $ws6 " 6:dota2 "
+    set $ws6 " 6:vim "
     bindsym $mod+1 workspace $ws1
     bindsym $mod+2 workspace $ws2
     bindsym $mod+3 workspace $ws3
@@ -107,7 +107,7 @@ client.urgent                   $main-color           $border-color         $sec
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf 
     position top
-    font pango:xos4 Terminus 8
+    font pango:xos4 Terminus
      # tray_output none # uncomment to disable tray icons. Other arguments are: primary/none
      colors {
         background $main-color
@@ -139,13 +139,14 @@ bindsym $win+Shift+r exec killall ffmpeg # always run this after issuing the key
 
 
 # Power menu
-set $sysmenu " log[o]ut - po[w]eroff - [r]eboot - [l]ock "
+set $sysmenu " log[o]ut - po[w]eroff - [r]eboot - [l]ock - [s]uspend"
 bindsym $mod+Shift+e      mode $sysmenu
 
 mode $sysmenu {
     bindsym o         exit
     bindsym w         exec "systemctl poweroff"
     bindsym r         exec "systemctl reboot"
+    bindsym s         exec "systemctl suspend"
     
     # from: https://github.com/pavanjadhaw/betterlockscreen
     bindsym l         exec "betterlockscreen -l dim" 
@@ -159,8 +160,8 @@ set $screenshot Launch: [s]crot # Take screenshots: [s]ave locally, [c]opy to cl
 bindsym $win+s mode "$screenshot"
 
 mode "$screenshot" {
-    bindsym --release s exec "scrot -s ~/media/screenshots/shot-$(date +%F_%T).png -q 100 -e 'xclip -selection c -t image/png < $f'"
-    bindsym --release c exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+    bindsym --release s exec "scrot -s ~/media/screenshots/$(date '+%d-%b-%Y_%H-%M').png -q 100 -e 'xclip -selection c -t image/png < $f'"
+    bindsym --release c exec "scrot -s /tmp/screenshot-$(date '+%d-%b-%Y_%H-%M').png -e 'xclip -selection c -t image/png < $f'"
     
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -226,10 +227,11 @@ for_window [class="^.*"] border pixel 5
 for_window [class="^.*"] focus
 # for_window [class=".*"] title_format "<span font='tewi 8'> </span>"
 for_window [class="Spotify"] move to workspace $ws5
-for_window [class="Steam"] move to workspace $ws6
-for_window [class="Steam"] no_focus
-for_window [class="dota2"] fullscreen enable
-focus_on_window_activation focus
+for_window [class="jetbrains-idea-ce"] move to workspace $ws6
+# for_window [class="Steam"] move to workspace $ws6
+# for_window [class="Steam"] no_focus
+# for_window [class="dota2"] fullscreen enable
+# focus_on_window_activation focus
 
 
 
