@@ -1,5 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Sections: 
+" Section:
 " -> General [23 - 74]
 " -> Plugins: Vundle, etc.                  [ 74 - 85]
 " -> VIM user interface                     [ 99 - 148]
@@ -18,12 +18,9 @@
 " -> Custom Keybinds                        [470 - end] 
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"execute pathogen#infect()
 
 " Start in Insert mode
 start
@@ -77,6 +74,7 @@ set path+=**                " provides tab completion for all file related tasks
 
 :se mouse+=a                " don't select line numbers with the mouse
 
+set completeopt=longest,menuone
 
 
 
@@ -92,13 +90,16 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-commentary.git' " simple comment/uncomment plugin
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
-" Plugin 'gerw/vim-latex-suite',
-" Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'alvan/vim-closetag'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat' 
+
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html'
 
 " Change the default mapping and the default command to invoke CtrlP:
 let g:ctrlp_map = '<c-p>'
@@ -108,30 +109,10 @@ let g:ctrlp_cmd = 'CtrlP'
 " tagbar toggle, very usefull for editing large files
 nnoremap <silent> <leader>t :TagbarToggle<CR>
 
-" to comment the filetype of choice, replace commentstring by the extension
-" autocmd FileType apache setlocal commentstring=#\ %s
-
-
-"let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
-
-" make vim suitable for LaTeX
-" let g:tex_flavor='latex' "required for latex suite 
-" let g:Tex_DefaultTargetFormat = 'pdf'
-" let g:Tex_MultipleCompileFormats='pdf, aux'
-" let g:Tex_FoldedSections=""
-" let g:Tex_FoldedEnvironments=""
-" let g:Tex_FoldedMisc=""
-
-
-
-" A Vim Plugin for Lively Previewing LaTeX PDF Output
-" let g:livepreview_previewer = 'zathura'
-" nmap <leader>l :LLPStartPreview<CR>
 
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"  " currently setup to code in C
-" let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_key_list_stop_completion = ['<Enter>']
 " let g:ycm_key_list_select_completion=[]
 " let g:ycm_key_list_previous_completion=[]
 
@@ -305,18 +286,6 @@ set laststatus=2
 " Format the status line
 hi StatusLine ctermfg=black ctermbg=green cterm=NONE
 
-" set statusline=\ \                 " Padding
-" set statusline+=%F                  " Path to the file
-" set statusline+=\ %1*%2*\         " Separator
-" set statusline+=%y                  " File type
-" set statusline+=\ %3*%4*\         " Separator
-" set statusline+=%=                  " Switch to right-side
-" set statusline+=\ %5*%6*\         " Separator
-" set statusline+=%p%%                " Line percent
-" set statusline+=\ %7*%8*\         " Separator
-" set statusline+=%l/%L               " Current line
-" set statusline+=\ \                 " Padding
-
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\%y\ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l/%L\ \%=\%p%%
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -336,64 +305,17 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 
-" function SmoothScroll(up)
-"     if a:up
-"         let scrollaction=""
-"     else
-"         let scrollaction=""
-"     endif
-"     exec "normal " . scrollaction
-"     redraw
-"     let counter=1
-"     while counter<&scroll
-"         let counter+=1
-"         sleep 10m
-"         redraw
-"         exec "normal " . scrollaction
-"     endwhile
-" endfunction
-" 
-" nnoremap <C-U> :call SmoothScroll(1)<Enter>
-" nnoremap <C-D> :call SmoothScroll(0)<Enter>
-" inoremap <C-U> <Esc>:call SmoothScroll(1)<Enter>i
-" inoremap <C-D> <Esc>:call SmoothScroll(0)<Enter>i
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
+autocmd VimEnter * WipeReg
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" function! CmdLine(str)
-"     exe "menu Foo.Bar :" . a:str
-"     emenu Foo.Bar
-"     unmenu Foo
-" endfunction
-
-" function! VisualSelection(direction, extra_filter) range
-"     let l:saved_reg = @"
-"     execute "normal! vgvy"
-
-"     let l:pattern = escape(@", '\\/.*$^~[]')
-"     let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-"     if a:direction == 'b'
-"         execute "normal ?" . l:pattern . "^M"
-"     elseif a:direction == 'gv'
-"         call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.' . a:extra_filter)
-"     elseif a:direction == 'replace'
-"         call CmdLine("%s" . '/'. l:pattern . '/')
-"     elseif a:direction == 'f'
-"         execute "normal /" . l:pattern . "^M"
-"     endif
-
-"     let @/ = l:pattern
-"     let @" = l:saved_reg
-" endfunction
-
 
 " Returns true if paste mode is enabled
 function! HasPaste()
@@ -475,69 +397,6 @@ function! OpenLastBufferInNewTab()
 endfunction
 
 
-
-"function! g:UltiSnips_Complete()
-"    call UltiSnips#ExpandSnippet()
-"    if g:ulti_expand_res == 0
-"        if pumvisible()
-"            return "\<C-n>"
-"        else
-"            call UltiSnips#JumpForwards()
-"            if g:ulti_jump_forwards_res == 0
-"               return "\<TAB>"
-"            endif
-"        endif
-"    endif
-"    return ""
-"endfunction
-"
-"au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-"let g:UltiSnipsJumpForwardTrigger="<tab>"
-"let g:UltiSnipsListSnippets="<c-e>"
-" this mapping Enter key to <C-y> to chose the current highlight item
-" and close the selection list, same as other IDEs.
-" CONFLICT with some plugins like tpope/Endwise
-
-
-function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res == 0
-    if pumvisible()
-      return "\<C-n>"
-    else
-      call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
-        return "\<TAB>"
-      endif
-    endif
-  endif
-  return ""
-endfunction
-
-function! g:UltiSnips_Reverse()
-  call UltiSnips#JumpBackwards()
-  if g:ulti_jump_backwards_res == 0
-    return "\<C-P>"
-  endif
-
-  return ""
-endfunction
-
-
-if !exists("g:UltiSnipsJumpForwardTrigger")
-  let g:UltiSnipsJumpForwardTrigger = "<tab>"
-endif
-
-if !exists("g:UltiSnipsJumpBackwardTrigger")
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-endif
-
-au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
-au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
-
-
-" inoremap <expr> <CR> pumvisible() ? "\<C-y><tab>" : "\<CR>"
-
 """"""""""""""""""""
 " " Custom Keybinds
 """""""""""""""""""""
@@ -551,8 +410,8 @@ au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger 
  call CreateShortcut("C-e", "$<right>", "inv")
 "
 " " Ctrl S - Save
-" call CreateShortcut("C-s", ":w<enter>", "nv", "cmdInVisual", "restoreSelectionAfter")
-" call CreateShortcut("C-s", ":w<enter>i<right>", "i", "noTrailingIInInsert")
+call CreateShortcut("C-s", ":w<enter>", "nv", "cmdInVisual", "restoreSelectionAfter")
+call CreateShortcut("C-s", ":w<enter>i<right>", "i", "noTrailingIInInsert")
 "
 
 " " Ctrl H - Search and Replace
@@ -576,13 +435,12 @@ call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
 
 
  " compile and run C code from Vim with 'c99' flag
- nnoremap <silent> <leader>c :w <CR> :!clear;gcc -std=c99 % -o %< && ./%< <CR>
+ " nnoremap <silent> <leader>c :w <CR> :!clear;gcc -std=c99 % -o %< && ./%< <CR>
 
 
  " run a python code
  nnoremap <silent> <leader>p :w <CR> :!clear;python %<CR>
  
- nnoremap <silent> <leader>f :w <CR> :!clear;firefox %<CR>
 
  " pretty much the reverse of <c-w> in insert mode
  inoremap <C-d> <C-o>de
@@ -594,8 +452,18 @@ call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
  " waiting for you to type the number of a buffer and press <enter>
  nnoremap gb :ls<CR>:b<Space>
  
+" When auto complete is active make the enter key work as Ctrl-y
+" inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
+
+
+ " list the contents of all of your registers
+ " Tip: This makes it easy to paste the right content
+ " via '[registerValue]p'
+ nnoremap <silent> <leader>r :registers <CR>
  
- nnoremap ge :e<Space>**/*
+" Map Ctrl-Backspace to delete the previous word in insert mode.
+noremap! <C-BS> <C-w>
+noremap! <C-h>  <C-w>
 
  " vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 autocmd BufRead,BufNewFile   *.py ino " ""<left>
