@@ -13,7 +13,7 @@
 set $mod                        Mod1
 set $win                        Mod4 
 
-font pango:                     xos4 Terminus 8
+font pango:                     xos4 Terminus 9
 
 floating_modifier               $mod
 bindsym $mod+Return             exec termite
@@ -28,10 +28,10 @@ bindsym $mod+d                  kill
 #to change active workspace color edit $accent-color
 # ~~~~~~~~~~~~~~~~~~~~~~~~
 set $main-color                  #170F0D
-set $accent-color                #A2D9B1
+set $accent-color                #FFA000
 set $border-color                #C2BFA5
 set $secondary-color             #141210
-set $text-color                  #acafa9
+set $text-color                  #ffecb3
 set $faded-text-color            #DDDDDD
 
 # ~~~~
@@ -69,11 +69,11 @@ bindsym $mod+a exec rofi -show drun
 #---------- 
     
 
-    set $ws1 " 1:web "
+    set $ws1 " 1:web  "
     set $ws2 " 2:>_ "
-    set $ws3 " 3:pcmanfm "
-    set $ws4 " 4:study "
-    set $ws5 " 5:misc "
+    set $ws3 " 3:files  "
+    set $ws4 " 4:study  "
+    set $ws5 " 5:misc  "
     set $ws6 " 6:vim "
     bindsym $mod+1 workspace $ws1
     bindsym $mod+2 workspace $ws2
@@ -107,7 +107,7 @@ client.urgent                   $main-color           $border-color         $sec
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf 
     position top
-    font pango:xos4 Terminus
+    font pango:xos4 Terminus, Icons 9
      # tray_output none # uncomment to disable tray icons. Other arguments are: primary/none
      colors {
         background $main-color
@@ -131,11 +131,6 @@ bindsym $mod+ShiftLeft workspace prev
 bindsym $mod+e exec pcmanfm # filemanager
 # bindsym $mod+r exec termite -e ranger # cli filemanager
 
-
-# Record the screen
-bindsym $win+r exec ~/.config/i3/record.sh
-bindsym $win+Shift+r exec killall ffmpeg # always run this after issuing the keybind above!!!
-                                         # else you'll record forever, temporary solution   
 
 
 # Power menu
@@ -168,6 +163,7 @@ mode "$screenshot" {
   }
 
 
+
 # Dota2 mode 
 mode  "Dota2" {
         bindsym $mod+Shift+g mode "default"
@@ -178,14 +174,17 @@ bindsym $mod+Shift+g mode "Dota2"
 
 
 # easy on the eyes
-set $mode_redshift Launch: [r]edshift     # Good Night: [r]edshift, [q]uit redshift, [U]p screen brightness, [D]own screen brightness
-bindsym $win+n mode "$mode_redshift"
+set $mode_monitor Launch: [m]onitor # [r]edshift, [q]uit redshift, [m]onitor, [U]p screen brightness, [D]own screen brightness
+bindsym $win+n mode "$mode_monitor"
 
-mode "$mode_redshift" {
+mode "$mode_monitor" {
   bindsym r exec redshift || redshift -l 47.22:8.33
   bindsym q exec killall redshift
-  bindsym Up exec xbacklight -inc 10%
-  bindsym Down exec xbacklight -dec 10%
+  
+  bindsym m exec xrandr --output VGA1 --mode 1920x1080 --rate 60.00 --right-of LVDS1 --output LVDS1 --mode 1366x768 --rate 60.02
+
+  bindsym Up exec xbacklight -inc 5%
+  bindsym Down exec xbacklight -dec 5%
  
   bindsym Escape mode "default"
   bindsym Return mode "default"
@@ -220,7 +219,6 @@ exec_always xset -dpms
 exec_always xset off
 
 
-
 # Commands for specific windows
 # Use `xprop` to search for the window's class value
 for_window [class="^.*"] border pixel 5
@@ -242,6 +240,7 @@ assign [class="Ffmulticonverter"] $ws2
 assign [class="TelegramDesktop"] $ws3
 
 assign [class="Zathura"] $ws4
+assign [class="Evince"] $ws4
 assign [class="Sxiv"] $ws4
 
 
@@ -256,8 +255,8 @@ assign [class="dota2"] $ws6
 
 
 # i3-gaps
-gaps inner 10
-gaps outer 10
+gaps inner 8
+gaps outer 1
 
 
 hide_edge_borders both

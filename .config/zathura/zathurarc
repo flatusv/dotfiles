@@ -18,6 +18,6 @@ set notification-fg "#FFFFFF"
 set notification-bg "#333333"
 
 
-map [normal] <C-o> feedkeys ":exec evince %"<Return>
+map [normal] <e> feedkeys ":exec evince %"<Return>
 
 

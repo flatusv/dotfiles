@@ -4,46 +4,45 @@ cursor_shape = underline
 cursor_blink = off
 font = xos4 Terminus 12
 allow_bold = true
-
-
-
+scroll_on_output = true
+scrollback_lines = 10000
 
 [colors]
 
 # special
-foreground      = #e8dfd6
-foreground_bold = #e8dfd6
-cursor          = #e8dfd6
-background      = #021b21
+foreground      = #bea492
+foreground_bold = #EEEEE0
+cursor          = #bea492
+background      = #181512
 
 # black
-color0  = #032c36
-color8  = #065f73
+color0  = #332d29
+color8  = #817267
 
 # red
-color1  = #c2454e
-color9  = #ef5847
+color1  = #f50057
+color9  = #f50057
 
 # green
-color2  = #7cbf9e
-color10 = #a2d9b1
+color2  = #b8a300
+color10 = #c1ab7e
 
 # yellow
-color3  = #8a7a63
-color11 = #beb090
+color3  = #bfba92
+color11 = #fafac0
 
 # blue
-color4  = #2e3340
-color12 = #61778d
+color4  = #7a9388
+color12 = #94b1a3
 
 # magenta
-color5  = #ff5879
-color13 = #ff99a1
+color5  = #ff8f00
+color13 = #ffa000
 
 # cyan
-color6  = #44b5b1
-color14 = #9ed9d8
+color6  = #3b484a
+color14 = #444d4e
 
 # white
-color7  = #f2f1b9
-color15 = #f6f6c9
+color7  = #504339
+color15 = #9a875f

@@ -1,21 +1,26 @@
+# -- Variables
 export HISTSIZE=10000
 export SAVEHIST=10000
-export HISTFILE=~/.zsh_history
+export HISTFILE=~/.histfile
 export VISUAL="vim" 
+export EDITOR="vim" 
 export SAL_USE_VCLPLUGIN=gen
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPS='--extended'
+
+# -- history 
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_BEEP
 setopt extended_glob
-TERM="xterm-256color"
-stty -ixon
+setopt inc_append_history
 
 
-
-# load stuff
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-source ~/.zsh-powerline.sh
 
 
 # move files to .Trash, or when "-rf" is set remove files entirely
@@ -30,6 +35,27 @@ else
 fi
 }
 
+precmd(){
+if [[ "$PWD" == "$HOME" ]]; then
+     # Zsh prompt expansion syntax
+    PS1="%B%{$fg[cyan]%}%u%b >%{$fg[red]%}>%B%(?.%{$fg[cyan]%}.%{$fg[cyan]%})>%{$reset_color%}%b "
+else
+    PS1="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[red]%}>%B%(?.%{$fg[cyan]%}.%{$fg[cyan]%})>%{$reset_color%}%b "
+fi
+
+}
+
+
+# -- Terminal related
+TERM="xterm-256color"
+stty -ixon
+
+
+# load stuff
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+# source ~/.zsh-powerline.sh
 
 
 
@@ -47,6 +73,8 @@ alias merge='pdftk *.pdf cat output' # USAGE: merge output_name.pdf
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' #### Class name of window
 alias wp="nitrogen ~/media/wallpapers"  ### Set up a new wallpaper
 alias rm="moveTrash"
+alias bulkr="qmv"
+alias neofetch="neofetch --w3m ~/media/wallpapers/donald.png"
 
 # Git Alias
 alias gl='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'

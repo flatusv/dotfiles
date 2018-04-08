@@ -92,9 +92,10 @@ Plugin 'tpope/vim-commentary.git' " simple comment/uncomment plugin
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'alvan/vim-closetag'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat' 
+Plugin 'bronson/vim-visual-star-search'
+Plugin 'KeitaNakamura/neodark.vim'
 
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
@@ -188,9 +189,9 @@ autocmd BufEnter * :syntax sync fromstart
 "autocmd BufEnter * :set number
 
 
-" colorscheme gruvbox
-" let g:gruvbox_contrast_dark='hard'
-" set background=dark
+colorscheme gruvbox
+let g:gruvbox_contrast_dark='hard'
+set background=dark
 let g:gruvbox_contrast_dark = "soft"
 let g:gruvbox_termcolors=256
 set t_Co=256
