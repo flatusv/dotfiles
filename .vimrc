@@ -95,7 +95,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat' 
 Plugin 'bronson/vim-visual-star-search'
-Plugin 'KeitaNakamura/neodark.vim'
 
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
@@ -189,16 +188,20 @@ autocmd BufEnter * :syntax sync fromstart
 "autocmd BufEnter * :set number
 
 
-colorscheme gruvbox
-let g:gruvbox_contrast_dark='hard'
-set background=dark
-let g:gruvbox_contrast_dark = "soft"
-let g:gruvbox_termcolors=256
-set t_Co=256
-set background=dark
-colorscheme gruvbox
-highlight Normal ctermbg=NONE
+" colorscheme gruvbox
+" let g:gruvbox_contrast_dark='hard'
+" set background=dark
+" let g:gruvbox_contrast_dark = "soft"
+" let g:gruvbox_termcolors=256
+" set t_Co=256
+" set background=dark
+" colorscheme gruvbox
+" highlight Normal ctermbg=NONE
 
+set background=dark
+let g:hybrid_custom_term_colors = 1
+" let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
+colorscheme hybrid
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -285,9 +288,11 @@ let &t_EI = "\<Esc>[2 q"
 set laststatus=2
 
 " Format the status line
-hi StatusLine ctermfg=black ctermbg=green cterm=NONE
+hi StatusLine ctermfg=black ctermbg=1 cterm=NONE
+highlight LineNr term=bold cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\%y\ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l/%L\ \%=\%p%%
+" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\%y\ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l/%L\ \%=\%p%%
+set statusline=\ %{HasPaste()}%F%m%r%h\ %w\%y\ Line:\ %l/%L\ \%=\%p%%
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Editing mappings

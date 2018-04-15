@@ -28,10 +28,10 @@ bindsym $mod+d                  kill
 #to change active workspace color edit $accent-color
 # ~~~~~~~~~~~~~~~~~~~~~~~~
 set $main-color                  #170F0D
-set $accent-color                #FFA000
-set $border-color                #C2BFA5
-set $secondary-color             #141210
-set $text-color                  #ffecb3
+set $accent-color                #3f3442
+set $border-color                #3f3442
+set $secondary-color             #ffe4d1
+set $text-color                  #d9d6cf
 set $faded-text-color            #DDDDDD
 
 # ~~~~
@@ -113,7 +113,7 @@ bar {
         background $main-color
 
         # Property              Border                Background            Text
-        focused_workspace       $main-color           $accent-color         $main-color
+        focused_workspace       $main-color           $accent-color         $secondary-color
         inactive_workspace      $main-color           $main-color           $text-color
         urgent_workspace        $main-color           $accent-color         $secondary-color
     }

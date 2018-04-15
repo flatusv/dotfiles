@@ -74,7 +74,7 @@ alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"
 alias wp="nitrogen ~/media/wallpapers"  ### Set up a new wallpaper
 alias rm="moveTrash"
 alias bulkr="qmv"
-alias neofetch="neofetch --w3m ~/media/wallpapers/donald.png"
+alias neofetch="neofetch --w3m /home/geeray/media/wallpapers/japenese_hills.jpg"
 
 # Git Alias
 alias gl='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
