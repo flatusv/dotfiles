@@ -234,6 +234,7 @@ for_window [class="jetbrains-idea-ce"] move to workspace $ws6
 
 
 assign [class="Firefox"] $ws1
+assign [class="Nightly"] $ws1
 
 assign [class="Pcmanfm"] $ws3
 assign [class="Ffmulticonverter"] $ws2
