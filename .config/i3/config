@@ -8,7 +8,10 @@
 #   - betterlockscreen
 
 
-
+set $Left   h
+set $Down   j
+set $Up     k
+set $Right  l
 
 set $mod                        Mod1
 set $win                        Mod4 
@@ -44,18 +47,18 @@ bindsym $mod+a exec rofi -show drun
 # ~~~~~~~~~~~~~~~
 # Window Movement
 # ~~~~~~~~~~~~~~~
-    bindsym $mod+Left           focus left
-    bindsym $mod+Down           focus down
-    bindsym $mod+Up             focus up
-    bindsym $mod+Right          focus right
-    bindsym $mod+Control+Left   move left
-    bindsym $mod+Control+Down   move down
-    bindsym $mod+Control+Up     move up
-    bindsym $mod+Control+Right  move right
+    bindsym $mod+$Left           focus left
+    bindsym $mod+$Down           focus down
+    bindsym $mod+$Up             focus up
+    bindsym $mod+$Right          focus right
+    bindsym $mod+Control+$Left   move left
+    bindsym $mod+Control+$Down   move down
+    bindsym $mod+Control+$Up     move up
+    bindsym $mod+Control+$Right  move right
 
 
-    bindsym $mod+h            split h
-    bindsym $mod+v            split v
+    bindsym $win+h            split h
+    bindsym $win+v            split v
     bindsym $mod+f            fullscreen toggle
     # bindsym $mod+t            layout toggle split
 
@@ -124,8 +127,8 @@ bar {
 # custom keybinds and modes
 # ~~~~~~~~~~~~~~~~~~~~
 
-bindsym $mod+Shift+Right workspace next
-bindsym $mod+ShiftLeft workspace prev
+bindsym $mod+Shift+$Right workspace next
+bindsym $mod+Shift$Left workspace prev
 
 
 bindsym $mod+e exec pcmanfm # filemanager
@@ -144,7 +147,7 @@ mode $sysmenu {
     bindsym s         exec "systemctl suspend"
     
     # from: https://github.com/pavanjadhaw/betterlockscreen
-    bindsym l         exec "betterlockscreen -l dim" 
+    bindsym l         exec "i3lock-fancy -t 'I get myself a coffe, brb'" 
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }
@@ -183,8 +186,8 @@ mode "$mode_monitor" {
   
   bindsym m exec xrandr --output VGA1 --mode 1920x1080 --rate 60.00 --right-of LVDS1 --output LVDS1 --mode 1366x768 --rate 60.02
 
-  bindsym Up exec xbacklight -inc 5%
-  bindsym Down exec xbacklight -dec 5%
+  bindsym $Up exec xbacklight -inc 5%
+  bindsym $Down exec xbacklight -dec 5%
  
   bindsym Escape mode "default"
   bindsym Return mode "default"
@@ -202,9 +205,9 @@ bindsym $win+Down exec "amixer set Master 5%-"
 
 
 # Media Player Controls
-bindsym $win+p exec playerctl play-pause
-bindsym $win+Right exec playerctl next
-bindsym $win+Left exec playerctl previous
+# bindsym $win+p exec playerctl play-pause
+# bindsym $win+$Right exec playerctl next
+# bindsym $win+$Left exec playerctl previous
 # bindsym $win+f exec playerctl position 5+
 # bindsym $win+b exec playerctl position 5-
 
