@@ -146,8 +146,8 @@ mode $sysmenu {
     bindsym r         exec "systemctl reboot"
     bindsym s         exec "systemctl suspend"
     
-    # from: https://github.com/pavanjadhaw/betterlockscreen
-    bindsym l         exec "i3lock-fancy -t 'I get myself a coffe, brb'" 
+    # from: https://github.com/PandorasFox/i3lock-color
+    bindsym l         exec "~/.config/i3/lock.sh" 
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }
@@ -186,8 +186,8 @@ mode "$mode_monitor" {
   
   bindsym m exec xrandr --output VGA1 --mode 1920x1080 --rate 60.00 --right-of LVDS1 --output LVDS1 --mode 1366x768 --rate 60.02
 
-  bindsym $Up exec xbacklight -inc 5%
-  bindsym $Down exec xbacklight -dec 5%
+  bindsym Up exec xbacklight -inc 5%
+  bindsym Down exec xbacklight -dec 5%
  
   bindsym Escape mode "default"
   bindsym Return mode "default"
