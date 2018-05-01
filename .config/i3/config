@@ -76,8 +76,8 @@ bindsym $mod+a exec rofi -show drun
     set $ws2 " 2:>_ "
     set $ws3 " 3:files  "
     set $ws4 " 4:study  "
-    set $ws5 " 5:misc  "
-    set $ws6 " 6:vim "
+    set $ws5 " 5:vim "
+    set $ws6 " 6:misc  "
     bindsym $mod+1 workspace $ws1
     bindsym $mod+2 workspace $ws2
     bindsym $mod+3 workspace $ws3
@@ -184,7 +184,7 @@ mode "$mode_monitor" {
   bindsym r exec redshift || redshift -l 47.22:8.33
   bindsym q exec killall redshift
   
-  bindsym m exec xrandr --output VGA1 --mode 1920x1080 --rate 60.00 --right-of LVDS1 --output LVDS1 --mode 1366x768 --rate 60.02
+  bindsym m exec xrandr --output VGA1 --mode 1920x1080 --rate 60.00 --right-of LVDS1 --output LVDS1 --mode 1366x768 --rate 60
 
   bindsym Up exec xbacklight -inc 5%
   bindsym Down exec xbacklight -dec 5%
@@ -228,7 +228,7 @@ for_window [class="^.*"] border pixel 5
 for_window [class="^.*"] focus
 # for_window [class=".*"] title_format "<span font='tewi 8'> </span>"
 for_window [class="Spotify"] move to workspace $ws5
-for_window [class="jetbrains-idea-ce"] move to workspace $ws6
+for_window [class="jetbrains-idea-ce"] move to workspace $ws5
 # for_window [class="Steam"] move to workspace $ws6
 # for_window [class="Steam"] no_focus
 # for_window [class="dota2"] fullscreen enable
@@ -239,20 +239,22 @@ for_window [class="jetbrains-idea-ce"] move to workspace $ws6
 assign [class="Firefox"] $ws1
 assign [class="Nightly"] $ws1
 
-assign [class="Pcmanfm"] $ws3
 assign [class="Ffmulticonverter"] $ws2
-assign [class="TelegramDesktop"] $ws3
+assign [class="TelegramDesktop"] $ws2
+
+assign [class="Pcmanfm"] $ws3
 
 assign [class="Zathura"] $ws4
 assign [class="Evince"] $ws4
 assign [class="Sxiv"] $ws4
 
+assign [class="Code"] $ws5
 
-assign [class="Thunderbird"] $ws5
-assign [class="Gnome-twitch"] $ws5
-assign [class="TeamSpeak 3"] $ws5
-assign [class="mpv"] $ws5
-assign [class="libreoffice-startcenter"] $ws5
+assign [class="Thunderbird"] $ws6
+assign [class="Gnome-twitch"] $ws6
+assign [class="TeamSpeak 3"] $ws6
+assign [class="mpv"] $ws6
+assign [class="libreoffice-startcenter"] $ws6
 
 assign [class="dota2"] $ws6
 
