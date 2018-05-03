@@ -95,11 +95,56 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat' 
 Plugin 'bronson/vim-visual-star-search'
+Plugin 'SirVer/ultisnips' " Track the engine.
+Plugin 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
 
-" filenames like *.xml, *.html, *.xhtml, ...
-" These are the file extensions where this plugin is enabled.
-"
-let g:closetag_filenames = '*.html'
+
+" Ultisnips configuration
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+
+
+" Make Ultisnips work alongside YouCompleteMe
+function! g:UltiSnips_Complete()
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res == 0
+    if pumvisible()
+      return "\<C-n>"
+    else
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        return "\<TAB>"
+      endif
+    endif
+  endif
+  return ""
+endfunction
+
+function! g:UltiSnips_Reverse()
+  call UltiSnips#JumpBackwards()
+  if g:ulti_jump_backwards_res == 0
+    return "\<C-P>"
+  endif
+
+  return ""
+endfunction
+
+
+if !exists("g:UltiSnipsJumpForwardTrigger")
+  let g:UltiSnipsJumpForwardTrigger = "<tab>"
+endif
+
+if !exists("g:UltiSnipsJumpBackwardTrigger")
+  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+endif
+
+au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
+au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+
+
+
 
 " Change the default mapping and the default command to invoke CtrlP:
 let g:ctrlp_map = '<c-p>'
@@ -471,12 +516,12 @@ call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
 noremap! <C-BS> <C-w>
 noremap! <C-h>  <C-w>
 
- " vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
-autocmd BufRead,BufNewFile   *.py ino " ""<left>
-autocmd BufRead,BufNewFile   *.py ino ' ''<left>
-autocmd BufRead,BufNewFile   *.py ino ( ()<left>
-autocmd BufRead,BufNewFile   *.py ino [ []<left>
-autocmd BufRead,BufNewFile   *.py ino { {}<left>
-autocmd BufRead,BufNewFile   *.py ino {<CR> {<CR>}<ESC>O
-autocmd BufRead,BufNewFile   *.py ino {;<CR> {<CR>};<ESC>O
+" completes most of the brackets, parentheses (not needed)
+" autocmd BufRead,BufNewFile   *.py ino " ""<left>
+" autocmd BufRead,BufNewFile   *.py ino ' ''<left>
+" autocmd BufRead,BufNewFile   *.py ino ( ()<left>
+" autocmd BufRead,BufNewFile   *.py ino [ []<left>
+" autocmd BufRead,BufNewFile   *.py ino { {}<left>
+" autocmd BufRead,BufNewFile   *.py ino {<CR> {<CR>}<ESC>O
+" autocmd BufRead,BufNewFile   *.py ino {;<CR> {<CR>};<ESC>O
 
