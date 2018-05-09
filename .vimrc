@@ -64,7 +64,7 @@ filetype plugin indent on    " required
 set modifiable
 
 :set number                  " show line number
-
+set relativenumber           
 
 set autochdir               " switch to the directory when editing files
 
@@ -97,6 +97,12 @@ Plugin 'tpope/vim-repeat'
 Plugin 'bronson/vim-visual-star-search'
 Plugin 'SirVer/ultisnips' " Track the engine.
 Plugin 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
+Plugin 'xuhdev/vim-latex-live-preview'
+
+" LaTeX configuration
+let g:livepreview_previewer = 'zathura'
+nnoremap <silent> <leader>v :LLPStartPreview <CR>
+let g:tex_flavor='latex'
 
 
 " Ultisnips configuration
@@ -104,6 +110,8 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
+
+
 
 
 " Make Ultisnips work alongside YouCompleteMe
