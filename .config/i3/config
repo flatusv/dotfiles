@@ -57,8 +57,8 @@ bindsym $mod+a exec rofi -show drun
     bindsym $mod+Control+$Right  move right
 
 
-    bindsym $win+h            split h
-    bindsym $win+v            split v
+    bindsym $win+h            split v
+    bindsym $win+v            split h
     bindsym $mod+f            fullscreen toggle
     # bindsym $mod+t            layout toggle split
 
@@ -184,8 +184,6 @@ mode "$mode_monitor" {
   bindsym r exec redshift || redshift -l 47.22:8.33
   bindsym q exec killall redshift
   
-  bindsym m exec xrandr --output VGA1 --mode 1920x1080 --rate 60.00 --right-of LVDS1 --output LVDS1 --mode 1366x768 --rate 60
-
   bindsym Up exec xbacklight -inc 5%
   bindsym Down exec xbacklight -dec 5%
  
@@ -220,6 +218,7 @@ exec_always xrdb ~/.Xresources # needed for rofi launcher
 exec xset -b #disable bell sound
 exec_always xset -dpms
 exec_always xset off
+exec --no-startup-id xrandr --output VGA1 --mode 1920x1080 --rate 75 --right-of LVDS1 --output LVDS1 --mode 1366x768 --rate 60
 
 
 # Commands for specific windows
@@ -234,7 +233,7 @@ for_window [class="jetbrains-idea-ce"] move to workspace $ws5
 # for_window [class="dota2"] fullscreen enable
 # focus_on_window_activation focus
 
-
+workspace $ws6 output VGA1
 
 assign [class="Firefox"] $ws1
 assign [class="Nightly"] $ws1
