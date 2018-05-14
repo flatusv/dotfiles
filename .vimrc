@@ -102,7 +102,7 @@ Plugin 'xuhdev/vim-latex-live-preview'
 " LaTeX configuration
 let g:livepreview_previewer = 'zathura'
 nnoremap <silent> <leader>v :LLPStartPreview <CR>
-let g:tex_flavor='latex'
+let g:tex_flavor='latex'    " makes vim recognize the filetype, when creating a .tex file
 
 
 " Ultisnips configuration
@@ -110,7 +110,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
-
+let g:UltiSnipsListSnippets="<f2>"
 
 
 
