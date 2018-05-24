@@ -177,18 +177,19 @@ bindsym $mod+Shift+g mode "Dota2"
 
 
 # easy on the eyes
-set $mode_monitor Launch: [m]onitor # [r]edshift, [q]uit redshift, [m]onitor, [U]p screen brightness, [D]own screen brightness
+set $mode_monitor Launch: [m]onitor # [r]edshift, [c]ustom, [q]uit redshift, [j] down brightness, [k] up brightness
 bindsym $win+n mode "$mode_monitor"
 
 mode "$mode_monitor" {
-  bindsym r exec redshift || redshift -l 47.22:8.33
-  bindsym q exec killall redshift
-  
-  bindsym Up exec xbacklight -inc 5%
-  bindsym Down exec xbacklight -dec 5%
+    bindsym r exec redshift || redshift -l 47.22:8.33
+    bindsym c exec redshift -b .9 -O 4200K
+    bindsym q exec redshift -x
+    
+    bindsym $Up exec xbacklight -inc 5%
+    bindsym $Down exec xbacklight -dec 5%
  
-  bindsym Escape mode "default"
-  bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
   }
 
 
