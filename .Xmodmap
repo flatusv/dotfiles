@@ -1,10 +1,12 @@
 ! Wie bekommt man CapsLock weg und deutsche Sonderzeichen auf US-Tastaturen.
 ! nerviges CapsLock abschalten
 remove Lock = Caps_Lock
+
 ! die CapsLock-Taste wird als Mode_Switch verwendet, aktiviert also
 ! das 3. (ohne shift) bzw. 4. (mit shift) Symbol
 keycode  66 = Mode_switch
 keycode  64 = Alt_L
+
 ! Umlaute etc. auf die 3. und 4. Symbo
 ! le
 keycode  26 = e E EuroSign cent
@@ -12,6 +14,13 @@ keycode  30 = u U udiaeresis Udiaeresis
 keycode  32 = o O odiaeresis Odiaeresis
 keycode  38 = a A adiaeresis Adiaeresis
 keycode  39 = s S ssharp
+
+! Vim like behavior
+keysym h = h H Left
+keysym l = l L Right
+keysym k = k K Up
+keysym j = j J Down
+
 
 
 ! Beispiel:
@@ -21,5 +30,5 @@ keycode  39 = s S ssharp
 
 
 
-keycode 52 = y Y
-keycode 29 = z Z
+! keycode 52 = y Y
+! keycode 29 = z Z
