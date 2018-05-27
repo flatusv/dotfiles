@@ -21,6 +21,6 @@ everything.
 To install with Git:
 
 ```
-    git clone https://github.com/vinnyA3/dotfiles.git ~/.dotfiles
+    git clone https://github.com/flatusv/dotfiles.git ~/Dotfiles
 ```
 **Warning**: Make sure all dotfiles are in their respective paths.
