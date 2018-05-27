@@ -1,244 +1,218 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Section:
-" -> General [23 - 74]
-" -> Plugins: Vundle, etc.                  [ 74 - 85]
-" -> VIM user interface                     [ 99 - 148]
-" -> 
-"  Colors and Fonts                       [155 - 175]
-" -> Files and backups                      [175 - 180]
-" -> Text, tab and indent related           [185 - 228]
-" -> Visual mode related
-" -> Moving around, tabs and buffers
-" -> Status line                            [230 - 236]
-" -> Editing mappings                       [240 - 295]
-" -> vimgrep searching and cope displaying  [295 - 328]
-" -> Spell checking                         [330 - 340]
-" -> Misc                                   [343 - 355]
-" -> Helper functions                       [360 - 467]
-" -> Custom Keybinds                        [470 - end] 
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" start in insert mode
+" start
 
-" Start in Insert mode
-start
-
-
-" Allow the cursor to move just past the end of the
+" allow the cursor to move just past the end of the
 set virtualedit=onemore 
 
 
-" Sets how many lines of history VIM has to remember
+" sets how many lines of history vim has to remember
 set history=700
 
-" Enable filetype plugins
+" enable filetype plugins
 filetype plugin on
 filetype indent on
 
-" Set to auto read when a file is changed from the outside
+" set to auto read when a file is changed from the outside
 set autoread
 
-" With a map leader it's possible to do extra key combinations
+" with a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file (see line 51)
 
 let mapleader = ","
 let g:mapleader = ","
 
-" Fast saving
+" fast saving
 nmap <leader>w :w!<cr>
 
-" :W sudo saves the file
+" :w sudo saves the file
 " (useful for handling the permission-denied error)
-" command W w !sudo tee % > /dev/null
+" command w w !sudo tee % > /dev/null
 
 
 set clipboard=unnamedplus     " automatically copy to clipboard
 set nocompatible              " required
 filetype off                  " required
-
-
-filetype plugin indent on    " required
+filetype plugin indent on     " required
 
 set modifiable
 
-:set number                  " show line number
+" hybrid line numbers: relative + current line
+:set number                   
 set relativenumber           
 
-set autochdir               " switch to the directory when editing files
+set autochdir                 " switch to the directory when editing files
 
-set path+=**                " provides tab completion for all file related tasks
+set path+=**                  " provides tab completion for all file related tasks
 
-:set textwidth=80
+:set textwidth=90
 
-:se mouse+=a                " don't select line numbers with the mouse
+:se mouse+=a                  " don't select line numbers with the mouse
 
 set completeopt=longest,menuone
 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugins
+" => plugins
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-commentary.git' " simple comment/uncomment plugin
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat' 
-Plugin 'bronson/vim-visual-star-search'
-Plugin 'SirVer/ultisnips' " Track the engine.
-Plugin 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
-Plugin 'xuhdev/vim-latex-live-preview'
+" let vundle manage vundle, required
+plugin 'vundlevim/vundle.vim'
+plugin 'valloric/youcompleteme'
+plugin 'tpope/vim-commentary.git' " simple comment/uncomment plugin
+plugin 'vim-scripts/indentpython.vim'
+plugin 'majutsushi/tagbar'
+plugin 'ctrlpvim/ctrlp.vim'
+plugin 'tpope/vim-surround'
+plugin 'tpope/vim-repeat' 
+plugin 'bronson/vim-visual-star-search'
+plugin 'sirver/ultisnips' " track the engine.
+plugin 'honza/vim-snippets' " snippets are separated from the engine. add this if you want them:
+plugin 'xuhdev/vim-latex-live-preview'
 
-" LaTeX configuration
+" latex configuration
 let g:livepreview_previewer = 'zathura'
-nnoremap <silent> <leader>v :LLPStartPreview <CR>
+nnoremap <silent> <leader>v :llpstartpreview <cr>
 let g:tex_flavor='latex'    " makes vim recognize the filetype, when creating a .tex file
 
 
-" Ultisnips configuration
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsListSnippets="<f2>"
+" ultisnips configuration
+let g:ultisnipsexpandtrigger="<tab>"
+let g:ultisnipsjumpforwardtrigger="<c-b>"
+let g:ultisnipsjumpbackwardtrigger="<c-z>"
+let g:ultisnipseditsplit="vertical"
+let g:ultisnipslistsnippets="<f2>"
 
 
 
-" Make Ultisnips work alongside YouCompleteMe
-function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippet()
+" make ultisnips work alongside youcompleteme
+function! g:ultisnips_complete()
+  call ultisnips#expandsnippet()
   if g:ulti_expand_res == 0
     if pumvisible()
-      return "\<C-n>"
+      return "\<c-n>"
     else
-      call UltiSnips#JumpForwards()
+      call ultisnips#jumpforwards()
       if g:ulti_jump_forwards_res == 0
-        return "\<TAB>"
+        return "\<tab>"
       endif
     endif
   endif
   return ""
 endfunction
 
-function! g:UltiSnips_Reverse()
-  call UltiSnips#JumpBackwards()
+function! g:ultisnips_reverse()
+  call ultisnips#jumpbackwards()
   if g:ulti_jump_backwards_res == 0
-    return "\<C-P>"
+    return "\<c-p>"
   endif
 
   return ""
 endfunction
 
 
-if !exists("g:UltiSnipsJumpForwardTrigger")
-  let g:UltiSnipsJumpForwardTrigger = "<tab>"
+if !exists("g:ultisnipsjumpforwardtrigger")
+  let g:ultisnipsjumpforwardtrigger = "<tab>"
 endif
 
-if !exists("g:UltiSnipsJumpBackwardTrigger")
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+if !exists("g:ultisnipsjumpbackwardtrigger")
+  let g:ultisnipsjumpbackwardtrigger="<s-tab>"
 endif
 
-au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
-au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+au insertenter * exec "inoremap <silent> " . g:ultisnipsexpandtrigger     . " <c-r>=g:ultisnips_complete()<cr>"
+au insertenter * exec "inoremap <silent> " .     g:ultisnipsjumpbackwardtrigger . " <c-r>=g:ultisnips_reverse()<cr>"
 
 
 
 
-" Change the default mapping and the default command to invoke CtrlP:
+" change the default mapping and the default command to invoke ctrlp:
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'ctrlp'
 
 
 " tagbar toggle, very usefull for editing large files
-nnoremap <silent> <leader>t :TagbarToggle<CR>
+nnoremap <silent> <leader>t :tagbartoggle<cr>
 
 
-let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"  " currently setup to code in C
+let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/youcompleteme/.ycm_extra_conf.py"  " currently setup to code in c
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_key_list_stop_completion = ['<Enter>']
+let g:ycm_key_list_stop_completion = ['<enter>']
 " let g:ycm_key_list_select_completion=[]
 " let g:ycm_key_list_previous_completion=[]
 
-" All of your Plugins must be added before the following line
+" all of your plugins must be added before the following line
 call vundle#end()            " required
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
+" => vim user interface
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 
-" Set n lines to the cursor - when moving vertically using j/k
-set so=15
+" set n lines to the cursor - when moving vertically using j/k
+set so=20
 
-" Turn on the WiLd menu //"set wildmenu" enables a menu at the bottom of the vim/gvim window. 
+" turn on the wild menu //"set wildmenu" enables a menu at the bottom of the vim/gvim window. 
 set wildmenu
 
-"Always show current position
+" always show current position
 set ruler
 
-" Height of the command bar
+" height of the command bar
 set cmdheight=3
 
-" A buffer becomes hidden when it is abandoned
+" a buffer becomes hidden when it is abandoned
 set hid
 
-" Configure backspace so it acts as it should act
+" configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
-" Ignore case when searching
+" ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases
+" when searching try to be smart about cases
 set smartcase
 
-" Highlight search results
+" highlight search results
 set hlsearch
 
-" Makes search act like search in modern browsers
+" makes search act like search in modern browsers
 set incsearch
 
-" Don't redraw while executing macros (good performance config)
+" don't redraw while executing macros (good performance config)
 set lazyredraw
 
-" For regular expressions turn magic on
+" for regular expressions turn magic on
 set magic
 
-" Show matching brackets when text indicator is over them
+" show matching brackets when text indicator is over them
 set showmatch
-" How many tenths of a second to blink when matching brackets
+" how many tenths of a second to blink when matching brackets
 set mat=2
 
-" No annoying sound on errors
+" no annoying sound on errors
 set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
 
-" Add a bit extra margin to the left
+" add a bit extra margin to the left
 set foldcolumn=0
 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
+" => colors and fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
+" enable syntax highlighting
 syntax enable
 syntax on
-autocmd BufEnter * :syntax sync fromstart
-"autocmd BufEnter * :set number
+autocmd bufenter * :syntax sync fromstart
+"autocmd bufenter * :set number
 
 
 " colorscheme gruvbox
@@ -246,194 +220,197 @@ autocmd BufEnter * :syntax sync fromstart
 " set background=dark
 " let g:gruvbox_contrast_dark = "soft"
 " let g:gruvbox_termcolors=256
-" set t_Co=256
+" set t_co=256
 " set background=dark
 " colorscheme gruvbox
-" highlight Normal ctermbg=NONE
+" highlight normal ctermbg=none
 
 set background=dark
 let g:hybrid_custom_term_colors = 1
-" let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 colorscheme hybrid
 
-" Set utf8 as standard encoding and en_US as the standard language
+" set utf8 as standard encoding and en_us as the standard language
 set encoding=utf8
 
-" Use Unix as the standard file type
+" use unix as the standard file type
 set ffs=unix,dos,mac
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Files, backups and undo
+" => files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
+" turn backup off, since most stuff is in svn, git et.c anyway...
 set nobackup
 set nowb
 set noswapfile
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
+" => text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use spaces instead of tabs
+" use spaces instead of tabs
 set expandtab 
 
-" Be smart when using tabs ;)
+" be smart when using tabs ;)
 set smarttab
 
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
 
-" Linebreak on 65 characters, i3wm related
+" linebreak on 65 characters, i3wm related
 set lbr
-set tw=80
+set tw=90
 
        
-"set ai "Auto indent
-"set si "Smart indent
-set wrap "Wrap lines
+"set ai "auto indent
+"set si "smart indent
+set wrap "wrap lines
 
 
-" Usefull shortcuts to enter insert mode
-nnoremap <Enter> i<Enter>
-nnoremap <Backspace> i<Backspace>
-nnoremap <Space> i<Space>
+" usefull shortcuts to enter insert mode
+nnoremap <enter> i<enter>
+nnoremap <backspace> i<backspace>
+nnoremap <space> i<space>
 
-map <C-a> <ESC>^
-imap <C-a> <ESC>I
-map <C-e> <ESC><END>
-imap <C-e> <ESC><END>
+map <c-a> <esc>^
+imap <c-a> <esc>i
+map <c-e> <esc><end>
+imap <c-e> <esc><end>
+
+
 
 " switch to visual mode and extend selection upwards
-:imap <S-Up> <esc>v<Up>
 " make sure the same key combination works in visual mode
-:vmap <S-Up> <Up>
+:imap <s-k> <esc>v<up>
+:vmap <s-k> <up>
+:imap <s-j> <esc>v<down>
+:vmap <s-j> <down>
+:imap <s-h> <esc>v<left>
+:vmap <s-h> <left>
+:imap <s-l> <esc>v<right>
+:vmap <s-l> <right>
 
-" do the same for other arrow keys
-:imap <S-Down> <esc>v<Down>
-:vmap <S-Down> <Down>
-:imap <S-Left> <esc>v<Left>
-:vmap <S-Left> <Left>
-:imap <S-Right> <esc>v<Right>
-:vmap <S-Right> <Right>
 
 
-" Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
+
+
+
+" return to last edit position when opening files (you want this!)
+autocmd bufreadpost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \ exe "normal! g`\"" |
      \ endif
-" Remember info about open buffers on close
+" remember info about open buffers on close
 set viminfo^=%
 
 
-" Set IBeam shape in insert mode, underline shape in replace mode and block shape in normal mode
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
+" set ibeam shape in insert mode, underline shape in replace mode and block shape in normal mode
+let &t_si = "\<esc>[6 q"
+let &t_sr = "\<esc>[4 q"
+let &t_ei = "\<esc>[2 q"
 
 
 """"""""""""""""""""""""""""""
-" => Status line
+" => status line
 """"""""""""""""""""""""""""""
-" Always show the status line
+" always show the status line
 set laststatus=2
 
-" Format the status line
-hi StatusLine ctermfg=black ctermbg=1 cterm=NONE
-highlight LineNr term=bold cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+" format the status line
+hi statusline ctermfg=black ctermbg=1 cterm=none
+highlight linenr term=bold cterm=none ctermfg=5 ctermbg=none gui=none guifg=darkgrey guibg=none
 
-" set statusline=\ %{HasPaste()}%F%m%r%h\ %w\%y\ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l/%L\ \%=\%p%%
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\%y\ Line:\ %l/%L\ \%=\%p%%
+" set statusline=\ %{haspaste()}%f%m%r%h\ %w\%y\ cwd:\ %r%{getcwd()}%h\ \ \ line:\ %l/%l\ \%=\%p%%
+set statusline=\ %{haspaste()}%f%m%r%h\ %w\%y\ line:\ %l/%l\ \%=\%p%%
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Editing mappings
+" => editing mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap VIM 0 to first non-blank character
+" remap vim 0 to first non-blank character
 " map 0 ^
 
 
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
+" delete trailing white space on save, useful for python and coffeescript ;)
+func! deletetrailingws()
   exe "normal mz"
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd bufwrite *.py :call deletetrailingws()
+autocmd bufwrite *.coffee :call deletetrailingws()
 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Misc
+" => misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
-autocmd VimEnter * WipeReg
+command! wipereg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
+autocmd vimenter * wipereg
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Helper functions
+" => helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Returns true if paste mode is enabled
-function! HasPaste()
+" returns true if paste mode is enabled
+function! haspaste()
     if &paste
-        return 'PASTE MODE '
+        return 'paste mode '
     en
     return ''
 endfunction
 
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
+" don't close window, when deleting a buffer
+command! bclose call <sid>bufclosecloseit()
+function! <sid>bufclosecloseit()
+   let l:currentbufnum = bufnr("%")
+   let l:alternatebufnum = bufnr("#")
 
-   if buflisted(l:alternateBufNum)
+   if buflisted(l:alternatebufnum)
      buffer #
    else
      bnext
    endif
 
-   if bufnr("%") == l:currentBufNum
+   if bufnr("%") == l:currentbufnum
      new
    endif
 
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
+   if buflisted(l:currentbufnum)
+     execute("bdelete! ".l:currentbufnum)
    endif
 endfunction
 
-" Creates shortcuts for certain commands
-function! CreateShortcut(keys, cmd, where, ...)
+" creates shortcuts for certain commands
+function! createshortcut(keys, cmd, where, ...)
   let keys = "<" . a:keys . ">"
   if a:where =~ "i"
-    let i = (index(a:000,"noTrailingIInInsert") > -1) ? "" : "i"
-    let e = (index(a:000,"noLeadingEscInInsert") > -1) ? "" : "<esc>"
+    let i = (index(a:000,"notrailingiininsert") > -1) ? "" : "i"
+    let e = (index(a:000,"noleadingescininsert") > -1) ? "" : "<esc>"
     execute "imap " . keys . " " . e .  a:cmd . i
   endif
   if a:where =~ "n"
     execute "nmap " . keys . " " . a:cmd
   endif    
   if a:where =~ "v"
-    let k = (index(a:000,"restoreSelectionAfter") > -1) ? "gv" : ""
+    let k = (index(a:000,"restoreselectionafter") > -1) ? "gv" : ""
     let c = a:cmd
-    if index(a:000,"cmdInVisual") > -1
-      let c = ":<C-u>" . strpart(a:cmd,1)
+    if index(a:000,"cmdinvisual") > -1
+      let c = ":<c-u>" . strpart(a:cmd,1)
     endif
     execute "vmap " . keys . " " . c . k
   endif
 endfunction
-function! TabIsEmpty()
+function! tabisempty()
     return winnr('$') == 1 && len(expand('%')) == 0 && line2byte(line('$') + 1) <= 2
 endfunction
-function! MyQuit()
-  if TabIsEmpty() == 1
+function! myquit()
+  if tabisempty() == 1
     q!
   else
     if &modified
-      if (confirm("YOU HAVE UNSAVED CHANGES! Wanna quit anyway?", "&Yes\n&No", 2)==1)
+      if (confirm("you have unsaved changes! wanna quit anyway?", "&yes\n&no", 2)==1)
         q!
       endif
     else
@@ -441,14 +418,14 @@ function! MyQuit()
     endif
   endif
 endfunction
-function! OpenLastBufferInNewTab()
+function! openlastbufferinnewtab()
     redir => ls_output
     silent exec 'ls'
-    redir END
-    let ListBuffers = reverse(split(ls_output, "\n"))
-    for line in ListBuffers
+    redir end
+    let listbuffers = reverse(split(ls_output, "\n"))
+    for line in listbuffers
       let title = split(line, "\"")[1]
-      if title !~  "\[No Name"
+      if title !~  "\[no name"
         execute "tabnew +" . split(line, " ")[0] . "buf" 
         break
       endif       
@@ -457,79 +434,46 @@ endfunction
 
 
 """"""""""""""""""""
-" " Custom Keybinds
+" " custom keybinds
 """""""""""""""""""""
 
 
-" " Ctrl A - Begin Line
- call CreateShortcut("C-a", "0", "inv")
+" " ctrl a - begin line
+ call createshortcut("c-a", "0", "inv")
 "
 
-" " Ctrl E - End Line
- call CreateShortcut("C-e", "$<right>", "inv")
-"
-" " Ctrl S - Save
-call CreateShortcut("C-s", ":w<enter>", "nv", "cmdInVisual", "restoreSelectionAfter")
-call CreateShortcut("C-s", ":w<enter>i<right>", "i", "noTrailingIInInsert")
+" " ctrl e - end line
+ call createshortcut("c-e", "$<right>", "inv")
 "
 
-" " Ctrl H - Search and Replace
-call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
-
-" " Ctrl K - Delete Line
-
-" call CreateShortcut("C-k", "dd", "in")
-" call CreateShortcut("C-k", "d", "v")
-
-
-"" " Ctrl Z - Undo
-" call CreateShortcut("C-z", "u", "in")
-"
-"
-"" " Ctrl Y - Redo
-" call CreateShortcut("C-y", "<C-r>", "in")
+" " ctrl h - search and replace
+call createshortcut("c-h", ":%s/", "in", "notrailingiininsert")
 
 " toggle highlighting
- nnoremap <C-n> :set hlsearch!<CR>
+ nnoremap <c-n> :set hlsearch!<cr>
 
-
- " compile and run C code from Vim with 'c99' flag
- " nnoremap <silent> <leader>c :w <CR> :!clear;gcc -std=c99 % -o %< && ./%< <CR>
+" " compile and run c code from vim with 'c99' flag
+" nnoremap <silent> <leader>c :w <cr> :!clear;gcc -std=c99 % -o %< && ./%< <cr>
 
 
  " run a python code
- nnoremap <silent> <leader>p :w <CR> :!clear;python %<CR>
+ nnoremap <silent> <leader>p :w <cr> :!clear;python %<cr>
  
 
  " pretty much the reverse of <c-w> in insert mode
- inoremap <C-d> <C-o>de
+ inoremap <c-d> <c-o>de
 
  " dont trigger suspend with <c-z> in visual mode
  vnoremap <c-z> <nop>
 
  " lists all loaded buffers and populates the prompt for you,
  " waiting for you to type the number of a buffer and press <enter>
- nnoremap gb :ls<CR>:b<Space>
+ nnoremap gb :ls<cr>:b<space>
  
-" When auto complete is active make the enter key work as Ctrl-y
-" inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
-
-
  " list the contents of all of your registers
- " Tip: This makes it easy to paste the right content
- " via '[registerValue]p'
- nnoremap <silent> <leader>r :registers <CR>
+ " hint: this makes it easy to paste the right content via '[register value]+p'
+ nnoremap <silent> <leader>r :registers <cr>
  
-" Map Ctrl-Backspace to delete the previous word in insert mode.
-noremap! <C-BS> <C-w>
-noremap! <C-h>  <C-w>
-
-" completes most of the brackets, parentheses (not needed)
-" autocmd BufRead,BufNewFile   *.py ino " ""<left>
-" autocmd BufRead,BufNewFile   *.py ino ' ''<left>
-" autocmd BufRead,BufNewFile   *.py ino ( ()<left>
-" autocmd BufRead,BufNewFile   *.py ino [ []<left>
-" autocmd BufRead,BufNewFile   *.py ino { {}<left>
-" autocmd BufRead,BufNewFile   *.py ino {<CR> {<CR>}<ESC>O
-" autocmd BufRead,BufNewFile   *.py ino {;<CR> {<CR>};<ESC>O
-
+" map ctrl-backspace to delete the previous word in insert mode.
+noremap! <c-bs> <c-w>
+noremap! <c-h>  <c-w>
