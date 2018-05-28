@@ -7,6 +7,7 @@ export EDITOR="vim"
 export SAL_USE_VCLPLUGIN=gen
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPS='--extended'
+export PATH=${PATH}:$HOME/.config/weareone
 
 # -- history 
 setopt EXTENDED_HISTORY
@@ -55,7 +56,12 @@ stty -ixon
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-# source ~/.zsh-powerline.sh
+
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+# (cat ~/.cache/wal/sequences &)
+
 
 
 
