@@ -1,0 +1,13 @@
+~/.config/rofi
+~/.config/termite/config_bu
+~/.config/termite/config_kek
+
+~/.vim/bundle/
+~/.mpd
+~/.ncmpcpp
+!~/.ncmpcpp/config
+
+~/.config/termite/
+!~/.config/termite/config
+
+~/.mozilla/firefox/bics9yxu.default/chrome/userChrome.css
