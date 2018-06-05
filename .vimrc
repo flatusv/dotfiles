@@ -310,6 +310,8 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor
 autocmd VimEnter * WipeReg
 
+"" Auto save buffer every time something has changed
+autocmd TextChanged,TextChangedI <buffer> silent write
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
