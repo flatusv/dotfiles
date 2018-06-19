@@ -198,7 +198,6 @@ set tm=500
 set foldcolumn=0
 
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -210,6 +209,8 @@ autocmd BufEnter * :syntax sync fromstart
 set background=dark
 let g:hybrid_custom_term_colors = 1
 colorscheme hybrid
+set cursorline        " highlight current line
+set cursorcolumn      " highlight current column
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -311,7 +312,7 @@ command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | 
 autocmd VimEnter * WipeReg
 
 "" Auto save buffer every time something has changed
-autocmd TextChanged,TextChangedI <buffer> silent write
+" autocmd TextChanged,TextChangedI <buffer> silent write
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
