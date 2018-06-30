@@ -184,6 +184,7 @@ mode "$mode_monitor" {
     bindsym r exec redshift || redshift -l 47.22:8.33
     bindsym c exec redshift -b .9 -O 4000K
     bindsym q exec redshift -x
+    bindsym m exec --no-startup-id xrandr --output VGA1 --mode 1920x1080 --rate 75 --right-of LVDS1 --output LVDS1 --mode 1366x768 --rate 60
     
     bindsym $Up exec xbacklight -inc 5%
     bindsym $Down exec xbacklight -dec 5%
@@ -219,7 +220,8 @@ exec_always xrdb ~/.Xresources # needed for rofi launcher
 exec xset -b #disable bell sound
 exec_always xset -dpms
 exec_always xset off
-exec --no-startup-id xrandr --output VGA1 --mode 1920x1080 --rate 75 --right-of LVDS1 --output LVDS1 --mode 1366x768 --rate 60
+exec --no-startup-id pulseeffects --gapplication-service  # equalizer
+
 
 
 # Commands for specific windows
