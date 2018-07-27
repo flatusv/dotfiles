@@ -1,0 +1,14 @@
+.spende-container {
+    background-color: #f2f2f2;
+}
+
+.spende-row{
+    padding: 5px;
+}
+
+@media screen and (max-width: 1400px) /* Desktop */ { .spende-container{ height: 700px;} }
+@media screen and (max-width: 1200px) /* Desktop */ { .spende-container{height: 700px;} } 
+@media screen  and (max-width: 979px) /* Tablet */ { .spende-container{height: 700px;}} 
+@media screen and (max-width: 768px) /* Mobile */ { .spende-container{height: 1100px;} } 
+@media screen and (max-width: 576px) /* Mobile */ { .spende-container{height: 1100px;}} 
+@media screen and (max-width: 533px) /* Mobile */ { .spende-container{height: 1100px;}}

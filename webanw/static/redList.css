@@ -1,0 +1,56 @@
+
+.hovereffect {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+  }
+  
+  .hovereffect .overlay {
+    position: absolute;
+    overflow: hidden;
+    width: 80%;
+    height: 80%;
+    left: 10%;
+    top: 10%;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+    transition: transform 0.35s; /* zeit bis zur einblendung */
+    transform: scale(0,1); /* verändert die größe eines elements */
+  }
+  
+  .hovereffect:hover .overlay {
+    opacity: 1; /* volle deckkraft */
+    transform: scale(1); /* originalgröße */
+  }
+  
+  .hovereffect img {
+    display: block;
+    position: relative;
+  }
+  
+  .hovereffect:hover img {
+    filter: brightness(0.6); /* bild abdunkeln */
+  }
+  
+  .hovereffect h2 {
+    text-transform: uppercase; /* Großbuchstaben */
+    position: relative;
+    font-size: 17px;
+    color: white;
+    padding: 1em 0;
+    opacity: 0;
+    transition: opacity 0.35s, transform 0.35s;
+  }
+  
+  .hovereffect a, .hovereffect p {
+    color: white;
+    padding: 1em 0;
+    opacity: 0;
+    transition: opacity 0.35s, transform 0.35s;
+  }
+  
+  .hovereffect:hover a, .hovereffect:hover p, .hovereffect:hover h2 {
+    opacity: 1;
+  }

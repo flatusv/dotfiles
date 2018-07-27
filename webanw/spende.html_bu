@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="static/main.css">
+        <link rel="stylesheet" type="text/css" href="static/spende.css">
+        <title>Index</title>
+    <style>
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md  navbar-dark">
+        <div class="container-fluid">
+           <a class="navbar-brand " href="index.html">
+            <img src="static/img/logo.png" alt="Logo" style="width:85px;">
+           </a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+            <div class="collapse navbar-collapse bg-inverse" id="navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <ul class="navbar-nav">
+                    <li class="nav-item nav-item-left"><a class="nav-link" href="about.html">über uns</a></li>
+                    <li class="nav-item nav-item-left"><a class="nav-link" href="spende.html">Spende</a></li>
+                    <li class="nav-item nav-item-left"><a class="nav-link" href="redList.html">Rote liste</a></li>
+                    <li class="nav-item nav-item-left"><a class="nav-link" href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="container-fluid">
+            <div class="row spende-area">
+                <div class="col-md-4"></div>
+                <div class="col-md-4"><form action="#">
+                    <h1 class="medium-header">Spenden zum Wohl der Tiere</h1><br><br>
+                    <hr>
+                    <form>
+                        <div class="form-group">
+                          <label for="validationCustom01">Betrag (in €)</label>
+                          <input type="text" class="form-control" id="betrag" placeholder="Jeder Betrag ist angemesssen!">
+                        </div>
+                        <div class="form-group">
+                          <label for="validationCustom02">Rhytmus</label>
+                          <select class="custom-select">
+                                <option selected>wählen Sie einen Rhytmus</option>
+                                <option value="1">einmalig</option>
+                                <option value="1">wöchentlich</option>
+                                <option value="2">monatlich</option>
+                                <option value="3">vierteljährlich</option>
+                                <option value="3">halbjährlich</option>
+                                <option value="3">jährlich</option>
+                           </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                Anrede:
+                            </div>
+                            <div class="form-group col-md-4">
+                                   <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">Herr</label>
+                                   </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                   <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">Frau</label>
+                                   </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                           <label for="validationCustom03">Nachname</label>
+                            <input type="text" class="form-control" id="validationCustom03" placeholder="Nachname">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="validationCustom04">Vorname</label>
+                            <input type="text" class="form-control" id="vname" placeholder="Vorname">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="inputEmail4">Email</label>
+                          <input type="email" class="form-control" id="inputEmail4" placeholder="contact@example.com">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                Zahlungsart:
+                            </div>
+                            <div class="form-group col-md-3">
+                                   <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">Lastschrift</label>
+                                   </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                   <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">PayPal</label>
+                                   </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                   <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option1" checked>
+                                        <label class="form-check-label" for="exampleRadios1">Visa</label>
+                                   </div>
+                            </div>
+                        </div>
+                        <input id="myButton" type="submit" value="Abschicken">
+                    </form>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+                <div class="row">
+                        <div class="col-md-8"> <a href="#">Terms of Service</a> | <a href="#">Privacy</a>    </div>
+                        <div class="col-md-4"> <p class="muted pull-right">© 2018 <span class="cool-font">Shin'yuu</span>. All rights reserved</p> </div>
+                </div>
+        </div>
+    </footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+    var vname = document.getElementById("vname");
+    var betrag = document.getElementById("betrag");
+    var zahlArt = document.querySelector('input[name="rate"]:checked').value;
+    document.getElementById("myButton").addEventListener("click", function() {
+        alert( "Vielen Dank " + vname.value + " für deine Spende!\n"+
+                "\nDu hast dich entschieden " + betrag.value + "€ per " + zahlArt +
+                " für das Wohl der Tiere zu spenden.");
+    });
+    alert("flsj");
+</script>
+</body>
+</html>

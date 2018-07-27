@@ -1,0 +1,34 @@
+#kontakt-wrapper{ background: #F2F2F2; }
+#kontakt-main{ background: white; }
+
+.full-img{
+    background: url(img/makaka.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+
+    text-align: left;
+    color: white;
+}
+
+.my-kontakt {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.my-kontakt > p {
+    color: #F2F2F2;
+}
+
+
+.my-kontakt > span {
+    color: white;
+}
+
+.test{
+    height: 700px;
+}
