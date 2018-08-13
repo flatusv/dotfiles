@@ -33,7 +33,7 @@
     
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = left
+    alignment = center
     
     # The frequency with wich text that is longer than the notification
     # window allows bounces back and forth.
@@ -111,12 +111,12 @@
     # The height of a single line.  If the height is smaller than the
     # font height, it will get raised to the font height.
     # This adds empty space above and under the text.
-    line_height = 0
+    line_height = 10
     
     # Draw a line of "separatpr_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 2
+    separator_height = 0
     
     # Padding between text and separator.
     padding = 8
@@ -144,17 +144,17 @@
     browser = /usr/bin/firefox -new-tab
 
     # Align icons left/right/off
-    icon_position = off
+    icon_position = left
 
     # Paths to default icons.
-    #icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-    icon_folders = /usr/share/icons/Flattr/status/scalable/:/usr/share/icons/Flattr/devices/scalable/
+    #icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/sjhare/icons/gnome/16x16/devices/
+    icon_folders = /usr/share/icons/Papirus-Dark/16x16/status:/usr/share/icons/Papirus/symbolic/devices
 
 [frame]
     #width = 3
     #color = "#aaaaaa"
-    width = 0
-    color = "#111113"
+    width = 5
+    color = "#d5a8e3"
 
 [shortcuts]
 
@@ -182,19 +182,19 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "#170F0D"
     foreground = "#CECFD1"
-    timeout = 10
+    timeout = 15
 
 [urgency_normal]
     #background = "#285577"
     #foreground = "#CECFD1"
     background = "#170F0D"
     foreground = "#CECFD1"
-    timeout = 10
+    timeout = 15
 
 [urgency_critical]
     background = "#170F0D"
     foreground = "#CECFD1"
-    timeout = 10
+    timeout = 15
 
 
 # Every section that isn't one of the above is interpreted as a rules to
