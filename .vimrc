@@ -81,6 +81,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<f2>"
+let g:UltiSnipsSnippetDirectories = ['~/.vim/bundle/vim-snippets/UltiSnips', 'UltiSnips']
 
 
 
@@ -448,3 +449,9 @@ call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 noremap! <C-BS> <C-w>
 noremap! <C-h>  <C-w>
+
+" jj triggers NORMAL MODE
+imap jj <Esc>
+
+
+ 
