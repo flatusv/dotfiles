@@ -226,16 +226,20 @@ exec --no-startup-id pulseeffects --gapplication-service  # equalizer
 
 # Commands for specific windows
 # Use `xprop` to search for the window's class value
+# These windows won't be focused upon invokcation
 for_window [class="^.*"] border pixel 5
 for_window [class="^.*"] focus
-# for_window [class=".*"] title_format "<span font='tewi 8'> </span>"
-for_window [class="Spotify"] move to workspace $ws5
 for_window [class="jetbrains-idea-ce"] move to workspace $ws5
+for_window [class="jetbrains-studio"] move to workspace $ws5
+for_window [class="libreoffice-writer"] move to workspace $ws6
+
+# for_window [class="Spotify"] move to workspace $ws5
 # for_window [class="Steam"] move to workspace $ws6
 # for_window [class="Steam"] no_focus
 # for_window [class="dota2"] fullscreen enable
 # focus_on_window_activation focus
 
+# Make external monitor appear on workspace 6
 workspace $ws6 output VGA1
 
 assign [class="Firefox"] $ws1
