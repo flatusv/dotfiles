@@ -20,10 +20,10 @@ function set-prompt () {
     if [[ "$PWD" == "$HOME" ]]; then
      # Zsh prompt expansion syntax
     PS1="%B%{$fg[cyan]%}%u%b >%{$fg[red]%}>%B%(?.%{$fg[cyan]%}.%{$fg[cyan]%})>%{$reset_color%}%b "
-    RPROMPT="$VI_MODE"
+    RPROMPT="%B%F{red}$VI_MODE"
     else
         PS1="%B%{$fg[cyan]%}%(4~|%-1~/.../%2~|%~)%u%b >%{$fg[red]%}>%B%(?.%{$fg[cyan]%}.%{$fg[cyan]%})>%{$reset_color%}%b "
-        RPROMPT="$VI_MODE"
+        RPROMPT="%B%F{red}$VI_MODE"
     fi
 
     # PS1="%{$terminfo_down_sc$VI_MODE$terminfo[rc]%}%~ $ "
