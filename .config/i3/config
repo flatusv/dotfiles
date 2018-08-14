@@ -158,8 +158,8 @@ set $screenshot Launch: [s]crot # Take screenshots: [s]ave locally, [c]opy to cl
 bindsym $win+s mode "$screenshot"
 
 mode "$screenshot" {
-    bindsym --release s exec "scrot -s ~/media/screenshots/$(date '+%d-%b-%Y_%H-%M').png -q 100 -e 'xclip -selection c -t image/png < $f'"
-    bindsym --release c exec "scrot -s /tmp/screenshot-$(date '+%d-%b-%Y_%H-%M').png -e 'xclip -selection c -t image/png < $f'"
+    bindsym --release s exec "~/.config/i3/screenshotNotfiy.sh"
+    bindsym --release c exec "~/.config/i3/screenshotNotfiyClipboard.sh"
     
     bindsym Escape mode "default"
     bindsym Return mode "default"
