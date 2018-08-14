@@ -7,6 +7,10 @@ listings.
 This repo contains my very own dotfiles.  Feel free to use anything and
 everything.
 
+## Screenshot
+
+![14-aug-2018_17-44](https://user-images.githubusercontent.com/16192241/44102631-763acf24-9fea-11e8-909a-bad9de37e8a0.png)
+
 
 ## Sys Overview
 
@@ -24,3 +28,4 @@ To install with Git:
     git clone https://github.com/flatusv/dotfiles.git ~/Dotfiles
 ```
 **Warning**: Make sure all dotfiles are in their respective paths.
+
