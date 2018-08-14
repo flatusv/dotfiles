@@ -39,6 +39,12 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 
+# remove delay when entering NORMAL mode
+KEYTIMEOUT=20
+
+
+# "jj" enters NORMAL mode
+bindkey -M viins 'jj' vi-cmd-mode
 
 # remove a word
 bindkey '^w' backward-kill-word
@@ -46,3 +52,5 @@ bindkey '^w' backward-kill-word
 # allow ctrl-a and ctrl-e to move to beginning/end of line
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
+
+
