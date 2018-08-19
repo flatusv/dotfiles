@@ -234,9 +234,9 @@ for_window [class="jetbrains-studio"] move to workspace $ws5
 for_window [class="libreoffice-writer"] move to workspace $ws6
 
 # for_window [class="Spotify"] move to workspace $ws5
-# for_window [class="Steam"] move to workspace $ws6
-# for_window [class="Steam"] no_focus
-# for_window [class="dota2"] fullscreen enable
+for_window [class="Steam"] move to workspace $ws6
+for_window [class="Steam"] no_focus
+for_window [class="dota2"] fullscreen enable
 # focus_on_window_activation focus
 
 # Make external monitor appear on workspace 6
@@ -258,7 +258,7 @@ assign [class="Sxiv"] $ws4
 assign [class="Code"] $ws5
 
 assign [class="Gnome-twitch"] $ws6
-assign [class="TeamSpeak 3"] $ws6
+assign [class="TeamSpeak 3"] $ws5
 assign [class="mpv"] $ws6
 assign [class="libreoffice-startcenter"] $ws6
 
