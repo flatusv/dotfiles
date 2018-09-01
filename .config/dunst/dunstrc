@@ -152,9 +152,9 @@
 
 [frame]
     #width = 3
-    #color = "#aaaaaa"
+    color = "#9C75DD"
     width = 5
-    color = "#d5a8e3"
+    #color = "#d5a8e3"
 
 [shortcuts]
 
