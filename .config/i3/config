@@ -111,7 +111,7 @@ bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf 
     position top
     font pango:xos4 Terminus, Icons 9
-     # tray_output none # uncomment to disable tray icons. Other arguments are: primary/none
+     tray_output none # uncomment to disable tray icons. Other arguments are: primary/none
      colors {
         background $main-color
 
@@ -221,6 +221,7 @@ exec xset -b #disable bell sound
 exec_always xset -dpms # laptop lid rules
 exec_always xset off   # laptop lid rules
 exec --no-startup-id pulseeffects --gapplication-service  # equalizer
+exec --no-startup-id fcitx -d # takes care of japanese input
 
 
 
@@ -239,8 +240,8 @@ for_window [class="Steam"] no_focus
 for_window [class="dota2"] fullscreen enable
 # focus_on_window_activation focus
 
-# Make external monitor appear on workspace 6
-workspace $ws6 output VGA1
+# Make externjl monitor appear on workspace 1
+workspace $ws1 output VGA1
 
 assign [class="Firefox"] $ws1
 assign [class="Nightly"] $ws1
