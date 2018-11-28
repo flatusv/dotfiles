@@ -65,6 +65,10 @@ bindsym $mod+a exec rofi -show drun
     bindsym $mod+Shift+space  floating toggle
     bindsym $mod+space        focus mode_toggle
 
+    # move focused window between monitors
+    bindsym $mod+Shift+greater move container to output right
+    bindsym $mod+Shift+less move container to output left
+
 #---------- 
 #   
 #   Workspace
@@ -111,7 +115,7 @@ bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf 
     position top
     font pango:xos4 Terminus, Icons 9
-     tray_output none # uncomment to disable tray icons. Other arguments are: primary/none
+     # tray_output none # comment to enable tray icons. Other arguments are: primary/none
      colors {
         background $main-color
 
@@ -132,7 +136,6 @@ bindsym $mod+Shift$Left workspace prev
 
 
 bindsym $mod+e exec pcmanfm # filemanager
-# bindsym $mod+r exec termite -e ranger # cli filemanager
 
 
 
@@ -197,7 +200,7 @@ mode "$mode_monitor" {
 
 
 # ALSA controls volume
-bindsym $win+m exec "amixer -D pulse set Master Playback Switch toggle" 
+bindsym $win+m exec "pactl set-sink-mute 0 toggle && amixer -D pulse set Master Playback Switch toggle" 
 bindsym $win+$Up exec "amixer set Master 5%+" 
 bindsym $win+$Down exec "amixer set Master 5%-" 
 
@@ -247,7 +250,7 @@ assign [class="Firefox"] $ws1
 assign [class="Nightly"] $ws1
 
 assign [class="Ffmulticonverter"] $ws2
-assign [class="TelegramDesktop"] $ws2
+assign [class="TelegramDesktop"] $ws6
 assign [class="Thunderbird"] $ws2
 
 assign [class="Pcmanfm"] $ws3
@@ -265,6 +268,7 @@ assign [class="libreoffice-startcenter"] $ws6
 assign [class="Anki"] $ws6
 
 assign [class="dota2"] $ws6
+assign [class="SAP GUI for Java"] $ws6
 
 
 
