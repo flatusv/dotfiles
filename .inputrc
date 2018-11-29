@@ -1,3 +1,4 @@
+$include /etc/inputrc
 set editing-mode vi
 set show-mode-in-prompt on
 set vi-ins-mode-string \1\e[6 q\2
@@ -5,7 +6,13 @@ set vi-cmd-mode-string \1\e[2 q\2
 
 # switch to NORMAL mode with "jj" in GNU readline based programs
 $if mode=vi
+    "\e[A": history-search-backward 
+    "\e[B": history-search-forward
+    # "j": history-search-forward
+    # "k": history-search-backward    
     set keymap vi-insert       
-    "jj": vi-movement-mode     
+    "jj": vi-movement-mode
+    "\e[A": history-search-backward
+    "\e[B": history-search-forward
 $endif
 
