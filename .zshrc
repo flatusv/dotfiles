@@ -1,11 +1,20 @@
 # -- Variables
 export HISTSIZE=10000
 export SAVEHIST=10000
-export HISTFILE=~/.histfile
-export SAL_USE_VCLPLUGIN=gen
+export HISTFILE=~/.histfile 
+export HISTTIMEFORMAT='%F %T '
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPS='--extended'
 export PATH=${PATH}:$HOME/.config/weareone
+export PATH=${PATH}:$HOME/.SAPClients/SAPGUI/bin/guilogon
+export PATH=${PATH}:$HOME/.amplide_linux64/amplide/amplide
+
+export ORACLE_HOME=/usr/lib/oracle/product/11.2.0/xe
+export ORACLE_SID=XE
+export NLS_LANG=`$ORACLE_HOME/bin/nls_lang.sh`
+export PATH=$PATH:$ORACLE_HOME/bin
+
+
 
 
 
