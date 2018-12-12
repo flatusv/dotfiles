@@ -17,6 +17,8 @@ set completion-highlight-bg "#6B8E23"
 set notification-fg "#FFFFFF"
 set notification-bg "#333333"
 
+# view the first page on the left side
+set first-page-column 1:1
 
 map [normal] <e> feedkeys ":exec evince %"<Return>
 

@@ -68,6 +68,13 @@ Plugin 'bronson/vim-visual-star-search'
 Plugin 'SirVer/ultisnips' " Track the engine.
 Plugin 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
 Plugin 'xuhdev/vim-latex-live-preview'
+Plugin 'ron89/thesaurus_query.vim' " display synonyms for the word under the cursor
+
+" vim-thesaurus_query installed via AUR
+let g:tq_thesaurus_com_do_not_prompt_for_install=1
+let g:tq_language=['en', 'de',]
+let g:tq_online_backends_timeout = 0.4
+let g:tq_enabled_backends=["woxikon_de","openthesaurus_de","woxikon_de","thesaurus_com","openoffice_en"]
 
 " LaTeX configuration
 let g:livepreview_previewer = 'zathura'

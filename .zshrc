@@ -69,7 +69,7 @@ alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"
 alias wp="nitrogen ~/media/wallpapers"  ### Set up a new wallpaper
 alias rm="moveTrash"
 alias neofetch="neofetch --w3m ~/media/wallpapers/japenese_hills.jpg"
-
+alias ncdu="ncdu --color" ### Tui alternative of 'du'
 
 
 # -- obsolete
