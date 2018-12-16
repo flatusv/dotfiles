@@ -148,7 +148,9 @@
 
     # Paths to default icons.
     #icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/sjhare/icons/gnome/16x16/devices/
-    icon_folders = /usr/share/icons/oomox-flatusAdventure/status/scalable/:/usr/share/icons/oomox-flatusAdventure/devices/scalable/
+    icon_folders = /usr/share/icons/Archdroid-DeepPurple/status/:/usr/share/icons/Archdroid-DeepPurple/devices/
+
+
 
 
 
