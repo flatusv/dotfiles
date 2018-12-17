@@ -215,7 +215,7 @@ exec_always xrdb ~/.Xresources # needed for rofi launcher
 exec xset -b #disable bell sound
 exec_always xset -dpms # laptop lid rules
 exec_always xset off   # laptop lid rules
-exec --no-startup-id pulseeffects --gapplication-service  # equalizer
+# exec --no-startup-id pulseeffects --gapplication-service  # equalizer
 exec --no-startup-id fcitx -d # takes care of japanese input
 
 

@@ -1,6 +1,6 @@
 [global]
     #font = Monospace 8
-    font = xos4 Terminus 8
+    font = xos4 Terminus 10
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -12,7 +12,7 @@
     # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
     # If markup is not allowed, those tags will be stripped out of the
     # message.
-    allow_markup = yes
+    markup = yes
     
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -147,8 +147,7 @@
     icon_position = left
 
     # Paths to default icons.
-    #icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/sjhare/icons/gnome/16x16/devices/
-    icon_folders = /usr/share/icons/Archdroid-DeepPurple/status/:/usr/share/icons/Archdroid-DeepPurple/devices/
+    icon_folders = /usr/share/icons/oomox-flatusAdventure/status/:/usr/share/icons/oomox-flatusAdventure /devices/
 
 
 
@@ -156,8 +155,7 @@
 
 [frame]
     #width = 3
-    color = "#9C75DD"
-    width = 5
+    #color = "#9C75DD" # old frame color
     #color = "#d5a8e3"
 
 [shortcuts]
@@ -184,20 +182,21 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#170F0D"
-    foreground = "#CECFD1"
+    #background = "#000000" # old bg
+    background = "#000000"
+    foreground = "#61564E"
     timeout = 15
 
 [urgency_normal]
     #background = "#285577"
-    #foreground = "#CECFD1"
-    background = "#170F0D"
-    foreground = "#CECFD1"
+    #foreground = "#61564E"
+    background = "#000000"
+    foreground = "#61564E"
     timeout = 15
 
 [urgency_critical]
-    background = "#170F0D"
-    foreground = "#CECFD1"
+    background = "#000000"
+    foreground = "#61564E"
     timeout = 15
 
 
