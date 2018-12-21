@@ -56,6 +56,25 @@ source $HOME/.vi-mode.zsh # responsible for the prompt
 zstyle ':completion:*' rehash true
 
 
+# ci"
+autoload -U select-quoted
+zle -N select-quoted
+for m in visual viopp; do
+  for c in {a,i}{\',\",\`}; do
+    bindkey -M $m $c select-quoted
+  done
+done
+
+# ci{, ci(
+autoload -U select-bracketed
+zle -N select-bracketed
+for m in visual viopp; do
+  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+    bindkey -M $m $c select-bracketed
+  done
+done
+
+
 # -- Alias
 alias q="clear"
 alias p="exit"
@@ -69,7 +88,7 @@ alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"
 alias wp="nitrogen ~/media/wallpapers"  ### Set up a new wallpaper
 alias rm="moveTrash"
 alias neofetch="neofetch --w3m ~/media/wallpapers/japenese_hills.jpg"
-alias ncdu="ncdu --color" ### Tui alternative of 'du'
+alias ncdu="ncdu --color dark" ### Tui alternative of 'du'
 
 
 # -- obsolete
