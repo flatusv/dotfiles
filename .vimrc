@@ -448,6 +448,8 @@ call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
  " lists all loaded buffers and populates the prompt for you,
  " waiting for you to type the number of a buffer and press <enter>
  nnoremap gb :ls<CR>:b<Space>
+ map <C-J> :bnext<CR>
+ map <C-K> :bprev<CR>
  
  " list the contents of all of your registers
  " hint: This makes it easy to paste the right content via '[register value]+p'
