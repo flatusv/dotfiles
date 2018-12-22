@@ -245,6 +245,7 @@ assign [class="Ffmulticonverter"] $ws2
 assign [class="TelegramDesktop"] $ws2
 assign [class="Thunderbird"] $ws2
 assign [class="TeamSpeak 3"] $ws2
+assign [class="Pavucontrol"] $ws2
 
 assign [class="Pcmanfm"] $ws3
 assign [class="Zathura"] $ws4

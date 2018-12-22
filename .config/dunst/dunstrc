@@ -1,6 +1,6 @@
 [global]
     #font = Monospace 8
-    font = xos4 Terminus 10
+    font = xos4 Terminus 8
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -147,7 +147,7 @@
     icon_position = left
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/oomox-flatusAdventure/status/:/usr/share/icons/oomox-flatusAdventure /devices/
+    icon_folders = /usr/share/icons/oomox-flatusAdventure/status/:/usr/share/icons/oomox-flatusAdventure/devices/
 
 
 
@@ -184,19 +184,19 @@
     # Otherwise the "#" and following would be interpreted as a comment.
     #background = "#000000" # old bg
     background = "#000000"
-    foreground = "#61564E"
+    foreground = "#918175"
     timeout = 15
 
 [urgency_normal]
     #background = "#285577"
-    #foreground = "#61564E"
+    #foreground = "#918175"
     background = "#000000"
-    foreground = "#61564E"
+    foreground = "#918175"
     timeout = 15
 
 [urgency_critical]
     background = "#000000"
-    foreground = "#61564E"
+    foreground = "#918175"
     timeout = 15
 
 
