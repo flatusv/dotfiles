@@ -17,7 +17,6 @@ export PATH=$PATH:$ORACLE_HOME/bin
 
 
 
-
 # -- history 
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -30,12 +29,12 @@ setopt HIST_BEEP
 setopt extended_glob
 setopt inc_append_history
 
-# "dir" instead of "cd dir"
+# -- "dir" instead of "cd dir"
 setopt AUTO_CD
 
 
 
-# move files to .Trash, or when "-rf" is set remove files entirely
+# -- move files to .Trash, or when "-rf" is set remove files entirely
 function moveTrash() {
 if [[ "$1" == "-rf" ]]; then
     rm -rf "${@:2}"
@@ -56,7 +55,9 @@ source $HOME/.vi-mode.zsh # responsible for the prompt
 zstyle ':completion:*' rehash true
 
 
-# ci"
+
+
+# -- ci"
 autoload -U select-quoted
 zle -N select-quoted
 for m in visual viopp; do
@@ -65,7 +66,7 @@ for m in visual viopp; do
   done
 done
 
-# ci{, ci(
+# -- ci{, ci(
 autoload -U select-bracketed
 zle -N select-bracketed
 for m in visual viopp; do
@@ -73,6 +74,23 @@ for m in visual viopp; do
     bindkey -M $m $c select-bracketed
   done
 done
+
+# -- surround
+autoload -Uz surround
+zle -N delete-surround surround
+zle -N add-surround surround
+zle -N change-surround surround
+bindkey -a cs change-surround
+bindkey -a ds delete-surround
+bindkey -a ys add-surround
+bindkey -M visual S add-surround
+
+# -- some keybinds
+bindkey "?" fzf-history-widget #open fzf widget, default is: C-r
+bindkey "^[[A" history-beginning-search-backward # completion based on input
+bindkey "^[[B" history-beginning-search-forward  # completion based on input   
+
+
 
 
 # -- Alias
