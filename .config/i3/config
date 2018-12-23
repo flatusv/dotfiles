@@ -203,8 +203,8 @@ bindsym $win+$Down exec "amixer set Master 5%-"
 
 # Media Player Controls
 bindsym $win+p exec mpc toggle
-bindsym $win+$Right exec mpc next
-# bindsym $win+$Left exec mpc prev
+bindsym $win+Control+p exec mpc next
+bindsym $win+Control+n exec mpc prev
 bindsym $win+Shift+$Right exec mpc seek +5
 bindsym $win+Shift+$Left exec mpc seek -5 
 
