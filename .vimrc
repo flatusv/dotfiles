@@ -1,3 +1,9 @@
+"       (_)                   
+" __   ___ _ __ ___  _ __ ___ 
+" \ \ / / | '_ ` _ \| '__/ __|
+"  \ V /| | | | | | | | | (__ 
+"   \_/ |_|_| |_| |_|_|  \___|
+"
 " Start in Insert mode
 " start
 
@@ -32,18 +38,13 @@ filetype off                  " required
 filetype plugin indent on    " required
 set modifiable
 
-" show line number
-:set number                  
+
+:set number                 " show line number
 set relativenumber           
-
 set autochdir               " switch to the directory when editing files
-
 set path+=**                " provides tab completion for all file related tasks
-
 :set textwidth=90
-
 :se mouse+=a                " don't select line numbers with the mouse
-
 set completeopt=longest,menuone
 
 
@@ -52,33 +53,24 @@ set completeopt=longest,menuone
 " => Plugins
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-commentary.git' " simple comment/uncomment plugin
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat' 
-Plugin 'bronson/vim-visual-star-search'
-Plugin 'SirVer/ultisnips' " Track the engine.
-Plugin 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
-Plugin 'xuhdev/vim-latex-live-preview'
-Plugin 'ron89/thesaurus_query.vim' " display synonyms for the word under the cursor
-
-" vim-thesaurus_query installed via AUR
-let g:tq_thesaurus_com_do_not_prompt_for_install=1
-let g:tq_language=['en', 'de',]
-let g:tq_online_backends_timeout = 0.4
-let g:tq_enabled_backends=["woxikon_de","openthesaurus_de","woxikon_de","thesaurus_com","openoffice_en"]
+" Plugin 'VundleVim/Vundle.vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'tpope/vim-commentary.git' " simple comment/uncomment plugin
+Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat' 
+Plug 'chrisbra/vim-commentary'
+Plug 'SirVer/ultisnips' " Track the engine.
+Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " LaTeX configuration
 let g:livepreview_previewer = 'zathura'
-nnoremap <silent> <leader>v :LLPStartPreview <CR>
 let g:tex_flavor='latex'    " makes vim recognize the filetype, when creating a .tex file
 
 
@@ -88,7 +80,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<f2>"
-let g:UltiSnipsSnippetDirectories = ['~/.vim/bundle/vim-snippets/UltiSnips', 'UltiSnips']
+let g:UltiSnipsSnippetDirectories = ['~/.vim/plugged/vim-snippets/UltiSnips', 'UltiSnips']
 
 
 
@@ -129,25 +121,12 @@ endif
 au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
 au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 
-
-
-
-" Change the default mapping and the default command to invoke CtrlP:
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-
-" tagbar toggle, very usefull for editing large files
-nnoremap <silent> <leader>t :TagbarToggle<CR>
-
-
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"  " currently setup to code in C
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_list_stop_completion = ['<Enter>']
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -433,34 +412,50 @@ call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
 " toggle highlighting
  nnoremap <C-n> :set hlsearch!<CR>
 
- " compile and run C code from Vim with 'c99' flag
- " nnoremap <silent> <leader>c :w <CR> :!clear;gcc -std=c99 % -o %< && ./%< <CR>
-
- " run a python code
- nnoremap <silent> <leader>p :w <CR> :!clear;python %<CR>
  
- " pretty much the reverse of <c-w> in insert mode
- inoremap <C-d> <C-o>de
 
  " dont trigger suspend with <c-z> in visual mode
  vnoremap <c-z> <nop>
 
- " lists all loaded buffers and populates the prompt for you,
- " waiting for you to type the number of a buffer and press <enter>
- nnoremap gb :ls<CR>:b<Space>
- map <C-J> :bnext<CR>
- map <C-K> :bprev<CR>
+" lists all loaded buffers and populates the prompt for you,
+" waiting for you to type the number of a buffer and press <enter>
+" ::::::obsolote, use <leader>g instead
+" nnoremap gb :ls<CR>:b<Space>
+ nnoremap <C-j> :bnext<CR>
+ nnoremap <C-k> :bprev<CR>
  
- " list the contents of all of your registers
- " hint: This makes it easy to paste the right content via '[register value]+p'
- nnoremap <silent> <leader>r :registers <CR>
  
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 noremap! <C-BS> <C-w>
 noremap! <C-h>  <C-w>
+ 
+" pretty much the reverse of <c-w> in insert mode
+inoremap <C-d> <C-o>de
 
 " jj triggers NORMAL MODE
 imap jj <Esc>
 
+
+""""""""""""""""""""
+" " Leader mappings
+"""""""""""""""""""""
+" compile and run C code from Vim with 'c99' flag
+" nnoremap <silent> <leader>c :w <CR> :!clear;gcc -std=c99 % -o %< && ./%< <CR>
+
+" preview latex file
+nnoremap <silent> <leader>v :LLPStartPreview <CR>
+
+" run a python code
+nnoremap <silent> <leader>p :w <CR> :!clear;python %<CR>
+
+" list the contents of all of your registers
+" hint: This makes it easy to paste the right content via 'registerValue'+p
+nnoremap <silent> <leader>r :registers <CR>
+
+" fzf.vim fuzzy open new file
+nnoremap <silent> <leader>f :Files <CR>
+
+" fzf.vim lists current buffers, :%bd removes all buffers except the current one
+nnoremap <silent> <leader>g :Buffers <CR>
 
  
