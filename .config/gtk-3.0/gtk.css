@@ -12,6 +12,6 @@ window decoration {
     border: 0;
 }
 
-vte-terminal {
-         padding: 26px 20px;
+vte-terminal { /* y x*/
+         padding: 45px 40px;
 }

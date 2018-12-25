@@ -459,6 +459,6 @@ nnoremap <silent> <leader>f :Files <CR>
 nnoremap <silent> <leader>g :Buffers <CR>
 
 " fzf.vim search line within buffer
-nnoremap <silent> <leader>b :Buffers <CR>
+nnoremap <silent> <leader>b :BLines <CR>
 
  

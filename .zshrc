@@ -52,10 +52,19 @@ source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source $HOME/.vi-mode.zsh # responsible for the prompt
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 zstyle ':completion:*' rehash true
 
+# -- remove underline from paths
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
-
+# -- remove colors from commands, may be changed 
+ZSH_HIGHLIGHT_STYLES[default]=none
+ZSH_HIGHLIGHT_STYLES[alias]=none
+ZSH_HIGHLIGHT_STYLES[builtin]=none
+ZSH_HIGHLIGHT_STYLES[function]=none
+ZSH_HIGHLIGHT_STYLES[command]=none
 
 # -- ci"
 autoload -U select-quoted
