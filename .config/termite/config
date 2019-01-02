@@ -22,7 +22,8 @@ color8  = #2E2E2E
 
 # red
 color1  = #d5a8e3
-color9  = #cd749c
+# color9  = #cd749c
+color9  = #D5A8E3
 
 # green
 color2  = #9c75dd
