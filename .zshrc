@@ -3,9 +3,8 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.histfile 
 export HISTTIMEFORMAT='%F %T '
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+# export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""' # fzf: find hidden
 export FZF_DEFAULT_OPS='--extended'
-export PATH=${PATH}:$HOME/.config/weareone
 export PATH=${PATH}:$HOME/.SAPClients/SAPGUI/bin/guilogon
 export PATH=${PATH}:$HOME/.amplide_linux64/amplide/amplide
 
@@ -52,19 +51,9 @@ source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source $HOME/.vi-mode.zsh # responsible for the prompt
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/LS_COLORS/dircolors.sh # via: lscolors-git
 zstyle ':completion:*' rehash true
 
-# -- remove underline from paths
-ZSH_HIGHLIGHT_STYLES[path]=none
-ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-
-# -- remove colors from commands, may be changed 
-ZSH_HIGHLIGHT_STYLES[default]=none
-ZSH_HIGHLIGHT_STYLES[alias]=none
-ZSH_HIGHLIGHT_STYLES[builtin]=none
-ZSH_HIGHLIGHT_STYLES[function]=none
-ZSH_HIGHLIGHT_STYLES[command]=none
 
 # -- ci"
 autoload -U select-quoted
