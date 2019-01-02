@@ -85,6 +85,7 @@ bindsym $mod+a exec rofi -show drun
     bindsym $mod+4 workspace $ws4
     bindsym $mod+5 workspace $ws5
     bindsym $mod+6 workspace $ws6
+    bindsym $mod+0 workspace $ws6
     bindsym $mod+Shift+1 move container to workspace $ws1
     bindsym $mod+Shift+2 move container to workspace $ws2
     bindsym $mod+Shift+3 move container to workspace $ws3
