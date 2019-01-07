@@ -242,6 +242,11 @@ for_window [class="dota2"] fullscreen enable
 # focus_on_window_activation focus
 
 # Make external monitor appear on ws6
+workspace $ws1 output $mon1
+workspace $ws2 output $mon1
+workspace $ws3 output $mon1
+workspace $ws4 output $mon1
+workspace $ws5 output $mon1
 workspace $ws6 output $mon2
 
 # assing firefox to ws1, unless the title starts with "Dialog"
