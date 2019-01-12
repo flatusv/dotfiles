@@ -80,7 +80,8 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<f2>"
-let g:UltiSnipsSnippetDirectories = ['~/.vim/plugged/vim-snippets/UltiSnips', 'UltiSnips']
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
+" let g:UltiSnipsSnippetDirectories = ['~/.vim/plugged/vim-snippets/UltiSnips', 'UltiSnips']
 
 
 
@@ -456,9 +457,9 @@ nnoremap <silent> <leader>r :registers <CR>
 nnoremap <silent> <leader>f :Files <CR>
 
 " fzf.vim lists current buffers, :%bd removes all buffers except the current one
-nnoremap <silent> <leader>g :Buffers <CR>
+nnoremap <silent> <leader>b :Buffers <CR>
 
 " fzf.vim search line within buffer
-nnoremap <silent> <leader>b :BLines <CR>
+nnoremap <silent> <leader>g :BLines <CR>
 
  
