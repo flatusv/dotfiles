@@ -94,7 +94,7 @@ bindkey "^[[B" history-beginning-search-forward  # completion based on input
 # -- Alias
 alias q="clear"
 alias p="exit"
-alias i='sxiv -t'
+alias i="sxiv -qopt . | xclip" # write marked pics to sout and put them in the clipboard
 alias x="dtrx"
 alias down="cd ~/.down"
 alias pdf="zathura"
