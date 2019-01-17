@@ -84,7 +84,7 @@ bindkey -a ys add-surround
 bindkey -M visual S add-surround
 
 # -- some keybinds
-bindkey "?" fzf-history-widget #open fzf widget, default is: C-r
+bindkey ",f" fzf-history-widget #fzf history search, as you would do in vim
 bindkey "^[[A" history-beginning-search-backward # completion based on input
 bindkey "^[[B" history-beginning-search-forward  # completion based on input   
 
@@ -92,19 +92,20 @@ bindkey "^[[B" history-beginning-search-forward  # completion based on input
 
 
 # -- Alias
-alias q="clear"
-alias p="exit"
-alias i="sxiv -qopt . | xclip" # write marked pics to sout and put them in the clipboard
-alias x="dtrx"
 alias down="cd ~/.down"
-alias pdf="zathura"
+alias i="sxiv -qopt . | xclip" #in sxix: mark files with "m", close with "q" -> auto copy files to clipboard
 alias kill='killall -9'
-alias xclip='xclip -selection clipboard'
-alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' #### Class name of window
-alias wp="nitrogen ~/media/wallpapers"  ### Set up a new wallpaper
+alias ncdu="ncdu --color dark" #Tui alternative of 'du'
+alias p="exit"
+alias pdf="zathura"
+alias q="clear"
 alias rm="moveTrash"
-alias neofetch="neofetch --w3m ~/media/wallpapers/japenese_hills.jpg"
-alias ncdu="ncdu --color dark" ### Tui alternative of 'du'
+alias trans="trans -show-original-dictionary y" #translate from commandline
+alias wp="nitrogen ~/media/wallpapers"  #set up a new wallpaper
+alias x="dtrx"
+alias xclip='xclip -selection clipboard'
+alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' #class name of window
+
 
 
 # -- obsolete
