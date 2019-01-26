@@ -45,6 +45,10 @@ else
 fi
 }
 
+function viewImage(){
+    sxiv -qopt "$@" | \xclip -selection clipboard
+
+}
 
 # -- load stuff
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -85,6 +89,7 @@ bindkey -M visual S add-surround
 
 # -- some keybinds
 bindkey ",f" fzf-history-widget #fzf history search, as you would do in vim
+bindkey ",g" fzf-cd-widget      #fzf cd
 bindkey "^[[A" history-beginning-search-backward # completion based on input
 bindkey "^[[B" history-beginning-search-forward  # completion based on input   
 
@@ -93,7 +98,7 @@ bindkey "^[[B" history-beginning-search-forward  # completion based on input
 
 # -- Alias
 alias down="cd ~/.down"
-alias i="sxiv -qopt . | xclip" #in sxix: mark files with "m", close with "q" -> auto copy files to clipboard
+alias sxiv="viewImage" #in sxix: mark files with "m", close with "q" -> auto copy fnames to clipboard
 alias kill='killall -9'
 alias ncdu="ncdu --color dark" #Tui alternative of 'du'
 alias p="exit"
