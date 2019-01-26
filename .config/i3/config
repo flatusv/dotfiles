@@ -70,6 +70,12 @@ bindsym $mod+a exec rofi -show drun
     # move focused window between monitors
     bindsym $mod+Shift+greater move container to output right
     bindsym $mod+Shift+less move container to output left
+    
+    # Make the currently focused window a scratchpad (hide window)
+    bindsym $mod+minus move scratchpad
+    
+    # Show the first scratchpad window
+    bindsym $mod+Shift+minus scratchpad show
 
 #---------- 
 #   
