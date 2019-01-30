@@ -1,6 +1,6 @@
 [global]
     #font = Monospace 8
-    font = xos4 Terminus 8
+    font = Misc Tamsyn 8
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -96,7 +96,7 @@
     # 
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = mouse
+    follow = keyboard
     
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
@@ -147,16 +147,13 @@
     icon_position = left
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/oomox-flatusAdventure/status/:/usr/share/icons/oomox-flatusAdventure/devices/
+    icon_path = /usr/share/icons/oomox-flatusAdventure/status/:/usr/share/icons/oomox-flatusAdventure/devices/
+
+    max_icon_size = 32   
 
 
 
 
-
-[frame]
-    #width = 3
-    #color = "#9C75DD" # old frame color
-    #color = "#d5a8e3"
 
 [shortcuts]
 
@@ -165,38 +162,38 @@
     # "mod3" and "mod4" (windows-key).
     # Xev might be helpful to find names for keys.
     
-    # Close notification.
-    close = ctrl+space
-    
-    # Close all notifications.
-    close_all = ctrl+shift+space
-    
-    # Redisplay last message(s).
-    # On the US keyboard layout "grave" is normally above TAB and left
-    # of "1".
-    history = ctrl+grave
-    
-    # Context menu.
-    context = ctrl+shift+period
+    ## Close notification.
+    #close = ctrl+space
+    #
+    ## Close all notifications.
+    #close_all = ctrl+shift+space
+    #
+    ## Redisplay last message(s).
+    ## On the US keyboard layout "grave" is normally above TAB and left
+    ## of "1".
+    #history = ctrl+grave
+    #
+    ## Context menu.
+    #context = ctrl+shift+period
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    #background = "#000000" # old bg
-    background = "#000000"
-    foreground = "#918175"
+    #background = "#1f1a21" # old bg
+    background = "#1f1a21"
+    foreground = "#dcc8e3"
     timeout = 15
 
 [urgency_normal]
     #background = "#285577"
-    #foreground = "#918175"
-    background = "#000000"
-    foreground = "#918175"
+    #foreground = "#dcc8e3"
+    background = "#1f1a21"
+    foreground = "#dcc8e3"
     timeout = 15
 
 [urgency_critical]
-    background = "#000000"
-    foreground = "#918175"
+    background = "#1f1a21"
+    foreground = "#dcc8e3"
     timeout = 15
 
 
