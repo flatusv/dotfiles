@@ -90,6 +90,7 @@ bindkey -M visual S add-surround
 # -- some keybinds
 bindkey ",f" fzf-history-widget #fzf history search, as you would do in vim
 bindkey ",g" fzf-cd-widget      #fzf cd
+bindkey ",t" fzf-file-widget    #fzf find file
 bindkey "^[[A" history-beginning-search-backward # completion based on input
 bindkey "^[[B" history-beginning-search-forward  # completion based on input   
 
