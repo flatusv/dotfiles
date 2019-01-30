@@ -5,8 +5,6 @@ export HISTFILE=~/.histfile
 export HISTTIMEFORMAT='%F %T '
 # export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""' # fzf: find hidden
 export FZF_DEFAULT_OPS='--extended'
-export PATH=${PATH}:$HOME/.SAPClients/SAPGUI/bin/guilogon
-export PATH=${PATH}:$HOME/.amplide_linux64/amplide/amplide
 
 export ORACLE_HOME=/usr/lib/oracle/product/11.2.0/xe
 export ORACLE_SID=XE
