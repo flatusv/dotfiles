@@ -34,7 +34,7 @@ bindsym $mod+d                  kill
 # ~~~~~~~~~~~~~~~~~~~~~~~~
 set $main-color                  #170F0D
 set $accent-color                #3f3442
-set $border-color                #D5A8E3
+set $border-color                #ab86c3
 set $secondary-color             #ffe4d1
 set $text-color                  #d9d6cf
 set $faded-text-color            #DDDDDD
