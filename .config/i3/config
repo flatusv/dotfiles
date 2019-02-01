@@ -278,4 +278,4 @@ assign [class="mpv"] $ws6
 # i3-gaps
 gaps inner 8
 gaps outer 1
-hide_edge_borders both
+hide_edge_borders smart # no border if single window
