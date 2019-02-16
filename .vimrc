@@ -441,7 +441,7 @@ imap jj <Esc>
 " " Leader mappings
 """""""""""""""""""""
 " compile and run C code from Vim with 'c99' flag
-" nnoremap <silent> <leader>c :w <CR> :!clear;gcc -std=c99 % -o %< && ./%< <CR>
+nnoremap <silent> <leader>c :w <CR> :!clear;gcc -std=c11 % -o %< && ./%< <CR>
 
 " preview latex file
 nnoremap <silent> <leader>v :LLPStartPreview <CR>
