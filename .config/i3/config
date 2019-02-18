@@ -213,10 +213,10 @@ bindsym $win+$Up exec "amixer set Master 5%+"
 bindsym $win+$Down exec "amixer set Master 5%-" 
 
 
-# Media Player Controls
+# Media Player Controls // mpd // ncmpcpp
 bindsym $win+p exec mpc toggle
-bindsym $win+Control+p exec mpc next
-bindsym $win+Control+n exec mpc prev
+bindsym $win+Shift+n exec mpc next
+bindsym $win+Shift+p exec mpc prev
 bindsym $win+Shift+$Right exec mpc seek +5
 bindsym $win+Shift+$Left exec mpc seek -5 
 
