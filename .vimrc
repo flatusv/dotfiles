@@ -68,6 +68,7 @@ Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if 
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'justinmk/vim-syntax-extra'
 
 " LaTeX configuration
 let g:livepreview_previewer = 'zathura'
