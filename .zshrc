@@ -109,6 +109,7 @@ alias wp="nitrogen ~/media/wallpapers"  #set up a new wallpaper
 alias x="dtrx"
 alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' #class name of window
+alias pmpv='mpv --ytdl-raw-options="yes-playlist="' #mpv to play yt playlists
 
 
 
