@@ -69,7 +69,6 @@ follow_now_playing_lyrics = no
 fetch_lyrics_for_current_song_in_background = no
 store_lyrics_in_song_dir = no
 generate_win32_compatible_filenames = yes
-allow_for_physical_item_deletion = yes
 space_add_mode = add_remove
 show_hidden_files_in_local_browser = no
 screen_switcher_mode = playlist, browser
