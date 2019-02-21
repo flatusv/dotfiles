@@ -214,6 +214,8 @@ bindsym $win+$Down exec "amixer set Master 5%-"
 
 
 # Media Player Controls // mpd // ncmpcpp
+# save song title
+bindsym $win+f exec "$HOME/.scripts/addToFavorites.sh" 
 bindsym $win+p exec mpc toggle
 bindsym $win+Shift+n exec mpc next
 bindsym $win+Shift+p exec mpc prev
