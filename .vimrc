@@ -63,12 +63,13 @@ Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' 
 Plug 'chrisbra/vim-commentary'
-Plug 'SirVer/ultisnips' " Track the engine.
-Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets' "Snippets are separated from the engine. Add this if you want them:
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'justinmk/vim-syntax-extra'
+Plug 'justinmk/vim-syntax-extra', { 'for': ['cpp', 'c']}
+Plug 'ludovicchabant/vim-gutentags', { 'for': 'cpp' }
 
 " LaTeX configuration
 let g:livepreview_previewer = 'zathura'
@@ -442,7 +443,10 @@ imap jj <Esc>
 " " Leader mappings
 """""""""""""""""""""
 " compile and run C code from Vim with 'c99' flag
-nnoremap <silent> <leader>c :w <CR> :!clear;gcc -std=c11 % -o %< && ./%< <CR>
+" nnoremap <silent> <leader>c :w <CR> :!clear;gcc -std=c11 % -o %< && ./%< <CR>
+
+" compile and run C++ code from within Vim 
+nnoremap <silent> <leader>c :w <CR> :!clear;g++ % -o %< && ./%< <CR>
 
 " preview latex file
 nnoremap <silent> <leader>v :LLPStartPreview <CR>
@@ -462,5 +466,8 @@ nnoremap <silent> <leader>b :Buffers <CR>
 
 " fzf.vim search line within buffer
 nnoremap <silent> <leader>g :BLines <CR>
+
+" fzf.vim search search for tags
+nnoremap <silent> <leader>t :Tags <CR>
 
  
