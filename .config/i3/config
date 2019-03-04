@@ -32,10 +32,10 @@ bindsym $mod+d                  kill
 #to change topbar color edit $main-color
 #to change active workspace color edit $accent-color
 # ~~~~~~~~~~~~~~~~~~~~~~~~
-set $main-color                  #170F0D
-set $accent-color                #3f3442
+set $main-color                  #000000
+set $accent-color                #3d2a33
+set $secondary-color             #d9d6cf
 set $border-color                #ab86c3
-set $secondary-color             #ffe4d1
 set $text-color                  #d9d6cf
 set $faded-text-color            #DDDDDD
 
