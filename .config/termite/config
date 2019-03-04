@@ -10,7 +10,7 @@ scrollback_lines = 10000
 [colors]
 
 # special
-foreground      = #bea492
+foreground      = #bb9e8a
 foreground_bold = #EEEEE0
 cursor          = #bea492
 background      = #000000
