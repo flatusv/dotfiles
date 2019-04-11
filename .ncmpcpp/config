@@ -113,4 +113,4 @@ player_state_color = default:b
 alternative_ui_separator_color = black:b
 window_border_color = green
 active_window_border = red
-execute_on_song_change = dunstify -r 120 -i /home/geeray/media/wallpapers/icons/doremi.png "<b>Now Playing:</b>" "$(mpc current)"
+execute_on_song_change = dunstify -r 120 -i /home/geeray/media/wallpapers/icons/doremi.png "Now Playing:" "$(mpc current)"

@@ -5,8 +5,7 @@
     frame_width = 3
     frame_color = "#000000"
 
-    format = "<span font="Misc Tamsyn 10">%s</span>\n%b"
-# format = "<b>%s</b>\n%b"
+    format = "<span font="Misc Tamsyn 10"><b>%s</b></span>\n%b"
 
     sort = yes
     indicate_hidden = yes
@@ -42,16 +41,16 @@
     max_icon_size = 64
 
 [urgency_low]
-    background = "#EDD5F5"
+    background = "#ffd7e8"
     foreground = "#000000"
     timeout = 15
 
 [urgency_normal]
-    background = "#EDD5F5"
+    background = "#ffd7e8"
     foreground = "#000000"
     timeout = 15
 
 [urgency_critical]
-    background = "#EDD5F5"
+    background = "#ffd7e8"
     foreground = "#000000"
     timeout = 15
