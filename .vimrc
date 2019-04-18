@@ -244,8 +244,6 @@ nnoremap <Enter> i<Enter>
 nnoremap <Backspace> i<Backspace>
 nnoremap <Space> i<Space>
 
-map <C-a> <ESC>^
-imap <C-a> <ESC>I
 map <C-e> <ESC><END>
 imap <C-e> <ESC><END>
 
@@ -392,11 +390,11 @@ endfunction
 " " Helper Keybinds
 """""""""""""""""""""
 " " Ctrl A - Begin Line
- call CreateShortcut("C-a", "0", "inv")
+" call CreateShortcut("C-a", "0", "inv")
 "
 
 " " Ctrl E - End Line
- call CreateShortcut("C-e", "$<right>", "inv")
+" call CreateShortcut("C-e", "$<right>", "inv")
 "
 " " Ctrl S - Save
 call CreateShortcut("C-s", ":w<enter>", "nv", "cmdInVisual", "restoreSelectionAfter")
