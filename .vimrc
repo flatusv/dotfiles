@@ -71,6 +71,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-syntax-extra', { 'for': ['cpp', 'c']}
 Plug 'ludovicchabant/vim-gutentags', { 'for': 'cpp' }
 
+
 " LaTeX configuration
 let g:livepreview_previewer = 'zathura'
 let g:tex_flavor='latex'    " makes vim recognize the filetype, when creating a .tex file
@@ -457,7 +458,8 @@ nnoremap <silent> <leader>p :w <CR> :!clear;python %<CR>
 nnoremap <silent> <leader>r :registers <CR>
 
 " fzf.vim fuzzy open new file
-nnoremap <silent> <leader>f :Files <CR>
+
+nnoremap <silent> <leader>f :call fzf#vim#files('', fzf#vim#with_preview('right')) <CR>
 
 " fzf.vim lists current buffers, :%bd removes all buffers except the current one
 nnoremap <silent> <leader>b :Buffers <CR>
