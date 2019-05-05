@@ -239,9 +239,12 @@ exec --no-startup-id fcitx -d # takes care of japanese input
 # These windows won't be focused upon invokcation
 for_window [class="^.*"] border pixel 5
 for_window [class="^.*"] focus
+
 for_window [class="jetbrains-idea-ce"] move to workspace $ws5
 for_window [class="jetbrains-studio"] move to workspace $ws5
-for_window [class="libreoffice-writer"] move to workspace $ws4
+for_window [class="jetbrains-idea"] move to workspace $ws5
+for_window [class="jetbrains-idea"] no-focus
+for_window [class="libreoffice-writer"] move to workspace $ws5
 
 # for_window [class="Spotify"] move to workspace $ws5
 for_window [class="Steam"] move to workspace $ws6
@@ -273,8 +276,11 @@ assign [class="Sxiv"] $ws4
 assign [class="libreoffice-startcenter"] $ws4
 assign [class="Anki"] $ws4
 
+assign [class="Inkscape"] $ws5
+
 assign [class="dota2"] $ws6
 assign [class="mpv"] $ws6
+
 
 
 # i3-gaps
