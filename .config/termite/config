@@ -2,7 +2,7 @@
 
 cursor_shape = underline
 cursor_blink = off
-font = Hasklug Nerd Font Mono Semibold 10
+font = xos4 Terminus 11
 allow_bold = true
 scroll_on_output = true
 scrollback_lines = 10000
