@@ -68,8 +68,7 @@ Plug 'honza/vim-snippets' "Snippets are separated from the engine. Add this if y
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'justinmk/vim-syntax-extra', { 'for': ['cpp', 'c']}
-Plug 'ludovicchabant/vim-gutentags', { 'for': 'cpp' }
+Plug 'lervag/vimtex'
 
 
 " LaTeX configuration
@@ -470,4 +469,7 @@ nnoremap <silent> <leader>g :BLines <CR>
 " fzf.vim search search for tags
 nnoremap <silent> <leader>t :Tags <CR>
 
- 
+" draw figues in inkscape and include them in latex
+" https://github.com/gillescastel/inkscape-figures
+inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR> 
