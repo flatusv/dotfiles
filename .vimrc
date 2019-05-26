@@ -47,7 +47,14 @@ set path+=**                " provides tab completion for all file related tasks
 :se mouse+=a                " don't select line numbers with the mouse
 set completeopt=longest,menuone
 
+" spell check
+" setlocal spell
+" set spelllang=de_de,en_us
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
+" Wann geladen wird              " Maske   " Aktivieren      " Zu verwendende Sprache
+autocmd FileType latex,tex setlocal spell    spelllang=de_de,en_us
+" au BufNewFile,BufRead,BufEnter   *.tex    setlocal spell    spelllang=de_de,en_us
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
@@ -396,10 +403,6 @@ endfunction
 " " Ctrl E - End Line
 " call CreateShortcut("C-e", "$<right>", "inv")
 "
-" " Ctrl S - Save
-call CreateShortcut("C-s", ":w<enter>", "nv", "cmdInVisual", "restoreSelectionAfter")
-call CreateShortcut("C-s", ":w<enter>i<right>", "i", "noTrailingIInInsert")
-"
 
 " " Ctrl H - Search and Replace
 call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
@@ -436,6 +439,8 @@ inoremap <C-d> <C-o>de
 " jj triggers NORMAL MODE
 imap jj <Esc>
 
+" copy visual selection to system clipboard
+vnoremap <C-c> "+y
 
 """"""""""""""""""""
 " " Leader mappings
