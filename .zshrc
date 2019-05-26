@@ -11,6 +11,8 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=info:#625566,prompt:#d5a8e3,pointer:#9c75dd,marker:#e5c07b,spinner:#d5a8e3,header:#d5a8e3
 '
 
+export CATALINA_HOME=/usr/local/apache-tomcat-9.0.19
+
 export ORACLE_HOME=/usr/lib/oracle/product/11.2.0/xe
 export ORACLE_SID=XE
 export NLS_LANG=`$ORACLE_HOME/bin/nls_lang.sh`
@@ -111,7 +113,7 @@ alias q="clear"
 alias rm="moveTrash"
 alias trans="trans -show-original-dictionary y" #translate from commandline
 alias wp="nitrogen ~/media/wallpapers"  #set up a new wallpaper
-alias x="dtrx"
+alias x="dtrx -noq"
 alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' #class name of window
 alias pmpv='mpv --ytdl-raw-options="yes-playlist="' #mpv to play yt playlists

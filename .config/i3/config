@@ -244,6 +244,9 @@ for_window [class="jetbrains-idea-ce"] move to workspace $ws5
 for_window [class="jetbrains-studio"] move to workspace $ws5
 for_window [class="jetbrains-idea"] move to workspace $ws5
 for_window [class="jetbrains-idea"] no-focus
+for_window [class="Eclipse"] move to workspace $ws5
+for_window [class="Eclipse"] no-focus
+
 for_window [class="libreoffice-writer"] move to workspace $ws5
 
 # for_window [class="Spotify"] move to workspace $ws5
