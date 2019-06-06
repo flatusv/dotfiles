@@ -50,10 +50,9 @@ else
 fi
 }
 
-function viewImage(){
-    sxiv -qopt "$@" | \xclip -selection clipboard
+function viewImage(){ sxiv -qopt "$@" | \xclip -selection clipboard }
+function viewPdf(){ zathura "$1" >/dev/null 2>&1 & }
 
-}
 
 # -- load stuff
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -108,7 +107,7 @@ alias sxiv="viewImage" #in sxix: mark files with "m", close with "q" -> auto cop
 alias kill='killall -9'
 alias ncdu="ncdu --color dark" #Tui alternative of 'du'
 alias p="exit"
-alias pdf="zathura"
+alias pdf="viewPdf" #put the terminal in background when opening a pdf (makes them closeable)
 alias q="clear"
 alias rm="moveTrash"
 alias trans="trans -show-original-dictionary y" #translate from commandline
