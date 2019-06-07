@@ -41,16 +41,16 @@
     max_icon_size = 64
 
 [urgency_low]
-    background = "#ffd7e8"
-    foreground = "#000000"
+    background = "#282828"
+    foreground = "#EBDBB2"
     timeout = 15
 
 [urgency_normal]
-    background = "#ffd7e8"
-    foreground = "#000000"
+    background = "#282828"
+    foreground = "#EBDBB2"
     timeout = 15
 
 [urgency_critical]
-    background = "#ffd7e8"
-    foreground = "#000000"
+    background = "#282828"
+    foreground = "#EBDBB2"
     timeout = 15
