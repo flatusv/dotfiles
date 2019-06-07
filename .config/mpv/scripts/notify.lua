@@ -8,7 +8,7 @@ function do_notify(a)
    local getTitle = io.popen(ytCommand)
    
    
-   local command = ("dunstify -r 120 -i /home/geeray/media/wallpapers/icons/doremi.png 'Now Playing:' -- '%s'"):format(getTitle:read("*all"))
+   local command = ("dunstify -r 120 -i $HOME/media/wallpapers/icons/cute.png 'Now Playing:' -- '%s'"):format(getTitle:read("*all"))
    if command ~= lastcommand then
       os.execute(command)
       lastcommand = command
