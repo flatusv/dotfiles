@@ -227,7 +227,7 @@ bindsym $win+p exec "mpc toggle || echo -e 'cycle pause\n' > /tmp/mpvfifo"
 bindsym $win+Shift+n exec " mpc next || echo -e 'playlist-next\n' > /tmp/mpvfifo "
 bindsym $win+Shift+p exec "mpc prev || echo -e 'playlist-prev\n' > /tmp/mpvfifo "
 bindsym $win+Shift+$Right exec "mpc seek +5 || echo -e 'seek +5\n' > /tmp/mpvfifo "
-bindsym $win+Shift+$Left exec mpc "mpc seek -5 || echo -e 'seek -5\n' > /tmp/mpvfifo "
+bindsym $win+Shift+$Left exec "mpc seek -5 || echo -e 'seek -5\n' > /tmp/mpvfifo "
 
 
 # Autostart
