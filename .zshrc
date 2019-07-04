@@ -50,7 +50,7 @@ else
 fi
 }
 
-function viewImage(){ sxiv -qopt "$@" | \xclip -selection clipboard }
+function viewImage(){ sxiv -qopt "$@" | \xclip -selection clipboard >/dev/null 2>&1 & }
 function viewPdf(){ zathura "$1" >/dev/null 2>&1 & }
 
 
