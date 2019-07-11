@@ -15,6 +15,11 @@ keycode  32 = o O odiaeresis Odiaeresis
 keycode  38 = a A adiaeresis Adiaeresis
 keycode  39 = s S ssharp
 
+
+keycode  48 = apostrophe quotedbl
+
+
+
 ! Vim like behavior
 keysym h = h H Left
 keysym l = l L Right
