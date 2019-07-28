@@ -176,12 +176,13 @@ mode $sysmenu {
 
 
 # screenshot mode
-set $screenshot Launch: [s]crot # Take screenshots: [s]ave locally, [c]opy to clipboard only
+set $screenshot Launch: [s]crot # Take screenshots: [s]ave, [c]lipboard, [d]elay w/ whole screen
 bindsym $win+s mode "$screenshot"
 
 mode "$screenshot" {
     bindsym --release s exec "~/.config/i3/screenshotNotfiy.sh"
     bindsym --release c exec "~/.config/i3/screenshotNotfiyClipboard.sh"
+    bindsym --release d exec "~/.config/i3/screenshotDelay.sh"
                             
     
     bindsym Escape mode "default"
