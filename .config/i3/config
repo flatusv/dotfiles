@@ -90,19 +90,29 @@ bindsym $mod+a exec rofi -show drun
     set $ws4 " 4:study "
     set $ws5 " 5:vim "
     set $ws6 " 6:misc "
+    set $ws7 " 7:Dota2 "
+
     bindsym $mod+1 workspace $ws1
     bindsym $mod+2 workspace $ws2
     bindsym $mod+3 workspace $ws3
     bindsym $mod+4 workspace $ws4
     bindsym $mod+5 workspace $ws5
+
     bindsym $mod+6 workspace $ws6
     bindsym $mod+0 workspace $ws6
+    
+    #When switching to ws7 enter Dota2 mode
+    bindsym $mod+7 exec ~/.config/i3/dotaMode.sh
+
     bindsym $mod+Shift+1 move container to workspace $ws1
     bindsym $mod+Shift+2 move container to workspace $ws2
     bindsym $mod+Shift+3 move container to workspace $ws3
     bindsym $mod+Shift+4 move container to workspace $ws4
     bindsym $mod+Shift+5 move container to workspace $ws5
     bindsym $mod+Shift+6 move container to workspace $ws6
+    bindsym $mod+Shift+0 move container to workspace $ws6
+
+    bindsym $mod+Shift+7 move container to workspace $ws7
 
 # ~~~~~~~~~~~~~~~~
 # i3 Configuration
