@@ -17,7 +17,7 @@ rofi.color-urgent:                   argb:00000000,  #acafa9 , argb:00000000,  #
 rofi.color-active:                   argb:00000000,  #6699CC , argb:00000000,  #d5a8e3 ,  #1B2B34
 
 ! Color scheme window
-rofi.color-window:                   argb:dc111111,  #1e1e1e ,  #1e1e1e
+rofi.color-window:                   argb:dc111111,  #000000 ,  #000000
 
 
 
