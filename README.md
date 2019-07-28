@@ -9,7 +9,7 @@ everything.
 
 ## Screenshot
 
-![14-aug-2018_17-44](https://user-images.githubusercontent.com/16192241/44102631-763acf24-9fea-11e8-909a-bad9de37e8a0.png)
+![14-aug-2018_17-44](https://user-images.githubusercontent.com/16192241/62011368-d6886b80-b177-11e9-96ad-8e0e9c21a8cc.png)
 
 
 ## Sys Overview
