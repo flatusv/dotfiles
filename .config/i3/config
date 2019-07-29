@@ -273,7 +273,7 @@ for_window [class="Eclipse"] no-focus
 for_window [class="libreoffice-writer"] move to workspace $ws5
 
 # for_window [class="Spotify"] move to workspace $ws5
-for_window [class="Steam"] move to workspace $ws6
+for_window [class="Steam"] move to workspace $ws7
 for_window [class="Steam"] no_focus
 for_window [class="dota2"] fullscreen enable
 # focus_on_window_activation focus
@@ -287,7 +287,7 @@ workspace $ws5 output $mon1
 workspace $ws6 output $mon2
 
 # assing firefox to ws1, unless the title starts with "Dialog"
-assign [class="Firefox" title="^(?!Dialog).*$"] $ws1
+assign [class="firefox" title="^(?!Dialog).*$"] $ws1
 assign [class="Nightly" title="^(?!Dialog).*$"] $ws1
 
 assign [class="Ffmulticonverter"] $ws2
@@ -301,11 +301,10 @@ assign [class="Zathura"] $ws4
 assign [class="Sxiv"] $ws4
 assign [class="libreoffice-startcenter"] $ws4
 assign [class="Anki"] $ws4
-
 assign [class="Inkscape"] $ws5
-
-assign [class="dota2"] $ws6
 assign [class="mpv"] $ws6
+
+assign [class="dota2"] $ws7
 
 
 
