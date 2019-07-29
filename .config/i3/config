@@ -25,6 +25,7 @@ bindsym $mod+Return             exec termite
 bindsym $mod+d                  kill
 
 
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~
 # Color Scheme 
 
@@ -102,7 +103,8 @@ bindsym $mod+a exec rofi -show drun
     bindsym $mod+0 workspace $ws6
     
     #When switching to ws7 enter Dota2 mode
-    bindsym $mod+7 exec ~/.config/i3/dotaMode.sh
+# bindsym $mod+7 exec ~/.config/i3/dotaMode.sh
+    bindsym $mod+7 workspace $ws7; exec i3-msg 'mode "Dota2"'
 
     bindsym $mod+Shift+1 move container to workspace $ws1
     bindsym $mod+Shift+2 move container to workspace $ws2
