@@ -274,11 +274,13 @@ for_window [class="Eclipse"] no-focus
 
 for_window [class="libreoffice-writer"] move to workspace $ws5
 
+<<<<<<< Updated upstream
 # for_window [class="Spotify"] move to workspace $ws5
+=======
+>>>>>>> Stashed changes
 for_window [class="Steam"] move to workspace $ws7
 for_window [class="Steam"] no_focus
 for_window [class="dota2"] fullscreen enable
-# focus_on_window_activation focus
 
 # Make external monitor appear on ws6
 workspace $ws1 output $mon1
