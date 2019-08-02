@@ -1,0 +1,11 @@
+#authentication with $HOME/.netrc
+--netrc
+
+#quality
+-f 'bestvideo[height<=480]+bestaudio/best[height<=480]'
+
+#subtitle language
+--sub-lang enUS
+
+#write sub
+--write-sub
