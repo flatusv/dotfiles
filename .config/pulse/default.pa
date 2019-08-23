@@ -22,7 +22,7 @@
 
 ### Automatically restore the volume of streams and devices
 load-module module-device-restore
-load-module module-stream-restore
+load-module module-stream-restore restore_device=false
 load-module module-card-restore
 
 ### Automatically augment property information from .desktop files
@@ -144,8 +144,17 @@ load-module module-filter-apply
 #####################
 
 # Apply a Highpass Filter at 500Hz (?), load with Pavucontrol
-load-module module-ladspa-sink sink_name=highpassFilter master=alsa_output.pci-0000_00_1b.0.analog-stereo plugin=filter label=hpf control=600
-# load-module module-ladspa-sink plugin=highpass_iir_1890 label=hpf master=alsa_output.pci-0000_00_1b.0.analog-stereo sink_name=HighPassFilter [control=300]
+# load-module module-ladspa-sink sink_name=highpassFilter master=alsa_output.pci-0000_00_1b.0.analog-stereo plugin=filter label=hpf control=600
+# load-module module-ladspa-sink plugin=lowpass_iir_1891 label=lowpass_iir master=<MASTER_SINK> sink_name=<NAME> [control=<FILTER_PARAMETERS>] [channel_map=<CHANNEL_MAP>] [channels=<CHANNEL_COUNT>]
+load-module module-ladspa-sink plugin=highpass_iir_1890 label=highpass_iir  master=alsa_output.pci-0000_00_14.2.analog-stereo sink_name=HighPassFilter control=500
 
+set-default-sink HighPassFilter
 
-set-default-sink highpassFilter
+### BEGIN: Equalized audio configuration
+### Generated from: pulseaudio-equalizer
+.nofail
+load-module module-ladspa-sink sink_name=ladspa_output.mbeq_1197.mbeq sink_master=alsa_output.pci-0000_00_14.2.analog-stereo plugin=mbeq_1197 label=mbeq control=-21.2,-16.1,-10.4,-4.8,-1.1,0,0,0,0,0,0,0,0,0,0
+set-default-sink ladspa_output.mbeq_1197.mbeq
+set-sink-mute alsa_output.pci-0000_00_14.2.analog-stereo 0
+.fail
+### END: Equalized audio configuration
