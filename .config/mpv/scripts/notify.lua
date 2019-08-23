@@ -4,11 +4,12 @@ function string.shellescape(str)
 end
 
 function do_notify(a)
-   local ytCommand = "youtube-dl --skip-download --no-warnings --get-title  https://youtu.be/" .. a
-   local getTitle = io.popen(ytCommand)
+-- local ytCommand = "youtube-dl --skip-download --no-warnings --get-title  https://youtu.be/" .. a
+   local getTitle = [[playerctl metadata --format "{{ artist }} {{ title }}" | sed 's/2019-.*:[0-9]\+$//']]
+   local theTitle = io.popen(getTitle)
    
    
-   local command = ("dunstify -r 120 -i $HOME/media/wallpapers/icons/cute.png 'Now Playing:' -- '%s'"):format(getTitle:read("*all"))
+   local command = ("dunstify -r 120 -i $HOME/media/wallpapers/icons/cute.png 'Now Playing:' -- '%s'"):format(theTitle:read("*all"))
    if command ~= lastcommand then
       os.execute(command)
       lastcommand = command
