@@ -1,4 +1,5 @@
 /* Vim plugin folder */
 bundle/
 
+$HOME/.zshrc
 README.md

@@ -11,12 +11,12 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=info:#625566,prompt:#d5a8e3,pointer:#9c75dd,marker:#e5c07b,spinner:#d5a8e3,header:#d5a8e3
 '
 
-export CATALINA_HOME=/usr/local/apache-tomcat-9.0.19
+# export CATALINA_HOME=/usr/local/apache-tomcat-9.0.19
 
-export ORACLE_HOME=/usr/lib/oracle/product/11.2.0/xe
-export ORACLE_SID=XE
-export NLS_LANG=`$ORACLE_HOME/bin/nls_lang.sh`
-export PATH=$PATH:$ORACLE_HOME/bin
+# export ORACLE_HOME=/usr/lib/oracle/product/11.2.0/xe
+# export ORACLE_SID=XE
+# export NLS_LANG=`$ORACLE_HOME/bin/nls_lang.sh`
+# export PATH=$PATH:$ORACLE_HOME/bin
 
 
 
