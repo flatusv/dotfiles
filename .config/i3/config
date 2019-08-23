@@ -103,7 +103,6 @@ bindsym $mod+a exec rofi -show drun
     bindsym $mod+0 workspace $ws6
     
     #When switching to ws7 enter Dota2 mode
-# bindsym $mod+7 exec ~/.config/i3/dotaMode.sh
     bindsym $mod+7 workspace $ws7; exec i3-msg 'mode "Dota2"'
 
     bindsym $mod+Shift+1 move container to workspace $ws1
@@ -195,7 +194,7 @@ mode "$screenshot" {
 
 # Dota2 mode (ignores all other keybinds)
 mode  "Dota2" {
-        bindsym $mod+Shift+g mode "default"
+        bindsym $mod+Shift+d mode "default"
         
         # Media Player Controls // mpv // mpd // ncmpcpp
         bindsym $win+p exec "mpc toggle || echo -e 'cycle pause\n' > /tmp/mpvfifo"
@@ -210,7 +209,7 @@ mode  "Dota2" {
         bindsym $win+$Down exec "amixer set Master 5%-" 
 
 }
-bindsym $mod+Shift+g mode "Dota2"
+bindsym $mod+Shift+d mode "Dota2"
 
 
 
@@ -274,10 +273,6 @@ for_window [class="Eclipse"] no-focus
 
 for_window [class="libreoffice-writer"] move to workspace $ws5
 
-<<<<<<< Updated upstream
-# for_window [class="Spotify"] move to workspace $ws5
-=======
->>>>>>> Stashed changes
 for_window [class="Steam"] move to workspace $ws7
 for_window [class="Steam"] no_focus
 for_window [class="dota2"] fullscreen enable
