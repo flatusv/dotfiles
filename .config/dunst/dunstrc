@@ -5,7 +5,7 @@
     frame_width = 3
     frame_color = "#000000"
 
-    format = "<span font="Misc Tamsyn 10"><b>%s</b></span>\n%b"
+    format = "<span font="Misc Tamsyn 9"><b>%s</b></span>\n%b"
 
     sort = yes
     indicate_hidden = yes

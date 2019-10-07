@@ -67,6 +67,7 @@ load-module module-bluetooth-discover
 .endif
 
 ### Load several protocols
+load-module module-dbus-protocol
 .ifexists module-esound-protocol-unix.so
 load-module module-esound-protocol-unix
 .endif
@@ -85,14 +86,15 @@ load-module module-native-protocol-unix
 #load-module module-null-sink sink_name=rtp format=s16be channels=2 rate=44100 sink_properties="device.description='RTP Multicast Sink'"
 #load-module module-rtp-send source=rtp.monitor
 
-### Load additional modules from GConf settings. This can be configured with the paprefs tool.
+### Load additional modules from GSettings. This can be configured with the paprefs tool.
 ### Please keep in mind that the modules configured by paprefs might conflict with manually
 ### loaded modules.
-.ifexists module-gconf.so
+.ifexists module-gsettings.so
 .nofail
-load-module module-gconf
+load-module module-gsettings
 .fail
 .endif
+
 
 ### Automatically restore the default sink/source when changed by the user
 ### during runtime
@@ -139,22 +141,11 @@ load-module module-filter-apply
 #set-default-sink output
 #set-default-source input
 
-#####################
-#    Custom Setting:
-#####################
-
-# Apply a Highpass Filter at 500Hz (?), load with Pavucontrol
-# load-module module-ladspa-sink sink_name=highpassFilter master=alsa_output.pci-0000_00_1b.0.analog-stereo plugin=filter label=hpf control=600
-# load-module module-ladspa-sink plugin=lowpass_iir_1891 label=lowpass_iir master=<MASTER_SINK> sink_name=<NAME> [control=<FILTER_PARAMETERS>] [channel_map=<CHANNEL_MAP>] [channels=<CHANNEL_COUNT>]
-load-module module-ladspa-sink plugin=highpass_iir_1890 label=highpass_iir  master=alsa_output.pci-0000_00_14.2.analog-stereo sink_name=HighPassFilter control=500
-
-set-default-sink HighPassFilter
-
 ### BEGIN: Equalized audio configuration
 ### Generated from: pulseaudio-equalizer
 .nofail
-load-module module-ladspa-sink sink_name=ladspa_output.mbeq_1197.mbeq sink_master=alsa_output.pci-0000_00_14.2.analog-stereo plugin=mbeq_1197 label=mbeq control=-21.2,-16.1,-10.4,-4.8,-1.1,0,0,0,0,0,0,0,0,0,0
+load-module module-ladspa-sink sink_name=ladspa_output.mbeq_1197.mbeq sink_master=alsa_output.pci-0000_00_1b.0.analog-stereo plugin=mbeq_1197 label=mbeq control=-30.0,-19.1,-9.4,0.0,0.0,0,0,0,0,0,0,0,0,0,0
 set-default-sink ladspa_output.mbeq_1197.mbeq
-set-sink-mute alsa_output.pci-0000_00_14.2.analog-stereo 0
+set-sink-mute alsa_output.pci-0000_00_1b.0.analog-stereo 0
 .fail
 ### END: Equalized audio configuration
