@@ -234,7 +234,8 @@ mode "$mode_monitor" {
 
 
 # ALSA controls volume
-bindsym $win+m exec "pactl set-sink-mute 0 toggle && amixer -D pulse set Master Playback Switch toggle" 
+# bindsym $win+m exec "pactl set-sink-mute 0 toggle && amixer -D pulse set Master Playback Switch toggle"
+bindsym $win+m exec "pactl set-sink-mute 0 toggle" 
 bindsym $win+$Up exec "amixer set Master 5%+" 
 bindsym $win+$Down exec "amixer set Master 5%-" 
 
