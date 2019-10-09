@@ -462,8 +462,10 @@ nnoremap <silent> <leader>p :w <CR> :!clear;python %<CR>
 nnoremap <silent> <leader>r :registers <CR>
 
 " fzf.vim fuzzy open new file
+noremap <silent> <leader>f :call fzf#vim#files('~', fzf#vim#with_preview('right')) <CR>
 
-nnoremap <silent> <leader>f :call fzf#vim#files('', fzf#vim#with_preview('right')) <CR>
+" fzf.vim complete and insert a path
+imap <C-x><C-f> <plug>(fzf-complete-path)
 
 " fzf.vim lists current buffers, :%bd removes all buffers except the current one
 nnoremap <silent> <leader>b :Buffers <CR>
@@ -476,5 +478,5 @@ nnoremap <silent> <leader>t :Tags <CR>
 
 " draw figues in inkscape and include them in latex
 " https://github.com/gillescastel/inkscape-figures
-inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
-nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR> 
+" inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+" nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
