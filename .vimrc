@@ -30,7 +30,7 @@ let g:mapleader = ","
 " Fast saving
 nmap <leader>w :w!<cr>
 
-set clipboard=unnamedplus     " automatically copy to clipboard
+" set clipboard=unnamedplus     " copy to clipboard. Rather use middle mouse button
 set nocompatible              " required
 filetype off                  " required
 
