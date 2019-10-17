@@ -20,7 +20,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 
 
 
-
 # -- history 
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -52,7 +51,7 @@ fi
 
 function viewImage(){ sxiv -qopt "$@" | \xclip -selection clipboard && rm *.exiv* }
 function viewPdf(){ zathura "$1" >/dev/null 2>&1 & }
-
+function vim_one_instance() { command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"}
 
 # -- load stuff
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -116,6 +115,7 @@ alias x="dtrx -noq"
 alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' #class name of window
 alias pmpv='mpv --ytdl-raw-options="yes-playlist="' #mpv to play yt playlists
+alias vim="vim_one_instance" #vim: only one instance
 
 
 
