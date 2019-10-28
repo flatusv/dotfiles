@@ -51,7 +51,11 @@ fi
 
 function viewImage(){ sxiv -qopt "$@" | \xclip -selection clipboard && rm *.exiv* }
 function viewPdf(){ zathura "$1" >/dev/null 2>&1 & }
-function vim_one_instance() { command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"}
+function vim_one_instance() {
+    i3-msg 'move container to workspace number " 2:vim "' > /dev/null 2>&1 
+    i3-msg 'workspace " 2:vim "' > /dev/null 2>&1   #switch to workspace
+    command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"
+}
 
 # -- load stuff
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
