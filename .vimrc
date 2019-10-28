@@ -47,6 +47,8 @@ set path+=**                " provides tab completion for all file related tasks
 :se mouse+=a                " don't select line numbers with the mouse
 set completeopt=longest,menuone
 
+set timeoutlen=2000
+
 " spell check
 " setlocal spell
 " set spelllang=de_de,en_us
@@ -54,7 +56,9 @@ inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " Wann geladen wird              " Maske   " Aktivieren      " Zu verwendende Sprache
 autocmd FileType latex,tex setlocal spell    spelllang=de_de,en_us
-" au BufNewFile,BufRead,BufEnter   *.tex    setlocal spell    spelllang=de_de,en_us
+
+" treat handlebars files as html
+au BufReadPost *.handlebars set ft=html syntax=html
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
@@ -451,27 +455,31 @@ vnoremap <C-c> "+y
 " compile and run C++ code from within Vim 
 nnoremap <silent> <leader>c :w <CR> :!clear;g++ % -o %< && ./%< <CR>
 
-" preview latex file
-nnoremap <silent> <leader>v :LLPStartPreview <CR>
+" preview latex file -- latex compile
+nnoremap <silent> <leader>lc :LLPStartPreview <CR>
 
-" run a python code
-nnoremap <silent> <leader>p :w <CR> :!clear;python %<CR>
+" run a python code -- python compile
+nnoremap <silent> <leader>pc :w <CR> :!clear;python %<CR>
 
 " list the contents of all of your registers
 " hint: This makes it easy to paste the right content via 'registerValue'+p
 nnoremap <silent> <leader>r :registers <CR>
 
-" fzf.vim fuzzy open new file
-noremap <silent> <leader>f :call fzf#vim#files('~', fzf#vim#with_preview('right')) <CR>
+" close all but current bufffer 
+" :w - save current buffer %bd - close all the buffers  e# - open last edited file bd# - close the unnamed buffer
+nnoremap <leader>bm :w <bar> %bd <bar> e# <bar> bd# <CR>
+
+" fzf.vim fuzzy open new file -- find file
+noremap <silent> <leader>ff :call fzf#vim#files('~', fzf#vim#with_preview('right')) <CR>
 
 " fzf.vim complete and insert a path
 imap <C-x><C-f> <plug>(fzf-complete-path)
 
-" fzf.vim lists current buffers, :%bd removes all buffers except the current one
+" fzf.vim lists current buffers
 nnoremap <silent> <leader>b :Buffers <CR>
 
-" fzf.vim search line within buffer
-nnoremap <silent> <leader>g :BLines <CR>
+" fzf.vim search line within buffer -- find line
+nnoremap <silent> <leader>fl :BLines <CR>
 
 " fzf.vim search search for tags
 nnoremap <silent> <leader>t :Tags <CR>
