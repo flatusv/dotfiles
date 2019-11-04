@@ -2,7 +2,7 @@
 
 cursor_shape = underline
 cursor_blink = off
-font = xos4 Terminus 11
+font = Terminus 11
 allow_bold = true
 scroll_on_output = true
 scrollback_lines = 10000
