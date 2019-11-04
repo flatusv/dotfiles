@@ -60,6 +60,9 @@ autocmd FileType latex,tex setlocal spell    spelllang=de_de,en_us
 " treat handlebars files as html
 au BufReadPost *.handlebars set ft=html syntax=html
 
+" read syntax-highlighted man pages inside Vim. Example: :Man ls
+runtime! ftplugin/man.vim
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 "
@@ -73,13 +76,13 @@ Plug 'tpope/vim-commentary.git' " simple comment/uncomment plugin
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' 
-Plug 'chrisbra/vim-commentary'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets' "Snippets are separated from the engine. Add this if you want them:
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'sheerun/vim-polyglot'
 
 
 " LaTeX configuration
@@ -473,7 +476,7 @@ nnoremap <leader>bm :w <bar> %bd <bar> e# <bar> bd# <CR>
 noremap <silent> <leader>ff :call fzf#vim#files('~', fzf#vim#with_preview('right')) <CR>
 
 " fzf.vim complete and insert a path
-imap <C-x><C-f> <plug>(fzf-complete-path)
+imap <leader>fp <plug>(fzf-complete-path)
 
 " fzf.vim lists current buffers
 nnoremap <silent> <leader>b :Buffers <CR>
@@ -483,7 +486,6 @@ nnoremap <silent> <leader>fl :BLines <CR>
 
 " fzf.vim search search for tags
 nnoremap <silent> <leader>t :Tags <CR>
-
 " draw figues in inkscape and include them in latex
 " https://github.com/gillescastel/inkscape-figures
 " inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
