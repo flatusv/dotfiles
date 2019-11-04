@@ -1,4 +1,4 @@
-# -- Variables
+# -- VARIABLES
 export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.histfile 
@@ -11,16 +11,8 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=info:#625566,prompt:#d5a8e3,pointer:#9c75dd,marker:#e5c07b,spinner:#d5a8e3,header:#d5a8e3
 '
 
-# export CATALINA_HOME=/usr/local/apache-tomcat-9.0.19
 
-# export ORACLE_HOME=/usr/lib/oracle/product/11.2.0/xe
-# export ORACLE_SID=XE
-# export NLS_LANG=`$ORACLE_HOME/bin/nls_lang.sh`
-# export PATH=$PATH:$ORACLE_HOME/bin
-
-
-
-# -- history 
+# -- HISTORY 
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
@@ -36,24 +28,23 @@ setopt inc_append_history
 setopt AUTO_CD
 
 
-
-# -- move files to .Trash, or when "-rf" is set remove files entirely
+# -- move files to .Trash, or when "-rf" is set don't do anything at all
 function moveTrash() {
-if [[ "$1" == "-rf" ]]; then
-    rm -rf "${@:2}"
-else
-    for i in "$@"; do
-        cp -r -t ~/.Trash $i && rm -rf $i
-    done
+    if [[ "$1" == "-rf" ]]; then
+        : 
+    else
+        for i in "$@"; do
+            cp -r -t ~/.Trash $i && rm -rf $i
+        done
 
-fi
+    fi
 }
 
 function viewImage(){ sxiv -qopt "$@" | \xclip -selection clipboard && rm *.exiv* }
 function viewPdf(){ zathura "$1" >/dev/null 2>&1 & }
 function vim_one_instance() {
-    i3-msg 'move container to workspace number " 2:vim "' > /dev/null 2>&1 
-    i3-msg 'workspace " 2:vim "' > /dev/null 2>&1   #switch to workspace
+    i3-msg 'move container to workspace number " 3:vim "' > /dev/null 2>&1 
+    i3-msg 'workspace " 3:vim "' > /dev/null 2>&1   #switch to workspace
     command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"
 }
 
@@ -70,18 +61,18 @@ zstyle ':completion:*' rehash true
 autoload -U select-quoted
 zle -N select-quoted
 for m in visual viopp; do
-  for c in {a,i}{\',\",\`}; do
-    bindkey -M $m $c select-quoted
-  done
+    for c in {a,i}{\',\",\`}; do
+        bindkey -M $m $c select-quoted
+    done
 done
 
 # -- ci{, ci(
 autoload -U select-bracketed
 zle -N select-bracketed
 for m in visual viopp; do
-  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
-    bindkey -M $m $c select-bracketed
-  done
+    for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+        bindkey -M $m $c select-bracketed
+    done
 done
 
 # -- surround
@@ -96,8 +87,8 @@ bindkey -M visual S add-surround
 
 # -- some keybinds
 bindkey ",f" fzf-history-widget #fzf history search, as you would do in vim
-bindkey ",g" fzf-cd-widget      #fzf cd
-bindkey ",t" fzf-file-widget    #fzf find file
+bindkey ",fd" fzf-cd-widget      #fzf cd
+bindkey ",ff" fzf-file-widget    #fzf find file
 bindkey "^[[A" history-beginning-search-backward # completion based on input
 bindkey "^[[B" history-beginning-search-forward  # completion based on input   
 
@@ -111,7 +102,7 @@ alias kill='killall -9'
 alias ncdu="ncdu --color dark" #Tui alternative of 'du'
 alias p="exit"
 alias pdf="viewPdf" #put the terminal in background when opening a pdf (makes them closeable)
-alias q="clear"
+# alias q="clear" #use Ctrl-l instead
 alias rm="moveTrash"
 alias trans="trans -show-original-dictionary y" #translate from commandline
 alias wp="nitrogen ~/media/wallpapers"  #set up a new wallpaper
@@ -120,10 +111,3 @@ alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' #class name of window
 alias pmpv='mpv --ytdl-raw-options="yes-playlist="' #mpv to play yt playlists
 alias vim="vim_one_instance" #vim: only one instance
-
-
-
-# -- obsolete
-# alias decrypt="/usr/bin/decrypt.sh"
-# alias gl='git log --pretty=format:"%h%x09%an%x09%ad%x09%s"'
-# alias merge='pdftk *.pdf cat output' # USAGE: merge output_name.pdf
