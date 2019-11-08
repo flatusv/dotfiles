@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+
+.navbar-custom{
+    background-color: #161616;
+}
+
+.navbar-brand{ 
+    font-family: 'Abel', Light;
+    font-size: 18px;
+} 
+
+.btn-custom{
+    color:#fff;
+    background-color:#3f3442;
+}
+
+
+    
