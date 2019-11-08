@@ -104,25 +104,18 @@ Plug 'sheerun/vim-polyglot'
 
 " coc.vim 
 "vscode like tab completion
-inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
-let g:coc_snippet_next = '<TAB>'
-let g:coc_snippet_prev = '<S-TAB>'
-
-" Use tab for trigger completion 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <cr> to confirm completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
+let g:coc_snippet_next = '<tab>'
 
 
 " LaTeX configuration
@@ -131,12 +124,14 @@ let g:tex_flavor='latex'    " makes vim recognize the filetype, when creating a 
 
 
 " Ultisnips configuration
-let g:UltiSnipsExpandTrigger="<tab>"
+" '<nop>' is needed here to not interfer with completion!
+let g:UltiSnipsExpandTrigger = "<nop>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<f2>"
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
+
 " let g:UltiSnipsSnippetDirectories = ['~/.vim/plugged/vim-snippets/UltiSnips', 'UltiSnips']
 
 
