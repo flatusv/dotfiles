@@ -45,7 +45,8 @@ function viewPdf(){ zathura "$1" >/dev/null 2>&1 & }
 function vim_one_instance() {
     i3-msg 'move container to workspace number " 3:vim "' > /dev/null 2>&1 
     i3-msg 'workspace " 3:vim "' > /dev/null 2>&1   #switch to workspace
-    command vim --servername $(command vim --serverlist | head -1) --remote-silent "${@:-}"
+    
+    command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"
 }
 
 # -- load stuff
@@ -107,7 +108,7 @@ alias kill='killall -9'
 alias ncdu="ncdu --color dark" #Tui alternative of 'du'
 alias p="exit"
 alias pdf="viewPdf" #put the terminal in background when opening a pdf (makes them closeable)
-# alias q="clear" #use Ctrl-l instead
+alias q="clear" #use Ctrl-l instead
 alias rm="moveTrash"
 alias trans="trans -show-original-dictionary y" #translate from commandline
 alias wp="nitrogen ~/media/wallpapers"  #set up a new wallpaper
