@@ -45,7 +45,7 @@ function viewPdf(){ zathura "$1" >/dev/null 2>&1 & }
 function vim_one_instance() {
     i3-msg 'move container to workspace number " 3:vim "' > /dev/null 2>&1 
     i3-msg 'workspace " 3:vim "' > /dev/null 2>&1   #switch to workspace
-    command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"
+    command vim --servername $(command vim --serverlist | head -1) --remote-silent "${@:-}"
 }
 
 # -- load stuff
@@ -55,6 +55,11 @@ source /usr/share/fzf/completion.zsh
 source $HOME/.vi-mode.zsh # responsible for the prompt
 source /usr/share/LS_COLORS/dircolors.sh # via: lscolors-git
 zstyle ':completion:*' rehash true
+
+
+
+
+
 
 
 # -- ci"
