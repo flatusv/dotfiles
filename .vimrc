@@ -49,6 +49,23 @@ set completeopt=longest,menuone
 
 set timeoutlen=2000
 
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+
+" never show signcolumns, removes ugly grey bar next to statusline
+set signcolumn=no
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable
+
 " spell check
 " setlocal spell
 " set spelllang=de_de,en_us
@@ -71,8 +88,9 @@ runtime! ftplugin/man.vim
 call plug#begin('~/.vim/plugged')
 
 " Plugin 'VundleVim/Vundle.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'tpope/vim-commentary.git' " simple comment/uncomment plugin
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'chrisbra/vim-commentary' " simple comment/uncomment plugin
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' 
@@ -83,6 +101,28 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'sheerun/vim-polyglot'
+
+" coc.vim 
+"vscode like tab completion
+inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+let g:coc_snippet_next = '<TAB>'
+let g:coc_snippet_prev = '<S-TAB>'
+
+" Use tab for trigger completion 
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <cr> to confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 
 
 " LaTeX configuration
@@ -102,45 +142,45 @@ let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
 
 
 " Make Ultisnips work alongside YouCompleteMe
-function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res == 0
-    if pumvisible()
-      return "\<C-n>"
-    else
-      call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
-        return "\<TAB>"
-      endif
-    endif
-  endif
-  return ""
-endfunction
+" function! g:UltiSnips_Complete()
+" call UltiSnips#ExpandSnippet()
+" if g:ulti_expand_res == 0
+" if pumvisible()
+" return "\<C-n>"
+" else
+" call UltiSnips#JumpForwards()
+" if g:ulti_jump_forwards_res == 0
+" return "\<TAB>"
+" endif
+" endif
+" endif
+" return ""
+" endfunction
 
-function! g:UltiSnips_Reverse()
-  call UltiSnips#JumpBackwards()
-  if g:ulti_jump_backwards_res == 0
-    return "\<C-P>"
-  endif
+" function! g:UltiSnips_Reverse()
+" call UltiSnips#JumpBackwards()
+" if g:ulti_jump_backwards_res == 0
+" return "\<C-P>"
+" endif
 
-  return ""
-endfunction
+" return ""
+" endfunction
 
 
-if !exists("g:UltiSnipsJumpForwardTrigger")
-  let g:UltiSnipsJumpForwardTrigger = "<tab>"
-endif
+" if !exists("g:UltiSnipsJumpForwardTrigger")
+" let g:UltiSnipsJumpForwardTrigger = "<tab>"
+" endif
 
-if !exists("g:UltiSnipsJumpBackwardTrigger")
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-endif
+" if !exists("g:UltiSnipsJumpBackwardTrigger")
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" endif
 
-au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
-au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+" au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
+" au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 
-let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"  " currently setup to code in C
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_key_list_stop_completion = ['<Enter>']
+" let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"  " currently setup to code in C
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_key_list_stop_completion = ['<Enter>']
 
 " All of your Plugins must be added before the following line
 call plug#end()
@@ -189,6 +229,7 @@ set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch
+
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -200,6 +241,7 @@ set tm=500
 
 " Add a bit extra margin to the left
 set foldcolumn=0
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
