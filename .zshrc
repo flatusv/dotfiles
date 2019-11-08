@@ -31,7 +31,7 @@ setopt AUTO_CD
 # -- move files to .Trash, or when "-rf" is set don't do anything at all
 function moveTrash() {
     if [[ "$1" == "-rf" ]]; then
-        : 
+        rm -rf "${@:2}" 
     else
         for i in "$@"; do
             cp -r -t ~/.Trash $i && rm -rf $i
