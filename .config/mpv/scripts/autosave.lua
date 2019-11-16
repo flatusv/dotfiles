@@ -22,7 +22,9 @@ options.read_options(o)
 local mp = require 'mp'
 
 local function save()
-	mp.command("write-watch-later-config")
+    mp.commandv("set", "msg-level", "cplayer=warn")
+    mp.command("write-watch-later-config")
+    mp.commandv("set", "msg-level", "cplayer=status")
 end
 
 local save_period_timer = mp.add_periodic_timer(o.save_period, save)
