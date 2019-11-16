@@ -87,19 +87,17 @@ runtime! ftplugin/man.vim
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-" Plugin 'VundleVim/Vundle.vim'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chrisbra/vim-commentary' " simple comment/uncomment plugin
-Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets' "Snippets are separated from the engine. Add this if you want them:
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'sheerun/vim-polyglot'
 
 " coc.vim 
@@ -516,7 +514,7 @@ noremap <silent> <leader>ff :call fzf#vim#files('~', fzf#vim#with_preview('right
 imap <leader>fp <plug>(fzf-complete-path)
 
 " fzf.vim lists current buffers
-nnoremap <silent> <leader>b :Buffers <CR>
+nnoremap <silent> <leader><leader> :Buffers <CR>
 
 " fzf.vim search line within buffer -- find line
 nnoremap <silent> <leader>fl :BLines <CR>
