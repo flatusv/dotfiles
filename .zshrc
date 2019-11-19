@@ -4,13 +4,15 @@ export SAVEHIST=10000
 export HISTFILE=~/.histfile 
 export HISTTIMEFORMAT='%F %T '
 export FZF_DEFAULT_COMMAND='rg --files'
-export FZF_DEFAULT_OPS='--extended'
+export FZF_DEFAULT_OPS=' --extended '
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=dark
 --color=fg:-1,bg:-1,hl:#c678dd,fg+:#d9d6cf,bg+:#3f3442,hl+:#d858fe
 --color=info:#625566,prompt:#d5a8e3,pointer:#9c75dd,marker:#e5c07b,spinner:#d5a8e3,header:#d5a8e3
-'
 
+--bind ,:cancel
+'
+# --bind ,:cancel ->clears query string if not empty, aborts fzf otherwise
 
 # -- HISTORY 
 setopt EXTENDED_HISTORY
