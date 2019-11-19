@@ -89,6 +89,7 @@ call plug#begin('~/.vim/plugged')
 
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'chrisbra/vim-commentary' " simple comment/uncomment plugin
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' 
@@ -130,50 +131,6 @@ let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<f2>"
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
 
-" let g:UltiSnipsSnippetDirectories = ['~/.vim/plugged/vim-snippets/UltiSnips', 'UltiSnips']
-
-
-
-" Make Ultisnips work alongside YouCompleteMe
-" function! g:UltiSnips_Complete()
-" call UltiSnips#ExpandSnippet()
-" if g:ulti_expand_res == 0
-" if pumvisible()
-" return "\<C-n>"
-" else
-" call UltiSnips#JumpForwards()
-" if g:ulti_jump_forwards_res == 0
-" return "\<TAB>"
-" endif
-" endif
-" endif
-" return ""
-" endfunction
-
-" function! g:UltiSnips_Reverse()
-" call UltiSnips#JumpBackwards()
-" if g:ulti_jump_backwards_res == 0
-" return "\<C-P>"
-" endif
-
-" return ""
-" endfunction
-
-
-" if !exists("g:UltiSnipsJumpForwardTrigger")
-" let g:UltiSnipsJumpForwardTrigger = "<tab>"
-" endif
-
-" if !exists("g:UltiSnipsJumpBackwardTrigger")
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-" endif
-
-" au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
-" au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
-
-" let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"  " currently setup to code in C
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_key_list_stop_completion = ['<Enter>']
 
 " All of your Plugins must be added before the following line
 call plug#end()
@@ -283,8 +240,8 @@ set lbr
 set tw=90
 
        
-"set ai "Auto indent
-"set si "Smart indent
+set ai "Auto indent
+" set si "Smart indent
 set wrap "Wrap lines
 
 
