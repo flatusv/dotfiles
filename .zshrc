@@ -10,7 +10,9 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=fg:-1,bg:-1,hl:#c678dd,fg+:#d9d6cf,bg+:#3f3442,hl+:#d858fe
 --color=info:#625566,prompt:#d5a8e3,pointer:#9c75dd,marker:#e5c07b,spinner:#d5a8e3,header:#d5a8e3
 
---bind ,:cancel
+--bind ,:cancel,tab:accept
+--border
+--reverse
 '
 # --bind ,:cancel ->clears query string if not empty, aborts fzf otherwise
 
@@ -119,3 +121,4 @@ alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' #class name of window
 alias pmpv='mpv --ytdl-raw-options="yes-playlist="' #mpv to play yt playlists
 alias vim="vim_one_instance" #vim: only one instance
+alias cat="bat --theme TwoDark" #cat on steroids
