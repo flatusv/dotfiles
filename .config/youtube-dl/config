@@ -1,8 +1,10 @@
-#authentication with $HOME/.netrc
---netrc
+#ingore errors
+--ignore-errors
 
-#quality
--f 'bestvideo[height<=480]+bestaudio/best[height<=480]'
+
+# Prefer 1080p or lower resolutions
+-f bestvideo[ext=mp4][height<1200]+bestaudio[ext=m4a]/bestvideo[ext=webm][height<1200]+bestaudio[ext=webm]/bestvideo[height<1200]+bestaudio/best[height<1200]/best
+
 
 #subtitle language
 --sub-lang enUS
