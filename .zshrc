@@ -50,6 +50,8 @@ function vim_one_instance() {
     i3-msg 'workspace " 3:vim "' > /dev/null 2>&1   #switch to workspace
     
     command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"
+    exit
+
 }
 
 # -- load stuff
