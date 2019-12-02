@@ -11,7 +11,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=info:#625566,prompt:#d5a8e3,pointer:#9c75dd,marker:#e5c07b,spinner:#d5a8e3,header:#d5a8e3
 
 --bind ,:cancel,tab:accept
---border
 --reverse
 '
 # --bind ,:cancel ->clears query string if not empty, aborts fzf otherwise
