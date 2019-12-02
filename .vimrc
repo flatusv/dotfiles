@@ -88,33 +88,40 @@ runtime! ftplugin/man.vim
 call plug#begin('~/.vim/plugged')
 
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
- Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex']}
+Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'chrisbra/vim-commentary' " simple comment/uncomment plugin
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' 
-Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips', {'for': ['python','javascript','html','css','tex']}
 Plug 'honza/vim-snippets' "Snippets are separated from the engine. Add this if you want them:
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot', {'for': ['python','javascript','html','css'] }
+
+" no conflict with vimtex
+let g:polyglot_disabled = ['latex']
 
 " coc.vim 
 "vscode like tab completion
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+" \ <SID>check_back_space() ? "\<TAB>" :
+" \ coc#refresh()
+
+" inoremap <silent><expr> <TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ <SID>check_back_space() ? "\<TAB>" :
+" \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_snippet_next = '<tab>'
 
 
 " LaTeX configuration
@@ -123,12 +130,10 @@ let g:tex_flavor='latex'    " makes vim recognize the filetype, when creating a 
 
 
 " Ultisnips configuration
-" '<nop>' is needed here to not interfer with completion!
-let g:UltiSnipsExpandTrigger = "<nop>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsListSnippets="<f2>"
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
 
 
@@ -475,6 +480,12 @@ nnoremap <silent> <leader><leader> :Buffers <CR>
 
 " fzf.vim search line within buffer -- find line
 nnoremap <silent> <leader>fl :BLines <CR>
+
+" fzf.vim search line within loaded buffers -- find line
+nnoremap <silent> <leader>fL :Lines <CR>
+
+" fzf.vim search string in files
+nnoremap <silent> <leader>? :Rg <CR>
 
 " fzf.vim search search for tags
 nnoremap <silent> <leader>t :Tags <CR>
