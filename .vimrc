@@ -442,6 +442,8 @@ inoremap <C-d> <C-o>de
 
 " jj triggers NORMAL MODE
 imap jj <Esc>
+cnoremap jj <C-C><Esc>
+onoremap jj <Esc>
 
 " copy visual selection to system clipboard
 vnoremap <C-c> "+y
@@ -449,11 +451,8 @@ vnoremap <C-c> "+y
 """"""""""""""""""""
 " " Leader mappings
 """""""""""""""""""""
-" compile and run C code from Vim with 'c99' flag
-" nnoremap <silent> <leader>c :w <CR> :!clear;gcc -std=c11 % -o %< && ./%< <CR>
-
 " compile and run C++ code from within Vim 
-nnoremap <silent> <leader>c :w <CR> :!clear;g++ % -o %< && ./%< <CR>
+" nnoremap <silent> <leader>c :w <CR> :!clear;g++ % -o %< && ./%< <CR>
 
 " preview latex file -- latex compile
 nnoremap <silent> <leader>lc :LLPStartPreview <CR>
@@ -465,9 +464,12 @@ nnoremap <silent> <leader>pc :w <CR> :!clear;python %<CR>
 " hint: This makes it easy to paste the right content via 'registerValue'+p
 nnoremap <silent> <leader>r :registers <CR>
 
-" close all but current bufffer 
-" :w - save current buffer %bd - close all the buffers  e# - open last edited file bd# - close the unnamed buffer
-nnoremap <leader>bm :w <bar> %bd <bar> e# <bar> bd# <CR>
+" close all but current bufffer and save -- delete buffer
+" :w - save current buffers %bd - close all the buffers  e# - open last edited file bd# - close the unnamed buffer
+nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer and (save)" <CR>
+
+" close all but current bufffer  -- delete Buffer
+nnoremap <leader>dB :%bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer" <CR>
 
 " fzf.vim fuzzy open new file -- find file
 noremap <silent> <leader>ff :call fzf#vim#files('~', fzf#vim#with_preview('right')) <CR>
