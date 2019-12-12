@@ -58,7 +58,7 @@ source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source $HOME/.vi-mode.zsh                # responsible for the prompt
-source $HOME/zsh-vi-search.zsh           # Adds support for searching the current line (in normal vi mode) to zsh.
+source $HOME/.zsh-vi-search.zsh           # Adds support for searching the current line (in normal vi mode) to zsh.
 source /usr/share/LS_COLORS/dircolors.sh # via: lscolors-git
 zstyle ':completion:*' rehash true
 
