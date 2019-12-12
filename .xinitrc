@@ -9,5 +9,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-nitrogen --restore & # needed for wallpaper
+# nitrogen --restore & # needed for wallpaper
+xsetroot -bitmap $HOME/media/wallpapers/bitmap-walls-master/bw-bgnd/arabic_floor.xbm  -bg "#000000" -fg "#201623" 
 exec i3
