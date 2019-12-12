@@ -51,22 +51,16 @@ function vim_one_instance() {
     
     command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"
     exit
-
 }
 
 # -- load stuff
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-source $HOME/.vi-mode.zsh # responsible for the prompt
+source $HOME/.vi-mode.zsh                # responsible for the prompt
+source $HOME/zsh-vi-search.zsh           # Adds support for searching the current line (in normal vi mode) to zsh.
 source /usr/share/LS_COLORS/dircolors.sh # via: lscolors-git
 zstyle ':completion:*' rehash true
-
-
-
-
-
-
 
 # -- ci"
 autoload -U select-quoted
@@ -97,14 +91,11 @@ bindkey -a ys add-surround
 bindkey -M visual S add-surround
 
 # -- some keybinds
-bindkey ",f" fzf-history-widget #fzf history search, as you would do in vim
+bindkey ",f" fzf-history-widget #fzf history search
 bindkey ",fd" fzf-cd-widget      #fzf cd
 bindkey ",ff" fzf-file-widget    #fzf find file
 bindkey "^[[A" history-beginning-search-backward # completion based on input
 bindkey "^[[B" history-beginning-search-forward  # completion based on input   
-
-
-
 
 # -- Alias
 alias down="cd ~/.down"
