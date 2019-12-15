@@ -10,7 +10,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=fg:-1,bg:-1,hl:#c678dd,fg+:#d9d6cf,bg+:#3f3442,hl+:#d858fe
 --color=info:#625566,prompt:#d5a8e3,pointer:#9c75dd,marker:#e5c07b,spinner:#d5a8e3,header:#d5a8e3
 
---bind ,:cancel,tab:accept
+--bind ,:cancel,tab:accept,esc:ignore
 --reverse
 '
 # --bind ,:cancel ->clears query string if not empty, aborts fzf otherwise
