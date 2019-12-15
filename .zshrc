@@ -35,6 +35,8 @@ setopt AUTO_CD
 function moveTrash() {
     if [[ "$1" == "-rf" ]]; then
         rm -rf "${@:2}" 
+    elif [[ "$1" == "--" ]]; then 
+        echo -e 'ERROR: unalias rm, and run command again!'
     else
         for i in "$@"; do
             cp -r -t ~/.Trash $i && rm -rf $i
@@ -104,6 +106,10 @@ bindkey ",fd" fzf-cd-widget      #fzf cd
 bindkey ",ff" fzf-file-widget    #fzf find file
 bindkey "^[[A" history-beginning-search-backward # completion based on input
 bindkey "^[[B" history-beginning-search-forward  # completion based on input   
+#cycle suspend with ctrl-z
+_zsh_cli_fg() { fg; }
+zle -N _zsh_cli_fg
+bindkey '^Z' _zsh_cli_fg
 
 # -- Alias
 alias down="cd ~/.down"
@@ -121,4 +127,4 @@ alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' #class name of window
 alias pmpv='mpv --ytdl-raw-options="yes-playlist="' #mpv to play yt playlists
 alias vim="vim_one_instance" #vim: only one instance
-alias cat="bat --theme TwoDark" #cat on steroids
+alias cat="bat" #cat on steroids
