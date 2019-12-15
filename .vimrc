@@ -207,11 +207,22 @@ syntax enable
 syntax on
 autocmd BufEnter * :syntax sync fromstart
 
-set background=dark
-let g:hybrid_custom_term_colors = 1
-colorscheme hybrid
+" set background=dark
+" let g:hybrid_custom_term_colors = 1
+function! MyHighlights() abort
+    highlight Normal      ctermbg=NONE
+    highlight NonText     ctermbg=NONE
+    highlight EndOfBuffer ctermbg=NONE
+endfunction
+
+augroup MyColors
+    autocmd!
+    autocmd ColorScheme * call MyHighlights()
+augroup END
+colorscheme blaquemagick
 set cursorline        " highlight current line
 set cursorcolumn      " highlight current column
+
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8

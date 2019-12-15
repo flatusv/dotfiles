@@ -12,11 +12,12 @@ endif
 
 let g:colors_name="blaquemagick"
 
-hi ColorColumn  term=NONE cterm=NONE ctermfg=NONE ctermbg=242
+hi ColorColumn  term=NONE cterm=NONE ctermfg=NONE ctermbg=0     "zeilen leiste
 hi Comment      term=NONE cterm=NONE ctermfg=238  ctermbg=NONE
 hi Constant     term=NONE cterm=NONE ctermfg=101  ctermbg=NONE
 hi Cursor       term=NONE cterm=NONE ctermfg=242  ctermbg=NONE
-hi CursorLine   term=NONE cterm=NONE ctermfg=NONE ctermbg=234
+hi CursorLine   term=NONE cterm=NONE ctermfg=NONE ctermbg=236
+hi CursorColumn term=NONE cterm=NONE ctermfg=NONE ctermbg=236
 hi DiffAdd      term=NONE cterm=NONE ctermfg=103  ctermbg=NONE
 hi DiffChange   term=NONE cterm=NONE ctermfg=NONE ctermbg=16
 hi DiffDelete   term=NONE cterm=NONE ctermfg=251  ctermbg=16
@@ -41,14 +42,14 @@ hi StatusLineNC term=NONE cterm=NONE ctermfg=236  ctermbg=NONE
 hi String       term=NONE cterm=NONE ctermfg=66   ctermbg=NONE
 hi TabLineSel   term=NONE cterm=NONE ctermfg=251  ctermbg=NONE
 hi Todo         term=NONE cterm=NONE ctermfg=251  ctermbg=66
-hi Type         term=NONE cterm=NONE ctermfg=242  ctermbg=NONE
+hi Type         term=NONE cterm=NONE ctermfg=242  ctermbg=NONE 
 hi VertSplit    term=NONE cterm=NONE ctermfg=236  ctermbg=16
 hi Visual       term=NONE cterm=NONE ctermfg=16   ctermbg=101
 hi WarningMsg   term=NONE cterm=NONE ctermfg=103  ctermbg=NONE
 hi LineNr       term=NONE cterm=NONE ctermbg=234  ctermfg=237
-hi CursorLineNr term=NONE cterm=NONE ctermbg=237  ctermfg=16
+hi CursorLineNr term=NONE cterm=NONE ctermbg=236 ctermfg=NONE gui=NONE guibg=#3b3341 guifg=NONE
 hi Pmenu        term=NONE cterm=NONE ctermfg=249  ctermbg=16
-hi PmenuSel     term=NONE cterm=NONE ctermfg=238  ctermbg=66
+hi PmenuSel     term=NONE cterm=NONE ctermfg=0  ctermbg=134
 hi PmenuSbar    term=NONE cterm=NONE ctermfg=238  ctermbg=66
 hi PmenuThumb   term=NONE cterm=NONE ctermfg=238  ctermbg=66
 hi Underlined   term=underline cterm=underline ctermfg=NONE   ctermbg=NONE
