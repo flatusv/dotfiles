@@ -41,8 +41,8 @@ set $text-color                  #d9d6cf
 set $faded-text-color            #DDDDDD
 
 # ~~~~
-# Rofi: toggle rofi with alt+a
-bindsym $mod+a exec "i3-msg 'mode noBinds' && rofi -show drun -kb-cancel 'alt+a' && i3-msg 'mode default'"
+# Rofi: toggle rofi with alt+a or escape
+bindsym $mod+a exec "i3-msg 'mode noBinds' && rofi -show drun -kb-cancel 'Escape,alt+a' && i3-msg 'mode default'"
 
 
 
