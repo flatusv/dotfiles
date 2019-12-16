@@ -41,9 +41,8 @@ set $text-color                  #d9d6cf
 set $faded-text-color            #DDDDDD
 
 # ~~~~
-# Rofi
-# ~~~~
-bindsym $mod+a exec rofi -show drun
+# Rofi: toggle rofi with alt+a
+bindsym $mod+a exec "i3-msg 'mode noBinds' && rofi -show drun -kb-cancel 'alt+a' && i3-msg 'mode default'"
 
 
 
@@ -104,7 +103,7 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+0 workspace $ws6
 
 #When switching to ws7 enter Dota2 mode
-bindsym $mod+7 workspace $ws7; exec i3-msg 'mode "Dota2"'
+bindsym $mod+7 workspace $ws7; exec i3-msg 'mode "noBinds"'
 
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -194,7 +193,7 @@ mode "$screenshot" {
 
 
 # Dota2 mode (ignores all other keybinds)
-mode  "Dota2" {
+mode  "noBinds" {
     bindsym $mod+Shift+d mode "default"
 
     # Media Player Controls // mpv // mpd // ncmpcpp
@@ -212,7 +211,7 @@ mode  "Dota2" {
     bindsym $win+$Down exec "amixer set Master 5%-" 
 
 }
-bindsym $mod+Shift+d mode "Dota2"
+bindsym $mod+Shift+d mode "noBinds"
 
 
 
