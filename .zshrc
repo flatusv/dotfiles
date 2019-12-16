@@ -29,7 +29,7 @@ setopt inc_append_history
 
 # -- "dir" instead of "cd dir"
 setopt AUTO_CD
-
+setopt +o nomatch
 
 # -- move files to .Trash, or when "-rf" is set don't do anything at all
 function moveTrash() {
@@ -45,7 +45,11 @@ function moveTrash() {
     fi
 }
 
-function viewImage(){ sxiv -qopt "$@" | \xclip -selection clipboard && rm *.exiv* }
+function viewImage(){ 
+    sxiv -qopt "$@" | \xclip -selection clipboard
+    [[ !  -z $(ls *.exiv.*)  ]] && rm -rf *.exiv*
+    i3-msg "workspace back_and_forth" #switch to prev workspace when closing sxiv
+}
 function viewPdf(){ zathura "$1" >/dev/null 2>&1 & }
 function vim_one_instance() {
     
@@ -106,14 +110,10 @@ bindkey ",fd" fzf-cd-widget      #fzf cd
 bindkey ",ff" fzf-file-widget    #fzf find file
 bindkey "^[[A" history-beginning-search-backward # completion based on input
 bindkey "^[[B" history-beginning-search-forward  # completion based on input   
-#cycle suspend with ctrl-z
-_zsh_cli_fg() { fg; }
-zle -N _zsh_cli_fg
-bindkey '^Z' _zsh_cli_fg
 
 # -- Alias
 alias down="cd ~/.down"
-alias sxiv="viewImage" #in sxix: mark files with "m", close with "q" -> auto copy fnames to clipboard
+alias sxiv="viewImage > /dev/null 2>&1" #in sxix: mark files with "m", close with "q" -> auto copy fnames to clipboard
 alias kill='killall -9'
 alias ncdu="ncdu --color dark" #Tui alternative of 'du'
 alias p="exit"
