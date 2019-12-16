@@ -18,6 +18,10 @@ keycode  39 = s S ssharp
 
 keycode  48 = apostrophe quotedbl
 
+! CapsLock + semicolon becomes escape
+! remove escape key
+keycode  47 = semicolon colon Escape
+keycode  9 = NoSymbol
 
 
 ! Vim like behavior
@@ -25,6 +29,7 @@ keysym h = h H Left
 keysym l = l L Right
 keysym k = k K Up
 keysym j = j J Down
+
 
 
 
