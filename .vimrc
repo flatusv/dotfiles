@@ -207,7 +207,7 @@ syntax enable
 syntax on
 autocmd BufEnter * :syntax sync fromstart
 
-" set background=dark
+set background=dark
 " let g:hybrid_custom_term_colors = 1
 function! MyHighlights() abort
     highlight Normal      ctermbg=NONE
@@ -291,7 +291,7 @@ let &t_EI = "\<Esc>[2 q"
 set laststatus=2
 
 " Format the status line
-hi StatusLine ctermfg=black ctermbg=1 cterm=NONE
+" hi StatusLine ctermfg=black ctermbg=1 cterm=NONE
 highlight LineNr term=bold cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\%y\ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l/%L\ \%=\%p%%

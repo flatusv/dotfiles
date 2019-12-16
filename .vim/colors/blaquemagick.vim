@@ -37,7 +37,7 @@ hi Search       term=NONE cterm=NONE ctermfg=251  ctermbg=247
 hi Special      term=NONE cterm=NONE ctermfg=66   ctermbg=NONE
 hi SpecialKey   term=NONE cterm=NONE ctermfg=101  ctermbg=NONE
 hi Statement    term=NONE cterm=NONE ctermfg=251  ctermbg=NONE
-hi StatusLine   term=NONE cterm=NONE ctermfg=238  ctermbg=NONE
+hi StatusLine   term=NONE cterm=NONE ctermfg=0    ctermbg=72
 hi StatusLineNC term=NONE cterm=NONE ctermfg=236  ctermbg=NONE
 hi String       term=NONE cterm=NONE ctermfg=66   ctermbg=NONE
 hi TabLineSel   term=NONE cterm=NONE ctermfg=251  ctermbg=NONE
@@ -53,6 +53,8 @@ hi PmenuSel     term=NONE cterm=NONE ctermfg=0  ctermbg=134
 hi PmenuSbar    term=NONE cterm=NONE ctermfg=238  ctermbg=66
 hi PmenuThumb   term=NONE cterm=NONE ctermfg=238  ctermbg=66
 hi Underlined   term=underline cterm=underline ctermfg=NONE   ctermbg=NONE
+
+
 
 hi! link diffAdded       DiffAdd
 hi! link diffRemoved     DiffDelete
