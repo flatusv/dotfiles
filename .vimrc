@@ -10,7 +10,6 @@
 " Allow the cursor to move just past the end of the
 set virtualedit=onemore 
 
-
 " Sets how many lines of history VIM has to remember
 set history=700
 
@@ -30,14 +29,11 @@ let g:mapleader = ","
 " Fast saving
 nmap <leader>w :w!<cr>
 
-" set clipboard=unnamedplus     " copy to clipboard. Rather use middle mouse button
-set nocompatible              " required
-filetype off                  " required
-
-
-filetype plugin indent on    " required
+" set clipboard=unnamedplus " copy to clipboard. Rather use middle mouse button
+set nocompatible            " required
+filetype off                " required
+filetype plugin indent on   " required
 set modifiable
-
 
 :set number                 " show line number
 set relativenumber           
@@ -61,24 +57,22 @@ set signcolumn=no
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
+" Suntax 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable
+syntax on
+autocmd BufEnter * :syntax sync fromstart
 
-" spell check
-" setlocal spell
-" set spelllang=de_de,en_us
-inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-
-" Wann geladen wird              " Maske   " Aktivieren      " Zu verwendende Sprache
+" Wann geladen wird.. Maske... zu verwendende Sprache..
 autocmd FileType latex,tex setlocal spell    spelllang=de_de,en_us
-
-" treat handlebars files as html
-au BufReadPost *.handlebars set ft=html syntax=html
 
 " read syntax-highlighted man pages inside Vim. Example: :Man ls
 runtime! ftplugin/man.vim
+" make these commands split the window vertically 
+cabbrev Man vert Man       
+cabbrev help vert help     
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
@@ -105,23 +99,12 @@ Plug 'sheerun/vim-polyglot', {'for': ['python','javascript','html','css'] }
 let g:polyglot_disabled = ['latex']
 
 " coc.vim 
-"vscode like tab completion
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-" \ <SID>check_back_space() ? "\<TAB>" :
-" \ coc#refresh()
-
-" inoremap <silent><expr> <TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ <SID>check_back_space() ? "\<TAB>" :
-" \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
 
 
 " LaTeX configuration
@@ -136,17 +119,14 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
 
-
 " All of your Plugins must be added before the following line
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
-"
+" VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 
 " Set n lines to the cursor - when moving vertically using j/k
-set so=20
+set so=15
 
 " Turn on the WiLd menu //"set wildmenu" enables a menu at the bottom of the vim/gvim window. 
 set wildmenu
@@ -155,7 +135,7 @@ set wildmenu
 set ruler
 
 " Height of the command bar
-set cmdheight=3
+set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
 set hid
@@ -197,16 +177,9 @@ set tm=500
 " Add a bit extra margin to the left
 set foldcolumn=0
 
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
+" Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
-syntax enable
-syntax on
-autocmd BufEnter * :syntax sync fromstart
-
 set background=dark
 " let g:hybrid_custom_term_colors = 1
 function! MyHighlights() abort
@@ -255,7 +228,7 @@ set tabstop=4
 set lbr
 set tw=90
 
-       
+
 set ai "Auto indent
 " set si "Smart indent
 set wrap "Wrap lines
@@ -266,14 +239,14 @@ nnoremap <Enter> i<Enter>
 nnoremap <Backspace> i<Backspace>
 nnoremap <Space> i<Space>
 
-map <C-e> <ESC><END>
-imap <C-e> <ESC><END>
+map      <C-e> <ESC><END>
+imap     <C-e> <ESC><END>
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \ exe "normal! g`\"" |
-     \ endif
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \ exe "normal! g`\"" |
+            \ endif
 " Remember info about open buffers on close
 set viminfo^=%
 
@@ -303,17 +276,14 @@ set statusline=\ %{HasPaste()}%F%m%r%h\ %w\%y\ Line:\ %l/%L\ \%=\%p%%
 " Remap VIM 0 to first non-blank character
 " map 0 ^
 
-
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
-
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
@@ -327,7 +297,6 @@ autocmd VimEnter * WipeReg
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Returns true if paste mode is enabled
 function! HasPaste()
     if &paste
@@ -339,59 +308,59 @@ endfunction
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
+    let l:currentBufNum = bufnr("%")
+    let l:alternateBufNum = bufnr("#")
 
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
+    if buflisted(l:alternateBufNum)
+        buffer #
+    else
+        bnext
+    endif
 
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
+    if bufnr("%") == l:currentBufNum
+        new
+    endif
 
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
+    if buflisted(l:currentBufNum)
+        execute("bdelete! ".l:currentBufNum)
+    endif
 endfunction
 
 " Creates shortcuts for certain commands
 function! CreateShortcut(keys, cmd, where, ...)
-  let keys = "<" . a:keys . ">"
-  if a:where =~ "i"
-    let i = (index(a:000,"noTrailingIInInsert") > -1) ? "" : "i"
-    let e = (index(a:000,"noLeadingEscInInsert") > -1) ? "" : "<esc>"
-    execute "imap " . keys . " " . e .  a:cmd . i
-  endif
-  if a:where =~ "n"
-    execute "nmap " . keys . " " . a:cmd
-  endif    
-  if a:where =~ "v"
-    let k = (index(a:000,"restoreSelectionAfter") > -1) ? "gv" : ""
-    let c = a:cmd
-    if index(a:000,"cmdInVisual") > -1
-      let c = ":<C-u>" . strpart(a:cmd,1)
+    let keys = "<" . a:keys . ">"
+    if a:where =~ "i"
+        let i = (index(a:000,"noTrailingIInInsert") > -1) ? "" : "i"
+        let e = (index(a:000,"noLeadingEscInInsert") > -1) ? "" : "<esc>"
+        execute "imap " . keys . " " . e .  a:cmd . i
     endif
-    execute "vmap " . keys . " " . c . k
-  endif
+    if a:where =~ "n"
+        execute "nmap " . keys . " " . a:cmd
+    endif
+    if a:where =~ "v"
+        let k = (index(a:000,"restoreSelectionAfter") > -1) ? "gv" : ""
+        let c = a:cmd
+        if index(a:000,"cmdInVisual") > -1
+            let c = ":<C-u>" . strpart(a:cmd,1)
+        endif
+        execute "vmap " . keys . " " . c . k
+    endif
 endfunction
 function! TabIsEmpty()
     return winnr('$') == 1 && len(expand('%')) == 0 && line2byte(line('$') + 1) <= 2
 endfunction
 function! MyQuit()
-  if TabIsEmpty() == 1
-    q!
-  else
-    if &modified
-      if (confirm("YOU HAVE UNSAVED CHANGES! Wanna quit anyway?", "&Yes\n&No", 2)==1)
+    if TabIsEmpty() == 1
         q!
-      endif
     else
-      q
+        if &modified
+            if (confirm("YOU HAVE UNSAVED CHANGES! Wanna quit anyway?", "&Yes\n&No", 2)==1)
+                q!
+            endif
+        else
+            q
+        endif
     endif
-  endif
 endfunction
 function! OpenLastBufferInNewTab()
     redir => ls_output
@@ -399,12 +368,12 @@ function! OpenLastBufferInNewTab()
     redir END
     let ListBuffers = reverse(split(ls_output, "\n"))
     for line in ListBuffers
-      let title = split(line, "\"")[1]
-      if title !~  "\[No Name"
-        execute "tabnew +" . split(line, " ")[0] . "buf" 
-        break
-      endif       
-    endfor  
+        let title = split(line, "\"")[1]
+        if title !~  "\[No Name"
+            execute "tabnew +" . split(line, " ")[0] . "buf"
+            break
+        endif
+    endfor
 endfunction
 
 
@@ -429,25 +398,25 @@ call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
 " " Custom Keybinds
 """""""""""""""""""""
 " toggle highlighting
- nnoremap <C-n> :set hlsearch!<CR>
+nnoremap <C-n> :set hlsearch!<CR>
 
- 
 
- " dont trigger suspend with <c-z> in visual mode
- vnoremap <c-z> <nop>
+
+" dont trigger suspend with <c-z> in visual mode
+vnoremap <c-z> <nop>
 
 " lists all loaded buffers and populates the prompt for you,
 " waiting for you to type the number of a buffer and press <enter>
 " ::::::obsolote, use <leader>g instead
 " nnoremap gb :ls<CR>:b<Space>
- nnoremap <C-j> :bnext<CR>
- nnoremap <C-k> :bprev<CR>
- 
- 
+nnoremap <C-j> :bnext<CR>
+nnoremap <C-k> :bprev<CR>
+
+
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 noremap! <C-BS> <C-w>
 noremap! <C-h>  <C-w>
- 
+
 " pretty much the reverse of <c-w> in insert mode
 inoremap <C-d> <C-o>de
 
@@ -477,7 +446,7 @@ nnoremap <silent> <leader>r :registers <CR>
 
 " close all but current bufffer and save -- delete buffer
 " :w - save current buffers %bd - close all the buffers  e# - open last edited file bd# - close the unnamed buffer
-nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer and (save)" <CR>
+nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
 
 " close all but current bufffer  -- delete Buffer
 nnoremap <leader>dB :%bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer" <CR>
