@@ -70,9 +70,9 @@ autocmd FileType latex,tex setlocal spell    spelllang=de_de,en_us
 " read syntax-highlighted man pages inside Vim. Example: :Man ls
 runtime! ftplugin/man.vim
 " make these commands split the window vertically 
-cabbrev Man vert Man       
-cabbrev help vert help     
-
+cabbrev Man vert Man 
+cabbrev help vert help 
+cabbrev term  :vert term  ++cols=60
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
@@ -239,9 +239,6 @@ nnoremap <Enter> i<Enter>
 nnoremap <Backspace> i<Backspace>
 nnoremap <Space> i<Space>
 
-map      <C-e> <ESC><END>
-imap     <C-e> <ESC><END>
-
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
             \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -400,18 +397,12 @@ call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
 " toggle highlighting
 nnoremap <C-n> :set hlsearch!<CR>
 
-
-
 " dont trigger suspend with <c-z> in visual mode
 vnoremap <c-z> <nop>
 
-" lists all loaded buffers and populates the prompt for you,
-" waiting for you to type the number of a buffer and press <enter>
-" ::::::obsolote, use <leader>g instead
-" nnoremap gb :ls<CR>:b<Space>
+" move up/down the buffer list
 nnoremap <C-j> :bnext<CR>
 nnoremap <C-k> :bprev<CR>
-
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 noremap! <C-BS> <C-w>
@@ -431,9 +422,6 @@ vnoremap <C-c> "+y
 """"""""""""""""""""
 " " Leader mappings
 """""""""""""""""""""
-" compile and run C++ code from within Vim 
-" nnoremap <silent> <leader>c :w <CR> :!clear;g++ % -o %< && ./%< <CR>
-
 " preview latex file -- latex compile
 nnoremap <silent> <leader>lc :LLPStartPreview <CR>
 
@@ -448,9 +436,15 @@ nnoremap <silent> <leader>r :registers <CR>
 " :w - save current buffers %bd - close all the buffers  e# - open last edited file bd# - close the unnamed buffer
 nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
 
-" close all but current bufffer  -- delete Buffer
+" close all but current bufffer  -- delete buffer
 nnoremap <leader>dB :%bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer" <CR>
 
+"switch to the other split 
+tnoremap <Leader>s <C-w>w
+nnoremap <Leader>s <C-w>w
+""""""""""""""""""""
+" " FZF mappings
+"""""""""""""""""""""
 " fzf.vim fuzzy open new file -- find file
 noremap <silent> <leader>ff :call fzf#vim#files('~', fzf#vim#with_preview('right')) <CR>
 
@@ -470,7 +464,7 @@ nnoremap <silent> <leader>fL :Lines <CR>
 nnoremap <silent> <leader>? :Rg <CR>
 
 " fzf.vim search search for tags
-nnoremap <silent> <leader>t :Tags <CR>
+" nnoremap <silent> <leader>t :Tags <CR>
 " draw figues in inkscape and include them in latex
 " https://github.com/gillescastel/inkscape-figures
 " inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
