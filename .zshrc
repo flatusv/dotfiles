@@ -48,11 +48,11 @@ function moveTrash() {
 function viewImage(){ 
     sxiv -qopt "$@" | \xclip -selection clipboard
     [[ !  -z $(ls *.exiv.*)  ]] && rm -rf *.exiv*
-    i3-msg "workspace back_and_forth" #switch to prev workspace when closing sxiv
+    # i3-msg "workspace back_and_forth" #switch to prev workspace when closing sxiv
 }
 function viewPdf(){ zathura "$1" >/dev/null 2>&1 & }
 function vim_one_instance() {
-    
+
     #Vim is assigned to its specified workspace
     if ! pgrep -x "vim"; then 
         i3-msg 'move container to workspace number " 3:vim "' > /dev/null 2>&1
@@ -105,20 +105,20 @@ bindkey -a ys add-surround
 bindkey -M visual S add-surround
 
 # -- some keybinds
-bindkey ",f" fzf-history-widget #fzf history search
-bindkey ",fd" fzf-cd-widget      #fzf cd
-bindkey ",ff" fzf-file-widget    #fzf find file
-bindkey "^[[A" history-beginning-search-backward # completion based on input
-bindkey "^[[B" history-beginning-search-forward  # completion based on input   
+bindkey ",f" fzf-history-widget                     #fzf history search
+bindkey ",fd" fzf-cd-widget                         #fzf cd
+bindkey ",ff" fzf-file-widget                       #fzf find file
+bindkey "^[[A" history-beginning-search-backward    #completion based on input
+bindkey "^[[B" history-beginning-search-forward     #completion based on input   
 
 # -- Alias
 alias down="cd ~/.down"
 alias sxiv="viewImage > /dev/null 2>&1" #in sxix: mark files with "m", close with "q" -> auto copy fnames to clipboard
 alias kill='killall -9'
-alias ncdu="ncdu --color dark" #Tui alternative of 'du'
+alias ncdu="ncdu --color dark"          #Tui alternative of 'du'
 alias p="exit"
-alias pdf="viewPdf" #put the terminal in background when opening a pdf (makes them closeable)
-alias q="clear" #use Ctrl-l instead
+alias pdf="viewPdf"                     #put the terminal in background when opening a pdf (makes them closeable)
+alias q="clear"                         #use Ctrl-l instead
 alias rm="moveTrash"
 alias trans="trans -show-original-dictionary y" #translate from commandline
 alias wp="nitrogen ~/media/wallpapers"  #set up a new wallpaper
@@ -126,5 +126,5 @@ alias x="dtrx -noq"
 alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' #class name of window
 alias pmpv='mpv --ytdl-raw-options="yes-playlist="' #mpv to play yt playlists
-alias vim="vim_one_instance" #vim: only one instance
-alias cat="bat" #cat on steroids
+alias vim="vim_one_instance"            #vim: only one instance
+alias cat="bat"                         #cat on steroids
