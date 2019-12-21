@@ -33,7 +33,7 @@ hi IncSearch    term=NONE cterm=NONE ctermfg=247  ctermbg=247
 hi NonText      term=NONE cterm=NONE ctermfg=101  ctermbg=NONE
 hi Normal       term=NONE cterm=NONE ctermfg=249  ctermbg=NONE
 hi PreProc      term=NONE cterm=NONE ctermfg=66   ctermbg=NONE
-hi Search       term=NONE cterm=NONE ctermfg=251  ctermbg=247
+hi Search       term=NONE cterm=NONE ctermfg=0  ctermbg=252
 hi Special      term=NONE cterm=NONE ctermfg=66   ctermbg=NONE
 hi SpecialKey   term=NONE cterm=NONE ctermfg=101  ctermbg=NONE
 hi Statement    term=NONE cterm=NONE ctermfg=251  ctermbg=NONE
@@ -41,7 +41,7 @@ hi StatusLine   term=NONE cterm=NONE ctermfg=0    ctermbg=72
 hi StatusLineNC term=NONE cterm=NONE ctermfg=236  ctermbg=NONE
 hi String       term=NONE cterm=NONE ctermfg=66   ctermbg=NONE
 hi TabLineSel   term=NONE cterm=NONE ctermfg=251  ctermbg=NONE
-hi Todo         term=NONE cterm=NONE ctermfg=251  ctermbg=66
+hi Todo         term=NONE cterm=NONE ctermfg=0  ctermbg=66
 hi Type         term=NONE cterm=NONE ctermfg=242  ctermbg=NONE 
 hi VertSplit    term=NONE cterm=NONE ctermfg=236  ctermbg=16
 hi Visual       term=NONE cterm=NONE ctermfg=16   ctermbg=101
