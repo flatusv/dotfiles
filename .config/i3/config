@@ -234,7 +234,12 @@ exec mkfifo /tmp/mpvfifo        # control mpv everywhere
 # Commands for specific windows
 # Use `xprop` to search for the window's class value
 # These windows won't be focused upon invocation
-workspace $ws6 output $mon2     # Make external monitor appear on ws6
+workspace $ws1 output $mon1     # These workspaces appear only on laptop
+workspace $ws2 output $mon1     # These workspaces appear only on laptop
+workspace $ws3 output $mon1     # These workspaces appear only on laptop
+workspace $ws4 output $mon1     # These workspaces appear only on laptop
+workspace $ws5 output $mon1     # These workspaces appear only on laptop
+workspace $ws6 output $mon2     # These workspaces appear only on the external monitor
 
 for_window [class="jetbrains-idea-ce"]   move to workspace $ws5
 for_window [class="jetbrains-studio"]    move to workspace $ws5
