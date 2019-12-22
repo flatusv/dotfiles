@@ -23,7 +23,7 @@ set autoread
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file (see line 51)
 
-let mapleader = ","
+let mapleader   = ","
 let g:mapleader = ","
 
 " Fast saving
@@ -51,10 +51,8 @@ set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-
 " never show signcolumns, removes ugly grey bar next to statusline
 set signcolumn=no
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Suntax 
@@ -74,14 +72,10 @@ cabbrev Man vert Man
 cabbrev help vert help 
 cabbrev term  :vert term  ++cols=60
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugins
-"
+" => PLUGINS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
-
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex']}
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'chrisbra/vim-commentary' " simple comment/uncomment plugin
@@ -94,6 +88,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot', {'for': ['python','javascript','html','css'] }
+Plug 'junegunn/vim-easy-align'
 
 " no conflict with vimtex
 let g:polyglot_disabled = ['latex']
@@ -111,13 +106,18 @@ endfunction
 let g:livepreview_previewer = 'zathura'
 let g:tex_flavor='latex'    " makes vim recognize the filetype, when creating a .tex file
 
-
 " Ultisnips configuration
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
+
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " All of your Plugins must be added before the following line
 call plug#end()
@@ -127,44 +127,31 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set n lines to the cursor - when moving vertically using j/k
 set so=15
-
 " Turn on the WiLd menu //"set wildmenu" enables a menu at the bottom of the vim/gvim window. 
 set wildmenu
-
 "Always show current position
 set ruler
-
 " Height of the command bar
 set cmdheight=2
-
 " A buffer becomes hidden when it is abandoned
 set hid
-
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
-
 " Ignore case when searching
 set ignorecase
-
 " When searching try to be smart about cases
 set smartcase
-
 " Highlight search results
 set hlsearch
-
 " Makes search act like search in modern browsers
 set incsearch
-
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
-
 " For regular expressions turn magic on
 set magic
-
 " Show matching brackets when text indicator is over them
 set showmatch
-
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -196,10 +183,8 @@ colorscheme blaquemagick
 set cursorline        " highlight current line
 set cursorcolumn      " highlight current column
 
-
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
-
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
@@ -216,23 +201,17 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
 set expandtab 
-
 " Be smart when using tabs ;)
 set smarttab
-
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
-
 " Linebreak on 90 characters, i3wm related
 set lbr
 set tw=90
-
-
 set ai "Auto indent
 " set si "Smart indent
 set wrap "Wrap lines
-
 
 " Usefull shortcuts to enter insert mode
 nnoremap <Enter> i<Enter>
@@ -247,12 +226,10 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
-
 " Set IBeam shape in insert mode, underline shape in replace mode and block shape in normal mode
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
 let &t_EI = "\<Esc>[2 q"
-
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -373,30 +350,24 @@ function! OpenLastBufferInNewTab()
     endfor
 endfunction
 
-
 """"""""""""""""""""
 " " Helper Keybinds
 """""""""""""""""""""
 " " Ctrl A - Begin Line
 " call CreateShortcut("C-a", "0", "inv")
 "
-
 " " Ctrl E - End Line
 " call CreateShortcut("C-e", "$<right>", "inv")
-"
 
 " " Ctrl H - Search and Replace
 call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
 
 """"""""""""""""""""
 " " Custom Keybinds
 """""""""""""""""""""
 " toggle highlighting
 nnoremap <C-n> :set hlsearch!<CR>
-
 " dont trigger suspend with <c-z> in visual mode
 vnoremap <c-z> <nop>
 
@@ -406,7 +377,6 @@ nnoremap <C-k> :bprev<CR>
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 noremap! <C-BS> <C-w>
-noremap! <C-h>  <C-w>
 
 " pretty much the reverse of <c-w> in insert mode
 inoremap <C-d> <C-o>de
@@ -424,7 +394,6 @@ vnoremap <C-c> "+y
 """""""""""""""""""""
 " preview latex file -- latex compile
 nnoremap <silent> <leader>lc :LLPStartPreview <CR>
-
 " run a python code -- python compile
 nnoremap <silent> <leader>pc :w <CR> :!clear;python %<CR>
 
@@ -432,34 +401,27 @@ nnoremap <silent> <leader>pc :w <CR> :!clear;python %<CR>
 " hint: This makes it easy to paste the right content via 'registerValue'+p
 nnoremap <silent> <leader>r :registers <CR>
 
-" close all but current bufffer and save -- delete buffer
+" close all but current bufffer and save 
 " :w - save current buffers %bd - close all the buffers  e# - open last edited file bd# - close the unnamed buffer
 nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
-
-" close all but current bufffer  -- delete buffer
-nnoremap <leader>dB :%bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer" <CR>
 
 "switch to the other split 
 tnoremap <Leader>s <C-w>w
 nnoremap <Leader>s <C-w>w
+
 """"""""""""""""""""
 " " FZF mappings
 """""""""""""""""""""
 " fzf.vim fuzzy open new file -- find file
 noremap <silent> <leader>ff :call fzf#vim#files('~', fzf#vim#with_preview('right')) <CR>
-
 " fzf.vim complete and insert a path
 imap <leader>fp <plug>(fzf-complete-path)
-
 " fzf.vim lists current buffers
 nnoremap <silent> <leader><leader> :Buffers <CR>
-
 " fzf.vim search line within buffer -- find line
 nnoremap <silent> <leader>fl :BLines <CR>
-
 " fzf.vim search line within loaded buffers -- find line
 nnoremap <silent> <leader>fL :Lines <CR>
-
 " fzf.vim search string in files
 nnoremap <silent> <leader>? :Rg <CR>
 
