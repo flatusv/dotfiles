@@ -408,14 +408,15 @@ nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but c
 "switch to the other split 
 tnoremap <Leader>s <C-w>w
 nnoremap <Leader>s <C-w>w
-
 """"""""""""""""""""
 " " FZF mappings
 """""""""""""""""""""
 " fzf.vim fuzzy open new file -- find file
 noremap <silent> <leader>ff :call fzf#vim#files('~', fzf#vim#with_preview('right')) <CR>
+" fzf.vim fuzzy open file -- find file within project
+noremap <silent> <leader>fp :call fzf#vim#files('', fzf#vim#with_preview('right')) <CR>
 " fzf.vim complete and insert a path
-imap <leader>fp <plug>(fzf-complete-path)
+imap <leader>cp <plug>(fzf-complete-path)
 " fzf.vim lists current buffers
 nnoremap <silent> <leader><leader> :Buffers <CR>
 " fzf.vim search line within buffer -- find line
