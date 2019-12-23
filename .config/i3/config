@@ -202,7 +202,7 @@ mode "$mode_monitor" {
 # CUSTOM MAPPINGS
 #--------------------
 # Rofi: toggle rofi with alt+a or escape
-bindsym $mod+a exec "i3-msg 'mode noBinds' && rofi -show drun -kb-cancel 'Escape,alt+a' && i3-msg 'mode default'"
+bindsym $mod+a exec "if pgrep -x 'rofi'; then :; else rofi -show drun -kb-cancel 'Escape,alt+a'; fi"
 bindsym $mod+e exec pcmanfm # filemanager
 
 # ALSA CONTROLS VOLUME
