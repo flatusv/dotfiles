@@ -413,8 +413,8 @@ nnoremap <Leader>s <C-w>w
 """""""""""""""""""""
 " fzf.vim fuzzy open new file -- find file
 noremap <silent> <leader>ff :call fzf#vim#files('~', fzf#vim#with_preview('right')) <CR>
-" fzf.vim fuzzy open file -- find file within project
-noremap <silent> <leader>fp :call fzf#vim#files('', fzf#vim#with_preview('right')) <CR>
+" fzf.vim fuzzy open file -- find file within directory
+noremap <silent> <leader>fd :call fzf#vim#files('', fzf#vim#with_preview('right')) <CR>
 " fzf.vim complete and insert a path
 imap <leader>cp <plug>(fzf-complete-path)
 " fzf.vim lists current buffers
