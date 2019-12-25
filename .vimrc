@@ -76,7 +76,7 @@ cabbrev term  :vert term  ++cols=60
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex']}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex','java']}
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'chrisbra/vim-commentary' " simple comment/uncomment plugin
 Plug 'tpope/vim-surround'
@@ -377,6 +377,7 @@ nnoremap <C-k> :bprev<CR>
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 noremap! <C-BS> <C-w>
+noremap! <C-h> <C-w>
 
 " pretty much the reverse of <c-w> in insert mode
 inoremap <C-d> <C-o>de
