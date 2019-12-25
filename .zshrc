@@ -15,6 +15,8 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 '
 # --bind ,:cancel ->clears query string if not empty, aborts fzf otherwise
 
+
+
 # -- HISTORY 
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
