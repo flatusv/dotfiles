@@ -141,22 +141,23 @@ mode $sysmenu {
     bindsym o         exit
     bindsym w         exec "systemctl poweroff"
     bindsym r         exec "systemctl reboot"
-    bindsym s         exec "systemctl suspend"
-
+    bindsym s         mode default, exec "systemctl suspend"
+    
     # from: https://github.com/PandorasFox/i3lock-color
-    bindsym l         exec "~/.config/i3/lock.sh" 
+    # enter default mode before locking screen
+    bindsym l         mode default, exec "~/.config/i3/lock.sh" 
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }
 
 # SCREENSHOT MODE
 set $screenshot Launch: [s]crot # Take screenshots: [s]ave, [c]lipboard, [d]elay w/ whole screen
-bindsym $win+s mode     "$screenshot"
+bindsym --release $win+s mode     "$screenshot"
 
 mode "$screenshot" {
-    bindsym --release s exec "~/.config/i3/screenshotNotfiy.sh"
-    bindsym --release c exec "~/.config/i3/screenshotNotfiyClipboard.sh"
-    bindsym --release d exec "~/.config/i3/screenshotDelay.sh"
+    bindsym --release s mode default, exec "~/.config/i3/screenshotNotfiy.sh"
+    bindsym --release c mode default, exec "~/.config/i3/screenshotNotfiyClipboard.sh"
+    bindsym --release d mode default, exec "~/.config/i3/screenshotDelay.sh"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -187,9 +188,9 @@ set $mode_monitor Launch: [m]onitor # [r]edshift [q]uit redshift, [j] down brigh
 bindsym $win+n mode "$mode_monitor"
 
 mode "$mode_monitor" {
-    bindsym r exec      redshift -b .9 -O 4000K
-    bindsym q exec      redshift -x
-    bindsym m exec      --no-startup-id xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
+    bindsym r mode default, exec      redshift -b .9 -O 4000K
+    bindsym q mode default, exec      redshift -x
+    bindsym m mode default, exec      --no-startup-id xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
 
     bindsym $Up exec    xbacklight -inc 5%
     bindsym $Down exec  xbacklight -dec 5%
@@ -207,7 +208,7 @@ bindsym $mod+e exec pcmanfm # filemanager
 
 # ALSA CONTROLS VOLUME
 # bindsym $win+m exec "pactl set-sink-mute 0 toggle && amixer -D pulse set Master Playback Switch toggle"
-bindsym $win+m     exec "amixer -D pulse set Master Playback Switch toggle && pkill -RTMIN+2 i3blocks"
+bindsym $win+m     exec "amixer -D pulse set Master Playback Switch toggle"
 bindsym $win+$Up   exec "amixer set Master 5%+"
 bindsym $win+$Down exec "amixer set Master 5%-"
 
@@ -222,7 +223,6 @@ bindsym $win+Shift+$Left  exec      "mpc seek -5 || echo -e 'seek -5\n'    > /tm
 
 
 # AUTOSTART
-exec "xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60"
 exec i3-msg 'workspace " 2:term "' # start in ws2
 exec ~/.config/i3/dbus.sh          # i3 widgets (such as battery status)
 exec_always xrdb ~/.Xresources     # needed for rofi launcher
