@@ -3,7 +3,6 @@
 #    | ||__ <\ \ /\ / / '_ ` _ \ 
 #    | |___) |\ V  V /| | | | | |
 #    |_|____/  \_/\_/ |_| |_| |_|
-#                                
 
 # VIM-LIKE BINDINGS
 set $Left   h
@@ -18,22 +17,19 @@ set $mon2 VGA1
 # modifiers
 set $mod                        Mod1 
 set $win                        Mod4
-
-font pango:                     Terminus 9
-
 floating_modifier               $mod
+
 bindsym $mod+Return             exec termite
 bindsym $mod+d                  kill
 
 # ----------------
 # I3 CONFIGURATION
 # ----------------
-bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
-#---------- 
-#   WORKSPACE
-#---------- 
+# ----------------
+# WORKSPACE
+# ----------------
 set $ws1 " 1:web "
 set $ws2 " 2:term "
 set $ws3 " 3:vim "
@@ -50,7 +46,7 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+0 workspace $ws6
 
-#When switching to ws7 enter noBinds mode
+#ws7 enters noBinds mode -> no keybind conflicts 
 bindsym $mod+7 workspace $ws7; exec i3-msg 'mode "noBinds"'
 
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -120,6 +116,7 @@ bar {
         position top
         font pango:Terminus, Icons 9
         tray_output primary # comment to enable tray icons. Other arguments are: primary/none
+        separator_symbol " "
         colors {
             background $main-color
 
@@ -134,9 +131,8 @@ bar {
 # MODES
 # --------------------
 # POWER MENU
-set $sysmenu " log[o]ut - po[w]eroff - [r]eboot - [l]ock - [s]uspend"
+set $sysmenu "log[o]ut - po[w]eroff - [r]eboot - [l]ock - [s]uspend"
 bindsym $mod+Shift+e      mode $sysmenu
-
 mode $sysmenu {
     bindsym o         exit
     bindsym w         exec "systemctl poweroff"
@@ -150,10 +146,24 @@ mode $sysmenu {
     bindsym Escape    mode "default"
 }
 
+# MONITOR MODE
+set $mode_monitor Launch: [m]onitor # [r]edshift [q]uit redshift, [j] down brightness, [k] up brightness
+bindsym $win+n mode "$mode_monitor"
+mode "$mode_monitor" {
+    bindsym r mode default, exec   redshift -b .9 -O 4000K
+    bindsym q mode default, exec   redshift -x
+    bindsym m mode default, exec   xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
+
+    bindsym $Up   exec  xbacklight -inc 5%
+    bindsym $Down exec  xbacklight -dec 5%
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
 # SCREENSHOT MODE
 set $screenshot Launch: [s]crot # Take screenshots: [s]ave, [c]lipboard, [d]elay w/ whole screen
-bindsym --release $win+s mode     "$screenshot"
-
+bindsym --release $win+s mode "$screenshot"
 mode "$screenshot" {
     bindsym --release s mode default, exec "~/.config/i3/screenshotNotfiy.sh"
     bindsym --release c mode default, exec "~/.config/i3/screenshotNotfiyClipboard.sh"
@@ -161,42 +171,40 @@ mode "$screenshot" {
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
+    bindsym --release $win+s mode "default"
+}
+
+# RESIZE MODE
+set $window_resize ":::resize window using vim mapping:::"
+bindsym $win+r      mode $window_resize
+mode $window_resize {
+    bindsym $Left        resize shrink width  10 or 10 ppt
+    bindsym $Right       resize grow   width  10 or 10 ppt
+    bindsym $Down        resize grow   height 10 or 10 ppt
+    bindsym $Up          resize shrink height 10 or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $win+r mode "default"
 }
 
 # NOBIND MODE (IGNORES ALL OTHER KEYBINDS)
+bindsym $mod+Shift+d mode "noBinds"
 mode  "noBinds" {
     bindsym $mod+Shift+d mode      "default"
 
-    # Media Player                 Controls // mpv // mpd // ncmpcpp
-    bindsym $win+p exec            "mpc toggle || echo -e 'cycle pause\n' > /tmp/mpvfifo"
-    bindsym $win+Shift+n exec      "mpc next || echo -e 'playlist-next\n' > /tmp/mpvfifo "
-    bindsym $win+Shift+p exec      "mpc prev || echo -e 'playlist-prev\n' > /tmp/mpvfifo "
-    bindsym $win+Shift+$Right exec "mpc seek +5 || echo -e 'seek +5\n' > /tmp/mpvfifo "
-    bindsym $win+Shift+$Left exec  "mpc seek -5 || echo -e 'seek -5\n' > /tmp/mpvfifo "
-    bindsym $win+e exec            "pulseaudio-equalizer toggle"
+    # Media Player                  Controls // mpv // mpd // ncmpcpp
+    bindsym $win+p            exec  "mpc toggle || echo -e 'cycle pause\n' > /tmp/mpvfifo"
+    bindsym $win+Shift+n      exec  "mpc next || echo -e 'playlist-next\n' > /tmp/mpvfifo "
+    bindsym $win+Shift+p      exec  "mpc prev || echo -e 'playlist-prev\n' > /tmp/mpvfifo "
+    bindsym $win+Shift+$Right exec  "mpc seek +5 || echo -e 'seek +5\n' > /tmp/mpvfifo "
+    bindsym $win+Shift+$Left  exec  "mpc seek -5 || echo -e 'seek -5\n' > /tmp/mpvfifo "
+    bindsym $win+e            exec  "pulseaudio-equalizer toggle"
 
-    # ALSA controls                volume
-    bindsym $win+m exec            "amixer -D pulse set Master Playback Switch toggle && pkill -RTMIN+2 i3blocks"
-    bindsym $win+$Up exec          "amixer set Master 5%+"
-    bindsym $win+$Down exec        "amixer set Master 5%-"
-
-}
-bindsym $mod+Shift+d mode "noBinds"
-
-# EASY ON THE EYES
-set $mode_monitor Launch: [m]onitor # [r]edshift [q]uit redshift, [j] down brightness, [k] up brightness
-bindsym $win+n mode "$mode_monitor"
-
-mode "$mode_monitor" {
-    bindsym r mode default, exec      redshift -b .9 -O 4000K
-    bindsym q mode default, exec      redshift -x
-    bindsym m mode default, exec      --no-startup-id xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
-
-    bindsym $Up exec    xbacklight -inc 5%
-    bindsym $Down exec  xbacklight -dec 5%
-
-    bindsym Escape mode "default"
-    bindsym Return mode "default"
+    # ALSA controls                 volume
+    bindsym $win+m     exec         "amixer -D pulse set Master Playback Switch toggle && pkill -RTMIN+2 i3blocks"
+    bindsym $win+$Up   exec         "amixer set Master 5%+"
+    bindsym $win+$Down exec         "amixer set Master 5%-"
 }
 
 #--------------------
@@ -221,38 +229,35 @@ bindsym $win+Shift+p      exec      "mpc prev || echo -e 'playlist-prev\n' > /tm
 bindsym $win+Shift+$Right exec      "mpc seek +5 || echo -e 'seek +5\n'    > /tmp/mpvfifo"
 bindsym $win+Shift+$Left  exec      "mpc seek -5 || echo -e 'seek -5\n'    > /tmp/mpvfifo"
 
+#--------------------
+# I3-GAPS
+#--------------------
+for_window [class="^.*"] focus
+for_window [class="^.*"] border pixel 1
+hide_edge_borders smart
+gaps inner 8
+gaps outer 1
 
-# AUTOSTART
-exec i3-msg 'workspace " 2:term "' # start in ws2
-exec ~/.config/i3/dbus.sh          # i3 widgets (such as battery status)
-exec_always xrdb ~/.Xresources     # needed for rofi launcher
-exec xset -b                       # disable bell sound
-exec_always xset -dpms             # laptop lid rules
-exec_always xset off               # laptop lid rules
-exec --no-startup-id fcitx -d      # takes care of japanese input
-exec mkfifo /tmp/mpvfifo           # control mpv everywhere
+#--------------------
+# WORKSPACE/WINDOW RULES
+#--------------------
+workspace $ws1 output $mon1     # These workspaces appear laptop
+workspace $ws2 output $mon1     # These workspaces appear laptop
+workspace $ws3 output $mon1     # These workspaces appear laptop
+workspace $ws4 output $mon1     # These workspaces appear laptop
+workspace $ws5 output $mon1     # These workspaces appear laptop
+workspace $ws6 output $mon2     # These workspaces appear the external monitor
 
-
-# Commands for specific windows
-# Use `xprop` to search for the window's class value
-# These windows won't be focused upon invocation
-workspace $ws1 output $mon1     # These workspaces appear only on laptop
-workspace $ws2 output $mon1     # These workspaces appear only on laptop
-workspace $ws3 output $mon1     # These workspaces appear only on laptop
-workspace $ws4 output $mon1     # These workspaces appear only on laptop
-workspace $ws5 output $mon1     # These workspaces appear only on laptop
-workspace $ws6 output $mon2     # These workspaces appear only on the external monitor
-
-for_window [class="jetbrains-idea-ce"]   move to workspace $ws5
-for_window [class="jetbrains-studio"]    move to workspace $ws5
-for_window [class="jetbrains-idea"]      move to workspace $ws5
-for_window [class="jetbrains-idea"]      no-focus
-for_window [class="Eclipse"]             move to workspace $ws5
-for_window [class="Eclipse"]             no-focus
-for_window [class="libreoffice-writer"]  move to workspace $ws5
-for_window [class="Steam"]               move to workspace $ws7
-for_window [class="Steam"]               no_focus
-for_window [class="dota2"]               fullscreen enable
+for_window [class="jetbrains-idea-ce"]  move to workspace $ws5
+for_window [class="jetbrains-studio"]   move to workspace $ws5
+for_window [class="jetbrains-idea"]     move to workspace $ws5
+for_window [class="jetbrains-idea"]     no-focus
+for_window [class="Eclipse"]            move to workspace $ws5
+for_window [class="Eclipse"]            no-focus
+for_window [class="libreoffice-writer"] move to workspace $ws5
+for_window [class="Steam"]              move to workspace $ws7
+for_window [class="Steam"]              no_focus
+for_window [class="dota2"]              fullscreen enable
 
 assign [class="firefox" title="^(?!Dialog).*$"] $ws1
 assign [class="Nightly" title="^(?!Dialog).*$"] $ws1
@@ -270,9 +275,14 @@ assign [class="Inkscape"]                $ws5
 assign [class="mpv"]                     $ws6
 assign [class="dota2"]                   $ws7
 
-# I3-GAPS
-for_window [class="^.*"] focus
-for_window [class="^.*"] border pixel 1
-hide_edge_borders smart # no border for single window
-gaps inner 8
-gaps outer 1
+#--------------------
+# AUTOSTART
+#--------------------
+exec i3-msg 'workspace " 2:term "' # focus ws2 when starting i3wm
+exec ~/.config/i3/dbus.sh          # i3 widgets (such as battery status)
+exec_always xrdb ~/.Xresources     # needed for rofi launcher
+exec xset -b                       # disable bell sound
+exec_always xset -dpms             # laptop lid rules
+exec_always xset off               # laptop lid rules
+exec --no-startup-id fcitx -d      # takes care of japanese input
+exec mkfifo /tmp/mpvfifo           # control mpv from everywhere
