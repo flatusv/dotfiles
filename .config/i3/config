@@ -278,6 +278,7 @@ assign [class="dota2"]                   $ws7
 #--------------------
 # AUTOSTART
 #--------------------
+exec xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
 exec i3-msg 'workspace " 2:term "' # focus ws2 when starting i3wm
 exec ~/.config/i3/dbus.sh          # i3 widgets (such as battery status)
 exec_always xrdb ~/.Xresources     # needed for rofi launcher
