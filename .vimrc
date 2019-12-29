@@ -81,7 +81,7 @@ Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'chrisbra/vim-commentary' " simple comment/uncomment plugin
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' 
-Plug 'SirVer/ultisnips', {'for': ['python','javascript','html','css','tex']}
+" Plug 'SirVer/ultisnips', {'for': ['python','javascript','html','css','tex']}
 Plug 'honza/vim-snippets' "Snippets are separated from the engine. Add this if you want them:
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
@@ -93,25 +93,31 @@ Plug 'junegunn/vim-easy-align'
 " no conflict with vimtex
 let g:polyglot_disabled = ['latex']
 
-" coc.vim 
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-
 " LaTeX configuration
 let g:livepreview_previewer = 'zathura'
 let g:tex_flavor='latex'    " makes vim recognize the filetype, when creating a .tex file
 
+" make <tab> used for trigger completion, completion confirm, snippet expand and jump like vscode.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+
+let g:coc_snippet_next = '<tab>'
+
 " Ultisnips configuration
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
+" let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
 
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -391,25 +397,6 @@ onoremap jj <Esc>
 vnoremap <C-c> "+y
 
 """"""""""""""""""""
-" " Leader mappings
-"""""""""""""""""""""
-" preview latex file -- latex compile
-nnoremap <silent> <leader>lc :LLPStartPreview <CR>
-" run a python code -- python compile
-nnoremap <silent> <leader>pc :w <CR> :!clear;python %<CR>
-
-" list the contents of all of your registers
-" hint: This makes it easy to paste the right content via 'registerValue'+p
-nnoremap <silent> <leader>r :registers <CR>
-
-" close all but current bufffer and save 
-" :w - save current buffers %bd - close all the buffers  e# - open last edited file bd# - close the unnamed buffer
-nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
-
-"switch to the other split 
-tnoremap <Leader>s <C-w>w
-nnoremap <Leader>s <C-w>w
-""""""""""""""""""""
 " " FZF mappings
 """""""""""""""""""""
 " fzf.vim fuzzy open new file -- find file
@@ -427,8 +414,30 @@ nnoremap <silent> <leader>fL :Lines <CR>
 " fzf.vim search string in files
 nnoremap <silent> <leader>? :Rg <CR>
 
-" fzf.vim search search for tags
-" nnoremap <silent> <leader>t :Tags <CR>
+""""""""""""""""""""
+" " Leader mappings
+"""""""""""""""""""""
+" preview latex file -- latex compile
+nnoremap <silent> <leader>lc :LLPStartPreview <CR>
+" run a python code -- python compile
+nnoremap <silent> <leader>pc :w <CR> :!clear;python %<CR>
+
+" list the contents of all of your registers
+" hint: This makes it easy to paste the right content via 'registerValue'+p
+nnoremap <silent> <leader>r :registers <CR>
+
+" close all but current bufffer and save 
+" :w - save current buffers %bd - close all the buffers  e# - open last edited file bd# - close the unnamed buffer
+nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
+
+" switch to the other split 
+tnoremap <Leader>s <C-w>w
+nnoremap <Leader>s <C-w>w
+
+" add snippet
+nnoremap <silent> <leader>as :CocCommand snippets.editSnippets <CR>
+
+
 " draw figues in inkscape and include them in latex
 " https://github.com/gillescastel/inkscape-figures
 " inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
