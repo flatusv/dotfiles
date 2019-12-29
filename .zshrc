@@ -50,9 +50,13 @@ function moveTrash() {
 function viewImage(){ 
     sxiv -qopt "$@" | \xclip -selection clipboard
     [[ !  -z $(ls *.exiv.*)  ]] && rm -rf *.exiv*
-    # i3-msg "workspace back_and_forth" #switch to prev workspace when closing sxiv
 }
-function viewPdf(){ zathura "$1" >/dev/null 2>&1 & }
+
+function viewPdf(){
+    zathura "$1" >/dev/null 2>&1 &
+    exit
+ }
+
 function vim_one_instance() {
 
     #Vim is assigned to its specified workspace
