@@ -78,7 +78,7 @@ source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 source $HOME/.vi-mode.zsh                # responsible for the prompt
-source $HOME/.zsh-vi-search.zsh           # Adds support for searching the current line (in normal vi mode) to zsh.
+source $HOME/.zsh-vi-search.zsh          # Adds support for searching the current line (in normal vi mode) to zsh.
 source /usr/share/LS_COLORS/dircolors.sh # via: lscolors-git
 zstyle ':completion:*' rehash true
 
@@ -119,7 +119,7 @@ bindkey "^[[B" history-beginning-search-forward     #completion based on input
 
 # -- Alias
 alias down="cd ~/.down"
-alias sxiv="viewImage > /dev/null 2>&1" #in sxix: mark files with "m", close with "q" -> auto copy fnames to clipboard
+alias sxiv="viewImage > /dev/null 2>&1" #sxix: mark files with "m", close with "q" -> auto copy fnames to clipboard
 alias kill='killall -9'
 alias ncdu="ncdu --color dark"          #Tui alternative of 'du'
 alias p="exit"
