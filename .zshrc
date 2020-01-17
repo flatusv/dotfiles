@@ -54,7 +54,7 @@ function viewImage(){
 
 function viewPdf(){
     zathura "$1" >/dev/null 2>&1 &
-    exit
+# exit
  }
 
 function vim_one_instance() {
@@ -126,11 +126,11 @@ alias p="exit"
 alias pdf="viewPdf"                     #put the terminal in background when opening a pdf (makes them closeable)
 alias q="clear"                         #use Ctrl-l instead
 alias rm="moveTrash"
-alias trans="trans -show-original-dictionary y" #translate from commandline
-alias wp="nitrogen ~/media/wallpapers"  #set up a new wallpaper
+alias trans="trans -show-original-dictionary y"                                                     # translate from commandline
+alias wp="nitrogen ~/media/wallpapers"                                                              # set up a new wallpaper
 alias x="dtrx -noq"
 alias xclip='xclip -selection clipboard'
-alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' #class name of window
-alias pmpv='mpv --ytdl-raw-options="yes-playlist="' #mpv to play yt playlists
-alias vim="vim_one_instance"            #vim: only one instance
-alias cat="bat"                         #cat on steroids
+alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' # class name of window
+alias pmpv='mpv --ytdl-raw-options="yes-playlist="'                                                 # mpv to play yt playlists
+alias vim="vim_one_instance"                                                                        # vim: only one instance
+alias cat="bat -pp"                                                                                 # cat on steroids
