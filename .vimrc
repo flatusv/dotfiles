@@ -89,6 +89,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot', {'for': ['python','javascript','html','css'] }
 Plug 'junegunn/vim-easy-align'
+Plug 'triglav/vim-visual-increment'
 
 " no conflict with vimtex
 let g:polyglot_disabled = ['latex']
