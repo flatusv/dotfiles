@@ -63,8 +63,6 @@ syntax enable
 syntax on
 autocmd BufEnter * :syntax sync fromstart
 
-" Wann geladen wird.. Maske... zu verwendende Sprache..
-autocmd FileType latex,tex setlocal spell    spelllang=de_de,en_us
 
 " read syntax-highlighted man pages inside Vim. Example: :Man ls
 runtime! ftplugin/man.vim
@@ -94,32 +92,6 @@ Plug 'triglav/vim-visual-increment'
 
 " no conflict with vimtex
 let g:polyglot_disabled = ['latex']
-
-" LaTeX configuration
-let g:livepreview_previewer = 'zathura'
-let g:tex_flavor='latex'    " makes vim recognize the filetype, when creating a .tex file
-
-" make <tab> used for trigger completion, completion confirm, snippet expand and jump like vscode.
-inoremap <silent><expr> <TAB>
-\ pumvisible() ? coc#_select_confirm() :
-\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-\ <SID>check_back_space() ? "\<TAB>" :
-\ coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction                     
-
-
-let g:coc_snippet_next = '<tab>'
-
-" Ultisnips configuration
-" let g:UltiSnipsExpandTrigger = <tab>
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-" let g:UltiSnipsEditSplit="vertical"
-" let g:UltiSnipsSnippetDirectories = [$HOME.'/.vim/UltiSnips']
 
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -178,14 +150,14 @@ set foldcolumn=0
 set background=dark
 " let g:hybrid_custom_term_colors = 1
 function! MyHighlights() abort
-    highlight Normal      ctermbg=NONE
-    highlight NonText     ctermbg=NONE
-    highlight EndOfBuffer ctermbg=NONE
+highlight Normal      ctermbg=NONE
+highlight NonText     ctermbg=NONE
+highlight EndOfBuffer ctermbg=NONE
 endfunction
 
 augroup MyColors
-    autocmd!
-    autocmd ColorScheme * call MyHighlights()
+autocmd!
+autocmd ColorScheme * call MyHighlights()
 augroup END
 colorscheme blaquemagick
 set cursorline        " highlight current line
@@ -251,21 +223,6 @@ highlight LineNr term=bold cterm=NONE ctermfg=5 ctermbg=NONE gui=NONE guifg=Dark
 
 " set statusline=\ %{HasPaste()}%F%m%r%h\ %w\%y\ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l/%L\ \%=\%p%%
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\%y\ Line:\ %l/%L\ \%=\%p%%
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Editing mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap VIM 0 to first non-blank character
-" map 0 ^
-
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-    exe "normal mz"
-    %s/\s\+$//ge
-    exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
@@ -419,11 +376,6 @@ nnoremap <silent> <leader>? :Rg <CR>
 """"""""""""""""""""
 " " Leader mappings
 """""""""""""""""""""
-" preview latex file -- latex compile
-nnoremap <silent> <leader>lc :LLPStartPreview <CR>
-" run a python code -- python compile
-nnoremap <silent> <leader>pc :w <CR> :!clear;python %<CR>
-
 " list the contents of all of your registers
 " hint: This makes it easy to paste the right content via 'registerValue'+p
 nnoremap <silent> <leader>r :registers <CR>
@@ -435,9 +387,6 @@ nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but c
 " switch to the other split 
 tnoremap <Leader>s <C-w>w
 nnoremap <Leader>s <C-w>w
-
-" add snippet
-nnoremap <silent> <leader>as :CocCommand snippets.editSnippets <CR>
 
 
 " draw figues in inkscape and include them in latex
