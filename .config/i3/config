@@ -216,13 +216,13 @@ bindsym $mod+e exec pcmanfm # filemanager
 
 # ALSA CONTROLS VOLUME
 # bindsym $win+m exec "pactl set-sink-mute 0 toggle && amixer -D pulse set Master Playback Switch toggle"
-bindsym $win+m     exec "amixer -D pulse set Master Playback Switch toggle"
-bindsym $win+$Up   exec "amixer set Master 5%+"
-bindsym $win+$Down exec "amixer set Master 5%-"
+bindsym $win+m     exec "amixer -D pulse set Master Playback Switch toggle && pkill -RTMIN+2 i3blocks"
+bindsym $win+$Up   exec "amixer set Master 5%+ && pkill -RTMIN+2 i3blocks"
+bindsym $win+$Down exec "amixer set Master 5%- && pkill -RTMIN+2 i3blocks"
 
 
 # MEDIA PLAYER CONTROLS // MPV // MPD // NCMPCPP // EQUALIZER
-bindsym $win+e            exec      "pulseaudio-equalizer toggle"
+bindsym $win+e            exec      "pulseaudio-equalizer toggle && pkill -RTMIN+10 i3blocks"
 bindsym $win+p            exec      "mpc toggle || echo -e 'cycle pause\n' > /tmp/mpvfifo"
 bindsym $win+Shift+n      exec      "mpc next || echo -e 'playlist-next\n' > /tmp/mpvfifo"
 bindsym $win+Shift+p      exec      "mpc prev || echo -e 'playlist-prev\n' > /tmp/mpvfifo"
