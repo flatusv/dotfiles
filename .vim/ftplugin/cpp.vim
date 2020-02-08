@@ -17,15 +17,4 @@ let g:coc_snippet_next = '<tab>'
 " add snippet
 nnoremap <silent> <leader>as :CocCommand snippets.editSnippets <CR>
 
-
-" Custom Mappings
-" -------------------- 
-" run a python code -- python compile
-nnoremap <silent> <leader>c :w <CR> :!clear;python %<CR>
-" Delete trailing white space on save, useful for Python
-func! DeleteTrailingWS()
-    exe "normal mz"
-    %s/\s\+$//ge
-    exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
+nnoremap <silent> <leader>c :silent :make %<<CR>:redr!<CR> :bel vert terminal<CR>
