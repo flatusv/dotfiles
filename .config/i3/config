@@ -148,9 +148,9 @@ mode $sysmenu {
 
 # MONITOR MODE
 set $mode_monitor Launch: [m]onitor # [r]edshift [q]uit redshift, [j] down brightness, [k] up brightness
-bindsym $win+n mode "$mode_monitor"
+bindsym $win+Shift+m mode "$mode_monitor"
 mode "$mode_monitor" {
-    bindsym r mode default, exec   redshift -b .9 -O 4000K
+    bindsym r mode default, exec   redshift -m randr:crtc=0 -b .9 -O 4000K
     bindsym q mode default, exec   redshift -x
     bindsym m mode default, exec   xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
 
@@ -159,6 +159,8 @@ mode "$mode_monitor" {
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
+
+    bindsym $win+Shift+m mode "default"
 }
 
 # SCREENSHOT MODE
