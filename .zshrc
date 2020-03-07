@@ -13,9 +13,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --bind ,:cancel,tab:accept,esc:ignore
 --reverse
 '
-# --bind ,:cancel ->clears query string if not empty, aborts fzf otherwise
-
-
 
 # -- HISTORY 
 setopt EXTENDED_HISTORY
@@ -33,47 +30,13 @@ setopt inc_append_history
 setopt AUTO_CD
 setopt +o nomatch
 
-# -- move files to .Trash, or when "-rf" is set don't do anything at all
-function moveTrash() {
-    if [[ "$1" == "-rf" ]]; then
-        rm -rf "${@:2}" 
-    elif [[ "$1" == "--" ]]; then 
-        echo -e 'ERROR: unalias rm, and run command again!'
-    else
-        for i in "$@"; do
-            cp -r -t ~/.Trash $i && rm -rf $i
-        done
 
-    fi
-}
+# -- load zsh functions located at .zshrc.d and more
+for file in ~/.zshrc.d/*;
+do
+  source $file
+done
 
-function viewImage(){ 
-    sxiv -qopt "$@" | \xclip -selection clipboard
-    [[ !  -z $(ls *.exiv.*)  ]] && rm -rf *.exiv*
-}
-
-function viewPdf(){
-    zathura "$1" >/dev/null 2>&1 &
-# exit
- }
-
-function vim_one_instance() {
-
-    #Vim is assigned to its specified workspace
-    if ! pgrep -x "vim"; then 
-        i3-msg 'move container to workspace number " 3:vim "' > /dev/null 2>&1
-        i3-msg 'workspace " 3:vim "' > /dev/null 2>&1   #switch to workspace
-        command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"
-    else 
-        command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@" &
-        i3-msg 'workspace " 3:vim "' > /dev/null 2>&1   #switch to workspace
-        exit
-    fi 
-
-
-}
-
-# -- load stuff
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
@@ -118,19 +81,20 @@ bindkey "^[[A" history-beginning-search-backward    #completion based on input
 bindkey "^[[B" history-beginning-search-forward     #completion based on input   
 
 # -- Alias
+# aliases prefixed with f_ denote functions located at .zshrc.d
 alias down="cd ~/.down"
-alias sxiv="viewImage > /dev/null 2>&1" #sxix: mark files with "m", close with "q" -> auto copy fnames to clipboard
+alias sxiv="f_viewImage > /dev/null 2>&1" # sxix: mark files with "m", close with "q" -> auto copy fnames to clipboard
 alias kill='killall -9'
-alias ncdu="ncdu --color dark"          #Tui alternative of 'du'
+alias ncdu="ncdu --color dark"            # Tui alternative of 'du'
 alias p="exit"
-alias pdf="viewPdf"                     #put the terminal in background when opening a pdf (makes them closeable)
-alias q="clear"                         #use Ctrl-l instead
-alias rm="moveTrash"
+alias pdf="f_viewPdf"                     # put the terminal in background when opening a pdf (makes them closeable)
+alias q="clear"                           # use Ctrl-l instead
+alias rm="f_moveTrash"
 alias trans="trans -show-original-dictionary y"                                                     # translate from commandline
 alias wp="nitrogen ~/media/wallpapers"                                                              # set up a new wallpaper
 alias x="dtrx -noq"
 alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' # class name of window
-alias pmpv='mpv --ytdl-raw-options="yes-playlist="'                                                 # mpv to play yt playlists
-alias vim="vim_one_instance"                                                                        # vim: only one instance
+alias mpv='mpv --ytdl-raw-options="yes-playlist="'                                                  # mpv to play yt playlists
+alias vim="f_vim_one_instance"                                                                      # vim: only one instance
 alias cat="bat -pp"                                                                                 # cat on steroids
