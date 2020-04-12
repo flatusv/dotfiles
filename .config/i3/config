@@ -226,8 +226,8 @@ bindsym $win+$Down exec "amixer set Master 5%- && pkill -RTMIN+2 i3blocks"
 # MEDIA PLAYER CONTROLS // MPV // MPD // NCMPCPP // EQUALIZER
 bindsym $win+e            exec      "pulseaudio-equalizer toggle && pkill -RTMIN+10 i3blocks"
 bindsym $win+p            exec      "mpc toggle || echo -e 'cycle pause\n' > /tmp/mpvfifo"
-bindsym $win+Shift+n      exec      "mpc next || echo -e 'playlist-next\n' > /tmp/mpvfifo"
-bindsym $win+Shift+p      exec      "mpc prev || echo -e 'playlist-prev\n' > /tmp/mpvfifo"
+bindsym $win+Shift+n      exec      "mpc next || echo -e 'playlist-next\n' > /tmp/mpvfifo && pkill -RTMIN+20 i3blocks"
+bindsym $win+Shift+p      exec      "mpc prev || echo -e 'playlist-prev\n' > /tmp/mpvfifo && pkill -RTMIN+20 i3blocks"
 bindsym $win+Shift+$Right exec      "mpc seek +5 || echo -e 'seek +5\n'    > /tmp/mpvfifo"
 bindsym $win+Shift+$Left  exec      "mpc seek -5 || echo -e 'seek -5\n'    > /tmp/mpvfifo"
 
