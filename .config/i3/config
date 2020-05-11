@@ -20,7 +20,9 @@ set $win                        Mod4
 floating_modifier               $mod
 
 bindsym $mod+Return             exec termite
-bindsym $mod+d                  kill
+
+# exec makes sure mpv disappears from i3bar (workaround)
+bindsym $mod+d                  kill; exec "pkill -RTMIN+3 i3blocks"
 
 # ----------------
 # I3 CONFIGURATION
@@ -264,10 +266,10 @@ for_window [class="dota2"]              fullscreen enable
 assign [class="firefox" title="^(?!Dialog).*$"] $ws1
 assign [class="Nightly" title="^(?!Dialog).*$"] $ws1
 
-assign [class="Pcmanfm"]                 $ws2
 assign [class="Zathura"]                 $ws4
 assign [class="Sxiv"]                    $ws4
 assign [class="libreoffice-startcenter"] $ws4
+assign [class="Pcmanfm"]                 $ws5
 assign [class="Ffmulticonverter"]        $ws5
 assign [class="TelegramDesktop"]         $ws5
 assign [class="Thunderbird"]             $ws5
