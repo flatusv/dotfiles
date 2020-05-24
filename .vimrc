@@ -69,8 +69,7 @@ runtime! ftplugin/man.vim
 " make these commands split the window vertically 
 cabbrev Man vert Man 
 cabbrev help vert help 
-cabbrev term  :vert term  ++cols=60
-
+cabbrev term  :rightb vert term  ++cols=60
 " => PLUGINS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
@@ -92,6 +91,8 @@ Plug 'triglav/vim-visual-increment'
 
 " no conflict with vimtex
 let g:polyglot_disabled = ['latex']
+" recognize empty latex file as 'tex', so that snippets work properly
+let g:tex_flavor = "latex"
 
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -376,6 +377,7 @@ nnoremap <silent> <leader>? :Rg <CR>
 """"""""""""""""""""
 " " Leader mappings
 """""""""""""""""""""
+nnoremap <silent> <leader>t :rightb vert term  ++cols=60 <CR>
 " list the contents of all of your registers
 " hint: This makes it easy to paste the right content via 'registerValue'+p
 nnoremap <silent> <leader>r :registers <CR>
