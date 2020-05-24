@@ -266,10 +266,10 @@ for_window [class="dota2"]              fullscreen enable
 assign [class="firefox" title="^(?!Dialog).*$"] $ws1
 assign [class="Nightly" title="^(?!Dialog).*$"] $ws1
 
+assign [class="Pcmanfm"]                 $ws2
 assign [class="Zathura"]                 $ws4
 assign [class="Sxiv"]                    $ws4
 assign [class="libreoffice-startcenter"] $ws4
-assign [class="Pcmanfm"]                 $ws5
 assign [class="Ffmulticonverter"]        $ws5
 assign [class="TelegramDesktop"]         $ws5
 assign [class="Thunderbird"]             $ws5
