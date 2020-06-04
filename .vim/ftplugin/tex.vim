@@ -21,3 +21,6 @@ nnoremap <silent> <leader>as :CocCommand snippets.editSnippets <CR>
 nnoremap <silent> <leader>lc :LLPStartPreview <CR>
 " Wann geladen wird.. Maske... zu verwendende Sprache..
 autocmd FileType latex,tex setlocal spell    spelllang=de_de,en_us
+
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
