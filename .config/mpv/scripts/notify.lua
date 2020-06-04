@@ -5,7 +5,7 @@ end
 
 function do_notify(a)
 -- local ytCommand = "youtube-dl --skip-download --no-warnings --get-title  https://youtu.be/" .. a
-   local getTitle = [[playerctl metadata --format "{{ artist }} {{ title }}" | sed 's/2019-.*:[0-9]\+$//']]
+   local getTitle = [[playerctl metadata --format "{{ artist }} {{ title }}" | sed 's/[0-9]\{4\}-.*//']]
    local theTitle = io.popen(getTitle)
    
    
