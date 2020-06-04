@@ -88,7 +88,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot', {'for': ['python','javascript','html','css'] }
 Plug 'junegunn/vim-easy-align'
 Plug 'triglav/vim-visual-increment'
+Plug 'ron89/thesaurus_query.vim'
 
+
+let g:tq_language = 'de'
+nnoremap <Leader>ss :ThesaurusQueryReplaceCurrentWord<CR>
+vnoremap <Leader>ss y:ThesaurusQueryReplace <C-r>"<CR>
 " no conflict with vimtex
 let g:polyglot_disabled = ['latex']
 " recognize empty latex file as 'tex', so that snippets work properly
@@ -160,7 +165,14 @@ augroup MyColors
 autocmd!
 autocmd ColorScheme * call MyHighlights()
 augroup END
+
+
 colorscheme blaquemagick
+
+" underline spelling erros instead of hightlighting them
+hi clear SpellBad
+hi SpellBad cterm=underline
+
 set cursorline        " highlight current line
 set cursorcolumn      " highlight current column
 
@@ -315,6 +327,7 @@ function! OpenLastBufferInNewTab()
         endif
     endfor
 endfunction
+
 
 """"""""""""""""""""
 " " Helper Keybinds
