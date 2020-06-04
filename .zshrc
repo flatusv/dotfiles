@@ -74,11 +74,12 @@ bindkey -a ys add-surround
 bindkey -M visual S add-surround
 
 # -- some keybinds
-bindkey ",f" fzf-history-widget                     #fzf history search
-bindkey ",fd" fzf-cd-widget                         #fzf cd
-bindkey ",ff" fzf-file-widget                       #fzf find file
-bindkey "^[[A" history-beginning-search-backward    #completion based on input
-bindkey "^[[B" history-beginning-search-forward     #completion based on input   
+bindkey ",f" fzf-history-widget                  # fzf history search
+bindkey ",fd" fzf-cd-widget                      # fzf cd
+bindkey ",ff" fzf-file-widget                    # fzf find file
+bindkey "^[[A" history-beginning-search-backward # completion based on input
+bindkey "^[[B" history-beginning-search-forward  # completion based on input
+bindkey "^H" backward-kill-word                  # behaves like Control-W in vim
 
 # -- Alias
 # aliases prefixed with f_ denote functions located at .zshrc.d
