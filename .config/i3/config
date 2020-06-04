@@ -267,9 +267,9 @@ assign [class="firefox" title="^(?!Dialog).*$"] $ws1
 assign [class="Nightly" title="^(?!Dialog).*$"] $ws1
 
 assign [class="Pcmanfm"]                 $ws2
-assign [class="Zathura"]                 $ws4
 assign [class="Sxiv"]                    $ws4
 assign [class="libreoffice-startcenter"] $ws4
+assign [class="Zathura"]                 $ws4
 assign [class="Ffmulticonverter"]        $ws5
 assign [class="TelegramDesktop"]         $ws5
 assign [class="Thunderbird"]             $ws5
@@ -283,11 +283,11 @@ assign [class="dota2"]                   $ws7
 # AUTOSTART
 #--------------------
 exec xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
-exec i3-msg 'workspace " 2:term "' # focus ws2 when starting i3wm
-exec ~/.config/i3/dbus.sh          # i3 widgets (such as battery status)
-exec_always xrdb ~/.Xresources     # needed for rofi launcher
-exec xset -b                       # disable bell sound
-exec_always xset -dpms             # laptop lid rules
-exec_always xset off               # laptop lid rules
-# exec --no-startup-id fcitx -d      # takes care of japanese input
-exec mkfifo /tmp/mpvfifo           # control mpv from everywhere
+exec i3-msg 'workspace " 2:term "'      # focus ws2 when starting i3wm
+exec ~/.config/i3/dbus.sh               # i3 widgets (such as battery status)
+exec_always xrdb ~/.Xresources          # needed for rofi launcher
+exec xset -b                            # disable bell sound
+exec_always xset -dpms                  # laptop lid rules
+exec_always xset off                    # laptop lid rules
+                                        # exec --no-startup-id fcitx -d      # takes care of japanese input
+exec mkfifo /tmp/mpvfifo                # control mpv from everywhere
