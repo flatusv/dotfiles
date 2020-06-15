@@ -166,10 +166,11 @@ mode "$mode_monitor" {
 }
 
 # SCREENSHOT MODE
-set $screenshot Launch: [s]crot # Take screenshots: [s]ave, [c]lipboard, [d]elay w/ whole screen
+set $screenshot Launch: [s]crot # Take screenshots: [s]ave, [f]name, [c]lipboard, [d]elay w/ whole screen
 bindsym --release $win+s mode "$screenshot"
 mode "$screenshot" {
     bindsym --release s mode default, exec "~/.config/i3/screenshotNotfiy.sh"
+    bindsym --release f mode default, exec "~/.config/i3/screenshotNotifyFile.sh"
     bindsym --release c mode default, exec "~/.config/i3/screenshotNotfiyClipboard.sh"
     bindsym --release d mode default, exec "~/.config/i3/screenshotDelay.sh"
 
