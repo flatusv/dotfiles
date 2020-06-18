@@ -194,9 +194,11 @@ mode $window_resize {
 }
 
 # NOBIND MODE (IGNORES ALL OTHER KEYBINDS)
-bindsym $mod+Shift+d mode "noBinds"
+# The execute parts disables the return key. ->No chat in Dota2.
+# Enables return key again upon leaving.
+bindsym $mod+Shift+d mode noBinds; exec "xmodmap -e 'keycode 36='"
 mode  "noBinds" {
-    bindsym $mod+Shift+d mode      "default"
+    bindsym $mod+Shift+d mode default; exec "xmodmap -e 'keycode 36=Return'"
 
     # Media Player                  Controls // mpv // mpd // ncmpcpp
     bindsym $win+p            exec  "mpc toggle || echo -e 'cycle pause\n' > /tmp/mpvfifo"
