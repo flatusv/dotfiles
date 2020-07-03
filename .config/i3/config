@@ -116,7 +116,7 @@ client.urgent                   $main-color           $border-color         $sec
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf 
         position top
-        font pango:xos4 Terminus, Icons 9
+        font pango:Terminus, Icons 9
         tray_output primary # comment to enable tray icons. Other arguments are: primary/none
         separator_symbol " "
         colors {

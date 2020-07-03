@@ -30,6 +30,6 @@ rofi.hide-scrollbar:                true
 
 ! comment line below on laptop
 rofi.padding:                       250
-rofi.font:              xos4 Terminus 10
+rofi.font:              Terminus 10
 rofi.modi: run,drun
 rofi.show-match: false
