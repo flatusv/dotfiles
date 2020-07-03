@@ -2,6 +2,8 @@
 
 cursor_shape = underline
 cursor_blink = off
+
+#font package: terminus-font-otb
 font = Terminus 11
 allow_bold = true
 scroll_on_output = true
