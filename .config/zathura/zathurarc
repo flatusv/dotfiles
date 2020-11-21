@@ -39,7 +39,6 @@ set recolor "false"
 # view the first page on the left side
 set first-page-column 1:1
 
-
 # no black bars
 set adjust-open width
 
