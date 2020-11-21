@@ -45,4 +45,9 @@ set adjust-open width
 
 map [normal] <e> feedkeys ":exec evince %"<Return>
 
+# 1:2 view and no black bars on start
+# same as pressing 'd' and 's' when opening a pdf
+set pages-per-row 2 
+set adjust-open width
+
 
