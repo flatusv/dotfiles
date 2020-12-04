@@ -218,7 +218,8 @@ mode  "noBinds" {
 # CUSTOM MAPPINGS
 #--------------------
 # Rofi: toggle rofi with alt+a or escape
-bindsym $mod+a exec "if pgrep -x 'rofi'; then :; else rofi -show drun -kb-cancel 'Escape,alt+a'; fi"
+ bindsym $mod+a exec rofi -show drun
+# bindsym $mod+a exec "if pgrep -x 'rofi'; then :; else rofi -show drun -kb-cancel 'Escape,alt+a'; fi"
 bindsym $mod+e exec pcmanfm # filemanager
 
 # ALSA CONTROLS VOLUME
