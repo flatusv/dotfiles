@@ -89,6 +89,7 @@ alias kill='killall -9'
 alias ncdu="ncdu --color dark"            # Tui alternative of 'du'
 alias p="exit"
 alias pdf="f_viewPdf"                     # put the terminal in background when opening a pdf (makes them closeable)
+alias twitch="f_twitch"                     # put the terminal in background when opening a pdf (makes them closeable)
 alias q="clear"                           # use Ctrl-l instead
 alias rm="f_moveTrash"
 alias trans="trans -show-original-dictionary y"                                                     # translate from commandline
