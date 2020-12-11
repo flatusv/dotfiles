@@ -89,7 +89,7 @@ alias kill='killall -9'
 alias ncdu="ncdu --color dark"            # Tui alternative of 'du'
 alias p="exit"
 alias pdf="f_viewPdf"                     # put the terminal in background when opening a pdf (makes them closeable)
-alias twitch="f_twitch"                     # put the terminal in background when opening a pdf (makes them closeable)
+alias twitch="f_twitch"                   # put the terminal in background when opening a pdf (makes them closeable)
 alias q="clear"                           # use Ctrl-l instead
 alias rm="f_moveTrash"
 alias trans="trans -show-original-dictionary y"                                                     # translate from commandline
@@ -99,4 +99,4 @@ alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' # class name of window
 alias mpv='mpv --ytdl-raw-options="yes-playlist="'                                                  # mpv to play yt playlists
 alias vim="f_vim_one_instance"                                                                      # vim: only one instance
-alias cat="bat --style=plain --pager=never"                                                                                 # cat on steroids
+alias cat="bat --style=plain --pager=never"                                                         # cat on steroids
