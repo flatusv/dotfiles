@@ -21,3 +21,6 @@ nnoremap <silent> <leader>as :CocCommand snippets.editSnippets <CR>
 nnoremap <silent> <leader>lc :LLPStartPreview <CR>
 " Wann geladen wird.. Maske... zu verwendende Sprache..
 autocmd FileType latex,tex setlocal spell    spelllang=de_de,en_us
+
+let g:tq_language=['en', 'de']
+let g:tq_enabled_backends=["openthesaurus_de","woxikon_de"]
