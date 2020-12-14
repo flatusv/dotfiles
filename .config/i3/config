@@ -256,6 +256,9 @@ workspace $ws4 output $mon1     # These workspaces appear laptop
 workspace $ws5 output $mon1     # These workspaces appear laptop
 workspace $ws6 output $mon2     # These workspaces appear the external monitor
 
+workspace $ws3 gaps inner 0
+workspace $ws3 gaps outer 0
+
 for_window [class="jetbrains-idea-ce"]  move to workspace $ws5
 for_window [class="jetbrains-studio"]   move to workspace $ws5
 for_window [class="jetbrains-idea"]     move to workspace $ws5
