@@ -74,7 +74,7 @@ cabbrev term  :rightb vert term  ++cols=60
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex','java']}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex','java','cpp','c']}
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'chrisbra/vim-commentary' " simple comment/uncomment plugin
 Plug 'tpope/vim-surround'
@@ -85,9 +85,8 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'sheerun/vim-polyglot', {'for': ['python','javascript','html','css'] }
+Plug 'sheerun/vim-polyglot', {'for': ['python','javascript','html','css','c','cpp'] }
 Plug 'junegunn/vim-easy-align'
-Plug 'triglav/vim-visual-increment'
 Plug 'ron89/thesaurus_query.vim'
 
 
@@ -109,6 +108,9 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
+
+let g:termdebug_wide=1
+
 
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
