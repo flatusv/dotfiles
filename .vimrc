@@ -383,22 +383,31 @@ onoremap jj <Esc>
 vnoremap <C-c> "+y
 
 """"""""""""""""""""
+" " FZF custom commands
+"""""""""""""""""""""
+command! -bang -nargs=? -complete=dir BFiles
+     \ call fzf#vim#files(expand('%:h'), {'source': 'ag --hidden --ignore .git -g ""'}, <bang>0)
+
+""""""""""""""""""""
 " " FZF mappings
 """""""""""""""""""""
 " fzf.vim fuzzy open new file -- find file
 noremap <silent> <leader>ff :call fzf#vim#files('~', fzf#vim#with_preview('right')) <CR>
 " fzf.vim fuzzy open file -- find file within directory
 noremap <silent> <leader>fd :call fzf#vim#files('', fzf#vim#with_preview('right')) <CR>
+" fzf.vim fuzzy open file -- find files in the directory of the current buffer
+noremap <silent> <leader>fb :BFiles
 " fzf.vim complete and insert a path
 imap <leader>cp <plug>(fzf-complete-path)
 " fzf.vim lists current buffers
-nnoremap <silent> <leader><leader> :Buffers <CR>
+nnoremap <silent> <leader><leader> :call fzf#vim#buffers('', fzf#vim#with_preview('right')) <CR>
 " fzf.vim search line within buffer -- find line
 nnoremap <silent> <leader>fl :BLines <CR>
-" fzf.vim search line within loaded buffers -- find line
+" fzf.vim search line within all loaded buffers -- find line
 nnoremap <silent> <leader>fL :Lines <CR>
 " fzf.vim search string in files
 nnoremap <silent> <leader>? :Rg <CR>
+
 
 """"""""""""""""""""
 " " Leader mappings
