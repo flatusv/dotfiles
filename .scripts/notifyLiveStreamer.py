@@ -22,19 +22,20 @@ class Streamer():
                                     "arteezy",
                                     "bububu",
                                     "eternalenvyy",
+                                    "iceiceice",
                                     "grandgrant",
                                     "masondota2",
                                     "matumbaman",
                                     "midone",
                                     "purgegamers",
-                                    "singsing"
+                                    "singsing",
                                     "zai"
                                  ]
 
         self.headers = {
                         'Accept':        'application/vnd.twitchtv.v5+json',
-                        'Client-ID':     os.environ['TwitchClient'],
-                        'Authorization': os.environ['TwitchAuth']
+                        'Client-ID':     '{}'.format(os.environ.get('TwitchClient')),
+                        'Authorization': '{}'.format(os.environ.get('TwitchAuth'))
                         }
 
 
