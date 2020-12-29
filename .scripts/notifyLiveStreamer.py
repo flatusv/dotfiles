@@ -27,6 +27,7 @@ class Streamer():
                                     "matumbaman",
                                     "midone",
                                     "purgegamers",
+                                    "singsing"
                                     "zai"
                                  ]
 
