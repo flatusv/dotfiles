@@ -194,11 +194,11 @@ mode $window_resize {
 }
 
 # NOBIND MODE (IGNORES ALL OTHER KEYBINDS)
-# The execute parts disables the return key. ->No chat in Dota2.
+# exec "xmodmap -e 'keycode 36='". ->No chat in Dota2.
 # Enables return key again upon leaving.
-bindsym $mod+Shift+d mode noBinds; exec "xmodmap -e 'keycode 36='"
+bindsym $mod+Shift+d mode noBinds
 mode  "noBinds" {
-    bindsym $mod+Shift+d mode default; exec "xmodmap -e 'keycode 36=Return'"
+    bindsym $mod+Shift+d mode default
 
     # Media Player                  Controls // mpv // mpd // ncmpcpp
     bindsym $win+p            exec  "mpc toggle || echo -e 'cycle pause\n' | socat - /tmp/mpvsocket"
@@ -296,5 +296,5 @@ exec_always xrdb ~/.Xresources          # needed for rofi launcher
 exec xset -b                            # disable bell sound
 exec_always xset -dpms                  # laptop lid rules
 exec_always xset off                    # laptop lid rules
-                                        # exec --no-startup-id fcitx -d      # takes care of japanese input
+exec --no-startup-id fcitx -d         # takes care of japanese input
 # exec mkfifo /tmp/mpvfifo                # control mpv from everywhere
