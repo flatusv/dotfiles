@@ -69,7 +69,7 @@ runtime! ftplugin/man.vim
 " make these commands split the window vertically 
 cabbrev Man vert Man 
 cabbrev help vert help 
-cabbrev term  :rightb vert term  ++cols=60
+cabbrev term :botright term ++rows=15
 " => PLUGINS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
@@ -410,9 +410,9 @@ nnoremap <silent> <leader>? :Rg <CR>
 
 
 """"""""""""""""""""
-" " Leader mappings
+" " Leader 
 """""""""""""""""""""
-nnoremap <silent> <leader>t :rightb vert term  ++cols=60 <CR>
+nnoremap <silent> <leader>t :botright term ++rows=15 <CR>
 " list the contents of all of your registers
 " hint: This makes it easy to paste the right content via 'registerValue'+p
 nnoremap <silent> <leader>r :registers <CR>
