@@ -88,6 +88,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot', {'for': ['python','javascript','html','css','c','cpp'] }
 Plug 'junegunn/vim-easy-align'
 Plug 'ron89/thesaurus_query.vim'
+Plug 'ap/vim-buftabline'
 
 
 let g:tq_language = 'de'
@@ -169,14 +170,15 @@ set foldcolumn=0
 set background=dark
 " let g:hybrid_custom_term_colors = 1
 function! MyHighlights() abort
-highlight Normal      ctermbg=NONE
-highlight NonText     ctermbg=NONE
-highlight EndOfBuffer ctermbg=NONE
+    highlight Normal      ctermbg=NONE
+    highlight NonText     ctermbg=NONE
+    highlight EndOfBuffer ctermbg=NONE
+    highlight Search      ctermbg=brown
 endfunction
 
 augroup MyColors
-autocmd!
-autocmd ColorScheme * call MyHighlights()
+    autocmd!
+    autocmd ColorScheme * call MyHighlights()
 augroup END
 
 
@@ -341,6 +343,29 @@ function! OpenLastBufferInNewTab()
     endfor
 endfunction
 
+fun! TabTogTerm()
+  let l:OpenTerm = {x -> x
+        \  ? { -> execute('botright 15 split +term') }
+        \  : { -> execute('botright term ++rows=15') }
+        \ }(has('nvim'))
+  let term = gettabvar(tabpagenr(), 'term',
+        \ {'main': -1, 'winnr': -1, 'bufnr': -1})
+  if ! bufexists(term.bufnr)
+    call l:OpenTerm()
+    call settabvar(tabpagenr(), 'term',
+          \ {'main': winnr('#'), 'winnr': winnr(), 'bufnr': bufnr()})
+    exe 'tnoremap <buffer> <leader>t <cmd>' . t:term.main . ' wincmd w<cr>'
+    exe 'tnoremap <buffer> <c-d>     <cmd>wincmd c<cr>'
+    setl winheight=15
+  else
+    if ! len(filter(tabpagebuflist(), {_,x -> x == term.bufnr}))
+      exe 'botright 15 split +b\ ' . term.bufnr
+    else
+      exe term.winnr . ' wincmd w'
+    endif
+  endif
+endfun
+
 
 """"""""""""""""""""
 " " Helper Keybinds
@@ -364,8 +389,8 @@ nnoremap <C-n> :set hlsearch!<CR>
 vnoremap <c-z> <nop>
 
 " move up/down the buffer list
-nnoremap <C-j> :bnext<CR>
-nnoremap <C-k> :bprev<CR>
+nnoremap <C-k> :bnext<CR>
+nnoremap <C-j> :bprev<CR>
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 noremap! <C-BS> <C-w>
@@ -412,19 +437,22 @@ nnoremap <silent> <leader>? :Rg <CR>
 """"""""""""""""""""
 " " Leader 
 """""""""""""""""""""
-nnoremap <silent> <leader>t :botright term ++rows=15 <CR>
+" Creates a single terminal instance. If a terminal window is already open, it will switch
+" focus to that. Another successive keupress, will switch the focus back to the editor.
+nnoremap <silent> <leader>t <cmd>call TabTogTerm()<cr>
+
 " list the contents of all of your registers
-" hint: This makes it easy to paste the right content via 'registerValue'+p
+" hint: This makes it easy to paste the right content via <RegisterValue>+p or "<RegisterValue>p
+" hint: u. will remove the last paste and paste the next numbered register,
 nnoremap <silent> <leader>r :registers <CR>
 
 " close all but current bufffer and save 
-" :w - save current buffers %bd - close all the buffers  e# - open last edited file bd# - close the unnamed buffer
+" :w - save current buffers %bd - close all the buffers  e# - open last edited file bd# - close the unnamed 
 nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
 
 " switch to the other split 
 tnoremap <Leader>s <C-w>w
 nnoremap <Leader>s <C-w>w
-
 
 " draw figues in inkscape and include them in latex
 " https://github.com/gillescastel/inkscape-figures
