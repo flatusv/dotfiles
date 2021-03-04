@@ -74,7 +74,7 @@ cabbrev term :botright term ++rows=15
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex','java','cpp','c']}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex','java','cpp','c','cs']}
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'chrisbra/vim-commentary' " simple comment/uncomment plugin
 Plug 'tpope/vim-surround'
@@ -85,17 +85,35 @@ Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'sheerun/vim-polyglot', {'for': ['python','javascript','html','css','c','cpp'] }
 Plug 'junegunn/vim-easy-align'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ap/vim-buftabline'
+Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
+Plug 'vim-syntastic/syntastic', { 'for': ['python','javascript','java','cpp','c','cs'] }
+
+let g:syntastic_cs_checkers = ['code_checker']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"Omnisharp settings
+let g:OmniSharp_server_stdio    = 1
+let g:OmniSharp_highlight_types = 2
+let g:OmniSharp_highlight_groups = {
+    \  'csUserIdentifier': ['identifier', 'parameter name'],
+    \  'csUserInterface' : ['interface name'],
+    \  'csUserMethod'    : ['extension method name', 'method name'],
+    \  'csUserType'      : ['class name', 'enum name', 'namespace name', 'struct name']
+    \ }
 
 
 let g:tq_language = 'de'
 nnoremap <Leader>ss :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>ss y:ThesaurusQueryReplace <C-r>"<CR>
 " no conflict with vimtex
-let g:polyglot_disabled = ['latex']
+" let g:polyglot_disabled = ['latex']
+"
 " recognize empty latex file as 'tex', so that snippets work properly
 let g:tex_flavor = "latex"
 
@@ -451,8 +469,8 @@ nnoremap <silent> <leader>r :registers <CR>
 nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
 
 " switch to the other split 
-tnoremap <Leader>s <C-w>w
-nnoremap <Leader>s <C-w>w
+tnoremap <leader>s <C-w>w
+nnoremap <leader>s <C-w>w
 
 " draw figues in inkscape and include them in latex
 " https://github.com/gillescastel/inkscape-figures

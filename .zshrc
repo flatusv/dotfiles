@@ -13,6 +13,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --bind ,:cancel,tab:accept,esc:ignore
 --reverse
 '
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # -- HISTORY 
 setopt EXTENDED_HISTORY
