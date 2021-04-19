@@ -13,7 +13,8 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --bind ,:cancel,tab:accept,esc:ignore
 --reverse
 '
-export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+export EDITOR=/usr/bin/vim
 
 # -- HISTORY 
 setopt EXTENDED_HISTORY
@@ -74,6 +75,16 @@ bindkey -a ds delete-surround
 bindkey -a ys add-surround
 bindkey -M visual S add-surround
 
+# -- ssh/scp completion
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' menu select
+setopt COMPLETE_ALIASES
+zstyle ':completion::complete:*' gain-privileges 1
+
+
+
+
 # -- some keybinds
 bindkey ",f" fzf-history-widget                  # fzf history search
 bindkey ",fd" fzf-cd-widget                      # fzf cd
@@ -100,3 +111,6 @@ alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"
 alias mpv='mpv --ytdl-raw-options="yes-playlist="'                                                  # mpv to play yt playlists
 alias vim="f_vim_one_instance"                                                                      # vim: only one instance
 alias cat="bat --style=plain --pager=never"                                                         # cat on steroids
+alias ls="ls --color=auto"                                                                          # cat on steroids
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

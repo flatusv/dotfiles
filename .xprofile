@@ -1,14 +1,6 @@
 #!/bin/sh
 # execute before x session
 
-# japanese input (will be triggered with ctrl + space)
-export LANG="ja_JP.UTF-8"
-export XMODIFIERS="@im=fcitx"
-export XMODIFIER="@im=fcitx"
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export DefaultIMModule=fcitx[/code]
 
 nitrogen --restore &
 xset s off &
-timeout.sh &

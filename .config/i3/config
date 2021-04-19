@@ -72,11 +72,20 @@ bindsym $mod+Control+$Down   move down
 bindsym $mod+Control+$Up     move up
 bindsym $mod+Control+$Right  move right
 
-bindsym $win+h               split v
-bindsym $win+v               split h
+bindsym $mod+semicolon               split v
+bindsym $mod+Shift+semicolon         split h
+
+#bindsym $mod+space split vertical; focus right; move left; layout stacking; focus right; split vertical; focus right; move left; layout stacking; split h
+bindsym $mod+space   layout splitv;\
+                       move left;\
+                       resize grow right 50 px or 50 ppt;\
+                       split v;\
+                       layout stacking
+
+
+bindsym $mod+s               layout stacking
 bindsym $mod+f               fullscreen toggle
 bindsym $mod+Shift+space     floating toggle
-
 bindsym $mod+Tab             workspace back_and_forth
 
 # move focused window between monitors
@@ -117,7 +126,7 @@ bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf 
         position top
         font pango:Terminus, Icons 9
-        tray_output primary # comment to enable tray icons. Other arguments are: primary/none
+        #tray_output primary # comment to enable tray icons. Other arguments are: primary/none
         separator_symbol " "
         colors {
             background $main-color
@@ -220,6 +229,7 @@ mode  "noBinds" {
 #--------------------
 # Rofi: toggle rofi with alt+a or escape
  bindsym $mod+a exec rofi -show drun
+ bindsym $mod+slash exec rofi -show window
 # bindsym $mod+a exec "if pgrep -x 'rofi'; then :; else rofi -show drun -kb-cancel 'Escape,alt+a'; fi"
 bindsym $mod+e exec pcmanfm # filemanager
 
@@ -249,18 +259,20 @@ hide_edge_borders smart
 gaps inner 8
 gaps outer 1
 
+
 #--------------------
 # WORKSPACE/WINDOW RULES
 #--------------------
-workspace $ws1 output $mon1     # These workspaces appear laptop
-workspace $ws2 output $mon1     # These workspaces appear laptop
-workspace $ws3 output $mon1     # These workspaces appear laptop
-workspace $ws4 output $mon1     # These workspaces appear laptop
-workspace $ws5 output $mon1     # These workspaces appear laptop
-workspace $ws6 output $mon2     # These workspaces appear the external monitor
+workspace $ws1 output $mon1     # These workspaces appear on laptop
+workspace $ws2 output $mon1     # These workspaces appear on laptop
+workspace $ws3 output $mon1     # These workspaces appear on laptop
+workspace $ws4 output $mon1     # These workspaces appear on laptop
+workspace $ws5 output $mon1     # These workspaces appear on laptop
+workspace $ws6 output $mon2     # This workspace appears on the external monitor
 
 workspace $ws3 gaps inner 0
 workspace $ws3 gaps outer 0
+
 
 for_window [class="jetbrains-idea-ce"]  move to workspace $ws5
 for_window [class="jetbrains-studio"]   move to workspace $ws5
@@ -274,8 +286,12 @@ for_window [class="Steam"]              no_focus
 for_window [class="dota2"]              fullscreen enable
 for_window [class="mpv"]                sticky enable
 
+
+
+
 assign [class="firefox" title="^(?!Dialog).*$"] $ws1
 assign [class="Nightly" title="^(?!Dialog).*$"] $ws1
+assign [class="Google-chrome"] $ws1
 
 assign [class="Pcmanfm"]                 $ws2
 assign [class="Sxiv"]                    $ws4

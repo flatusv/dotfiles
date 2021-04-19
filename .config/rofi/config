@@ -35,4 +35,4 @@ rofi.modi: run,drun
 rofi.show-match: false
 
 
-rofi.kb-cancel: Escape,Alt+a
+rofi.kb-cancel: Escape,Alt+a,Alt+slash
