@@ -74,7 +74,7 @@ cabbrev term :botright term ++rows=15
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex','java','cpp','c','cs']}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex','java','cpp','c']}
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'chrisbra/vim-commentary' " simple comment/uncomment plugin
 Plug 'tpope/vim-surround'
@@ -88,8 +88,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ap/vim-buftabline'
-Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
-Plug 'vim-syntastic/syntastic', { 'for': ['python','javascript','java','cpp','c','cs'] }
+Plug 'vim-syntastic/syntastic', { 'for': ['python','javascript','java','cpp','c'] }
 
 let g:syntastic_cs_checkers = ['code_checker']
 let g:syntastic_always_populate_loc_list = 1
