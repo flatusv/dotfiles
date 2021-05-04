@@ -89,6 +89,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ap/vim-buftabline'
 Plug 'vim-syntastic/syntastic', { 'for': ['python','javascript','java','cpp','c'] }
+Plug 'daylerees/colour-schemes'
 
 let g:syntastic_cs_checkers = ['code_checker']
 let g:syntastic_always_populate_loc_list = 1
@@ -183,7 +184,7 @@ set foldcolumn=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 " let g:hybrid_custom_term_colors = 1
 function! MyHighlights() abort
@@ -200,6 +201,7 @@ augroup END
 
 
 colorscheme blaquemagick
+
 
 " underline spelling erros instead of hightlighting them
 hi clear SpellBad
