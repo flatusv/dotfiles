@@ -1,5 +1,3 @@
-"       (_)                   
-" __   ___ _ __ ___  _ __ ___ 
 " \ \ / / | '_ ` _ \| '__/ __|
 "  \ V /| | | | | | | | | (__ 
 "   \_/ |_|_| |_| |_|_|  \___|
@@ -88,32 +86,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ap/vim-buftabline'
-Plug 'vim-syntastic/syntastic', { 'for': ['python','javascript','java','cpp','c'] }
-Plug 'daylerees/colour-schemes'
 
-let g:syntastic_cs_checkers = ['code_checker']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-"Omnisharp settings
-let g:OmniSharp_server_stdio    = 1
-let g:OmniSharp_highlight_types = 2
-let g:OmniSharp_highlight_groups = {
-    \  'csUserIdentifier': ['identifier', 'parameter name'],
-    \  'csUserInterface' : ['interface name'],
-    \  'csUserMethod'    : ['extension method name', 'method name'],
-    \  'csUserType'      : ['class name', 'enum name', 'namespace name', 'struct name']
-    \ }
 
 
 let g:tq_language = 'de'
 nnoremap <Leader>ss :ThesaurusQueryReplaceCurrentWord<CR>
 vnoremap <Leader>ss y:ThesaurusQueryReplace <C-r>"<CR>
-" no conflict with vimtex
-" let g:polyglot_disabled = ['latex']
-"
+
 " recognize empty latex file as 'tex', so that snippets work properly
 let g:tex_flavor = "latex"
 
@@ -187,20 +166,27 @@ set foldcolumn=0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 " let g:hybrid_custom_term_colors = 1
-function! MyHighlights() abort
-    highlight Normal      ctermbg=NONE
-    highlight NonText     ctermbg=NONE
-    highlight EndOfBuffer ctermbg=NONE
-    highlight Search      ctermbg=brown
-endfunction
+"function! MyHighlights() abort
+"    highlight Normal      ctermbg=NONE
+"    highlight NonText     ctermbg=NONE
+"    highlight EndOfBuffer ctermbg=NONE
+"    highlight Search      ctermbg=brown
+"endfunction
+"
+"augroup MyColors
+"    autocmd!
+"    autocmd ColorScheme * call MyHighlights()
+"augroup END
 
-augroup MyColors
-    autocmd!
-    autocmd ColorScheme * call MyHighlights()
-augroup END
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 
-colorscheme blaquemagick
+" colorscheme blaquemagick
+colorscheme substrata
 
 
 " underline spelling erros instead of hightlighting them
@@ -470,10 +456,11 @@ nnoremap <silent> <leader>r :registers <CR>
 nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
 
 " switch to the other split 
-tnoremap <leader>s <C-w>w
-nnoremap <leader>s <C-w>w
+tnoremap <Leader>s <C-w>w
+nnoremap <Leader>s <C-w>w
 
 " draw figues in inkscape and include them in latex
 " https://github.com/gillescastel/inkscape-figures
 " inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 " nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+
