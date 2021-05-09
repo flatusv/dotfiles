@@ -175,13 +175,14 @@ mode "$mode_monitor" {
 }
 
 # SCREENSHOT MODE
-set $screenshot Launch: [s]crot # Take screenshots: [s]ave, [f]name, [c]lipboard, [d]elay w/ whole screen
+set $screenshot Launch: [s]crot # Take screenshots: [s]ave, [f]name, [c]lipboard, [d]elay], [o]pen 
 bindsym --release $win+s mode "$screenshot"
 mode "$screenshot" {
     bindsym --release s mode default, exec "~/.config/i3/screenshotNotfiy.sh"
     bindsym --release f mode default, exec "~/.config/i3/screenshotNotifyFile.sh"
     bindsym --release c mode default, exec "~/.config/i3/screenshotNotfiyClipboard.sh"
     bindsym --release d mode default, exec "~/.config/i3/screenshotDelay.sh"
+    bindsym --release o mode default, exec "~/.config/i3/screenshotOpen.sh"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -242,7 +243,7 @@ bindsym $win+$Down exec "amixer set Master 5%- && pkill -RTMIN+2 i3blocks"
 
 # MEDIA PLAYER CONTROLS // MPV // MPD // NCMPCPP // EQUALIZER
 bindsym $win+e            exec      "pulseaudio-equalizer toggle && pkill -RTMIN+10 i3blocks"
-bindsym $win+p            exec      "mpc toggle || echo -e 'cycle pause\n' | socat - /tmp/mpvsocket"
+bindsym $win+p            exec      "echo -e 'cycle pause\n' | socat - /tmp/mpvsocket || mpc toggle"
 bindsym $win+Shift+n      exec      "mpc next || echo -e 'playlist-next\n' | socat - /tmp/mpvsocket && pkill -RTMIN+20 i3blocks"
 bindsym $win+Shift+p      exec      "mpc prev || echo -e 'playlist-prev\n' | socat - /tmp/mpvsocket && pkill -RTMIN+20 i3blocks"
 bindsym $win+Shift+$Right exec      "mpc seek +5 || echo -e 'seek +5\n'    | socat - /tmp/mpvsocket"
@@ -254,7 +255,7 @@ bindsym $win+y            exec  "echo -e 'cycle video\n' | socat - /tmp/mpvsocke
 # I3-GAPS
 #--------------------
 for_window [class="^.*"] focus
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 5
 hide_edge_borders smart
 gaps inner 8
 gaps outer 1
@@ -288,6 +289,8 @@ for_window [class="mpv"]                sticky enable
 for_window [class="firefox"]            layout stacking
 for_window [class="Google-chrome"]      layout stacking
 
+for_window [class="SWT"]                floating enable
+
 
 
 
@@ -297,7 +300,7 @@ assign [class="Google-chrome"] $ws1
 assign [class="Thunderbird"]   $ws1
 
 assign [class="Pcmanfm"]                 $ws2
-assign [class="Sxiv"]                    $ws4
+#assign [class="Sxiv"]                    $ws4
 assign [class="libreoffice-startcenter"] $ws4
 assign [class="Zathura"]                 $ws4
 assign [class="Ffmulticonverter"]        $ws5
@@ -320,4 +323,4 @@ exec xset -b                            # disable bell sound
 exec_always xset -dpms                  # laptop lid rules
 exec_always xset off                    # laptop lid rules
 exec --no-startup-id fcitx -d         # takes care of japanese input
-# exec mkfifo /tmp/mpvfifo                # control mpv from everywhere
+exec mkfifo /tmp/mpvsocket                # control mpv from everywhere

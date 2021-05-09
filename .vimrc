@@ -163,7 +163,7 @@ set foldcolumn=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and Fonts
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set background=dark
 " let g:hybrid_custom_term_colors = 1
 "function! MyHighlights() abort
@@ -187,6 +187,7 @@ endif
 
 " colorscheme blaquemagick
 colorscheme substrata
+
 
 
 " underline spelling erros instead of hightlighting them
