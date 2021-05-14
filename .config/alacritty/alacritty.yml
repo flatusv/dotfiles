@@ -1,7 +1,7 @@
 window:
   padding:
-    x: 10
-    y: 15
+    x: 20
+    y: 30
   title: Terminal
   class:
     instance: Alacritty
@@ -22,7 +22,7 @@ font:
   bold_italic:
     family: Terminus
     style: Bold Italic
-  size: 8
+  size: 10
 
 draw_bold_text_with_bright_colors: true
 

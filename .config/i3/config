@@ -255,7 +255,7 @@ bindsym $win+y            exec  "echo -e 'cycle video\n' | socat - /tmp/mpvsocke
 # I3-GAPS
 #--------------------
 for_window [class="^.*"] focus
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 1
 hide_edge_borders smart
 gaps inner 8
 gaps outer 1
@@ -322,5 +322,5 @@ exec_always xrdb ~/.Xresources          # needed for rofi launcher
 exec xset -b                            # disable bell sound
 exec_always xset -dpms                  # laptop lid rules
 exec_always xset off                    # laptop lid rules
-exec --no-startup-id fcitx -d         # takes care of japanese input
-exec mkfifo /tmp/mpvsocket                # control mpv from everywhere
+exec --no-startup-id fcitx -d           # takes care of japanese input
+exec mkfifo /tmp/mpvsocket              # control mpv from everywhere
