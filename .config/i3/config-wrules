@@ -1,0 +1,325 @@
+#    (_)___ \                    
+#     _  __) |_      ___ __ ___  
+#    | ||__ <\ \ /\ / / '_ ` _ \ 
+#    | |___) |\ V  V /| | | | | |
+#    |_|____/  \_/\_/ |_| |_| |_|
+
+# VIM-LIKE BINDINGS
+set $Left   h
+set $Down   j
+set $Up     k
+set $Right  l
+
+# set monitors
+set $mon1 LVDS1
+set $mon2 VGA1
+
+# modifiers
+set $mod                        Mod1 
+set $win                        Mod4
+floating_modifier               $mod
+
+bindsym $mod+Return             exec alacritty
+
+# exec makes sure mpv disappears from i3bar (workaround)
+bindsym $mod+d                  kill; exec "pkill -RTMIN+3 i3blocks"
+
+# ----------------
+# I3 CONFIGURATION
+# ----------------
+bindsym $mod+Shift+r restart
+
+# ----------------
+# WORKSPACE
+# ----------------
+set $ws1 " 1:web "
+set $ws2 " 2:term "
+set $ws3 " 3:vim "
+set $ws4 " 4:study "
+set $ws5 " 5:idle "
+set $ws6 " 6:misc "
+set $ws7 " 7:Dota2 "
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+0 workspace $ws6
+
+#ws7 enters noBinds mode -> no keybind conflicts 
+bindsym $mod+7 workspace $ws7; exec i3-msg 'mode "noBinds"'
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+0 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+
+# ---------------
+# WINDOW MOVEMENT
+# ---------------
+bindsym $mod+$Left           focus left
+bindsym $mod+$Down           focus down
+bindsym $mod+$Up             focus up
+bindsym $mod+$Right          focus right
+bindsym $mod+Control+$Left   move left
+bindsym $mod+Control+$Down   move down
+bindsym $mod+Control+$Up     move up
+bindsym $mod+Control+$Right  move right
+
+bindsym $mod+semicolon               split v
+bindsym $mod+Shift+semicolon         split h
+
+#bindsym $mod+space split vertical; focus right; move left; layout stacking; focus right; split vertical; focus right; move left; layout stacking; split h
+bindsym $mod+space   layout splitv;\
+                       move left;\
+                       resize grow right 50 px or 50 ppt;\
+                       split v;\
+                       layout stacking
+
+
+bindsym $mod+s               layout stacking
+bindsym $mod+f               fullscreen toggle
+bindsym $mod+Shift+space     floating toggle
+bindsym $mod+Tab             workspace back_and_forth
+
+# move focused window between monitors
+bindsym $mod+shift+greater   move container to output right
+bindsym $mod+shift+less      move container to output left
+
+# make the currently focused window a scratchpad (hide window)
+# Show the first scratchpad window
+bindsym $mod+minus           move scratchpad
+bindsym $mod+Shift+minus     scratchpad show
+
+bindsym $mod+Shift+$Right    workspace next
+bindsym $mod+Shift$Left      workspace prev
+
+# ------------------------
+# COLOR SCHEME 
+
+#to change border color edit $border-color
+#to change topbar color edit $main-color
+#to change active workspace color edit $accent-color
+# ------------------------
+set $main-color                 #000000
+set $accent-color               #3d2a33
+set $secondary-color            #d9d6cf
+set $border-color               #ab86c3
+set $text-color                 #d9d6cf
+set $faded-text-color           #DDDDDD
+
+# ---------------
+# APPLYING COLORS
+# ---------------
+# Classname                     Border                Background            Text                    Indicator
+client.focused                  $main-color           $border-color         $main-color             $border-color
+client.unfocused                $main-color           $main-color           $text-color             $main-color
+client.focused_inactive         $main-color           $main-color           $text-color             $main-color
+client.urgent                   $main-color           $border-color         $secondary-color        $accent-color
+bar {
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf 
+        position top
+        font pango:Terminus, Icons 9
+        #tray_output primary # comment to enable tray icons. Other arguments are: primary/none
+        separator_symbol " "
+        colors {
+            background $main-color
+
+                # Property              Border                Background            Text
+                focused_workspace       $main-color           $accent-color         $secondary-color
+                inactive_workspace      $main-color           $main-color           $text-color
+                urgent_workspace        $main-color           $accent-color         $secondary-color
+        }
+}
+
+# --------------------
+# MODES
+# --------------------
+# POWER MENU
+set $sysmenu "log[o]ut - po[w]eroff - [r]eboot - [l]ock - [s]uspend"
+bindsym $mod+Shift+e      mode $sysmenu
+mode $sysmenu {
+    bindsym o         exit
+    bindsym w         exec "systemctl poweroff"
+    bindsym r         exec "systemctl reboot"
+    bindsym s         mode default, exec "systemctl suspend"
+    
+    # from: https://github.com/PandorasFox/i3lock-color
+    # enter default mode before locking screen
+    bindsym l         mode default, exec "~/.scripts/lock.sh" 
+    bindsym Return    mode "default"
+    bindsym Escape    mode "default"
+}
+
+# MONITOR MODE
+set $mode_monitor Launch: [m]onitor # [r]edshift [q]uit redshift, [j] down brightness, [k] up brightness
+bindsym $win+Shift+m mode "$mode_monitor"
+mode "$mode_monitor" {
+    bindsym r mode default, exec   redshift -m randr:crtc=0 -b .9 -O 4000K
+    bindsym q mode default, exec   redshift -x
+    bindsym m mode default, exec   xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
+
+    bindsym $Up   exec  xbacklight -inc 5%
+    bindsym $Down exec  xbacklight -dec 5%
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+
+    bindsym $win+Shift+m mode "default"
+}
+
+# SCREENSHOT MODE
+set $screenshot Launch: [s]crot # Take screenshots: [s]ave, [f]name, [c]lipboard, [d]elay], [o]pen 
+bindsym --release $win+s mode "$screenshot"
+mode "$screenshot" {
+    bindsym --release s mode default, exec "~/.scripts/screenshotNotfiy.sh"
+    bindsym --release f mode default, exec "~/.scripts/screenshotNotifyFile.sh"
+    bindsym --release c mode default, exec "~/.scripts/screenshotNotfiyClipboard.sh"
+    bindsym --release d mode default, exec "~/.scripts/screenshotDelay.sh"
+    bindsym --release o mode default, exec "~/.scripts/screenshotOpen.sh"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym --release $win+s mode "default"
+}
+
+# RESIZE MODE
+set $window_resize ":::resize window using vim mapping:::"
+bindsym $win+r      mode $window_resize
+mode $window_resize {
+    bindsym $Left        resize shrink width  10 or 10 ppt
+    bindsym $Right       resize grow   width  10 or 10 ppt
+    bindsym $Down        resize grow   height 10 or 10 ppt
+    bindsym $Up          resize shrink height 10 or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $win+r mode "default"
+}
+
+# NOBIND MODE (IGNORES ALL OTHER KEYBINDS)
+# exec "xmodmap -e 'keycode 36='". ->No chat in Dota2.
+# Enables return key again upon leaving.
+bindsym $mod+Shift+d mode noBinds
+mode  "noBinds" {
+    bindsym $mod+Shift+d mode default
+
+    # Media Player                  Controls // mpv // mpd // ncmpcpp
+    bindsym $win+p            exec  "mpc toggle || echo -e 'cycle pause\n' | socat - /tmp/mpvsocket"
+    bindsym $win+Shift+n      exec  "mpc next || echo -e 'playlist-next\n' | socat - /tmp/mpvsocket"
+    bindsym $win+Shift+p      exec  "mpc prev || echo -e 'playlist-prev\n' | socat - /tmp/mpvsocket"
+    bindsym $win+Shift+$Right exec  "mpc seek +5 || echo -e 'seek +5\n' | socat - /tmp/mpvsocket"
+    bindsym $win+Shift+$Left  exec  "mpc seek -5 || echo -e 'seek -5\n' | socat - /tmp/mpvsocket"
+    bindsym $win+e            exec  "pulseaudio-equalizer toggle && pkill -RTMIN+10 i3blocks"
+
+
+    # ALSA controls                 volume
+    bindsym $win+m     exec         "amixer -D pulse set Master Playback Switch toggle && pkill -RTMIN+2 i3blocks"
+    bindsym $win+$Up   exec         "amixer set Master 5%+"
+    bindsym $win+$Down exec         "amixer set Master 5%-"
+}
+
+#--------------------
+# CUSTOM MAPPINGS
+#--------------------
+# Rofi: toggle rofi with alt+a or escape
+ bindsym $mod+a exec rofi -show drun
+ bindsym $mod+slash exec rofi -show window
+# bindsym $mod+a exec "if pgrep -x 'rofi'; then :; else rofi -show drun -kb-cancel 'Escape,alt+a'; fi"
+bindsym $mod+e exec pcmanfm # filemanager
+
+# ALSA CONTROLS VOLUME
+# bindsym $win+m exec "pactl set-sink-mute 0 toggle && amixer -D pulse set Master Playback Switch toggle"
+bindsym $win+m     exec "amixer -D pulse set Master Playback Switch toggle && pkill -RTMIN+2 i3blocks"
+bindsym $win+$Up   exec "amixer set Master 5%+ && pkill -RTMIN+2 i3blocks"
+bindsym $win+$Down exec "amixer set Master 5%- && pkill -RTMIN+2 i3blocks"
+
+
+# MEDIA PLAYER CONTROLS // MPV // MPD // NCMPCPP // EQUALIZER
+bindsym $win+e            exec      "pulseaudio-equalizer toggle && pkill -RTMIN+10 i3blocks"
+bindsym $win+p            exec      "echo -e 'cycle pause\n' | socat - /tmp/mpvsocket || mpc toggle"
+bindsym $win+Shift+n      exec      "mpc next || echo -e 'playlist-next\n' | socat - /tmp/mpvsocket && pkill -RTMIN+20 i3blocks"
+bindsym $win+Shift+p      exec      "mpc prev || echo -e 'playlist-prev\n' | socat - /tmp/mpvsocket && pkill -RTMIN+20 i3blocks"
+bindsym $win+Shift+$Right exec      "mpc seek +5 || echo -e 'seek +5\n'    | socat - /tmp/mpvsocket"
+bindsym $win+Shift+$Left  exec      "mpc seek -5 || echo -e 'seek -5\n'    | socat - /tmp/mpvsocket"
+# Toggle YouTube/Twitch video streams
+bindsym $win+y            exec  "echo -e 'cycle video\n' | socat - /tmp/mpvsocket"
+
+#--------------------
+# I3-GAPS
+#--------------------
+for_window [class="^.*"] focus
+for_window [class="^.*"] border pixel 1
+hide_edge_borders smart
+gaps inner 8
+gaps outer 1
+
+
+#--------------------
+# WORKSPACE/WINDOW RULES
+#--------------------
+workspace $ws1 output $mon1     # These workspaces appear on laptop
+workspace $ws2 output $mon1     # These workspaces appear on laptop
+workspace $ws3 output $mon1     # These workspaces appear on laptop
+workspace $ws4 output $mon1     # These workspaces appear on laptop
+workspace $ws5 output $mon1     # These workspaces appear on laptop
+workspace $ws6 output $mon2     # This workspace appears on the external monitor
+
+workspace $ws3 gaps inner 0
+workspace $ws3 gaps outer 0
+
+
+for_window [class="jetbrains-idea-ce"]  move to workspace $ws5
+for_window [class="jetbrains-studio"]   move to workspace $ws5
+for_window [class="jetbrains-idea"]     move to workspace $ws5
+for_window [class="jetbrains-idea"]     no-focus
+for_window [class="Eclipse"]            move to workspace $ws5
+for_window [class="Eclipse"]            no-focus
+for_window [class="libreoffice-writer"] move to workspace $ws5
+for_window [class="Steam"]              move to workspace $ws7
+for_window [class="Steam"]              no_focus
+for_window [class="dota2"]              fullscreen enable
+for_window [class="mpv"]                sticky enable
+for_window [class="firefox"]            layout stacking
+for_window [class="Google-chrome"]      layout stacking
+
+for_window [class="SWT"]                floating enable
+
+
+assign [class="firefox" title="^(?!Dialog).*$"] $ws1
+assign [class="Nightly" title="^(?!Dialog).*$"] $ws1
+assign [class="Google-chrome"] $ws1
+assign [class="Thunderbird"]   $ws1
+
+assign [class="Pcmanfm"]                 $ws2
+assign [class="Sxiv"]                    $ws4
+assign [class="libreoffice-startcenter"] $ws4
+assign [class="Zathura"]                 $ws4
+assign [class="Ffmulticonverter"]        $ws5
+assign [class="TelegramDesktop"]         $ws5
+assign [class="TeamSpeak 3"]             $ws5
+assign [class="Pavucontrol"]             $ws5
+assign [class="Inkscape"]                $ws5
+assign [class="SimpleScreenRecorder"]    $ws5
+assign [class="mpv"]                     $ws6
+assign [class="dota2"]                   $ws7
+
+#--------------------
+# AUTOSTART
+#--------------------
+exec xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
+exec i3-msg 'workspace " 2:term "'      # focus ws2 when starting i3wm
+exec ~/.config/i3/dbus.sh               # i3 widgets (such as battery status)
+exec_always xrdb ~/.Xresources          # needed for rofi launcher
+exec xset -b                            # disable bell sound
+exec_always xset -dpms                  # laptop lid rules
+exec_always xset off                    # laptop lid rules
+exec --no-startup-id fcitx -d           # takes care of japanese input
+exec mkfifo /tmp/mpvsocket              # control mpv from everywhere
+
