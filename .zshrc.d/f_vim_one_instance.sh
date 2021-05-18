@@ -6,10 +6,23 @@ function f_vim_one_instance() {
     if ! pgrep -x "vim"; then 
         i3-msg 'move container to workspace number " 3:vim "' > /dev/null 2>&1
         i3-msg 'workspace " 3:vim "' > /dev/null 2>&1   #switch to workspace
-        command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"
+
+        #Open the file in a new terminal instance, witch a different config and detach
+        #from calling terminal
+
+        nohup alacritty \
+            --config-file=/home/geeray/.config/alacritty/alacritty-nogap.yml \
+            -e sh \
+            -c "command vim --servername $(command vim --serverlist | head -1)  --remote-silent "$@"" &
+        exit
+
     else 
-        command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@" &
+        nohup alacritty \
+            --config-file=/home/geeray/.config/alacritty/alacritty-nogap.yml \
+            -e sh \
+            -c "command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"" &
         i3-msg 'workspace " 3:vim "' > /dev/null 2>&1   #switch to workspace
         exit
     fi 
 }
+
