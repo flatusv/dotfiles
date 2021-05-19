@@ -22,7 +22,8 @@ floating_modifier               $mod
 bindsym $mod+Return             exec alacritty
 
 # exec makes sure mpv disappears from i3bar (workaround)
-bindsym $mod+d                  kill; exec "pkill -RTMIN+3 i3blocks"
+# for signals inspect file: ~/.config/i3/i3blocks.conf
+bindsym $mod+d                  kill
 
 # ----------------
 # I3 CONFIGURATION
