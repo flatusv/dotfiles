@@ -13,14 +13,14 @@ function f_vim_one_instance() {
         nohup alacritty \
             --config-file=/home/geeray/.config/alacritty/alacritty-nogap.yml \
             -e sh \
-            -c "command vim --servername $(command vim --serverlist | head -1)  --remote-silent "$@"" &
+            -c "command vim --servername $(command vim --serverlist | head -1)  --remote-silent "$@"" >/dev/null 2>&1 &
         exit
 
     else 
         nohup alacritty \
             --config-file=/home/geeray/.config/alacritty/alacritty-nogap.yml \
             -e sh \
-            -c "command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"" &
+            -c "command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"" >/dev/null 2>&1 &
         i3-msg 'workspace " 3:vim "' > /dev/null 2>&1   #switch to workspace
         exit
     fi 
