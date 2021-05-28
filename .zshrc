@@ -3,6 +3,13 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.histfile 
 export HISTTIMEFORMAT='%F %T '
+
+setopt APPEND_HISTORY     # Don't erase history
+setopt EXTENDED_HISTORY   # Add additional data to history like timestamp
+setopt INC_APPEND_HISTORY # Add immediately
+setopt HIST_FIND_NO_DUPS  # Don't show duplicates in search
+setopt SHARE_HISTORY      # Share history between session/terminals
+
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_DEFAULT_OPS=' --extended '
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
