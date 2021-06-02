@@ -256,7 +256,7 @@ bindsym $win+y            exec  "echo -e 'cycle video\n' | socat - /tmp/mpvsocke
 # I3-GAPS
 #--------------------
 for_window [class="^.*"] focus
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 3
 hide_edge_borders smart
 gaps inner 8
 gaps outer 1
@@ -283,8 +283,8 @@ for_window [class="jetbrains-idea"]                         no-focus
 for_window [class="Eclipse"]                                move to workspace $ws5
 for_window [class="Eclipse"]                                no-focus
 for_window [class="libreoffice-writer"]                     move to workspace $ws5
-for_window [class="oracle-ide-osgi-boot-OracleIdeLauncher"] move to workspace $ws5
-for_window [class="oracle-ide-osgi-boot-OracleIdeLauncher"] no-focus
+#for_window [class="oracle-ide-osgi-boot-OracleIdeLauncher"] move to workspace $ws5
+#for_window [class="oracle-ide-osgi-boot-OracleIdeLauncher"] no-focus
 for_window [class="Steam"]                                  move to workspace $ws7
 for_window [class="Steam"]                                  no_focus
 for_window [class="dota2"]                                  fullscreen enable
@@ -301,6 +301,7 @@ assign [class="Google-chrome"] $ws1
 assign [class="Thunderbird"]   $ws1
 
 assign [class="Pcmanfm"]                                $ws2
+assign [class="Gvim"]                                   $ws2
 assign [class="Sxiv"]                                   $ws4
 assign [class="libreoffice-startcenter"]                $ws4
 assign [class="Zathura"]                                $ws4
@@ -309,7 +310,6 @@ assign [class="TelegramDesktop"]                        $ws5
 assign [class="TeamSpeak 3"]                            $ws5
 assign [class="Pavucontrol"]                            $ws5
 assign [class="Inkscape"]                               $ws5
-assign [class="oracle-ide-osgi-boot-OracleIdeLauncher"] $ws5
 assign [class="SimpleScreenRecorder"]                   $ws5
 assign [class="mpv"]                                    $ws6
 assign [class="dota2"]                                  $ws7
@@ -319,6 +319,7 @@ assign [class="dota2"]                                  $ws7
 #--------------------
 exec xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
 exec i3-msg 'workspace " 2:term "'      # focus ws2 when starting i3wm
+exec pulseaudio-equalizer disable       # no equalizer at startup 
 exec ~/.config/i3/dbus.sh               # i3 widgets (such as battery status)
 exec_always xrdb ~/.Xresources          # needed for rofi launcher
 exec xset -b                            # disable bell sound
@@ -326,4 +327,3 @@ exec_always xset -dpms                  # laptop lid rules
 exec_always xset off                    # laptop lid rules
 exec --no-startup-id fcitx -d           # takes care of japanese input
 exec mkfifo /tmp/mpvsocket              # control mpv from everywhere
-
