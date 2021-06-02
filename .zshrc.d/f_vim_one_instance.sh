@@ -25,8 +25,10 @@ function f_vim_one_instance() {
             -e sh \
             -c "command vim --servername $(command vim --serverlist | head -1) --remote-silent $file" >/dev/null 2>&1 &
 
-        # wait for vim process to finish
+        #wait for vim process to finish
         wait
+
+        clear
 
         #switch to the orginial workspace
         i3-msg "workspace $CWS" >/dev/null 2>&1
