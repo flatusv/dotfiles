@@ -41,5 +41,13 @@ done
 i3-msg '[title="SQL"] move container to workspace number " 5:idle "'
 #switch focus to ws5
 i3-msg 'workspace " 5:idle "'
-echo "Done"
+echo "[Oracle-sqldeveloper]: Done"
+
+setxkbmap us
+
+#change to xkb
+setxkbmap -option '' "vim"
+#let our script now, that we are using xkb
+echo "xkb" >| /tmp/kbdLayout.txt
+echo "[SwitchKeyboard]: Using xkb layout!"
 
