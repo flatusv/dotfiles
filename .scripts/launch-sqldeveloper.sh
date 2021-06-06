@@ -37,10 +37,6 @@ else
 fi
 done
 
-#wait a little to make sure, the programs gets launched in the desired workspace
-echo "[script]: ...waiting 2 seconds!"
-sleep 2
-
 #move container to ws5
 i3-msg '[title="SQL"] move container to workspace number " 5:idle "'
 #switch focus to ws5
