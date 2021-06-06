@@ -1,6 +1,7 @@
 #!/bin/sh
 
-[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap # needed for custom changes to key mappings
+ # needed for custom changes to key mappings
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap  && echo "default" > /tmp/kbdLayout.txt
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
