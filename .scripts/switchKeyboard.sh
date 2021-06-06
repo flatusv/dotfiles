@@ -10,7 +10,7 @@ if grep -q "default" /tmp/kbdLayout.txt; then
 
     #let our script now, that we are using xkb
     echo "xkb" >| /tmp/kbdLayout.txt
-    echo "[SwitchKeyboard]: Using xkb layout!"
+    echo "[KBD]: xkb"
     exit
 fi
 
@@ -24,7 +24,7 @@ if grep -q "xkb" /tmp/kbdLayout.txt; then
 
     #let our script now, that we are using xkb
     echo "default" >| /tmp/kbdLayout.txt
-    echo "[SwitchKeyboard]: Using xmodmap layout!"
+    echo "[KBD]: xmodmap"
     exit
 fi
 
