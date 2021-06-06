@@ -301,7 +301,6 @@ assign [class="Google-chrome"] $ws1
 assign [class="Thunderbird"]   $ws1
 
 assign [class="Pcmanfm"]                                $ws2
-assign [class="Gvim"]                                   $ws2
 assign [class="Sxiv"]                                   $ws4
 assign [class="libreoffice-startcenter"]                $ws4
 assign [class="Zathura"]                                $ws4
