@@ -27,6 +27,22 @@ let g:mapleader = ","
 " Fast saving
 nmap <leader>w :w!<cr>
 
+" GVIM specific settings
+if has("gui_running")
+    " set guioptions-=m  "menu bar
+    set guioptions-=T  "toolbar
+
+    vmap <C-c> "+yi
+    vmap <C-x> "+c
+    vmap <C-V> c<ESC>"+p
+    imap <C-V> <C-r><C-o>+
+else
+    " Terminal Vim only! By setting a window title i3wm can't kill vim terminals.
+    set title
+    " configure title to look like: Vim /path/to/file
+    set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70
+endif
+
 " set clipboard=unnamedplus " copy to clipboard. Rather use middle mouse button
 set nocompatible            " required
 filetype off                " required
@@ -53,14 +69,6 @@ set shortmess+=c
 set signcolumn=no
 set nomodeline
 
-" GVIM specific settings
-" set guioptions-=m  "menu bar
-set guioptions-=T  "toolbar
-
-vmap <C-c> "+yi
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <C-r><C-o>+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Suntax 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -105,15 +113,15 @@ vnoremap <Leader>ss y:ThesaurusQueryReplace <C-r>"<CR>
 let g:tex_flavor = "latex"
 
 let g:vimtex_compiler_latexmk = {
-    \ 'options' : [
-    \   '-pdf',
-    \   '-shell-escape',
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-synctex=1',
-    \   '-interaction=nonstopmode',
-    \ ],
-    \}
+            \ 'options' : [
+                \   '-pdf',
+                \   '-shell-escape',
+                \   '-verbose',
+                \   '-file-line-error',
+                \   '-synctex=1',
+                \   '-interaction=nonstopmode',
+                \ ],
+                \}
 
 let g:termdebug_wide=1
 
@@ -187,15 +195,14 @@ set background=dark
 "augroup END
 
 if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
 endif
 
 
 " colorscheme blaquemagick
 colorscheme substrata
-
 
 
 " underline spelling erros instead of hightlighting them
@@ -358,26 +365,26 @@ function! OpenLastBufferInNewTab()
 endfunction
 
 fun! TabTogTerm()
-  let l:OpenTerm = {x -> x
-        \  ? { -> execute('botright 15 split +term') }
-        \  : { -> execute('botright term ++rows=15') }
-        \ }(has('nvim'))
-  let term = gettabvar(tabpagenr(), 'term',
-        \ {'main': -1, 'winnr': -1, 'bufnr': -1})
-  if ! bufexists(term.bufnr)
-    call l:OpenTerm()
-    call settabvar(tabpagenr(), 'term',
-          \ {'main': winnr('#'), 'winnr': winnr(), 'bufnr': bufnr()})
-    exe 'tnoremap <buffer> <leader>t <cmd>' . t:term.main . ' wincmd w<cr>'
-    exe 'tnoremap <buffer> <c-d>     <cmd>wincmd c<cr>'
-    setl winheight=15
-  else
-    if ! len(filter(tabpagebuflist(), {_,x -> x == term.bufnr}))
-      exe 'botright 15 split +b\ ' . term.bufnr
+    let l:OpenTerm = {x -> x
+                \  ? { -> execute('botright 15 split +term') }
+                \  : { -> execute('botright term ++rows=15') }
+                \ }(has('nvim'))
+    let term = gettabvar(tabpagenr(), 'term',
+                \ {'main': -1, 'winnr': -1, 'bufnr': -1})
+    if ! bufexists(term.bufnr)
+        call l:OpenTerm()
+        call settabvar(tabpagenr(), 'term',
+                    \ {'main': winnr('#'), 'winnr': winnr(), 'bufnr': bufnr()})
+        exe 'tnoremap <buffer> <leader>t <cmd>' . t:term.main . ' wincmd w<cr>'
+        exe 'tnoremap <buffer> <c-d>     <cmd>wincmd c<cr>'
+        setl winheight=15
     else
-      exe term.winnr . ' wincmd w'
+        if ! len(filter(tabpagebuflist(), {_,x -> x == term.bufnr}))
+            exe 'botright 15 split +b\ ' . term.bufnr
+        else
+            exe term.winnr . ' wincmd w'
+        endif
     endif
-  endif
 endfun
 
 
@@ -425,7 +432,7 @@ vnoremap <C-c> "+y
 " " FZF custom commands
 """""""""""""""""""""
 command! -bang -nargs=? -complete=dir BFiles
-     \ call fzf#vim#files(expand('%:h'), {'source': 'ag --hidden --ignore .git -g ""'}, <bang>0)
+            \ call fzf#vim#files(expand('%:h'), {'source': 'ag --hidden --ignore .git -g ""'}, <bang>0)
 
 """"""""""""""""""""
 " " FZF mappings
