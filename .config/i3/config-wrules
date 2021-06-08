@@ -293,6 +293,8 @@ for_window [class="firefox"]                                layout stacking
 for_window [class="Google-chrome"]                          layout stacking
 
 for_window [class="SWT"]                floating enable
+for_window [title="GVIM"]               move to workspace $ws3
+for_window [title="GVIM"]               focus
 
 
 assign [class="firefox" title="^(?!Dialog).*$"] $ws1

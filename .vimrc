@@ -51,8 +51,16 @@ set shortmess+=c
 
 " never show signcolumns, removes ugly grey bar next to statusline
 set signcolumn=no
-
 set nomodeline
+
+" GVIM specific settings
+" set guioptions-=m  "menu bar
+set guioptions-=T  "toolbar
+
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Suntax 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
