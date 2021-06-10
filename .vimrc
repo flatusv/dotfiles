@@ -440,7 +440,7 @@ command! -bang -nargs=? -complete=dir BFiles
 " fzf.vim fuzzy open new file -- find file
 noremap <silent> <leader>ff :call fzf#vim#files('~', fzf#vim#with_preview('right')) <CR>
 " fzf.vim fuzzy open file -- find file within directory
-noremap <silent> <leader>fd :call fzf#vim#files('', fzf#vim#with_preview('right')) <CR>
+noremap <silent> <leader>fd :Files %:p:h<CR>
 " fzf.vim fuzzy open file -- find files in the directory of the current buffer
 noremap <silent> <leader>fb :BFiles
 " fzf.vim complete and insert a path
