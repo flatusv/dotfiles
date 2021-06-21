@@ -176,12 +176,12 @@ mode "$mode_monitor" {
 }
 
 # SCREENSHOT MODE
-set $screenshot Launch: [s]crot # Take screenshots: [s]ave, [f]name, [c]lipboard, [d]elay], [o]pen 
-bindsym --release $win+s mode "$screenshot"
-mode "$screenshot" {
-    bindsym --release s mode default, exec "~/.scripts/screenshotNotfiy.sh"
-    bindsym --release f mode default, exec "~/.scripts/screenshotNotifyFile.sh"
-    bindsym --release c mode default, exec "~/.scripts/screenshotNotfiyClipboard.sh"
+set $screenshot "Launch: [s]crot # Take screenshots: [s]ave, [w]indow, [c]lipboard, [d]elay], [o]pen"
+bindsym --release $win+s mode $screenshot
+mode $screenshot {
+    bindsym --release s mode default, exec "~/.scripts/screenshotSave.sh"
+    bindsym --release w mode default, exec "~/.scripts/screenshotWindow.sh"
+    bindsym --release c mode default, exec "~/.scripts/screenshotClipboard.sh"
     bindsym --release d mode default, exec "~/.scripts/screenshotDelay.sh"
     bindsym --release o mode default, exec "~/.scripts/screenshotOpen.sh"
 
@@ -320,7 +320,6 @@ assign [class="dota2"]                                  $ws7
 #--------------------
 exec xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
 exec i3-msg 'workspace " 2:term "'      # focus ws2 when starting i3wm
-exec pulseaudio-equalizer disable       # no equalizer at startup 
 exec ~/.config/i3/dbus.sh               # i3 widgets (such as battery status)
 exec_always xrdb ~/.Xresources          # needed for rofi launcher
 exec xset -b                            # disable bell sound
@@ -328,3 +327,4 @@ exec_always xset -dpms                  # laptop lid rules
 exec_always xset off                    # laptop lid rules
 exec --no-startup-id fcitx -d           # takes care of japanese input
 exec mkfifo /tmp/mpvsocket              # control mpv from everywhere
+exec pulseaudio-equalizer disable       # no equalizer at startup 
