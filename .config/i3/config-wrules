@@ -306,6 +306,7 @@ assign [class="Pcmanfm"]                                $ws2
 assign [class="Sxiv"]                                   $ws4
 assign [class="libreoffice-startcenter"]                $ws4
 assign [class="Zathura"]                                $ws4
+assign [class="scrcpy"]                                 $ws5
 assign [class="Ffmulticonverter"]                       $ws5
 assign [class="TelegramDesktop"]                        $ws5
 assign [class="TeamSpeak 3"]                            $ws5
@@ -313,6 +314,8 @@ assign [class="Pavucontrol"]                            $ws5
 assign [class="Inkscape"]                               $ws5
 assign [class="SimpleScreenRecorder"]                   $ws5
 assign [class="mpv"]                                    $ws6
+#visual paradim
+assign [class="install4j-RV3418790646"]                 $ws6
 assign [class="dota2"]                                  $ws7
 
 #--------------------
