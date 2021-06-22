@@ -428,6 +428,9 @@ onoremap jj <Esc>
 " copy visual selection to system clipboard
 vnoremap <C-c> "+y
 
+" Tab to move out of brackets. Works like in Android Studio
+inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>'
+
 """"""""""""""""""""
 " " FZF custom commands
 """""""""""""""""""""
@@ -474,9 +477,4 @@ nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but c
 " switch to the other split 
 tnoremap <Leader>s <C-w>w
 nnoremap <Leader>s <C-w>w
-
-" draw figues in inkscape and include them in latex
-" https://github.com/gillescastel/inkscape-figures
-" inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
-" nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
