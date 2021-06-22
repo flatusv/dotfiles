@@ -100,8 +100,7 @@ bindkey "^[[A" history-beginning-search-backward # completion based on input
 bindkey "^[[B" history-beginning-search-forward  # completion based on input
 bindkey "^H" backward-kill-word                  # behaves like Control-W in vim
 
-# -- Alias
-# aliases prefixed with f_ denote functions located at .zshrc.d
+# -- Alias: prefixes with f_ denote functions located at .zshrc.d
 alias down="cd ~/.down"
 alias sxiv="f_viewImage > /dev/null 2>&1" # sxix: mark files with "m", close with "q" -> auto copy fnames to clipboard
 alias kill='killall -9'
@@ -118,6 +117,6 @@ alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"
 alias mpv='mpv --ytdl-raw-options="yes-playlist="'                                                  # mpv to play yt playlists
 alias vim="f_vim_one_instance"                                                                      # vim: only one instance
 alias cat="bat --style=plain --pager=never"                                                         # cat on steroids
-alias ls="ls --color=auto"                                                                          # cat on steroids
+alias ls="ls --color=auto"                                                                          
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
