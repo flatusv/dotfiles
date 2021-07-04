@@ -101,23 +101,25 @@ bindkey "^[[B" history-beginning-search-forward  # completion based on input
 bindkey "^H" backward-kill-word                  # behaves like Control-W in vim
 
 # -- Alias: prefixes with f_ denote functions located at .zshrc.d
+alias cat="bat --style=plain --pager=never"                                                         # cat on steroids
 alias down="cd ~/.down"
-alias sxiv="f_viewImage > /dev/null 2>&1" # sxix: mark files with "m", close with "q" -> auto copy fnames to clipboard
 alias kill='killall -9'
-alias ncdu="ncdu --color dark"            # Tui alternative of 'du'
+alias ls="ls --color=auto"                                                                            
+alias mpv="f_mpv"                                                                                   # mpv to play yt playlists
+alias ncdu="ncdu --color dark"                                                                      # Tui alternative of 'du'
 alias p="exit"
-alias pdf="f_viewPdf"                     # put the terminal in background when opening a pdf (makes them closeable)
-alias q="clear"                           # use Ctrl-l instead
+# put the terminal in background when opening a pdf (makes them closeable)
+alias pdf="f_viewPdf"                                                                               
+alias q="clear"                                                                                     # use Ctrl-l instead
+alias rg="rg -i"                                                                                    # ripgrep case insensitive
 alias rm="f_moveTrash"
+# sxix: mark files with "m", close with "q" -> auto copy fnames to clipboard
+alias sxiv="f_viewImage > /dev/null 2>&1"                                                           
 alias trans="trans -show-original-dictionary y"                                                     # translate from commandline
+alias vim="f_vim_one_instance"                                                                      # vim: only one instance
 alias wp="nitrogen ~/media/wallpapers"                                                              # set up a new wallpaper
 alias x="dtrx -noq"
 alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' # class name of window
-alias mpv='mpv --ytdl-raw-options="yes-playlist="'                                                  # mpv to play yt playlists
-alias vim="f_vim_one_instance"                                                                      # vim: only one instance
-alias cat="bat --style=plain --pager=never"                                                         # cat on steroids
-alias ls="ls --color=auto"                                                                            
-alias rg="rg -i"                                                                                    # ripgrep case insensitive
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
