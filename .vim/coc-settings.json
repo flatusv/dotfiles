@@ -1,5 +1,5 @@
 {
-    "java.home": "/usr/lib/jvm/java-15-openjdk",
+    "java.home": "/usr/lib/jvm/java-16-openjdk",
     "python.jediEnabled": false,
     "java.errors.incompleteClasspath.severity": "ignore",
     "languageserver": {
