@@ -5,6 +5,7 @@ inoremap <silent><expr> <TAB>
 \ pumvisible() ? coc#_select_confirm() :
 \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
 \ <SID>check_back_space() ? "\<TAB>" :
+\ search('\%#[]>)}''"`]', 'n') ? '<Right>' :
 \ coc#refresh()
 
 function! s:check_back_space() abort
@@ -15,6 +16,6 @@ endfunction
 
 let g:coc_snippet_next = '<tab>'
 " add snippet
-nnoremap <silent> <leader>as :CocCommand snippets.editSnippets <CR>
+nnoremap <silent> <leader>es :CocCommand snippets.editSnippets <CR>
 
-nnoremap <silent> <leader>c :silent :make %<<CR>:redr!<CR> :bel vert terminal<CR>
+nnoremap <silent> <leader>cc :silent :make %<<CR>:redr!<CR> :bel vert terminal<CR>
