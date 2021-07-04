@@ -117,6 +117,7 @@ alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"
 alias mpv='mpv --ytdl-raw-options="yes-playlist="'                                                  # mpv to play yt playlists
 alias vim="f_vim_one_instance"                                                                      # vim: only one instance
 alias cat="bat --style=plain --pager=never"                                                         # cat on steroids
-alias ls="ls --color=auto"                                                                          
+alias ls="ls --color=auto"                                                                            
+alias rg="rg -i"                                                                                    # ripgrep case insensitive
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
