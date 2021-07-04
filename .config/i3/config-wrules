@@ -250,7 +250,7 @@ bindsym $win+Shift+p      exec      "mpc prev || echo -e 'playlist-prev\n' | soc
 bindsym $win+Shift+$Right exec      "mpc seek +5 || echo -e 'seek +5\n'    | socat - /tmp/mpvsocket"
 bindsym $win+Shift+$Left  exec      "mpc seek -5 || echo -e 'seek -5\n'    | socat - /tmp/mpvsocket"
 # Toggle YouTube/Twitch video streams
-bindsym $win+y            exec  "echo -e 'cycle video\n' | socat - /tmp/mpvsocket"
+bindsym $win+minus            exec  "echo -e 'cycle video\n' | socat - /tmp/mpvsocket"
 
 #--------------------
 # I3-GAPS
