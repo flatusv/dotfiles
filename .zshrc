@@ -4,41 +4,38 @@ export SAVEHIST=10000
 export HISTFILE=~/.histfile 
 export HISTTIMEFORMAT='%F %T '
 
+# -- HISTORY 
 setopt APPEND_HISTORY     # Don't erase history
 setopt EXTENDED_HISTORY   # Add additional data to history like timestamp
 setopt INC_APPEND_HISTORY # Add immediately
 setopt HIST_FIND_NO_DUPS  # Don't show duplicates in search
 setopt SHARE_HISTORY      # Share history between session/terminals
-
-export FZF_DEFAULT_COMMAND='rg --files'
-export FZF_DEFAULT_OPS=' --extended '
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
---color=dark
---color=fg:-1,bg:-1,hl:#c678dd,fg+:#d9d6cf,bg+:#3f3442,hl+:#d858fe
---color=info:#625566,prompt:#d5a8e3,pointer:#9c75dd,marker:#e5c07b,spinner:#d5a8e3,header:#d5a8e3
-
---bind ,:cancel,tab:accept,esc:ignore
---reverse
-'
-
-export EDITOR=/usr/bin/vim
-
-# -- HISTORY 
-setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
-setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
 setopt extended_glob
 setopt inc_append_history
 
+setopt aliases # enable aliases in non-interactive shells
 # -- "dir" instead of "cd dir"
 setopt AUTO_CD
 setopt +o nomatch
 
+
+export EDITOR=/usr/bin/vim
+export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_DEFAULT_OPS=' --extended '
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color=dark
+--color=fg:-1,bg:-1,hl:#c678dd,fg+:#d9d6cf,bg+:#3f3442,hl+:#d858fe
+--color=info:#625566,prompt:#d5a8e3,pointer:#9c75dd,marker:#ff0000,spinner:#d5a8e3,header:#d5a8e3
+
+--bind ,:cancel,tab:accept,esc:ignore,right:toggle+up
+--reverse
+'
 
 # -- load zsh functions located at .zshrc.d and more
 for file in ~/.zshrc.d/*;
