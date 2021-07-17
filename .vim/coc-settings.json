@@ -1,25 +1,12 @@
 {
     "java.home": "/usr/lib/jvm/java-16-openjdk",
-    "python.jediEnabled": false,
+    "coc.preferences.formatOnSaveFiletypes": ["rust","python"],
     "java.errors.incompleteClasspath.severity": "ignore",
     "languageserver": {
-        "ccls": {
-            "command": "ccls",
-            "filetypes": ["c", "cpp"],
-            "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
-            "initializationOptions": {
-                "cache": { "directory": "/tmp/ccls" }
-            }
-        },
-        "cmake": {
-            "command": "cmake-language-server",
-            "filetypes": ["cmake"],
-            "rootPatterns": [
-                "build/"
-            ],
-            "initializationOptions": {
-                "buildDirectory": "build"
-            }
+        "clangd": {
+            "command": "clangd",
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
         }
     }
 }
