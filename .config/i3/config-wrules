@@ -11,8 +11,11 @@ set $Up     k
 set $Right  l
 
 # set monitors
-set $mon1 LVDS1
-set $mon2 VGA1
+set $x220t LVDS1
+set $primary DVI-1
+set $secondary DVI-0
+
+
 
 # modifiers
 set $mod                        Mod1 
@@ -96,7 +99,7 @@ bindsym $mod+shift+less      move container to output left
 # make the currently focused window a scratchpad (hide window)
 # Show the first scratchpad window
 bindsym $mod+minus           move scratchpad
-bindsym $mod+Shift+minus     scratchpad show
+bindsym $mod+Shift+minus     scratchpad show; floating toggle
 
 bindsym $mod+Shift+$Right    workspace next
 bindsym $mod+Shift$Left      workspace prev
@@ -159,12 +162,16 @@ mode $sysmenu {
 }
 
 # MONITOR MODE
-set $mode_monitor Launch: [m]onitor # [r]edshift [q]uit redshift, [j] down brightness, [k] up brightness
+set $mode_monitor #Launch: [r]otate, [m]onitor, red[s]hift, [q]uit, [j] less bright, [k] brighter
 bindsym $win+Shift+m mode "$mode_monitor"
 mode "$mode_monitor" {
-    bindsym r mode default, exec   redshift -m randr:crtc=0 -b .9 -O 4000K
+
+    #multi-screen
+    bindsym r mode default, exec xrandr --output DVI-0  --rotate left 
+    bindsym m mode default, exec   xrandr --output $primary --mode 1920x1080 --rate 75 --right-of $x220t --output $x220t --mode 1366x768 --rate 60
+
+    bindsym s mode default, exec   redshift -b .9 -O 4500K
     bindsym q mode default, exec   redshift -x
-    bindsym m mode default, exec   xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
 
     bindsym $Up   exec  xbacklight -inc 5%
     bindsym $Down exec  xbacklight -dec 5%
@@ -265,12 +272,13 @@ gaps outer 1
 #--------------------
 # WORKSPACE/WINDOW RULES
 #--------------------
-workspace $ws1 output $mon1     # These workspaces appear on laptop
-workspace $ws2 output $mon1     # These workspaces appear on laptop
-workspace $ws3 output $mon1     # These workspaces appear on laptop
-workspace $ws4 output $mon1     # These workspaces appear on laptop
-workspace $ws5 output $mon1     # These workspaces appear on laptop
-workspace $ws6 output $mon2     # This workspace appears on the external monitor
+workspace $ws1 output $primary     # These workspaces appear on laptop
+workspace $ws2 output $primary     # These workspaces appear on laptop
+workspace $ws3 output $primary     # These workspaces appear on laptop
+workspace $ws4 output $primary     # These workspaces appear on laptop
+workspace $ws5 output $primary     # These workspaces appear on laptop
+# workspace $ws6 output $primary     # This workspace appears on the external monitor
+workspace $ws6 output $secondary     # This workspace appears on the external monitor
 
 workspace $ws3 gaps inner 0
 workspace $ws3 gaps outer 0
@@ -321,7 +329,10 @@ assign [class="dota2"]                                  $ws7
 #--------------------
 # AUTOSTART
 #--------------------
-exec xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
+exec xrandr --output $primary --mode 1920x1080 --rate 75 --right-of $x220t --output $x220t --mode 1366x768 --rate 60
+exec xrandr --output $secondary --right-of $primary
+
+
 exec i3-msg 'workspace " 2:term "'      # focus ws2 when starting i3wm
 exec ~/.config/i3/dbus.sh               # i3 widgets (such as battery status)
 exec_always xrdb ~/.Xresources          # needed for rofi launcher
