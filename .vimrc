@@ -40,7 +40,7 @@ else
     " Terminal Vim only! By setting a window title i3wm can't kill vim terminals.
     set title
     " configure title to look like: Vim /path/to/file
-    set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70
+    set titlestring=vimTerm:\ %-25.55F\ %a%r%m titlelen=70
 endif
 
 " set clipboard=unnamedplus " copy to clipboard. Rather use middle mouse button
@@ -69,6 +69,7 @@ set shortmess+=c
 set signcolumn=no
 set nomodeline
 
+autocmd BufLeave * if &buftype=="terminal" | setlocal nobuflisted | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Suntax 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -83,18 +84,19 @@ runtime! ftplugin/man.vim
 " make these commands split the window vertically 
 cabbrev Man vert Man 
 cabbrev help vert help 
-cabbrev term :botright term ++rows=15
+cabbrev term :botright term ++rows=20
 " => PLUGINS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex','java','cpp','c']}
+" Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex','java','cpp','c']}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'chrisbra/vim-commentary' " simple comment/uncomment plugin
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat' 
-" Plug 'SirVer/ultisnips', {'for': ['python','javascript','html','css','tex']}
-Plug 'honza/vim-snippets' "Snippets are separated from the engine. Add this if you want them:
+"Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -181,18 +183,6 @@ set foldcolumn=0
 " Colors and Fonts
 
 set background=dark
-" let g:hybrid_custom_term_colors = 1
-"function! MyHighlights() abort
-"    highlight Normal      ctermbg=NONE
-"    highlight NonText     ctermbg=NONE
-"    highlight EndOfBuffer ctermbg=NONE
-"    highlight Search      ctermbg=brown
-"endfunction
-"
-"augroup MyColors
-"    autocmd!
-"    autocmd ColorScheme * call MyHighlights()
-"augroup END
 
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -200,8 +190,6 @@ if exists('+termguicolors')
     set termguicolors
 endif
 
-
-" colorscheme blaquemagick
 colorscheme substrata
 
 
@@ -246,6 +234,10 @@ set wrap "Wrap lines
 nnoremap <Enter> i<Enter>
 nnoremap <Backspace> i<Backspace>
 nnoremap <Space> i<Space>
+
+"Store relative line number jumps in the jumplist. Eg.: '30j'  
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -366,8 +358,8 @@ endfunction
 
 fun! TabTogTerm()
     let l:OpenTerm = {x -> x
-                \  ? { -> execute('botright 15 split +term') }
-                \  : { -> execute('botright term ++rows=15') }
+                \  ? { -> execute('botright 20 split +term') }
+                \  : { -> execute('botright term ++rows=20') }
                 \ }(has('nvim'))
     let term = gettabvar(tabpagenr(), 'term',
                 \ {'main': -1, 'winnr': -1, 'bufnr': -1})
@@ -386,7 +378,6 @@ fun! TabTogTerm()
         endif
     endif
 endfun
-
 
 """"""""""""""""""""
 " " Helper Keybinds
@@ -428,6 +419,12 @@ onoremap jj <Esc>
 " copy visual selection to system clipboard
 vnoremap <C-c> "+y
 
+" replace word under cursor with last selected word. (Repeatable)
+nnoremap s diw"0P
+
+" replace visual selection with last yanked
+vnoremap s "_d"0P
+
 " Tab to move out of brackets. Works like in Android Studio
 inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>'
 
@@ -445,7 +442,7 @@ noremap <silent> <leader>ff :call fzf#vim#files('~', fzf#vim#with_preview('right
 " fzf.vim fuzzy open file -- find file within directory
 noremap <silent> <leader>fd :Files %:p:h<CR>
 " fzf.vim fuzzy open file -- find files in the directory of the current buffer
-noremap <silent> <leader>fb :BFiles
+" noremap <silent> <leader>fb :BFiles<CR>
 " fzf.vim complete and insert a path
 imap <leader>cp <plug>(fzf-complete-path)
 " fzf.vim lists current buffers
@@ -475,6 +472,17 @@ nnoremap <silent> <leader>r :registers <CR>
 nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
 
 " switch to the other split 
-tnoremap <Leader>s <C-w>w
-nnoremap <Leader>s <C-w>w
+tnoremap <Leader>sw <C-w>w
+nnoremap <Leader>sw <C-w>w
+
+nnoremap <Leader>j :jumps<CR>
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
