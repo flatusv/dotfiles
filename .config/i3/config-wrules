@@ -183,7 +183,7 @@ mode "$mode_monitor" {
 }
 
 # SCREENSHOT MODE
-set $screenshot "Launch: [s]crot # Take screenshots: [s]ave, [w]indow, [c]lipboard, [d]elay], [o]pen"
+set $screenshot "Launch: [s]crot # Take screenshots: [s]ave, [w]indow, [c]lipboard, [d]elay], [o]pen, [e]dit"
 bindsym --release $win+s mode $screenshot
 mode $screenshot {
     bindsym --release s mode default, exec "~/.scripts/screenshotSave.sh"
@@ -191,6 +191,7 @@ mode $screenshot {
     bindsym --release c mode default, exec "~/.scripts/screenshotClipboard.sh"
     bindsym --release d mode default, exec "~/.scripts/screenshotDelay.sh"
     bindsym --release o mode default, exec "~/.scripts/screenshotOpen.sh"
+    bindsym --release e mode default, exec "~/.scripts/screenshotEdit.sh"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
