@@ -2,10 +2,8 @@
 
 #if no scrcpy instance is running
 if ! pgrep -x "scrcpy"; then
-    notify-send -i $HOME/media/wallpapers/icons/android.png \
-        -u critical "Android Emulator" "started android emulator process!"
-
-    autoadb scrcpy -s '{}'
+    # workaround: running with low resolution '-m 1024'
+    autoadb scrcpy -m 1024
 
 else
     #dont want abandoned processes
