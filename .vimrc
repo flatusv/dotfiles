@@ -40,7 +40,7 @@ else
     " Terminal Vim only! By setting a window title i3wm can't kill vim terminals.
     set title
     " configure title to look like: Vim /path/to/file
-    set titlestring=vimTerm:\ %-25.55F\ %a%r%m titlelen=70
+    set titlestring=VIM:\ %-25.55F\ %a%r%m titlelen=70
 endif
 
 " set clipboard=unnamedplus " copy to clipboard. Rather use middle mouse button
