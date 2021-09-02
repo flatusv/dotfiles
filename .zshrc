@@ -118,5 +118,7 @@ alias wp="nitrogen ~/media/wallpapers"                                          
 alias x="dtrx -noq"
 alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' # class name of window
+alias cp="advcp -g"
+alias mv="advmv -g"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
