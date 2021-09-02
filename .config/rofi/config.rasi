@@ -1,0 +1,15 @@
+configuration {
+	modi: "run,drun";
+	lines: 5;
+	font: "Terminus 10";
+	padding: 250;
+	separator-style: "solid";
+	hide-scrollbar: true;
+	fullscreen: true;
+	show-match: false;
+	color-normal: "argb:00000000,  #acafa9 , argb:00000000,  #b16cdd ,  #000000";
+	color-urgent: "argb:00000000,  #acafa9 , argb:00000000,  #b16cdd ,  #000000";
+	color-active: "argb:00000000,  #6699CC , argb:00000000,  #b16cdd ,  #000000";
+	color-window: "argb:dc111111,  #000000 ,  #000000";
+	kb-cancel: "Escape,Alt+a,Alt+slash";
+}
