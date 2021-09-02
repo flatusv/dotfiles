@@ -26,7 +26,7 @@ bindsym $mod+Return             exec alacritty
 
 # exec makes sure mpv disappears from i3bar (workaround)
 # for signals inspect file: ~/.config/i3/i3blocks.conf
-bindsym $mod+d [con_id="__focused__" title="^(?!VIM).*$"]                 kill
+bindsym $mod+d [con_id="__focused__" title="^(?!VIM).*$" class="^(?!mpv).*$"]                 kill
 
 # ----------------
 # I3 CONFIGURATION
