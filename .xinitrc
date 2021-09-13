@@ -12,4 +12,8 @@ fi
 
 # nitrogen --restore & # needed for wallpaper
 xsetroot -bitmap $HOME/media/wallpapers/bitmap-walls-master/bw-bgnd/arabic_floor.xbm  -bg "#000000" -fg "#201623" 
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
 exec i3

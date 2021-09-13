@@ -1,6 +1,10 @@
 #!/bin/sh
 # execute before x session
 
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
 
 nitrogen --restore &
 xset s off &
