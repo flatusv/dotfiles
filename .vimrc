@@ -109,7 +109,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ap/vim-buftabline'
 
-
+:nnoremap <Leader>es :CocCommand snippets.editSnippets
+:nnoremap <Leader>os :CocCommand snippets.openSnippetFiles<CR>
 
 let g:tq_language = 'de'
 nnoremap <Leader>ss :ThesaurusQueryReplaceCurrentWord<CR>
@@ -128,6 +129,8 @@ let g:vimtex_compiler_latexmk = {
                 \   '-interaction=nonstopmode',
                 \ ],
                 \}
+
+
 
 let g:termdebug_wide=1
 
@@ -216,6 +219,8 @@ set ffs=unix,dos,mac
 set nobackup
 set nowb
 set noswapfile
+
+set undofile
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -476,17 +481,6 @@ nnoremap <silent> <leader>r :registers <CR>
 nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
 
 " switch to the other split 
-tnoremap <Leader>sw <C-w>w
-nnoremap <Leader>sw <C-w>w
-
-nnoremap <Leader>j :jumps<CR>
-
-" Remap for rename current word
-" nmap <leader>rn <Plug>(coc-rename)
-
-" Remap keys for gotos
-nmap <silent> <leader>gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+tnoremap <leader>sw <C-w>w
+nnoremap <leader>sw <C-w>w
 
