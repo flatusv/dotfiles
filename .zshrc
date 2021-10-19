@@ -120,5 +120,8 @@ alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' # class name of window
 alias cp="advcp -g"
 alias mv="advmv -g"
+alias pdflatex="pdflatex --shell-escape"
+alias textidote="f_textidote"                                                                               
+alias bib="f_bibtex"                                                                               
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
