@@ -123,5 +123,6 @@ alias mv="advmv -g"
 alias pdflatex="pdflatex --shell-escape"
 alias textidote="f_textidote"                                                                               
 alias bib="f_bibtex"                                                                               
+alias gds="git diff --name-only | fzf -m | xargs git diff"  # git diff of single files
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
