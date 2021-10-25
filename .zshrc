@@ -86,8 +86,9 @@ zstyle ':completion:*' menu select
 setopt COMPLETE_ALIASES
 zstyle ':completion::complete:*' gain-privileges 1
 
-
-
+# -- edit command in vim, when hitting ':' in normal mode
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd : edit-command-line
 
 # -- some keybinds
 bindkey ",f" fzf-history-widget                  # fzf history search
