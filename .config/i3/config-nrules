@@ -259,6 +259,8 @@ bindsym $win+y            exec  "echo -e 'cycle video\n' | socat - /tmp/mpvsocke
 #--------------------
 for_window [class="^.*"] focus
 for_window [class="^.*"] border pixel 1
+for_window [floating] sticky enable
+
 hide_edge_borders smart
 gaps inner 8
 gaps outer 1
@@ -278,6 +280,8 @@ workspace $ws3 gaps inner 0
 workspace $ws3 gaps outer 0
 
 
+assign [class="Zathura"] $ws4
+
 #--------------------
 # AUTOSTART
 #--------------------
@@ -290,3 +294,4 @@ exec_always xset -dpms                  # laptop lid rules
 exec_always xset off                    # laptop lid rules
 exec --no-startup-id fcitx -d           # takes care of japanese input
 exec mkfifo /tmp/mpvsocket              # control mpv from everywhere
+
