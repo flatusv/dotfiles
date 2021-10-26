@@ -487,7 +487,7 @@ nnoremap <silent> <leader>t <cmd>call TabTogTerm()<cr>
 " list the contents of all of your registers
 " hint: This makes it easy to paste the right content via <RegisterValue>+p or "<RegisterValue>p
 " hint: u. will remove the last paste and paste the next numbered register,
-nnoremap <silent> <leader>r :registers <CR>
+" nnoremap <silent> <leader>r :registers <CR>
 
 " close all but current bufffer and save 
 " :w - save current buffers %bd - close all the buffers  e# - open last edited file bd# - close the unnamed 
@@ -496,4 +496,3 @@ nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but c
 " switch to the other split 
 tnoremap <leader>sw <C-w>w
 nnoremap <leader>sw <C-w>w
-
