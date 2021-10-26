@@ -109,6 +109,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ap/vim-buftabline'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Plug 'LeafCage/yankround.vim'
+
 
 :nnoremap <Leader>es :CocCommand snippets.editSnippets
 :nnoremap <Leader>os :CocCommand snippets.openSnippetFiles<CR>
@@ -130,7 +132,6 @@ let g:vimtex_compiler_latexmk = {
                 \   '-interaction=nonstopmode',
                 \ ],
                 \}
-
 
 
 let g:termdebug_wide=1
@@ -473,6 +474,7 @@ nnoremap <silent> <leader>fL :Lines <CR>
 nnoremap <silent> <leader>? :Rg <CR>
 " fzf-preview.vim show jumplist
 nnoremap <silent> <leader>j :FzfPreviewJumpsRpc<CR>
+nnoremap <silent> <leader>y :FzfPreviewYankroundRpc<CR>
 
 """"""""""""""""""""
 " " Leader 
