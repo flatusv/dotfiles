@@ -124,6 +124,7 @@ alias mv="advmv -g"
 alias pdflatex="pdflatex --shell-escape"
 alias textidote="f_textidote"                                                                               
 alias bib="f_bibtex"                                                                               
-alias gds="git diff --name-only | fzf -m | xargs git diff"  # git diff of single files
+# git diff of fzf selection with immediat copy to clipboard. Easy follow up with: git add  <paste> ...
+alias gds='data=$(git diff --name-only | fzf -m) && git diff $(echo "$data") && echo "$data" | xclip'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
