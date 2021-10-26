@@ -44,13 +44,13 @@ set $ws5 " 5:idle "
 set $ws6 " 6:misc "
 set $ws7 " 7:Dota2 "
 
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+0 workspace $ws6
+bindsym $mod+1 workspace $ws1; focus tiling
+bindsym $mod+2 workspace $ws2; focus tiling
+bindsym $mod+3 workspace $ws3; focus tiling
+bindsym $mod+4 workspace $ws4; focus tiling
+bindsym $mod+5 workspace $ws5; focus tiling
+bindsym $mod+6 workspace $ws6; focus tiling
+bindsym $mod+0 workspace $ws6; focus tiling
 
 #ws7 enters noBinds mode -> no keybind conflicts 
 bindsym $mod+7 workspace $ws7; exec i3-msg 'mode "noBinds"'
@@ -282,7 +282,6 @@ workspace $ws6 output $secondary     # This workspace appears on the external mo
 
 workspace $ws3 gaps inner 0
 workspace $ws3 gaps outer 0
-
 
 for_window [class="jetbrains-idea-ce"]                      move to workspace $ws5
 for_window [class="jetbrains-studio"]                       move to workspace $ws5
