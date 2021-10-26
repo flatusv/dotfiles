@@ -108,6 +108,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ap/vim-buftabline'
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 
 :nnoremap <Leader>es :CocCommand snippets.editSnippets
 :nnoremap <Leader>os :CocCommand snippets.openSnippetFiles<CR>
@@ -449,6 +450,8 @@ inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>'
 command! -bang -nargs=? -complete=dir BFiles
             \ call fzf#vim#files(expand('%:h'), {'source': 'ag --hidden --ignore .git -g ""'}, <bang>0)
 
+
+
 """"""""""""""""""""
 " " FZF mappings
 """""""""""""""""""""
@@ -468,7 +471,8 @@ nnoremap <silent> <leader>fl :BLines <CR>
 nnoremap <silent> <leader>fL :Lines <CR>
 " fzf.vim search string in files
 nnoremap <silent> <leader>? :Rg <CR>
-
+" fzf-preview.vim show jumplist
+nnoremap <silent> <leader>j :FzfPreviewJumpsRpc<CR>
 
 """"""""""""""""""""
 " " Leader 
