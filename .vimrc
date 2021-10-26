@@ -111,6 +111,7 @@ Plug 'ap/vim-buftabline'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'LeafCage/yankround.vim'
 
+let g:fzf_preview_preview_key_bindings = 'j:down,k:up'
 
 :nnoremap <Leader>es :CocCommand snippets.editSnippets
 :nnoremap <Leader>os :CocCommand snippets.openSnippetFiles<CR>
