@@ -24,7 +24,6 @@ setopt aliases # enable aliases in non-interactive shells
 setopt AUTO_CD
 setopt +o nomatch
 
-
 export EDITOR=/usr/bin/vim
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_DEFAULT_OPS=' --extended '
@@ -124,7 +123,8 @@ alias mv="advmv -g"
 alias pdflatex="pdflatex --shell-escape"
 alias textidote="f_textidote"                                                                               
 alias bib="f_bibtex"                                                                               
-# git diff of fzf selection with immediat copy to clipboard. Easy follow up with: git add  <paste> ...
+# git diff of fzf selection with immediat copy to clipboard. Easy follow up with: git add <paste> ...
 alias gds='data=$(git diff --name-only | fzf -m) && git diff $(echo "$data") && echo "$data" | xclip'
+alias fetch='echo "[INFO]: changes to be pulled..." && git fetch origin && git diff master..origin/master' # view git remote changes before pull
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
