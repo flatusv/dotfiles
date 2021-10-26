@@ -342,4 +342,4 @@ exec_always xset off               # laptop lid rules
 exec --no-startup-id fcitx -d      # takes care of japanese input
 exec mkfifo /tmp/mpvsocket         # control mpv from everywhere
 exec pulseaudio-equalizer disable  # no equalizer at startup
-exec clipster -d                   # clipboard manager
+exec_always clipster -d                   # clipboard manager
