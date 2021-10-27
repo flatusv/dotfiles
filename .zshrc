@@ -126,5 +126,6 @@ alias bib="f_bibtex"
 # git diff of fzf selection with immediat copy to clipboard. Easy follow up with: git add <paste> ...
 alias gds='data=$(git diff --name-only | fzf -m) && git diff $(echo "$data") && echo "$data" | xclip'
 alias fetch='echo "[INFO]: changes to be pulled..." && git fetch origin && git diff master..origin/master' # view git remote changes before pull
+alias gshow="f_gshow" # file content of a previous git commit
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
