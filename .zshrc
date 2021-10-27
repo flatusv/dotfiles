@@ -98,34 +98,50 @@ bindkey "^[[B" history-beginning-search-forward  # completion based on input
 bindkey "^H" backward-kill-word                  # behaves like Control-W in vim
 
 # -- Alias: prefixes with f_ denote functions located at .zshrc.d
-alias cat="bat --style=plain --pager=never"                                                         # cat on steroids
+#
+#------------------------------------------------------------------------------------------------------------
+#| ALIAS  | DESCRIPTION
+#------------------------------------------------------------------------------------------------------------
+#| cat:   | cat on steroids
+#| fetch: | view git remote changes before pull
+#| gds:   | git diff of fzf selection with immediat copy to clipboard. Easy follow up with: git add <paste> ...
+#| gshow: | file content of a previous git commit
+#| mpv:   | mpv to play yt playlists
+#| ncdu:  | Tui alternative of 'du'
+#| pdf:   | put the terminal in background when opening a pdf (makes them closeable)
+#| rg:    | ripgrep case insensitive
+#| sxix:  | mark files with "m", close with "q" -> auto copy fnames to clipboard
+#| trans: | translate from commandline
+#| vim:   | only one instance of vim 
+#| wp:    | set up a new wallpaper
+#| xp:    | class name of window
+#------------------------------------------------------------------------------------------------------------
+alias bib="f_bibtex"                                                                               
+alias cat="bat --style=plain --pager=never"      
+alias cp="advcp -g"
 alias down="cd ~/.down"
+alias fetch='echo "[INFO]: changes to be pulled..." && git fetch origin && git diff master..origin/master' 
+alias gcm="git commit -m"
+alias gds='data=$(git diff --name-only | fzf -m) && git diff $(echo "$data") && echo "$data" | xclip'
+alias gshow="f_gshow" # 
 alias kill='killall -9'
 alias ls="ls --color=auto"                                                                            
-alias mpv="f_mpv"                                                                                   # mpv to play yt playlists
-alias ncdu="ncdu --color dark"                                                                      # Tui alternative of 'du'
+alias mpv="f_mpv"                                
+alias mv="advmv -g"
+alias ncdu="ncdu --color dark"                   
 alias p="exit"
-# put the terminal in background when opening a pdf (makes them closeable)
 alias pdf="f_viewPdf"                                                                               
-alias q="clear"                                                                                     # use Ctrl-l instead
-alias rg="rg -i"                                                                                    # ripgrep case insensitive
+alias pdflatex="pdflatex --shell-escape"
+alias q="clear"                                  
+alias rg="rg -i"                                 
 alias rm="f_moveTrash"
-# sxix: mark files with "m", close with "q" -> auto copy fnames to clipboard
-alias sxiv="f_viewImage > /dev/null 2>&1"                                                           
-alias trans="trans -show-original-dictionary y"                                                     # translate from commandline
-alias vim="f_vim_one_instance"                                                                      # vim: only one instance
-alias wp="nitrogen ~/media/wallpapers"                                                              # set up a new wallpaper
+alias sxiv="f_viewImage > /dev/null 2>&1"        
+alias textidote="f_textidote"                    
+alias trans="trans -show-original-dictionary y"  
+alias vim="f_vim_one_instance"                   
+alias wp="nitrogen ~/media/wallpapers"           
 alias x="dtrx -noq"
 alias xclip='xclip -selection clipboard'
-alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' # class name of window
-alias cp="advcp -g"
-alias mv="advmv -g"
-alias pdflatex="pdflatex --shell-escape"
-alias textidote="f_textidote"                                                                               
-alias bib="f_bibtex"                                                                               
-# git diff of fzf selection with immediat copy to clipboard. Easy follow up with: git add <paste> ...
-alias gds='data=$(git diff --name-only | fzf -m) && git diff $(echo "$data") && echo "$data" | xclip'
-alias fetch='echo "[INFO]: changes to be pulled..." && git fetch origin && git diff master..origin/master' # view git remote changes before pull
-alias gshow="f_gshow" # file content of a previous git commit
+alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
