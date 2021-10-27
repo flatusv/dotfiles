@@ -39,7 +39,7 @@ set recolor "false"
 # view the first page on the left side
 set first-page-column 1:1
 
-map [normal] <e> feedkeys ":exec evince %"<Return>
+map <C-y> feedkeys ":exec sh -c \"echo $FILE | xclip -i -sel clip\"<Return>"
 
 # 1:2 view and no black bars on start
 # same as pressing 'd' and 's' when opening a pdf
