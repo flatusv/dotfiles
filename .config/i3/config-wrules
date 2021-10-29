@@ -111,7 +111,7 @@ bindsym $mod+Shift$Left      workspace prev
 #to change topbar color edit $main-color
 #to change active workspace color edit $accent-color
 # ------------------------
-set $main-color                 #000000
+set $main-color                 #0a0b11
 set $accent-color               #3d2a33
 set $secondary-color            #d9d6cf
 set $border-color               #ab86c3
