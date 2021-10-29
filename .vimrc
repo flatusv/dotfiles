@@ -70,10 +70,7 @@ set signcolumn=no
 set nomodeline
 
 " autocmd commands
-autocmd BufLeave * if &buftype=="terminal" | setlocal nobuflisted | endif
-
-
-
+" autocmd BufLeave * if &buftype=="terminal" | setlocal nobuflisted | endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Suntax 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
