@@ -305,6 +305,7 @@ for_window [title="GVIM"]                                   move to workspace $w
 for_window [title="GVIM"]                                   focus
 
 
+assign [class="Firefox" title="^(?!Dialog).*$"] $ws1
 assign [class="firefox" title="^(?!Dialog).*$"] $ws1
 assign [class="Nightly" title="^(?!Dialog).*$"] $ws1
 assign [class="Google-chrome"] $ws1
