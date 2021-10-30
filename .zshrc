@@ -103,8 +103,8 @@ bindkey "^H" backward-kill-word                  # behaves like Control-W in vim
 #| ALIAS  | DESCRIPTION
 #------------------------------------------------------------------------------------------------------------
 #| cat:   | cat on steroids
-#| fetch: | view git remote changes before pull
 #| gds:   | git diff of fzf selection with immediat copy to clipboard. Easy follow up with: git add <paste> ...
+#| gfetch: | view git remote changes before pull
 #| gshow: | file content of a previous git commit
 #| mpv:   | mpv to play yt playlists
 #| ncdu:  | Tui alternative of 'du'
@@ -120,9 +120,9 @@ alias bib="f_bibtex"
 alias cat="bat --style=plain --pager=never"      
 alias cp="advcp -g"
 alias down="cd ~/.down"
-alias fetch='echo "[INFO]: changes to be pulled..." && git fetch origin && git diff master..origin/master' 
 alias gcm="git commit -m"
 alias gds='data=$(git diff --name-only | fzf -m) && git diff $(echo "$data") && echo "$data" | xclip'
+alias gfetch='echo "[INFO]: changes to be pulled..." && git fetch origin && git diff master..origin/master' 
 alias gshow="f_gshow" # 
 alias kill='killall -9'
 alias ls="ls --color=auto"                                                                            
