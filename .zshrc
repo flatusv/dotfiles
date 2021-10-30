@@ -3,6 +3,8 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.histfile 
 export HISTTIMEFORMAT='%F %T '
+export DISPLAY=:0.0
+
 
 # -- HISTORY 
 setopt APPEND_HISTORY     # Don't erase history
