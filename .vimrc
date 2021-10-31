@@ -105,10 +105,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ap/vim-buftabline'
-Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
-Plug 'LeafCage/yankround.vim'
+" Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+" Plug 'LeafCage/yankround.vim'
 
-let g:fzf_preview_preview_key_bindings = 'j:down,k:up'
+" let g:fzf_preview_preview_key_bindings = 'j:down,k:up'
 
 :nnoremap <Leader>es :CocCommand snippets.editSnippets
 :nnoremap <Leader>os :CocCommand snippets.openSnippetFiles<CR>
@@ -394,6 +394,38 @@ fun! TabTogTerm()
     endif
 endfun
 
+function! Jumps()
+  let jumpfile=tempname()
+  let jumpnumfile=tempname()
+
+  " Get jumps with filename added
+  let jumps = map(reverse(copy(getjumplist()[0])),
+    \ { key, val -> extend(val, {'name': getbufinfo(val.bufnr)[0].name }) })
+
+  " Write jumps to temp file with: jumpnumber, line number, line number - half screen, file name
+  let offset = &lines / 2
+  let jumptext = map(copy(jumps), { index, val ->
+    \ (index + 1)."\t".(val.lnum)."\t".(val.lnum < offset ? 1 : val.lnum - offset)."\t".(val.col+1)."\t".(val.name) })
+  call writefile(jumptext, jumpfile)
+
+  execute 'silent !fzf  --preview "bat {+5} -H {+2} -r {+3}: --color=always" < '.jumpfile.' > '.jumpnumfile
+  call delete(jumpfile)
+
+  " Read fzf output and goto jump
+  let jumpnumber=readfile(jumpnumfile)
+  call delete(jumpnumfile)
+  if(len(jumpnumber) > 0)
+    let values = split(jumpnumber[0], "\t")
+    execute "e ".values[4]
+    call cursor(str2nr(values[1]), str2nr(values[3]))
+  endif
+  redraw!
+
+endfunction
+
+command! Jumps call Jumps()
+
+
 """"""""""""""""""""
 " " Helper Keybinds
 """""""""""""""""""""
@@ -493,6 +525,9 @@ nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but c
 " switch to the other split 
 tnoremap <leader>sw <C-w>w
 nnoremap <leader>sw <C-w>w
+
+
+nnoremap <leader>j :Jumps<cr>
 
 " Triger `autoread` when files changes on disk
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
