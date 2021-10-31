@@ -147,11 +147,8 @@ alias x="dtrx -noq"
 alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' 
 alias yay="paru"
-alias yymirr="ssh yymirr@mythrill"
-alias geeray="ssh geeray@mythrill"
+alias yymirr="f_sshKeychain && ssh yymirr@mythrill"
+alias geeray="f_sshKeychain && ssh geeray@mythrill"
 
 #-- FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-#-- SSH
-/usr/bin/keychain -Q -q --nogui ~/.ssh/id_rsa
-[[ -f $HOME/.keychain/$HOSTNAME-sh ]] && source $HOME/.keychain/$HOSTNAME-sh
