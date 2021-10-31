@@ -1,0 +1,96 @@
+configuration {
+	modi:				[drun,run];
+	font:				"Terminus 10";
+	display-drun: 			"";
+	sidebar-mode: 			false;
+	sort: true;
+	sorting-method: "fzf";
+    show-match: false;
+
+    kb-cancel: "Escape,Alt+a,Alt+slash";
+}
+
+@theme "/dev/null"
+
+* {
+	bg:				#595959;
+	fg:				#2b2b2b;
+	button:				#9e9e95;
+
+	background-color:		@bg;
+	text-color:			@fg;
+}
+
+window {
+    fullscreen:                     true;
+	transparency:                   "real";
+	border-radius:                  7px;
+	width:			    	100;
+	y-offset:                       10px;
+	padding: 			25%;
+
+    background-color: #0a0b11;
+}
+
+
+prompt { enabled: false; }
+
+entry {
+	placeholder:			"Search";
+	expand:                         true;
+    placeholder-color:              #595959;
+    background-color:               #0a0b11;
+	text-color:                     #595959;
+}
+
+inputbar {
+	children: 			[ prompt, entry ];
+	expand:                         false;
+	border-radius:                  6px;
+	padding:                        8px;
+
+    background-color: #0a0b11;
+	text-color:                     #595959;
+}
+
+listview {
+	columns:                        1;
+	lines:	                        8;
+	cycle:                          false;
+	dynamic:                        true;
+	layout:                         vertical;
+    background-color: #0a0b11;
+}
+
+mainbox {
+	children:                       [ inputbar, listview ];
+	spacing:                       	2%;
+	padding:                        2% 1% 2% 1%;
+
+    background-color: #0a0b11;
+	text-color:                     #595959;
+}
+
+//background of each found item
+element {
+	orientation:                    vertical;
+	border-radius:                  0%;
+	padding:                        1.5% 0% 1.5% 0%;
+
+    background-color: #0a0b11;
+	text-color:                     #595959;
+}
+
+element-text {
+	expand:                         true;
+	vertical-align:                 0.5;
+	margin:                         0.5% 3% 0% 3%;
+	background-color:               inherit;
+    text-color:                     inherit;
+}
+
+element selected {
+	background-color:               #0f111a;
+	text-color:                     #b5b5aa;
+	border-radius:                  6px;
+}
