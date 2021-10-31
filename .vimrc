@@ -394,36 +394,36 @@ fun! TabTogTerm()
     endif
 endfun
 
-function! Jumps()
-  let jumpfile=tempname()
-  let jumpnumfile=tempname()
+function GoTo(jumpline)
+  let values = split(a:jumpline, ":")
+  echo "e ".values[0]
+  call cursor(str2nr(values[1]), str2nr(values[2]))
+endfunction
 
+function GetLine(bufnr, lnum)
+  let lines = getbufline(a:bufnr, a:lnum)
+  if len(lines)>0
+    return trim(lines[0])
+  else
+    return ''
+  endif
+endfunction
+
+function! Jumps()
   " Get jumps with filename added
   let jumps = map(reverse(copy(getjumplist()[0])),
     \ { key, val -> extend(val, {'name': getbufinfo(val.bufnr)[0].name }) })
 
   " Write jumps to temp file with: jumpnumber, line number, line number - half screen, file name
-  let offset = &lines / 2
   let jumptext = map(copy(jumps), { index, val ->
-    \ (index + 1)."\t".(val.lnum)."\t".(val.lnum < offset ? 1 : val.lnum - offset)."\t".(val.col+1)."\t".(val.name) })
-  call writefile(jumptext, jumpfile)
+      \ (val.name).':'.(val.lnum).':'.(val.col+1).': '.GetLine(val.bufnr, val.lnum) })
 
-  execute 'silent !fzf  --preview "bat {+5} -H {+2} -r {+3}: --color=always" < '.jumpfile.' > '.jumpnumfile
-  call delete(jumpfile)
-
-  " Read fzf output and goto jump
-  let jumpnumber=readfile(jumpnumfile)
-  call delete(jumpnumfile)
-  if(len(jumpnumber) > 0)
-    let values = split(jumpnumber[0], "\t")
-    execute "e ".values[4]
-    call cursor(str2nr(values[1]), str2nr(values[3]))
-  endif
-  redraw!
-
+  call fzf#run(fzf#vim#with_preview(fzf#wrap({
+        \ 'source': jumptext,
+        \ 'column': 1,
+        \ 'options': ['--delimiter', ':', '--bind', 'alt-a:select-all,alt-d:deselect-all', '--preview-window', '+{2}-/2'],
+        \ 'sink': function('GoTo')})))
 endfunction
-
-command! Jumps call Jumps()
 
 
 """"""""""""""""""""
@@ -538,4 +538,4 @@ nnoremap <leader>j :Jumps<cr>
 " Notification after file change
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
-  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+   \echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
