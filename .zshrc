@@ -6,6 +6,7 @@ export HISTTIMEFORMAT='%F %T '
 export DISPLAY=:0.0
 
 
+
 # -- HISTORY 
 setopt APPEND_HISTORY     # Don't erase history
 setopt EXTENDED_HISTORY   # Add additional data to history like timestamp
@@ -149,4 +150,8 @@ alias yay="paru"
 alias yymirr="ssh yymirr@mythrill"
 alias geeray="ssh geeray@mythrill"
 
+#-- FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#-- SSH
+/usr/bin/keychain -Q -q --nogui ~/.ssh/id_rsa
+[[ -f $HOME/.keychain/$HOSTNAME-sh ]] && source $HOME/.keychain/$HOSTNAME-sh
