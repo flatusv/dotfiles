@@ -11,16 +11,16 @@ scrolling:
   history: 10000
 font:
   normal:
-    family: Iosevka Term
+    family: Terminus
     style: Regular
   bold:
-    family: Iosevka Term
+    family: Terminus
     style: Bold
   italic:
-    family: Iosevka Term
+    family: Terminus
     style: Regular
   bold_italic:
-    family: Iosevka Term
+    family: Terminus
     style: Bold Italic
   size: 8
 
