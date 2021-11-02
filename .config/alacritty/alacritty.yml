@@ -1,7 +1,7 @@
 window:
   padding:
-    x: 20
-    y: 30
+    x: 0
+    y: 0
   title: Terminal
   class:
     instance: Alacritty
@@ -11,18 +11,18 @@ scrolling:
   history: 10000
 font:
   normal:
-    family: Terminus
+    family: Iosevka Term
     style: Regular
   bold:
-    family: Terminus
+    family: Iosevka Term
     style: Bold
   italic:
-    family: Terminus
+    family: Iosevka Term
     style: Regular
   bold_italic:
-    family: Terminus
+    family: Iosevka Term
     style: Bold Italic
-  size: 10
+  size: 11
 
 draw_bold_text_with_bright_colors: true
 
