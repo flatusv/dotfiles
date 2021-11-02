@@ -1,7 +1,7 @@
 window:
   padding:
-    x: 0
-    y: 0
+    x: 20
+    y: 30
   title: Terminal
   class:
     instance: Alacritty
