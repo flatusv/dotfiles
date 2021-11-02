@@ -148,6 +148,8 @@ alias xclip='xclip -selection clipboard'
 alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"NAME\", \"CLASS\""' 
 alias yay="paru"
 alias ssh="f_ssh"
+alias listen="ytfzf -tmlN --silent" 
+
 
 #-- FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
