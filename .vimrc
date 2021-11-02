@@ -71,6 +71,8 @@ set nomodeline
 
 " autocmd commands
 " autocmd BufLeave * if &buftype=="terminal" | setlocal nobuflisted | endif
+autocmd VimEnter * !~/.scripts/vimEnter.sh
+autocmd VimLeave * !~/.scripts/vimLeave.sh
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Suntax 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -197,7 +199,7 @@ if exists('+termguicolors')
     set termguicolors
 endif
 
-colorscheme substrata
+colorscheme iceberg
 
 
 " underline spelling erros instead of hightlighting them
@@ -520,7 +522,9 @@ nnoremap <silent> <leader>r :registers <CR>
 
 " close all but current bufffer and save 
 " :w - save current buffers %bd - close all the buffers  e# - open last edited file bd# - close the unnamed 
-nnoremap <leader>db :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
+nnoremap <leader>ca :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
+
+nnoremap <leader>b :w <bar> :bd <CR>  
 
 " switch to the other split 
 tnoremap <leader>sw <C-w>w
