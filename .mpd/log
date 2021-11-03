@@ -40790,3 +40790,4 @@ Nov 03 20:22 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
 Nov 03 20:22 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
 Nov 03 20:22 : ffmpeg/mp3: Format mp3 detected only with low score of 1, misdetection possible!
 Nov 03 20:22 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1026.
+Nov 03 20:26 : player: played "Morty Simmons - Hands Up Is Dead (Summertunez! Remix).mp3"
