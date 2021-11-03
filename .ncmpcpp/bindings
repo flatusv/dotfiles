@@ -1,0 +1,52 @@
+##### Disable single mode #####
+def_key "y"
+    jump_to_parent_directory
+
+##### Vim Bindings ######
+def_key "f"
+    find
+def_key "f"
+    find_item_forward
+
+def_key "j"
+    scroll_down
+def_key "k"
+    scroll_up
+def_key "ctrl-u"
+    page_up
+def_key "ctrl-d"
+    page_down
+
+def_key "h"
+    previous_column
+def_key "h"
+    jump_to_parent_directory
+def_key "l"
+    next_column
+def_key "l"
+    enter_directory
+def_key "l"
+    run_action
+def_key "m"
+    show_media_library
+def_key "t"
+    show_tag_editor
+# def_key "v"
+#     show_visualizer
+def_key "."
+    show_lyrics
+
+def_key "G"
+    move_end
+def_key "g"
+    move_home
+def_key "U"
+    update_database
+
+
+def_key "n"
+    next_found_item
+def_key "N"
+    previous_found_item
+
+
