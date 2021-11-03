@@ -220,7 +220,7 @@ mode  "noBinds" {
     bindsym $mod+Shift+d mode default
 
     # Media Player                  Controls // mpv // mpd // ncmpcpp
-    bindsym $win+p            exec  "echo -e 'cycle pause\n' | socat - /tmp/mpvsocket || mpc toggle"
+    bindsym $win+p            exec  "mpc toggle || echo -e 'cycle pause\n' | socat - /tmp/mpvsocket"
     bindsym $win+Shift+n      exec  "mpc next || echo -e 'playlist-next\n' | socat - /tmp/mpvsocket"
     bindsym $win+Shift+p      exec  "mpc prev || echo -e 'playlist-prev\n' | socat - /tmp/mpvsocket"
     bindsym $win+Shift+$Right exec  "mpc seek +5 || echo -e 'seek +5\n' | socat - /tmp/mpvsocket"
@@ -248,10 +248,9 @@ bindsym $win+m     exec "amixer -D pulse set Master Playback Switch toggle && pk
 bindsym $win+$Up   exec "amixer set Master 5%+ && pkill -RTMIN+2 i3blocks"
 bindsym $win+$Down exec "amixer set Master 5%- && pkill -RTMIN+2 i3blocks"
 
-
 # MEDIA PLAYER CONTROLS // MPV // MPD // NCMPCPP // EQUALIZER
 bindsym $win+e            exec      "pulseaudio-equalizer toggle && pkill -RTMIN+10 i3blocks"
-bindsym $win+p            exec      "echo -e 'cycle pause\n' | socat - /tmp/mpvsocket || mpc toggle"
+bindsym $win+p            exec      "mpc toggle || echo -e 'cycle pause\n' | socat - /tmp/mpvsocket && pkill -RTMIN+20 i3blocks"
 bindsym $win+Shift+n      exec      "mpc next || echo -e 'playlist-next\n' | socat - /tmp/mpvsocket && pkill -RTMIN+20 i3blocks"
 bindsym $win+Shift+p      exec      "mpc prev || echo -e 'playlist-prev\n' | socat - /tmp/mpvsocket && pkill -RTMIN+20 i3blocks"
 bindsym $win+Shift+$Right exec      "mpc seek +5 || echo -e 'seek +5\n'    | socat - /tmp/mpvsocket"
