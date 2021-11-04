@@ -124,7 +124,7 @@ alias cat="bat --style=plain --pager=never"
 alias cp="advcp -g"
 alias down="cd ~/.down"
 alias gcm="git commit -m"
-alias gds='data=$(git diff --name-only | fzf -m) && git diff $(echo "$data") && echo "$data" | xclip'
+alias gds='data=$(git diff --name-only | fzf -m) && git diff "$data" && echo -n "$data" | xclip'
 alias gfetch='echo "[INFO]: changes to be pulled..." && git fetch origin && git diff master..origin/master' 
 alias gshow="f_gshow" # 
 alias kill='killall -9'
