@@ -201,10 +201,10 @@ endif
 
 colorscheme iceberg
 
-
 " underline spelling erros instead of hightlighting them
 hi clear SpellBad
 hi SpellBad cterm=underline
+hi Terminal guifg=#818596
 
 set cursorline        " highlight current line
 set cursorcolumn      " highlight current column
