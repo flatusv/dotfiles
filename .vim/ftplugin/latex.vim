@@ -19,7 +19,7 @@ let g:tex_flavor='latex'    " makes vim recognize the filetype, when creating a 
 " add snippet
 nnoremap <silent> <leader>es :CocCommand snippets.editSnippets <CR>
 " preview latex file -- latex compile
-nnoremap <silent> <leader>cl :LLPStartPreview <CR>
+" nnoremap <silent> <leader>cl :LLPStartPreview <CR>
 " Wann geladen wird.. Maske... zu verwendende Sprache..
 autocmd FileType latex,tex setlocal spell    spelllang=de_de,en_us
 
