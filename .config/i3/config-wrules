@@ -333,13 +333,14 @@ exec xrandr --output $primary --mode 1920x1080 --rate 75 --right-of $x220t --out
 exec xrandr --output $secondary --right-of $primary
 
 
-exec i3-msg 'workspace " 2:term "' # focus ws2 when starting i3wm
-exec ~/.config/i3/dbus.sh          # i3 widgets (such as battery status)
-exec_always xrdb ~/.Xresources     # needed for rofi launcher
-exec xset -b                       # disable bell sound
-exec_always xset -dpms             # laptop lid rules
-exec_always xset off               # laptop lid rules
-exec --no-startup-id fcitx -d      # takes care of japanese input
-exec mkfifo /tmp/mpvsocket         # control mpv from everywhere
-exec pulseaudio-equalizer disable  # no equalizer at startup
-exec_always clipster -d                   # clipboard manager
+exec i3-msg 'workspace " 2:term "'      # focus ws2 when starting i3wm
+exec ~/.config/i3/dbus.sh               # i3 widgets (such as battery status)
+exec_always xrdb ~/.Xresources          # needed for rofi launcher
+exec xset -b                            # disable bell sound
+exec_always xset -dpms                  # laptop lid rules
+exec_always xset off                    # laptop lid rules
+exec --no-startup-id fcitx -d           # takes care of japanese input
+exec mkfifo /tmp/mpvsocket              # control mpv from everywhere
+exec pulseaudio-equalizer disable       # no equalizer at startup
+exec_always clipster -d                 # clipboard manager
+exec --no-startup-id kdeconnect-cli     # sync clipboard of systems and remote control

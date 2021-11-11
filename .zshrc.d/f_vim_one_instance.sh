@@ -7,15 +7,6 @@ function f_vim_one_instance() {
     # sed -i "s/x: 20/x: 0/g" ~/.config/alacritty/alacritty.yml
     # sed -i "s/y: 30/y: 0/g" ~/.config/alacritty/alacritty.yml
 
-    args=()
-    for i in $@; do
-        if [[ -h $i ]]; then
-          args+=`readlink -f $i`
-        else
-          args+=$i
-        fi
-    done
-
 
     #if there is no vim process already running...
     if ! pgrep -x "vim"; then
@@ -27,7 +18,7 @@ function f_vim_one_instance() {
         i3-msg 'move container to workspace number " 3:vim "' > /dev/null 2>&1
         i3-msg 'workspace " 3:vim "' > /dev/null 2>&1   #move focus to vim workspace
 
-        command vim -p --servername $(command vim --serverlist | head -1) --remote-silent "${args[@]}"
+        command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"
 
         #wait for vim process to finish
         wait
@@ -39,7 +30,7 @@ function f_vim_one_instance() {
 
     #there is a vim process running
     else
-        command vim -p --servername $(command vim --serverlist | head -1) --remote-silent "${args[@]}" &
+        command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@" &
         i3-msg 'workspace " 3:vim "' > /dev/null 2>&1   #switch to workspace
         exit
     fi
