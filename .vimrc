@@ -248,13 +248,18 @@ set ai "Auto indent
 set wrap "Wrap lines
 
 " Usefull shortcuts to enter insert mode
-nnoremap <Enter> i<Enter>
+" nnoremap <Enter> i<Enter>
+nnoremap <Enter> a
 nnoremap <Backspace> i<Backspace>
 nnoremap <Space> i<Space>
-
-"Store relative line number jumps in the jumplist. Eg.: '30j'  
+ 
+" Store relative line number jumps in the jumplist. Eg.: '30j'  
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
+
+" move to end of previous word
+nnoremap B ge
+vnoremap B ge
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -396,10 +401,12 @@ fun! TabTogTerm()
     endif
 endfun
 
+" below is for jumplist
 function GoTo(jumpline)
   let values = split(a:jumpline, ":")
-  echo "e ".values[0]
+  execute "e ".values[0]
   call cursor(str2nr(values[1]), str2nr(values[2]))
+  execute "normal zvzz"
 endfunction
 
 function GetLine(bufnr, lnum)
@@ -413,11 +420,10 @@ endfunction
 
 function! Jumps()
   " Get jumps with filename added
-  let jumps = map(reverse(copy(getjumplist()[0])),
+  let jumps = map(reverse(copy(getjumplist()[0])), 
     \ { key, val -> extend(val, {'name': getbufinfo(val.bufnr)[0].name }) })
-
-  " Write jumps to temp file with: jumpnumber, line number, line number - half screen, file name
-  let jumptext = map(copy(jumps), { index, val ->
+ 
+  let jumptext = map(copy(jumps), { index, val -> 
       \ (val.name).':'.(val.lnum).':'.(val.col+1).': '.GetLine(val.bufnr, val.lnum) })
 
   call fzf#run(fzf#vim#with_preview(fzf#wrap({
@@ -427,7 +433,7 @@ function! Jumps()
         \ 'sink': function('GoTo')})))
 endfunction
 
-
+command! Jumps call Jumps()
 """"""""""""""""""""
 " " Helper Keybinds
 """""""""""""""""""""
@@ -492,8 +498,8 @@ command! -bang -nargs=? -complete=dir BFiles
 noremap <silent> <leader>ff :call fzf#vim#files('~', fzf#vim#with_preview('right')) <CR>
 " fzf.vim fuzzy open file -- find file within directory
 noremap <silent> <leader>fd :Files %:p:h<CR>
-" fzf.vim fuzzy open file -- find files in the directory of the current buffer
-" noremap <silent> <leader>fb :BFiles<CR>
+" fzf.vim fuzzy open file -- find git file
+noremap <silent> <leader>fg :GFiles<CR>
 " fzf.vim complete and insert a path
 imap <leader>cp <plug>(fzf-complete-path)
 " fzf.vim lists current buffers
@@ -504,9 +510,6 @@ nnoremap <silent> <leader>fl :BLines <CR>
 nnoremap <silent> <leader>fL :Lines <CR>
 " fzf.vim search string in files
 nnoremap <silent> <leader>? :Rg <CR>
-" fzf-preview.vim show jumplist
-nnoremap <silent> <leader>j :FzfPreviewJumpsRpc<CR>
-nnoremap <silent> <leader>y :FzfPreviewYankroundRpc<CR>
 
 """"""""""""""""""""
 " " Leader 
@@ -514,23 +517,22 @@ nnoremap <silent> <leader>y :FzfPreviewYankroundRpc<CR>
 " Creates a single terminal instance. If a terminal window is already open, it will switch
 " focus to that. Another successive keupress, will switch the focus back to the editor.
 nnoremap <silent> <leader>t <cmd>call TabTogTerm()<cr>
-
 " list the contents of all of your registers
 " hint: This makes it easy to paste the right content via <RegisterValue>+p or "<RegisterValue>p
 " hint: u. will remove the last paste and paste the next numbered register,
 nnoremap <silent> <leader>r :registers <CR>
-
 " close all but current bufffer and save 
 " :w - save current buffers %bd - close all the buffers  e# - open last edited file bd# - close the unnamed 
 nnoremap <leader>ca :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
-
 nnoremap <leader>b :w <bar> :bd <CR>  
+nnoremap <leader>q :bd <CR>  
+" jumplist
+nnoremap <leader>j :Jumps<cr>
 
 " switch to the other split 
 tnoremap <leader>sw <C-w>w
 nnoremap <leader>sw <C-w>w
 
-nnoremap <leader>j :Jumps<cr>
 nnoremap <leader>cl :w <bar> :term ++close ++hidden /home/yymirr/.scripts/compileThesis.sh <CR>
 
 " Triger `autoread` when files changes on disk
