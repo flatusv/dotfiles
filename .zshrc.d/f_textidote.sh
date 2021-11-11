@@ -9,5 +9,5 @@ function f_textidote(){
     textidote --check de --output html "$@" >| report.html
 
     path=$(readlink -f report.html)
-    /usr/bin/firefox "$path"
+    /usr/bin/firefox-esr "$path"
 }
