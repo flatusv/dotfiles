@@ -1,5 +1,5 @@
 {
-    "java.home": "/usr/lib/jvm/java-16-openjdk",
+    "java.home": "/usr/lib/jvm/java-17-openjdk",
     "coc.preferences.formatOnSaveFiletypes": ["rust","python"],
     "java.errors.incompleteClasspath.severity": "ignore",
     "languageserver": {
