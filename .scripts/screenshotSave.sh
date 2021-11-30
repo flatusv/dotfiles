@@ -13,7 +13,8 @@ fi
 # * -s: selection
 # * -o: overwrite existing
 scrot \
-    -so ~/media/screenshots/$fName.png \
+    -o \
+    -s ~/media/screenshots/$fName.png \
     -q 100 \
     -e 'xclip -selection clipboard -t image/png < $f'
 
