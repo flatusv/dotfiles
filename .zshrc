@@ -4,27 +4,29 @@ export SAVEHIST=10000
 export HISTFILE=~/.histfile 
 export HISTTIMEFORMAT='%F %T '
 export DISPLAY=:0.0
+export ANDROID_HOME=/home/yymirr/Android/Sdk
+export ANDROID_SDK_ROOT=/home/yymirr/Android/Sdk
+
 
 
 
 # -- HISTORY 
 setopt APPEND_HISTORY     # Don't erase history
 setopt EXTENDED_HISTORY   # Add additional data to history like timestamp
-setopt INC_APPEND_HISTORY # Add immediately
-setopt HIST_FIND_NO_DUPS  # Don't show duplicates in search
-setopt SHARE_HISTORY      # Share history between session/terminals
+setopt HIST_BEEP
 setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS  # Don't show duplicates in search
 setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_SAVE_NO_DUPS
-setopt HIST_BEEP
+setopt INC_APPEND_HISTORY # Add immediately
+setopt SHARE_HISTORY      # Share history between session/terminals
 setopt extended_glob
 setopt inc_append_history
 
-setopt aliases # enable aliases in non-interactive shells
-# -- "dir" instead of "cd dir"
-setopt AUTO_CD
+setopt aliases      # enable aliases in non-interactive shells
+setopt AUTO_CD      # -- "dir" instead of "cd dir"
 setopt +o nomatch
 
 export EDITOR=/usr/bin/vim
@@ -103,25 +105,27 @@ bindkey "^H" backward-kill-word                  # behaves like Control-W in vim
 # -- Alias: prefixes with f_ denote functions located at .zshrc.d
 #
 #------------------------------------------------------------------------------------------------------------
-#| ALIAS  | DESCRIPTION
+#| ALIAS   | DESCRIPTION
 #------------------------------------------------------------------------------------------------------------
-#| cat:   | cat on steroids
-#| gds:   | git diff of fzf selection with immediat copy to clipboard. Easy follow up with: git add <paste> ...
+#| cat:    | cat on steroids
+#| dlm:    | downlaod music
+#| gds:    | git diff of fzf selection with immediat copy to clipboard. Easy follow up with: git add <paste> ...
 #| gfetch: | view git remote changes before pull
-#| gshow: | file content of a previous git commit
-#| mpv:   | mpv to play yt playlists
-#| ncdu:  | Tui alternative of 'du'
-#| pdf:   | put the terminal in background when opening a pdf (makes them closeable)
-#| rg:    | ripgrep case insensitive
-#| sxix:  | mark files with "m", close with "q" -> auto copy fnames to clipboard
-#| trans: | translate from commandline
-#| vim:   | only one instance of vim 
-#| wp:    | set up a new wallpaper
-#| xp:    | class name of window
+#| gshow:  | file content of a previous git commit
+#| mpv:    | mpv to play yt playlists
+#| ncdu:   | Tui alternative of 'du'
+#| pdf:    | put the terminal in background when opening a pdf (makes them closeable)
+#| rg:     | ripgrep case insensitive
+#| sxix:   | mark files with "m", close with "q" -> auto copy fnames to clipboard
+#| trans:  | translate from commandline
+#| vim:    | only one instance of vim 
+#| wp:     | set up a new wallpaper
+#| xp:     | class name of window
 #------------------------------------------------------------------------------------------------------------
 alias bib="f_bibtex"                                                                               
 alias cat="bat --style=plain --pager=never"      
 alias cp="advcp -g"
+alias dlm='yt-dlp --extract-audio --audio-format mp3 -o "%(title)s.%(ext)s"'
 alias down="cd ~/.down"
 alias gcm="git commit -m"
 alias gds='data=$(git diff --name-only | fzf -m) && git diff "$data" && echo -n "$data" | xclip'
@@ -149,7 +153,6 @@ alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"
 alias yay="paru"
 alias ssh="f_ssh"
 alias listen="ytfzf -tmlN --silent" 
-
 
 #-- FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
