@@ -49,8 +49,8 @@ filetype off                " required
 filetype plugin indent on   " required
 set modifiable
 
-:set number                 " show line number
-set relativenumber           
+set number                 " show line number
+set relativenumber
 set autochdir               " switch to the directory when editing files
 set path+=**                " provides tab completion for all file related tasks
 :set textwidth=90
@@ -73,6 +73,7 @@ set nomodeline
 " autocmd BufLeave * if &buftype=="terminal" | setlocal nobuflisted | endif
 autocmd VimEnter * !~/.scripts/vimEnter.sh
 autocmd VimLeave * !~/.scripts/vimLeave.sh
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Suntax 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -107,13 +108,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'ron89/thesaurus_query.vim'
 Plug 'ap/vim-buftabline'
-" Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
-" Plug 'LeafCage/yankround.vim'
-
-" let g:fzf_preview_preview_key_bindings = 'j:down,k:up'
+Plug 'Yggdroot/indentLine'
+Plug 'easymotion/vim-easymotion'
 
 :nnoremap <Leader>es :CocCommand snippets.editSnippets
 :nnoremap <Leader>os :CocCommand snippets.openSnippetFiles<CR>
+
+let g:indentLine_char_list = ['┆', '┊']
+let g:indentLine_fileTypeExclude = ['tex']
 
 let g:tq_language = 'de'
 nnoremap <Leader>ss :ThesaurusQueryReplaceCurrentWord<CR>
@@ -533,15 +535,23 @@ nnoremap <leader>j :Jumps<cr>
 tnoremap <leader>sw <C-w>w
 nnoremap <leader>sw <C-w>w
 
+" temporary
 nnoremap <leader>cl :w <bar> :term ++close ++hidden /home/yymirr/.scripts/compileThesis.sh <CR>
+
+" Easymotion
+map <Leader> <Plug>(easymotion-prefix)
+map  <Leader>m <Plug>(easymotion-bd-w)
+map  <Leader>/ <Plug>(easymotion-sn)
+omap <Leader>/ <Plug>(easymotion-tn)
+
 
 " Triger `autoread` when files changes on disk
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
 " https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
-    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
-            \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
-
-" Notification after file change
-" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
-autocmd FileChangedShellPost *
-   \echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+"    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+"            \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+"
+"" Notification after file change
+"" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+"autocmd FileChangedShellPost *
+"   \echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
