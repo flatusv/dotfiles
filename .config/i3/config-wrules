@@ -266,8 +266,6 @@ for_window [class="^.*"] border pixel 3
 hide_edge_borders smart
 gaps inner 8
 gaps outer 1
-
-
 #--------------------
 # WORKSPACE/WINDOW RULES
 #--------------------
@@ -282,21 +280,19 @@ workspace $ws6 output $secondary     # This workspace appears on the external mo
 workspace $ws3 gaps inner 0
 workspace $ws3 gaps outer 0
 
+for_window [class="Eclipse"]                                no_focus; move to workspace $ws5
+for_window [class="Steam"]                                  no_focus; move to workspace $ws7
+for_window [class="dota2"]                                  fullscreen enable
+for_window [class="jetbrains-idea"]                         no_focus; move to workspace $ws5
 for_window [class="jetbrains-idea-ce"]                      move to workspace $ws5
 for_window [class="jetbrains-studio"]                       move to workspace $ws5
-for_window [class="jetbrains-idea"]                         move to workspace $ws5
-for_window [class="jetbrains-idea"]                         no-focus
-for_window [class="Eclipse"]                                move to workspace $ws5
-for_window [class="Eclipse"]                                no-focus
 for_window [class="libreoffice-writer"]                     move to workspace $ws5
+# rule below should not be a default
+for_window [class="mpv"]                                    sticky enable; floating enable; resize set 500 282; move position 1423 789
+#for_window [class="firefox"]                                layout stacking
 #for_window [class="oracle-ide-osgi-boot-OracleIdeLauncher"] move to workspace $ws5
 #for_window [class="oracle-ide-osgi-boot-OracleIdeLauncher"] no-focus
-for_window [class="Steam"]                                  move to workspace $ws7
-for_window [class="Steam"]                                  no_focus
-for_window [class="dota2"]                                  fullscreen enable
-for_window [class="mpv"]                                    sticky enable
-# for_window [class="firefox"]                                layout stacking
-# for_window [class="Google-chrome"]                          layout stacking
+#for_window [class="Google-chrome"]                          layout stacking
 
 for_window [window_role="PictureInPicture"]                 sticky enable
 for_window [class="SWT"]                                    floating enable
@@ -339,9 +335,8 @@ exec ~/.config/i3/dbus.sh                   # i3 widgets (such as battery status
 exec xset -b                                # disable bell sound
 exec_always xset -dpms                      # laptop lid rules
 exec_always xset off                        # laptop lid rules
-# exec --no-startup-id fcitx -d               # takes care of japanese input
+exec --no-startup-id fcitx -d               # takes care of japanese input
 exec mkfifo /tmp/mpvsocket                  # control mpv from everywhere
 # exec pulseaudio-equalizer disable           # no equalizer at startup
 exec_always clipster -d                     # clipboard manager
 exec --no-startup-id /usr/lib/kdeconnectd   # sync clipboard of systems and remote control
-exec --no-startup-id kdeconnect-indicator   
