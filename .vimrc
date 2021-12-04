@@ -231,7 +231,9 @@ let &backupdir = expand('~/.vimdata/backup//')
 if !isdirectory(&backupdir) | call mkdir(&backupdir, "p") | endif
 if !isdirectory(&directory) | call mkdir(&directory, "p") | endif
 
-
+if !isdirectory($HOME."/.vimdata/undo") | call mkdir($HOME."/.vimdata/undo", "p")  | endif
+set undodir=$HOME."/.vimdata/undo"
+set undofile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
