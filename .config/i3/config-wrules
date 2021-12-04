@@ -15,8 +15,6 @@ set $x220t LVDS1
 set $primary DVI-1
 set $secondary DVI-0
 
-
-
 # modifiers
 set $mod                        Mod1 
 set $win                        Mod4
@@ -31,7 +29,8 @@ bindsym $mod+d [con_id="__focused__" title="^(?!VIM).*$" class="^(?!mpv).*$"]   
 # ----------------
 # I3 CONFIGURATION
 # ----------------
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload
+# bindsym $mod+Shift+r restart
 
 # ----------------
 # WORKSPACE
@@ -255,6 +254,8 @@ bindsym $win+Shift+n      exec      "mpc next || echo -e 'playlist-next\n' | soc
 bindsym $win+Shift+p      exec      "mpc prev || echo -e 'playlist-prev\n' | socat - /tmp/mpvsocket && pkill -RTMIN+20 i3blocks"
 bindsym $win+Shift+$Right exec      "mpc seek +5 || echo -e 'seek +5\n'    | socat - /tmp/mpvsocket"
 bindsym $win+Shift+$Left  exec      "mpc seek -5 || echo -e 'seek -5\n'    | socat - /tmp/mpvsocket"
+bindsym $win+Shift+$Up    exec      "echo -e 'add chapter 1\n'   | socat - /tmp/mpvsocket"
+bindsym $win+Shift+$Down  exec      "echo -e 'add chapter -1\n'  | socat - /tmp/mpvsocket"
 # Toggle YouTube/Twitch video streams
 bindsym $win+minus            exec  "echo -e 'cycle video\n' | socat - /tmp/mpvsocket"
 
@@ -288,7 +289,7 @@ for_window [class="jetbrains-idea-ce"]                      move to workspace $w
 for_window [class="jetbrains-studio"]                       move to workspace $ws5
 for_window [class="libreoffice-writer"]                     move to workspace $ws5
 # rule below should not be a default
-for_window [class="mpv"]                                    sticky enable; floating enable; resize set 500 282; move position 1423 789
+for_window [class="mpv"]                                    sticky enable; floating enable; resize set 500 282; move position 1420 794
 #for_window [class="firefox"]                                layout stacking
 #for_window [class="oracle-ide-osgi-boot-OracleIdeLauncher"] move to workspace $ws5
 #for_window [class="oracle-ide-osgi-boot-OracleIdeLauncher"] no-focus
@@ -317,7 +318,8 @@ assign [class="TeamSpeak 3"]                            $ws5
 assign [class="Pavucontrol"]                            $ws5
 assign [class="Inkscape"]                               $ws5
 assign [class="SimpleScreenRecorder"]                   $ws5
-assign [class="mpv"]                                    $ws6
+# below is commented because mpv is a sticky floating window most of the time
+# assign [class="mpv"]                                    $ws6 
 #visual paradim
 assign [class="install4j-RV3418790646"]                 $ws6
 assign [class="dota2"]                                  $ws7
