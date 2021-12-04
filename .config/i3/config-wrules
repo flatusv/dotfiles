@@ -300,7 +300,6 @@ for_window [class="SWT"]                                    floating enable
 for_window [title="GVIM"]                                   move to workspace $ws3
 for_window [title="GVIM"]                                   focus
 
-
 assign [class="Firefox" title="^(?!Dialog).*$"] $ws1
 assign [class="firefox" title="^(?!Dialog).*$"] $ws1
 assign [class="Nightly" title="^(?!Dialog).*$"] $ws1
@@ -318,27 +317,23 @@ assign [class="TeamSpeak 3"]                            $ws5
 assign [class="Pavucontrol"]                            $ws5
 assign [class="Inkscape"]                               $ws5
 assign [class="SimpleScreenRecorder"]                   $ws5
-# below is commented because mpv is a sticky floating window most of the time
-# assign [class="mpv"]                                    $ws6 
-#visual paradim
-assign [class="install4j-RV3418790646"]                 $ws6
 assign [class="dota2"]                                  $ws7
+
+no_focus [class="mpv"]
 
 #--------------------
 # AUTOSTART
 #--------------------
-exec xrandr --output $primary --mode 1920x1080 --rate 75 --right-of $x220t --output $x220t --mode 1366x768 --rate 60
-exec xrandr --output $secondary --right-of $primary
+# exec xrandr --output $primary --mode 1920x1080 --rate 75 --right-of $x220t --output $x220t --mode 1366x768 --rate 60
+# exec xrandr --output $secondary --right-of $primary
 
-
-exec i3-msg 'workspace " 2:term "'          # focus ws2 when starting i3wm
-exec ~/.config/i3/dbus.sh                   # i3 widgets (such as battery status)
-# exec_always xrdb ~/.Xresources              # needed for rofi launcher
-exec xset -b                                # disable bell sound
-exec_always xset -dpms                      # laptop lid rules
-exec_always xset off                        # laptop lid rules
-exec --no-startup-id fcitx -d               # takes care of japanese input
-exec mkfifo /tmp/mpvsocket                  # control mpv from everywhere
-# exec pulseaudio-equalizer disable           # no equalizer at startup
-exec_always clipster -d                     # clipboard manager
-exec --no-startup-id /usr/lib/kdeconnectd   # sync clipboard of systems and remote control
+exec i3-msg 'workspace " 2:term "'              # focus ws2 when starting i3wm
+exec --no-startup-id ~/.scripts/noFocusMpv.py   # takes care of japanese input
+exec ~/.config/i3/dbus.sh                       # i3 widgets (such as battery status)
+exec xset -b                                    # disable bell sound
+exec_always xset -dpms                          # laptop lid rules
+exec_always xset off                            # laptop lid rules
+exec --no-startup-id fcitx -d                   # takes care of japanese input
+exec mkfifo /tmp/mpvsocket                      # control mpv from everywhere
+exec_always clipster -d                         # clipboard manager
+exec --no-startup-id /usr/lib/kdeconnectd       # sync clipboard of systems and remote control
