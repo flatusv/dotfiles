@@ -8,6 +8,7 @@ configuration {
     show-match: false;
 
     kb-cancel: "Escape,Alt+a,Alt+slash";
+    kb-delete-entry: "Alt+d";
 }
 
 @theme "/dev/null"
