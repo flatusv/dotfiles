@@ -21,9 +21,6 @@ set $win                        Mod4
 floating_modifier               $mod
 
 bindsym $mod+Return             exec alacritty
-
-# exec makes sure mpv disappears from i3bar (workaround)
-# for signals inspect file: ~/.config/i3/i3blocks.conf
 bindsym $mod+d [con_id="__focused__" title="^(?!VIM).*$" class="^(?!mpv).*$"]                 kill
 
 # ----------------
@@ -78,18 +75,13 @@ bindsym $mod+Control+$Right  move right
 bindsym $mod+semicolon               split v
 bindsym $mod+Shift+semicolon         split h
 
-#bindsym $mod+space split vertical; focus right; move left; layout stacking; focus right; split vertical; focus right; move left; layout stacking; split h
-bindsym $mod+space   layout splitv;\
-                       move left;\
-                       resize grow right 50 px or 50 ppt;\
-                       split v;\
-                       layout stacking
-
-
 bindsym $mod+s               layout stacking
 bindsym $mod+f               fullscreen toggle
-bindsym $mod+Shift+space     floating toggle
 bindsym $mod+Tab             workspace back_and_forth
+
+# floating window behavior
+bindsym $mod+space           floating toggle
+bindsym --release $mod+Shift+d  exec ~/.scripts/disableFloat.sh
 
 # move focused window between monitors
 bindsym $mod+shift+greater   move container to output right
@@ -214,9 +206,9 @@ mode $window_resize {
 # NOBIND MODE (IGNORES ALL OTHER KEYBINDS)
 # exec "xmodmap -e 'keycode 36='". ->No chat in Dota2.
 # Enables return key again upon leaving.
-bindsym $mod+Shift+d mode noBinds
+bindsym $mod+Shift+n mode noBinds
 mode  "noBinds" {
-    bindsym $mod+Shift+d mode default
+    bindsym $mod+Shift+n mode default
 
     # Media Player                  Controls // mpv // mpd // ncmpcpp
     bindsym $win+p            exec  "mpc toggle || echo -e 'cycle pause\n' | socat - /tmp/mpvsocket"
@@ -225,7 +217,6 @@ mode  "noBinds" {
     bindsym $win+Shift+$Right exec  "mpc seek +5 || echo -e 'seek +5\n' | socat - /tmp/mpvsocket"
     bindsym $win+Shift+$Left  exec  "mpc seek -5 || echo -e 'seek -5\n' | socat - /tmp/mpvsocket"
     bindsym $win+e            exec  "pulseaudio-equalizer toggle && pkill -RTMIN+10 i3blocks"
-
 
     # ALSA controls                 volume
     bindsym $win+m     exec         "amixer -D pulse set Master Playback Switch toggle && pkill -RTMIN+2 i3blocks"
