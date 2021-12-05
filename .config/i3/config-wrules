@@ -80,7 +80,7 @@ bindsym $mod+f               fullscreen toggle
 bindsym $mod+Tab             workspace back_and_forth
 
 # floating window behavior
-bindsym $mod+space           floating toggle
+bindsym $mod+Shift+space           floating toggle
 bindsym --release $mod+Shift+d  exec ~/.scripts/disableFloat.sh
 
 # move focused window between monitors
