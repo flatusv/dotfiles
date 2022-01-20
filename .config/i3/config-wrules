@@ -32,13 +32,21 @@ bindsym $mod+Shift+r reload
 # ----------------
 # WORKSPACE
 # ----------------
-set $ws1 " 1:web "
-set $ws2 " 2:term "
-set $ws3 " 3:vim "
-set $ws4 " 4:study "
-set $ws5 " 5:idle "
-set $ws6 " 6:misc "
-set $ws7 " 7:Dota2 "
+# commented out because we're using polybar for now
+# set $ws1 " 1:web "
+# set $ws2 " 2:term "
+# set $ws3 " 3:vim "
+# set $ws4 " 4:study "
+# set $ws5 " 5:idle "
+# set $ws6 " 6:misc "
+# set $ws7 " 7:Dota2 "
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
 
 bindsym $mod+1 workspace $ws1; focus tiling
 bindsym $mod+2 workspace $ws2; focus tiling
@@ -117,21 +125,21 @@ client.focused                  $main-color           $border-color         $mai
 client.unfocused                $main-color           $main-color           $text-color             $main-color
 client.focused_inactive         $main-color           $main-color           $text-color             $main-color
 client.urgent                   $main-color           $border-color         $secondary-color        $accent-color
-bar {
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf 
-        position top
-        font pango:Terminus, Icons 9
-        #tray_output primary # comment to enable tray icons. Other arguments are: primary/none
-        separator_symbol " "
-        colors {
-            background $main-color
-
-                # Property              Border                Background            Text
-                focused_workspace       $main-color           $accent-color         $secondary-color
-                inactive_workspace      $main-color           $main-color           $text-color
-                urgent_workspace        $main-color           $accent-color         $secondary-color
-        }
-}
+# bar {
+#     status_command i3blocks -c ~/.config/i3/i3blocks.conf 
+#         position top
+#         font pango:Terminus, Icons 9
+#         #tray_output primary # comment to enable tray icons. Other arguments are: primary/none
+#         separator_symbol " "
+#         colors {
+#             background $main-color
+#
+#                 # Property              Border                Background            Text
+#                 focused_workspace       $main-color           $accent-color         $secondary-color
+#                 inactive_workspace      $main-color           $main-color           $text-color
+#                 urgent_workspace        $main-color           $accent-color         $secondary-color
+#         }
+# }
 
 # --------------------
 # MODES
@@ -216,10 +224,10 @@ mode  "noBinds" {
     bindsym $win+Shift+p      exec  "mpc prev || echo -e 'playlist-prev\n' | socat - /tmp/mpvsocket"
     bindsym $win+Shift+$Right exec  "mpc seek +5 || echo -e 'seek +5\n' | socat - /tmp/mpvsocket"
     bindsym $win+Shift+$Left  exec  "mpc seek -5 || echo -e 'seek -5\n' | socat - /tmp/mpvsocket"
-    bindsym $win+e            exec  "pulseaudio-equalizer toggle && pkill -RTMIN+10 i3blocks"
+    bindsym $win+e            exec  "pulseaudio-equalizer toggle && polybar-msg hook equalizer 1"
 
     # ALSA controls                 volume
-    bindsym $win+m     exec         "amixer -D pulse set Master Playback Switch toggle && pkill -RTMIN+2 i3blocks"
+    bindsym $win+m     exec         "amixer -D pulse set Master Playback Switch toggle"
     bindsym $win+$Up   exec         "amixer set Master 5%+"
     bindsym $win+$Down exec         "amixer set Master 5%-"
 }
@@ -234,15 +242,16 @@ bindsym $mod+e exec pcmanfm
 
 # ALSA CONTROLS VOLUME
 # bindsym $win+m exec "pactl set-sink-mute 0 toggle && amixer -D pulse set Master Playback Switch toggle"
-bindsym $win+m     exec "amixer -D pulse set Master Playback Switch toggle && pkill -RTMIN+2 i3blocks"
-bindsym $win+$Up   exec "amixer set Master 5%+ && pkill -RTMIN+2 i3blocks"
-bindsym $win+$Down exec "amixer set Master 5%- && pkill -RTMIN+2 i3blocks"
+bindsym $win+m     exec "amixer -D pulse set Master Playback Switch toggle"
+bindsym $win+$Up   exec "amixer set Master 5%+"
+bindsym $win+$Down exec "amixer set Master 5%-"
 
 # MEDIA PLAYER CONTROLS // MPV // MPD // NCMPCPP // EQUALIZER
-bindsym $win+e            exec      "pulseaudio-equalizer toggle && pkill -RTMIN+10 i3blocks"
-bindsym $win+p            exec      "mpc toggle || echo -e 'cycle pause\n' | socat - /tmp/mpvsocket && pkill -RTMIN+20 i3blocks"
-bindsym $win+Shift+n      exec      "mpc next || echo -e 'playlist-next\n' | socat - /tmp/mpvsocket && pkill -RTMIN+20 i3blocks"
-bindsym $win+Shift+p      exec      "mpc prev || echo -e 'playlist-prev\n' | socat - /tmp/mpvsocket && pkill -RTMIN+20 i3blocks"
+# bindsym $win+e            exec      "pulseaudio-equalizer toggle && pkill -RTMIN+10 i3blocks"
+bindsym $win+e            exec      "pulseaudio-equalizer toggle && polybar-msg hook equalizer 1"
+bindsym $win+p            exec      "mpc toggle || echo -e 'cycle pause\n' | socat - /tmp/mpvsocket && polybar-msg hook mpv 1"
+bindsym $win+Shift+n      exec      "mpc next || echo -e 'playlist-next\n' | socat - /tmp/mpvsocket && polybar-msg hook mpv 1"
+bindsym $win+Shift+p      exec      "mpc prev || echo -e 'playlist-prev\n' | socat - /tmp/mpvsocket && polybar-msg hook mpv 1"
 bindsym $win+Shift+$Right exec      "mpc seek +5 || echo -e 'seek +5\n'    | socat - /tmp/mpvsocket"
 bindsym $win+Shift+$Left  exec      "mpc seek -5 || echo -e 'seek -5\n'    | socat - /tmp/mpvsocket"
 bindsym $win+Shift+$Up    exec      "echo -e 'add chapter 1\n'   | socat - /tmp/mpvsocket"
@@ -318,8 +327,9 @@ no_focus [class="mpv"]
 # exec xrandr --output $primary --mode 1920x1080 --rate 75 --right-of $x220t --output $x220t --mode 1366x768 --rate 60
 # exec xrandr --output $secondary --right-of $primary
 
-exec i3-msg 'workspace " 2:term "'              # focus ws2 when starting i3wm
-exec --no-startup-id ~/.scripts/noFocusMpv.py   # takes care of japanese input
+exec_always --no-startup-id $HOME/.config/polybar/launcher.sh
+exec i3-msg 'workspace "2"'              # focus ws2 when starting i3wm
+exec --no-startup-id ~/.scripts/noFocusMpv.py   # don't let mpv get focus ever!
 exec ~/.config/i3/dbus.sh                       # i3 widgets (such as battery status)
 exec xset -b                                    # disable bell sound
 exec_always xset -dpms                          # laptop lid rules
