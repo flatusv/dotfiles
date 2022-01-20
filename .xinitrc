@@ -11,7 +11,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # nitrogen --restore & # needed for wallpaper
-xsetroot -bitmap $HOME/media/wallpapers/bitmap-walls-master/bw-bgnd/spheres.xbm  -bg "#201623" -fg "#000000"
+xsetroot -bitmap $HOME/media/wallpapers/bitmap-walls-master/bw-bgnd/granite.xbm  -bg "#201623" -fg "#000000"
 
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
