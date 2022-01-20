@@ -12,7 +12,8 @@ function do_notify(a)
    local command = ("dunstify -r 120 -i $HOME/media/wallpapers/icons/cute.png 'Now Playing:' -- '%s'"):format(theTitle:read("*all"))
    if command ~= lastcommand then
       os.execute(command)
-      os.execute("pkill -RTMIN+3 i3blocks")
+      -- os.execute("pkill -RTMIN+3 i3blocks")
+      os.execute("polybar-msg hook mpv 1")
       lastcommand = command
    end
 end
