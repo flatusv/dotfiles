@@ -71,8 +71,8 @@ set nomodeline
 
 " autocmd commands
 " autocmd BufLeave * if &buftype=="terminal" | setlocal nobuflisted | endif
-autocmd VimEnter * !~/.scripts/vimEnter.sh
-autocmd VimLeave * !~/.scripts/vimLeave.sh
+" autocmd VimEnter * !~/.scripts/vimEnter.sh
+" autocmd VimLeave * !~/.scripts/vimLeave.sh
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Suntax 
@@ -94,32 +94,30 @@ cabbrev term :botright term ++rows=20
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex','java','cpp','c']}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
-Plug 'chrisbra/vim-commentary' " simple comment/uncomment plugin
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat' 
-"Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
-Plug 'lervag/vimtex', { 'for': 'tex' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'ap/vim-buftabline'
+Plug 'honza/vim-snippets',            { 'for': ['latex','tex']}
+Plug 'junegunn/fzf',                  { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'ron89/thesaurus_query.vim'
-Plug 'ap/vim-buftabline'
+Plug 'lervag/vimtex',                 { 'for': 'tex' }
+Plug 'neoclide/coc.nvim',             {'branch': 'release'}
+Plug 'ron89/thesaurus_query.vim',     { 'for': ['latex','tex']}
+Plug 'tomtom/tcomment_vim'            " Replaces vim-commentary, since it indented the line...
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'OmniSharp/omnisharp-vim'        " For C# development
 Plug 'Yggdroot/indentLine'
-Plug 'easymotion/vim-easymotion'
 
-:nnoremap <Leader>es :CocCommand snippets.editSnippets
-:nnoremap <Leader>os :CocCommand snippets.openSnippetFiles<CR>
+:nnoremap <leader>es :CocCommand snippets.editSnippets
+:nnoremap <leader>os :CocCommand snippets.openSnippetFiles<CR>
 
-let g:indentLine_char_list = ['┆', '┊']
+let g:indentLine_char_list = ['┊']
 let g:indentLine_fileTypeExclude = ['tex']
 
 let g:tq_language = 'de'
-nnoremap <Leader>ss :ThesaurusQueryReplaceCurrentWord<CR>
-vnoremap <Leader>ss y:ThesaurusQueryReplace <C-r>"<CR>
+nnoremap <leader>ss :ThesaurusQueryReplaceCurrentWord<CR>
+vnoremap <leader>ss y:ThesaurusQueryReplace <C-r>"<CR>
 
 " recognize empty latex file as 'tex', so that snippets work properly
 let g:tex_flavor = "latex"
@@ -384,8 +382,8 @@ endfunction
 
 fun! TabTogTerm()
     let l:OpenTerm = {x -> x
-                \  ? { -> execute('botright 20 split +term') }
-                \  : { -> execute('botright term ++rows=20') }
+                \  ? { -> execute('botright 12 split +term') }
+                \  : { -> execute('botright term ++rows=12') }
                 \ }(has('nvim'))
     let term = gettabvar(tabpagenr(), 'term',
                 \ {'main': -1, 'winnr': -1, 'bufnr': -1})
@@ -395,10 +393,10 @@ fun! TabTogTerm()
                     \ {'main': winnr('#'), 'winnr': winnr(), 'bufnr': bufnr()})
         exe 'tnoremap <buffer> <leader>t <cmd>' . t:term.main . ' wincmd w<cr>'
         exe 'tnoremap <buffer> <c-d>     <cmd>wincmd c<cr>'
-        setl winheight=15
+        setl winheight=12
     else
         if ! len(filter(tabpagebuflist(), {_,x -> x == term.bufnr}))
-            exe 'botright 15 split +b\ ' . term.bufnr
+            exe 'botright 12 split +b\ ' . term.bufnr
         else
             exe term.winnr . ' wincmd w'
         endif
@@ -436,7 +434,6 @@ function! Jumps()
         \ 'options': ['--delimiter', ':', '--bind', 'alt-a:select-all,alt-d:deselect-all', '--preview-window', '+{2}-/2'],
         \ 'sink': function('GoTo')})))
 endfunction
-
 command! Jumps call Jumps()
 """"""""""""""""""""
 " " Helper Keybinds
@@ -450,7 +447,6 @@ command! Jumps call Jumps()
 " " Ctrl H - Search and Replace
 call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 """"""""""""""""""""
 " " Custom Keybinds
 """""""""""""""""""""
@@ -492,9 +488,6 @@ inoremap <expr> <Tab> search('\%#[]>)}''"`]', 'n') ? '<Right>' : '<Tab>'
 """""""""""""""""""""
 command! -bang -nargs=? -complete=dir BFiles
             \ call fzf#vim#files(expand('%:h'), {'source': 'ag --hidden --ignore .git -g ""'}, <bang>0)
-
-
-
 """"""""""""""""""""
 " " FZF mappings
 """""""""""""""""""""
@@ -516,20 +509,19 @@ nnoremap <silent> <leader>fL :Lines <CR>
 nnoremap <silent> <leader>? :Rg <CR>
 
 """"""""""""""""""""
-" " Leader 
+" " leader 
 """""""""""""""""""""
 " Creates a single terminal instance. If a terminal window is already open, it will switch
 " focus to that. Another successive keupress, will switch the focus back to the editor.
 nnoremap <silent> <leader>t <cmd>call TabTogTerm()<cr>
+tnoremap <silent> <leader>d <c-c><c-c><c-l><c-d><c-d>
 " list the contents of all of your registers
 " hint: This makes it easy to paste the right content via <RegisterValue>+p or "<RegisterValue>p
-" hint: u. will remove the last paste and paste the next numbered register,
 nnoremap <silent> <leader>r :registers <CR>
 " close all but current bufffer and save 
 " :w - save current buffers %bd - close all the buffers  e# - open last edited file bd# - close the unnamed 
 nnoremap <leader>ca :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
-nnoremap <leader>b :w <bar> :bd <CR>  
-nnoremap <leader>q :bd <CR>  
+nnoremap <leader>dd :w <bar> :bd <CR>  
 " jumplist
 nnoremap <leader>j :Jumps<cr>
 
@@ -537,23 +529,9 @@ nnoremap <leader>j :Jumps<cr>
 tnoremap <leader>sw <C-w>w
 nnoremap <leader>sw <C-w>w
 
+nnoremap <silent> <leader>gu :OmniSharpFindUsages<CR>
+nnoremap <silent> <leader>gd :OmniSharpGotoDefinition<CR>
+nnoremap <silent> <leader>gp :OmniSharpPreviewDefinition<CR>
+
 " temporary
 nnoremap <leader>cl :w <bar> :term ++close ++hidden /home/yymirr/.scripts/compileThesis.sh <CR>
-
-" Easymotion
-map <Leader> <Plug>(easymotion-prefix)
-map  <Leader>m <Plug>(easymotion-bd-w)
-map  <Leader>/ <Plug>(easymotion-sn)
-omap <Leader>/ <Plug>(easymotion-tn)
-
-
-" Triger `autoread` when files changes on disk
-" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
-" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
-"    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
-"            \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
-"
-"" Notification after file change
-"" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
-"autocmd FileChangedShellPost *
-"   \echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
