@@ -16,14 +16,13 @@ function f_vim_one_instance() {
         #so we can change to it right after! 
         CWS=$(i3-msg -t get_workspaces | jq '.[] | select(.focused==true).name')
 
-        i3-msg "move container to workspace $wsVim" > /dev/null 2>&1
-        i3-msg "workspace $wsVim" > /dev/null 2>&1   #move focus to vim workspace
+        i3-msg "move container to workspace 3" > /dev/null 2>&1
+        i3-msg "workspace 3" > /dev/null 2>&1   #move focus to vim workspace
 
         command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"
 
         #wait for vim process to finish
         wait
-
 
         #go back to the workspace pre vim launch..
         i3-msg "move container to workspace $CWS" > /dev/null 2>&1
