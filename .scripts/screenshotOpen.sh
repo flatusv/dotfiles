@@ -12,12 +12,20 @@ ln -sf "$CFGNOFOR" "$CFG"
 i3-msg reload
 
 tmpfile=$(mktemp -u /tmp/shot_XXXXXX.png)
+args=$(~/.scripts/xrectsel)
+coordinates=( $args )
 
-scrot -s $tmpfile 
-sxiv "$tmpfile" 
+x=${coordinates[0]}
+y=${coordinates[1]}
+w=${coordinates[2]}
+h=${coordinates[3]}
+
+scrot -a $x,$y,$w,$h $tmpfile 
+#wxh+x+y
+sxiv -b -s w -g "$w"x"$h"+"$x"+"$y" "$tmpfile" 
 # wait one second for the window to be initialized
 # this may need to be longer for some applications
-sleep 1
+sleep 0.5
 # switch back configuration
 ln -sf "$CFGFOR" "$CFG"
 i3-msg reload
