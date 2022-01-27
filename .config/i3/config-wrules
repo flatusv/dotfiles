@@ -21,8 +21,7 @@ set $win                        Mod4
 floating_modifier               $mod
 
 bindsym $mod+Return             exec alacritty
-bindsym $mod+d [con_id="__focused__" title="^(?!VIM).*$" class="^(?!mpv).*$"]                 kill
-
+bindsym $mod+d [con_id="__focused__" title="^(?!VIM).*$" class="^(?!mpv).*$"]   kill
 # ----------------
 # I3 CONFIGURATION
 # ----------------
@@ -113,7 +112,7 @@ bindsym $mod+Shift$Left      workspace prev
 set $main-color                 #0a0b11
 set $accent-color               #3d2a33
 set $secondary-color            #d9d6cf
-set $border-color               #ab86c3
+set $border-color               #33384d
 set $text-color                 #d9d6cf
 set $faded-text-color           #DDDDDD
 
@@ -182,9 +181,9 @@ mode "$mode_monitor" {
 }
 
 # SCREENSHOT MODE
-set $screenshot "Launch: [s]crot # Take screenshots: [s]ave, [w]indow, [c]lipboard, [d]elay], [o]pen, [e]dit"
-bindsym --release $win+s mode $screenshot
-mode $screenshot {
+set $screenshot #Launch: [s]crot # Take screenshots: [s]ave, [w]indow, [c]lipboard, [d]elay], [o]pen, [e]dit
+bindsym --release $win+s mode "$screenshot"
+mode "$screenshot" {
     bindsym --release s mode default, exec "~/.scripts/screenshotSave.sh"
     bindsym --release w mode default, exec "~/.scripts/screenshotWindow.sh"
     bindsym --release c mode default, exec "~/.scripts/screenshotClipboard.sh"
@@ -263,7 +262,7 @@ bindsym $win+minus            exec  "echo -e 'cycle video\n' | socat - /tmp/mpvs
 # I3-GAPS
 #--------------------
 for_window [class="^.*"] focus
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 5
 hide_edge_borders smart
 gaps inner 8
 gaps outer 1
@@ -281,7 +280,6 @@ workspace $ws6 output $secondary     # This workspace appears on the external mo
 workspace $ws3 gaps inner 0
 workspace $ws3 gaps outer 0
 
-for_window [class="Eclipse"]                                no_focus; move to workspace $ws5
 for_window [class="Steam"]                                  no_focus; move to workspace $ws7
 for_window [class="dota2"]                                  fullscreen enable
 for_window [class="jetbrains-idea"]                         no_focus; move to workspace $ws5
@@ -290,10 +288,6 @@ for_window [class="jetbrains-studio"]                       move to workspace $w
 for_window [class="libreoffice-writer"]                     move to workspace $ws5
 # rule below should not be a default
 for_window [class="mpv"]                                    sticky enable; floating enable; resize set 500 282; move position 1420 794
-#for_window [class="firefox"]                                layout stacking
-#for_window [class="oracle-ide-osgi-boot-OracleIdeLauncher"] move to workspace $ws5
-#for_window [class="oracle-ide-osgi-boot-OracleIdeLauncher"] no-focus
-#for_window [class="Google-chrome"]                          layout stacking
 
 for_window [window_role="PictureInPicture"]                 sticky enable
 for_window [class="SWT"]                                    floating enable
@@ -317,6 +311,8 @@ assign [class="TeamSpeak 3"]                            $ws5
 assign [class="Pavucontrol"]                            $ws5
 assign [class="Inkscape"]                               $ws5
 assign [class="SimpleScreenRecorder"]                   $ws5
+assign [class="Java"]                                   $ws5
+assign [class="Eclipse"]                                $ws5
 assign [class="dota2"]                                  $ws7
 
 no_focus [class="mpv"]
