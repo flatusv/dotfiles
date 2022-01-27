@@ -2,7 +2,14 @@
 
 if  [ "$(playerctl -s -p mpv,%any status)" == "Playing" ]
 then
-    currentTitle=$(playerctl -p mpv,%any metadata --format "{{ artist }} - {{ title }}" | sed 's/2020-.*:[0-9]\+$//')
+
+# - get current media
+# - remove trailing dash
+# - cut long strings and add dots (30 character tolerance)
+
+currentTitle=$(playerctl -p mpv,%any metadata --format "{{ artist }} - {{ title }}" \
+        | cut -d " " -f3- \
+        | awk '{print substr($0, 1, 30) "..."}')
     echo "mpv: $currentTitle"
 fi
 
