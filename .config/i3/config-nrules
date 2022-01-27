@@ -113,7 +113,7 @@ bindsym $mod+Shift$Left      workspace prev
 set $main-color                 #000000
 set $accent-color               #3d2a33
 set $secondary-color            #d9d6cf
-set $border-color               #ab86c3
+set $border-color               #33384d
 set $text-color                 #d9d6cf
 set $faded-text-color           #DDDDDD
 
@@ -125,21 +125,21 @@ client.focused                  $main-color           $border-color         $mai
 client.unfocused                $main-color           $main-color           $text-color             $main-color
 client.focused_inactive         $main-color           $main-color           $text-color             $main-color
 client.urgent                   $main-color           $border-color         $secondary-color        $accent-color
-bar {
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf 
-        position top
-        font pango:Terminus, Icons 9
-        #tray_output primary # comment to enable tray icons. Other arguments are: primary/none
-        separator_symbol " "
-        colors {
-            background $main-color
-
-                # Property              Border                Background            Text
-                focused_workspace       $main-color           $accent-color         $secondary-color
-                inactive_workspace      $main-color           $main-color           $text-color
-                urgent_workspace        $main-color           $accent-color         $secondary-color
-        }
-}
+# bar {
+#     status_command i3blocks -c ~/.config/i3/i3blocks.conf 
+#         position top
+#         font pango:Terminus, Icons 9
+#         #tray_output primary # comment to enable tray icons. Other arguments are: primary/none
+#         separator_symbol " "
+#         colors {
+#             background $main-color
+#
+#                 # Property              Border                Background            Text
+#                 focused_workspace       $main-color           $accent-color         $secondary-color
+#                 inactive_workspace      $main-color           $main-color           $text-color
+#                 urgent_workspace        $main-color           $accent-color         $secondary-color
+#         }
+# }
 
 # --------------------
 # MODES
@@ -258,8 +258,10 @@ bindsym $win+y            exec  "echo -e 'cycle video\n' | socat - /tmp/mpvsocke
 # I3-GAPS
 #--------------------
 for_window [class="^.*"] focus
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 3
 for_window [floating] sticky enable
+
+for_window [class="Sxiv"] floating enable
 
 hide_edge_borders smart
 gaps inner 8
@@ -285,8 +287,8 @@ assign [class="Zathura"] $ws4
 #--------------------
 # AUTOSTART
 #--------------------
-exec xrandr --output $mon2 --mode 1920x1080 --rate 75 --right-of $mon1 --output $mon1 --mode 1366x768 --rate 60
-exec i3-msg 'workspace " 2:term "'      # focus ws2 when starting i3wm
+exec_always --no-startup-id $HOME/.config/polybar/launcher.sh
+exec i3-msg 'workspace "2"'              # focus ws2 when starting i3wm
 exec ~/.config/i3/dbus.sh               # i3 widgets (such as battery status)
 exec_always xrdb ~/.Xresources          # needed for rofi launcher
 exec xset -b                            # disable bell sound
