@@ -61,7 +61,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left =  i3
 modules-center = mpd
-modules-right = keyboard mpv equalizer pulseaudio date
+modules-right =  mpv equalizer pulseaudio date
 
 ;separator = |
 
@@ -88,12 +88,12 @@ cursor-scroll = ns-resize
 ;==========================================================
 ;  Custom modules:
 ;==========================================================
-[module/keyboard]
-type = custom/script
-exec = echo [kbd]
-click-left = ~/.scripts/switchKeyboard.sh
-label = [kbd]
-format-underline = ${colors.primary}
+;[module/keyboard]
+;type = custom/script
+;exec = echo [kbd]
+;click-left = ~/.scripts/switchKeyboard.sh
+;label = [kbd]
+;format-underline = ${colors.primary}
 
 [module/equalizer]
 type = custom/ipc
