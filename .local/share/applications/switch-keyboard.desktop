@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=KeyboardSwitch - switch keyboards
+Comment=Switch from xmodmap to xkb
+Exec=sh -c '$HOME/.scripts/switchKeyboard.sh %F'
+Terminal=false
+Type=Application
+Categories=Development;
+StartupNotify=true
+# Uncomment the following line to create a friendly name for this desktop entry
+# HOWEVER - this will then bork all other XFramePeer like apps. In particular
+# this breaks how SQL Developer and IntelliJ IDEA work together.
+#StartupWMClass=sun-awt-X11-XFramePeer
+
