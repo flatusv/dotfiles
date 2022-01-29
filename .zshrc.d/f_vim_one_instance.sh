@@ -31,7 +31,7 @@ function f_vim_one_instance() {
     #there is a vim process running
     else
         command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@" &
-        i3-msg "workspace $wsVim" > /dev/null 2>&1   #switch to workspace
+        i3-msg "workspace 3" > /dev/null 2>&1   #switch to workspace
         exit
     fi
 
