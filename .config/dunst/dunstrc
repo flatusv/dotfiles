@@ -1,12 +1,12 @@
 [global]
-    font = Roboto Regular 8
+    font = Roboto Regular 9
 
     markup = full
     frame_width = 2
     frame_color = "#eec8f9"
 
 /* format = "<span font="Misc Tamsyn 10" color="#eeeeee"><b>%s</b></span>\n%b" */
-    format = "<b><span font='Ubuntu Bold 10' foreground='#3D2A33'>%s</span></b>\n%b"
+    format = "<b><span font='Ubuntu Bold 12' foreground='#3D2A33'>%s</span></b>\n%b"
 
     corner_radius=8
 
