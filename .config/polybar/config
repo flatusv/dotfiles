@@ -26,7 +26,7 @@ foreground = #ffffff
 foreground-alt = #818596
 primary = #f0544c
 secondary = #ff9800
-alert = #f0544c
+alert = #33343c
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -153,7 +153,7 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
 label-urgent-background = ${colors.alert}
-label-urgent-foreground = #000000
+label-urgent-foreground = #eeeeee
 label-urgent-padding = 2
 
 ; Separator in between workspaces
