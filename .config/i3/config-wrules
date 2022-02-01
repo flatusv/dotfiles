@@ -325,6 +325,7 @@ no_focus [class="mpv"]
 
 exec_always --no-startup-id $HOME/.config/polybar/launcher.sh
 exec i3-msg 'workspace "2"'              # focus ws2 when starting i3wm
+exec --no-startup-id "sleep 1 && kmonad $HOME/.config/kmonad/kbdLayout.kbd"
 exec --no-startup-id ~/.scripts/noFocusMpv.py   # don't let mpv get focus ever!
 exec xset -b                                    # disable bell sound
 exec_always xset -dpms                          # laptop lid rules
