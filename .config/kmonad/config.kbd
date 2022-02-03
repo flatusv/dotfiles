@@ -54,12 +54,14 @@
     ------------------
     mca     | my capslock alias
     ucu     | uppercase umlauts
+    mspc    | my spacebar 
 
 
 |#
 (defalias
-	mca (tap-next-release esc (layer-toggle onCapsPressed))
+	mca  (layer-toggle onCapsPressed)
     ucu S-(layer-toggle upper-umlaut)
+	mspc (tap-next-release space lctl)
 )
 
 #|
@@ -80,7 +82,7 @@
     Ä #(ralt A E)
     Ö #(ralt O E)
     Ü #(ralt U E)
-
+    ~ #(ralt - spc)
 )
 
 ;; My original keyboard layout
@@ -98,15 +100,15 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   @mca a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet cmp  rctl
+  lctl   lmet lalt           @mspc          ralt rmet cmp  rctl
 )
 
 
 
 (deflayer onCapsPressed
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    @€   _    _    _    @ü   _    @ö   _    _    _    _
-  _    @ä   @ß   _    _    _    lft  down up   rght _    _    _
+  _    _    _    @€   _    @~   _    @ü   _    @ö   _    _    _    _
+  _    @ä   @ß   _    _    _    lft  down up   rght bspc _    _
   @ucu _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _    _
 )
