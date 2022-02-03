@@ -1,13 +1,24 @@
 #/bin/bash
 
+# switch focus to previous buffer
+function go_back(){ vim --servername VIM --remote-send "<C-w>p" }
+
 function f_vim_one_instance() {
+    # If we are inside the terminal WITHIN vim..
+    if [ -n "${VIM_TERMINAL}" ]; then
+        # get out of the terminal
+        go_back
+        # edit the desired file
+        vim --servername VIM --remote-send ":e "$@" <cr>"
+        # get inside terminal again
+        go_back
+        # clear terminal 
+        vim --servername VIM --remote-send "<C-l><C-l>"
+        # back to editing
+        go_back
 
-
-    #remove padding
-    # sed -i "s/x: 20/x: 0/g" ~/.config/alacritty/alacritty.yml
-    # sed -i "s/y: 30/y: 0/g" ~/.config/alacritty/alacritty.yml
-
-    wsVim=3
+        return
+    fi
 
     #if there is no vim process already running...
     if ! pgrep -x "vim"; then
@@ -19,7 +30,13 @@ function f_vim_one_instance() {
         i3-msg "move container to workspace 3" > /dev/null 2>&1
         i3-msg "workspace 3" > /dev/null 2>&1   #move focus to vim workspace
 
-        command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@"
+        if (( $# < 1 )); then
+            # we just ran vim without any arguments at all
+            command vim --servername VIM --remote-silent "$(mktemp /tmp/foo.XXX)"
+        else
+            # we want to edit some real file(s). Remove the first empty buffer
+            command vim --servername VIM --remote-silent +:bd1 "$@"
+        fi
 
         #wait for vim process to finish
         wait
@@ -30,12 +47,8 @@ function f_vim_one_instance() {
 
     #there is a vim process running
     else
-        command vim --servername $(command vim --serverlist | head -1) --remote-silent "$@" &
+        command vim --servername VIM --remote-silent "$@"
         i3-msg "workspace 3" > /dev/null 2>&1   #switch to workspace
         exit
     fi
-
-    #add padding
-    # sed -i "s/x: 0/x: 20/g" ~/.config/alacritty/alacritty.yml
-    # sed -i "s/y: 0/y: 30/g" ~/.config/alacritty/alacritty.yml
 }
