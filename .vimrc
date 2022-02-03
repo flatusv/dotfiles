@@ -529,9 +529,5 @@ nnoremap <leader>j :Jumps<cr>
 tnoremap <leader>sw <C-w>w
 nnoremap <leader>sw <C-w>w
 
-nnoremap <silent> <leader>gu :OmniSharpFindUsages<CR>
-nnoremap <silent> <leader>gd :OmniSharpGotoDefinition<CR>
-nnoremap <silent> <leader>gp :OmniSharpPreviewDefinition<CR>
-
-" temporary
-nnoremap <leader>cl :w <bar> :term ++close ++hidden /home/yymirr/.scripts/compileThesis.sh <CR>
+" nnoremap <silent> <leader>gu :OmniSharpFindUsages<CR>
+" nnoremap <silent> <leader>gd :OmniSharpGotoDefinition<CR>
