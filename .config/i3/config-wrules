@@ -287,7 +287,7 @@ for_window [class="jetbrains-idea-ce"]                      move to workspace $w
 for_window [class="jetbrains-studio"]                       move to workspace $ws5
 for_window [class="libreoffice-writer"]                     move to workspace $ws5
 # rule below should not be a default
-for_window [class="mpv"]                                    sticky enable; floating enable; resize set 500 282; move position 1420 794
+for_window [class="mpv"]                                    sticky enable; floating enable; resize set 500 282; move position 1420 760
 
 for_window [window_role="PictureInPicture"]                 sticky enable
 for_window [class="SWT"]                                    floating enable
