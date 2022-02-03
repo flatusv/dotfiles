@@ -9,3 +9,4 @@ include "%L"
 <Multi_key> <U> <E> : "Ü"
 
 <Multi_key> <e> <=> : "€"
+<Multi_key> <-> <space> : "~"
