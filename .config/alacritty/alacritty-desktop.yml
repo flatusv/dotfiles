@@ -57,7 +57,3 @@ live_config_reload: true
 env:
     TERM: xterm-256color
 
-# paste with ctrl+v
-key_bindings:
-  - { key: V, mods: Control, action: Paste}
-
