@@ -5,11 +5,11 @@ then
 
 # - get current media
 # - remove trailing dash
-# - cut long strings and add dots (30 character tolerance)
+# - cut long strings and add dots (40 character tolerance)
 
 currentTitle=$(playerctl -p mpv,%any metadata --format "{{ artist }} - {{ title }}" \
         | cut -d " " -f3- \
-        | awk '{print substr($0, 1, 30) "..."}')
+        | awk '{print substr($0, 1, 40) "..."}')
     echo "mpv: $currentTitle"
 fi
 
