@@ -94,7 +94,8 @@ cabbrev term :botright term ++rows=20
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 " Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['python','javascript','html','css','latex','tex','java','cpp','c']}
-Plug 'ap/vim-buftabline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'honza/vim-snippets',            { 'for': ['latex','tex']}
 Plug 'junegunn/fzf',                  { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -111,6 +112,16 @@ Plug 'Yggdroot/indentLine'
 
 :nnoremap <leader>es :CocCommand snippets.editSnippets
 :nnoremap <leader>os :CocCommand snippets.openSnippetFiles<CR>
+
+" vim-airline:
+" disable statusline, set theme and display buffers at the top..
+" ignore some buffers from appearing above like term buffer 
+let g:airline_theme='iceberg'
+let g:airline_disable_statusline = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = ' '
+let g:airline#extensions#tabline#ignore_bufadd_pat = 'gundo|undotree|vimfiler|tagbar|nerd_tree|startify|!|term'
 
 let g:indentLine_char_list = ['┊']
 let g:indentLine_fileTypeExclude = ['tex']
@@ -254,7 +265,7 @@ set wrap "Wrap lines
 nnoremap <Enter> a
 nnoremap <Backspace> i<Backspace>
 nnoremap <Space> i<Space>
- 
+
 " Store relative line number jumps in the jumplist. Eg.: '30j'  
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
@@ -278,6 +289,7 @@ let &t_EI = "\<Esc>[2 q"
 
 """"""""""""""""""""""""""""""
 " => Status line
+"
 """"""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
@@ -403,38 +415,19 @@ fun! TabTogTerm()
     endif
 endfun
 
-" below is for jumplist
-function GoTo(jumpline)
-  let values = split(a:jumpline, ":")
-  execute "e ".values[0]
-  call cursor(str2nr(values[1]), str2nr(values[2]))
-  execute "normal zvzz"
+function! PrevBufferTab()
+    bprev
+    if &buftype == 'terminal'
+        bprev
+    endif
+endfunction
+function! NextBufferTab()
+    bnext
+    if &buftype == 'terminal'
+        bnext
+    endif
 endfunction
 
-function GetLine(bufnr, lnum)
-  let lines = getbufline(a:bufnr, a:lnum)
-  if len(lines)>0
-    return trim(lines[0])
-  else
-    return ''
-  endif
-endfunction
-
-function! Jumps()
-  " Get jumps with filename added
-  let jumps = map(reverse(copy(getjumplist()[0])), 
-    \ { key, val -> extend(val, {'name': getbufinfo(val.bufnr)[0].name }) })
- 
-  let jumptext = map(copy(jumps), { index, val -> 
-      \ (val.name).':'.(val.lnum).':'.(val.col+1).': '.GetLine(val.bufnr, val.lnum) })
-
-  call fzf#run(fzf#vim#with_preview(fzf#wrap({
-        \ 'source': jumptext,
-        \ 'column': 1,
-        \ 'options': ['--delimiter', ':', '--bind', 'alt-a:select-all,alt-d:deselect-all', '--preview-window', '+{2}-/2'],
-        \ 'sink': function('GoTo')})))
-endfunction
-command! Jumps call Jumps()
 """"""""""""""""""""
 " " Helper Keybinds
 """""""""""""""""""""
@@ -455,9 +448,9 @@ nnoremap <C-n> :set hlsearch!<CR>
 " dont trigger suspend with <c-z> in visual mode
 vnoremap <c-z> <nop>
 
-" move up/down the buffer list
-nnoremap <C-k> :bnext<CR>
-nnoremap <C-j> :bprev<CR>
+" move up/down the buffer list. Skip terminal buffers in the process!
+nnoremap <C-k> :call NextBufferTab()<CR>
+nnoremap <C-j> :call PrevBufferTab()<CR>
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 noremap! <C-BS> <C-w>
