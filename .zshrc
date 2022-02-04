@@ -112,6 +112,7 @@ bindkey "^H" backward-kill-word                  # behaves like Control-W in vim
 #| gds:    | git diff of fzf selection with immediat copy to clipboard. Easy follow up with: git add <paste> ...
 #| gfetch: | view git remote changes before pull
 #| gshow:  | file content of a previous git commit
+#| lsd:    | list directories only
 #| mpv:    | mpv to play yt playlists
 #| ncdu:   | Tui alternative of 'du'
 #| pdf:    | put the terminal in background when opening a pdf (makes them closeable)
@@ -133,6 +134,7 @@ alias gfetch='echo "[INFO]: changes to be pulled..." && git fetch origin && git 
 alias gshow="f_gshow" # 
 alias kill='killall -9'
 alias ls="ls --color=auto"                                                                            
+alias lsd="ls -d */"                                                                            
 alias mpv="f_mpv"                                
 alias mv="advmv -g"
 alias ncdu="ncdu --color dark"                   
@@ -153,6 +155,6 @@ alias xp='xprop | grep "WM_WINDOW_ROLE\|WM_CLASS" && echo "WM_CLASS(STRING) = \"
 alias yay="paru"
 alias ssh="f_ssh"
 alias listen="ytfzf -tmlN --silent" 
-
+ 
 #-- FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
