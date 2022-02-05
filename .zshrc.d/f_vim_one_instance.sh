@@ -32,7 +32,7 @@ function f_vim_one_instance() {
 
         if (( $# < 1 )); then
             # we just ran vim without any arguments at all
-            command vim --servername VIM --remote-silent "$(mktemp /tmp/foo.XXX)"
+            command vim --servername VIM --remote-silent +:bd1 "$HOME"/.zshrc
         else
             # we want to edit some real file(s). Remove the first empty buffer
             command vim --servername VIM --remote-silent +:bd1 "$@"
