@@ -73,6 +73,8 @@ set nomodeline
 " autocmd BufLeave * if &buftype=="terminal" | setlocal nobuflisted | endif
 " autocmd VimEnter * !~/.scripts/vimEnter.sh
 " autocmd VimLeave * !~/.scripts/vimLeave.sh
+" close coc-explorer if its the last open buffer.
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Suntax 
@@ -125,11 +127,11 @@ let g:airline#extensions#tabline#ignore_bufadd_pat = 'gundo|undotree|vimfiler|ta
 let g:airline#extensions#tabline#formatter = 'unique_tail' 
 
 let g:indentLine_char_list = ['┊']
-let g:indentLine_fileTypeExclude = ['tex']
+let g:indentLine_fileTypeExclude = ['tex','json']
 
-let g:tq_language = 'de'
-nnoremap <leader>ss :ThesaurusQueryReplaceCurrentWord<CR>
-vnoremap <leader>ss y:ThesaurusQueryReplace <C-r>"<CR>
+" let g:tq_language = 'de'
+" nnoremap <leader>ss :ThesaurusQueryReplaceCurrentWord<CR>
+" vnoremap <leader>ss y:ThesaurusQueryReplace <C-r>"<CR>
 
 " recognize empty latex file as 'tex', so that snippets work properly
 let g:tex_flavor = "latex"
@@ -417,27 +419,36 @@ fun! TabTogTerm()
 endfun
 
 function! PrevBufferTab()
+    if &filetype == 'coc-explorer'
+        return 0
+    endif
+
     bprev
     if &buftype == 'terminal'
         bprev
     endif
 endfunction
 function! NextBufferTab()
+    if &filetype == 'coc-explorer'
+        return 0
+    endif
+    
     bnext
     if &buftype == 'terminal'
         bnext
     endif
 endfunction
 
+function! CycleBufferLeftRight()
+    if &filetype == 'coc-explorer'
+        exe "normal \<C-W>l"
+    else
+        exe "normal \<C-W>h"
+    endif
+endfunction
 """"""""""""""""""""
 " " Helper Keybinds
 """""""""""""""""""""
-" " Ctrl A - Begin Line
-" call CreateShortcut("C-a", "0", "inv")
-"
-" " Ctrl E - End Line
-" call CreateShortcut("C-e", "$<right>", "inv")
-
 " " Ctrl H - Search and Replace
 call CreateShortcut("C-h", ":%s/", "in", "noTrailingIInInsert")
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -509,6 +520,9 @@ nnoremap <silent> <leader>? :Rg <CR>
 " focus to that. Another successive keupress, will switch the focus back to the editor.
 nnoremap <silent> <leader>t <cmd>call TabTogTerm()<cr>
 tnoremap <silent> <leader>d <c-c><c-c><c-l><c-d><c-d>
+" coc-explorer: display file tree, but don't take foucs
+nmap <leader>e <Cmd>CocCommand explorer --no-focus<CR>
+nnoremap <leader>s :call CycleBufferLeftRight()<CR>
 " list the contents of all of your registers
 " hint: This makes it easy to paste the right content via <RegisterValue>+p or "<RegisterValue>p
 nnoremap <silent> <leader>r :registers <CR>
@@ -516,12 +530,6 @@ nnoremap <silent> <leader>r :registers <CR>
 " :w - save current buffers %bd - close all the buffers  e# - open last edited file bd# - close the unnamed 
 nnoremap <leader>ca :w <bar> %bd <bar> e# <bar> bd# <bar> echo "closed all but current buffer (saved)" <CR>
 nnoremap <leader>dd :w <bar> :bd <CR>  
-" jumplist
-nnoremap <leader>j :Jumps<cr>
 
 " switch to the other split 
-tnoremap <leader>sw <C-w>w
 nnoremap <leader>sw <C-w>w
-
-" nnoremap <silent> <leader>gu :OmniSharpFindUsages<CR>
-" nnoremap <silent> <leader>gd :OmniSharpGotoDefinition<CR>
