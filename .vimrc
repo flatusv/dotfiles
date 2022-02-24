@@ -402,13 +402,21 @@ fun! TabTogTerm()
                 \ }(has('nvim'))
     let term = gettabvar(tabpagenr(), 'term',
                 \ {'main': -1, 'winnr': -1, 'bufnr': -1})
+    " terminal exist here
     if ! bufexists(term.bufnr)
         call l:OpenTerm()
         call settabvar(tabpagenr(), 'term',
                     \ {'main': winnr('#'), 'winnr': winnr(), 'bufnr': bufnr()})
+
+        " make sure to navigate out of coc-explorer 
+        if &filetype == 'coc-explorer'
+            exe "normal \<C-W>l"
+        endif
+
         exe 'tnoremap <buffer> <leader>t <cmd>' . t:term.main . ' wincmd w<cr>'
         exe 'tnoremap <buffer> <c-d>     <cmd>wincmd c<cr>'
         setl winheight=12
+    " terminal doesn't exist
     else
         if ! len(filter(tabpagebuflist(), {_,x -> x == term.bufnr}))
             exe 'botright 12 split +b\ ' . term.bufnr
