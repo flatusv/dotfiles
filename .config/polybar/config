@@ -60,7 +60,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left =  i3
-modules-center = mpd
+;modules-center = mpd
 modules-right =  mpv equalizer pulseaudio date
 
 ;separator = |
