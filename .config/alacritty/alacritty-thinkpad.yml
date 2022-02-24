@@ -11,26 +11,24 @@ scrolling:
   history: 10000
 font:
   normal:
-    family: Terminus
+    family: Iosevka Term
     style: Regular
   bold:
-    family: Terminus
+    family: Iosevka Term
     style: Bold
   italic:
-    family: Terminus
+    family: Iosevka Term
     style: Regular
   bold_italic:
-    family: Terminus
+    family: Iosevka Term
     style: Bold Italic
-  size: 8
+  size: 9
 
 draw_bold_text_with_bright_colors: true
 
-
-
 colors:
   primary:
-    background: '0x0a0b11'
+    background: '0x161821'
     foreground: '0xbb9e8a'
   normal:
     black:   '0x222827'
@@ -58,5 +56,4 @@ selection:
 live_config_reload: true
 env:
     TERM: xterm-256color
-
 
