@@ -25,8 +25,8 @@ bindsym $mod+d [con_id="__focused__" title="^(?!VIM).*$" class="^(?!mpv).*$"]   
 # ----------------
 # I3 CONFIGURATION
 # ----------------
-bindsym $mod+Shift+r reload
-# bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r restart
+# bindsym $mod+Shift+r reload
 
 # ----------------
 # WORKSPACE
@@ -237,7 +237,7 @@ mode  "noBinds" {
 # Rofi: toggle rofi with alt+a or escape
 bindsym $mod+a exec rofi -show drun -display-drun "Launch:"
 bindsym $mod+slash exec rofi -show window
-bindsym $mod+e exec pcmanfm
+bindsym $mod+e exec "if !pgrep -x 'pcmanfm'; then pcmanfm; else pcmanfm $HOME && i3-msg 'workspace 2'; fi"
 
 # ALSA CONTROLS VOLUME
 # bindsym $win+m exec "pactl set-sink-mute 0 toggle && amixer -D pulse set Master Playback Switch toggle"
