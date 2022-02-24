@@ -18,5 +18,9 @@
     "explorer.file.reveal.auto": false,
     "explorer.icon.enableNerdfont": true,
     "explorer.previewAction.onHover": false,
-    "explorer.expandStores": false
+    "explorer.expandStores": false,
+    "explorer.keyMappings.global": {
+        "<Left>": ["wait", "collapse"],
+        "<Right>": ["wait", "expandable?", "expand", "open"]
+    }
 }
