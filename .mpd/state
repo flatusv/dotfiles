@@ -1,0 +1,25 @@
+sw_volume: 100
+audio_device_state:1:mpd pluse-audio-output
+audio_device_state:0:mpd alsamixer-output
+audio_device_state:1:fifo_visualizer
+state: play
+current: 8
+time: 116.154000
+random: 1
+repeat: 0
+single: 0
+consume: 1
+crossfade: 30
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Brain Freeze (PerkyStella remix) - heiakim feat. Amree.mp3
+1:Doki Doki Forever (PRKSTL remix) - OR3O ft. rachie + Chi-chi + Kathy-chan★ [Free Download].mp3
+2:Haywyre - Contagious (Rhodz Remix).mp3
+3:01 - Cagayake!GIRLS (Eurockbeat Mix).mp3
+4:Eckk -  Jimmy, Jimmy, Jimmy  (AFTER MIDNIGHT ECKK EDIT 2.0).mp3
+5:Everything You Are.mp3
+6:Rob_Mayth_(Releases_&_Remixes)/Katie Jewels - Come Again.mp3
+7:Rob_Mayth_(Releases_&_Remixes)/Katie Jewels - Burnin' Love (Radio Version).mp3
+8:Rob_Mayth_(Releases_&_Remixes)/Keira Green - All Out Of Love (Rob Mayth Remix).mp3
+playlist_end
