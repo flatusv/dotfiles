@@ -1,0 +1,117 @@
+{
+    "remote.SSH.remotePlatform": {
+        "192.168.10.222": "linux",
+        "192.168.10.131": "linux",
+        "192.168.126.128": "linux"
+    },
+    "workbench.colorTheme": "Horizon",
+    "workbench.colorCustomizations": {
+        "editorLineNumber.foreground": "#999999"
+    },
+    "editor.lineNumbers": "on",
+
+    "terminal.integrated.commandsToSkipShell": [
+        "-workbench.action.terminal.paste"
+    ],
+    "window.zoomLevel": -1,
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                ",",
+                "w"
+            ],
+            "commands": [
+                ":w"
+            ]
+        },
+
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<Enter>"
+            ],
+            "after": [
+                "i",
+                "<Enter>"
+            ]
+        },
+        {
+            "before": [
+                "<Backspace>"
+            ],
+            "after": [
+                "i",
+                "<Backspace>"
+            ]
+        },
+        {
+            "before": [
+                "<Space>"
+            ],
+            "after": [
+                "i",
+                "<Space>"
+            ]
+        }
+
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<c-z>"
+            ],
+            "after": [
+                "<nop>"
+            ]
+        },
+        {
+            "before": [
+                "<C-c>"
+            ],
+            "after": [
+                "\"",
+                "+",
+                "y"
+            ]
+        }
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-d>"
+            ],
+            "after": [
+                "<C-o>",
+                "d",
+                "e"
+            ]
+        }
+    ],
+    "go.useGoProxyToCheckForToolUpdates": false,
+    "git.ignoreWindowsGit27Warning": true,
+    "git.autofetch": true,
+    "git-graph.customBranchGlobPatterns": [
+
+    ],
+    "markdown.extension.preview.autoShowPreviewToSide": true,
+    "markdown.extension.toc.omittedFromToc": {
+
+    },
+    "editor.tabSize": 8,
+    "editor.cursorStyle": "line",
+    "editor.insertSpaces": false,
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "off"
+}
